@@ -1,6 +1,5 @@
 template <unsigned int MOD>
 struct ModInt {
-	using ll = long long;
 	using uint = unsigned int;
 	using ull = unsigned long long;
 	using M = ModInt;
@@ -18,10 +17,10 @@ struct ModInt {
 	M operator-(const M& a) const { return M().set_norm(v + MOD - a.v); }
 	M operator*(const M& a) const { return M().set_norm(ull(v) * a.v % MOD); }
 	M operator/(const M& a) const { return *this * a.inv(); }
-	M& operator+=(const M& a) const { return *this = *this + a; }
-	M& operator-=(const M& a) const { return *this = *this - a; }
-	M& operator*=(const M& a) const { return *this = *this * a; }
-	M& operator/=(const M& a) const { return *this = *this / a; }
+	M& operator+=(const M& a) { return *this = *this + a; }
+	M& operator-=(const M& a) { return *this = *this - a; }
+	M& operator*=(const M& a) { return *this = *this * a; }
+	M& operator/=(const M& a) { return *this = *this / a; }
 	M operator-() const { return M() - *this; }
 	M& operator++(int) { return *this = *this + 1; }
 	M& operator--(int) { return *this = *this - 1; }
