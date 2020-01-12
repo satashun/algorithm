@@ -31,7 +31,7 @@ struct BIT {
 
 	//not verified
 
-    //smallest i, sum(i) >= w, none -> n + 1
+	//smallest i, sum(i) >= w, none -> n + 1
 	int lower_bound(int w) {
 		if (w <= 0) return 0;
 		int x = 0, l = 1;
