@@ -14,7 +14,13 @@ template<class T> using VV = V<V<T>>;
 #define rep(i,n) rep2(i,0,n)
 #define rep2(i,m,n) for(int i=m;i<(n);i++)
 #define ALL(c) (c).begin(),(c).end()
-#define dump(x) cerr << #x << " = " << (x) << endl
+
+#ifdef LOCAL
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else 
+#define dump(x) true
+#endif
+
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
 template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
