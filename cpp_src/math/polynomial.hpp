@@ -1,13 +1,26 @@
+//depends on FFT libs
+//basically use with ModInt
+
 template<class D>
 struct Poly : public V<D> {
-	Poly() {}
-
 	template<class...Args>
 	Poly(Args...args):V<D>(args...){}
 	Poly(initializer_list<D>init):V<D>(init.begin(),init.end()){}
 
 	int size() const { return V<D>::size(); }
 	D at(int p) const { return (p < this->size() ? (*this)[p] : D(0)); }
+
+	//first len terms
+	Poly pref(int len) const {
+		return Poly(this->begin(), this->begin() + min(this->size(), len));
+	}
+
+	//for polynomial division
+	Poly rev() const {
+		Poly res = *this;
+		reverse(res.begin(), res.end());
+		return res;
+	} 	
 
 	Poly operator+(const Poly& r) const {
 		auto n = max(size(), r.size());
@@ -25,6 +38,8 @@ struct Poly : public V<D> {
 		}
 		return tmp;
 	}
+
+	//scalar
 	Poly operator*(const D& k) const {
 		int n = size();
 		V<D> tmp(n);
@@ -33,6 +48,7 @@ struct Poly : public V<D> {
 		}
 		return tmp;
 	}
+
 	Poly operator*(const Poly& r) const {
 		NumberTheoreticTransform<D> ntt(998244353, 3);
 		Poly a = *this;
@@ -41,8 +57,25 @@ struct Poly : public V<D> {
 		return v; 
 	}
 
-	Poly pref(int len) const {
-		return Poly(this->begin(), this->begin() + min(this->size(), len));
+	//scalar
+	Poly operator/(const D& k) const {
+		return *this * k.inv();
+	}
+
+	Poly operator/(const Poly& r) const {
+		if (size() < r.size()) {
+			return {{}};
+		}
+		int d = size() - r.size() + 1;
+		return (rev().pref(d) * r.rev().inv(d)).pref(d).rev();
+	}
+
+	Poly operator%(const Poly& r) const {
+		auto res = *this - *this / r * r;
+		while (res.size() && !res.back()) {
+			res.pop_back();
+		}
+		return res;
 	}
 
 	Poly diff() const {
@@ -103,12 +136,21 @@ struct Poly : public V<D> {
 		return g.pref(n);
 	}
 
+	D eval(D x) const {
+		D res = 0, c = 1;
+		for (auto a : *this) {
+			res += a * c;
+			c *= x;
+		}
+		return res;
+	} 
+
 	Poly& operator+=(const Poly& r) { return *this = *this + r; }
 	Poly& operator-=(const Poly& r) { return *this = *this - r; }
 	Poly& operator*=(const D& r) { return *this = *this * r; }
 	Poly& operator*=(const Poly& r) { return *this = *this * r; }
 	Poly& operator/=(const Poly& r) { return *this = *this / r; }
-	Poly& operator/=(const D &r) {return *this = *this / r; }
+	Poly& operator/=(const D &r) { return *this = *this / r; }
 	Poly& operator%=(const Poly& r) { return *this = *this % r; }
 
 	friend ostream& operator<<(ostream& os, const Poly& pl) {
