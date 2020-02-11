@@ -23,8 +23,8 @@ template<class T> using VV = V<V<T>>;
 
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
-template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
-template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
+template<class T, class U> bool chmax(T& t, const U& u) { if (t < u) { t = u; return 1; } return 0; }
+template<class T, class U> bool chmin(T& t, const U& u) { if (t > u) { t = u; return 1; } return 0; }
 
 template<class T, class U>
 ostream& operator<<(ostream& os, const pair<T, U>& p) {

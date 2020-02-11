@@ -49,6 +49,7 @@ struct ModInt {
 	bool operator==(const M& a) const { return v == a.v; }
 	bool operator!=(const M& a) const { return v != a.v; }
 	friend ostream& operator<<(ostream& os, const M& a) { return os << a.v; }
+	static int get_mod() { return MOD; }	
 };
 
 using Mint = ModInt<1000000007>;

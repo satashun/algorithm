@@ -1,6 +1,8 @@
 //depends on FFT libs
 //basically use with ModInt
 
+NumberTheoreticTransform<Mint> ntt;
+
 template<class D>
 struct Poly : public V<D> {
 	template<class...Args>
@@ -50,7 +52,6 @@ struct Poly : public V<D> {
 	}
 
 	Poly operator*(const Poly& r) const {
-		NumberTheoreticTransform<D> ntt(998244353, 3);
 		Poly a = *this;
 		Poly b = r;
 		auto v = ntt.mul(a, b);
