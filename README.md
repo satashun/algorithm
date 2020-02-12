@@ -1,4 +1,4 @@
-# satashun's procon library
+# satashun's library for programming competitions
 
 - written in C++
 
