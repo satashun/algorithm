@@ -54,7 +54,7 @@ layout: default
 
 ### cpp_src/graph
 
-* :warning: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
+* :x: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
 * :warning: <a href="library/cpp_src/graph/lowlink.hpp.html">cpp_src/graph/lowlink.hpp</a>
 * :warning: <a href="library/cpp_src/graph/mincostflow.hpp.html">cpp_src/graph/mincostflow.hpp</a>
 
@@ -90,5 +90,6 @@ layout: default
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
+* :x: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
 
 
