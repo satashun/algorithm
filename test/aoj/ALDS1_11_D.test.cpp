@@ -1,11 +1,12 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D"
 
+#include <bits/stdc++.h>
+
+using namespace std;
+
 #define call_from_test
 #include "../../cpp_src/data_structure/unionfind.hpp"
 #undef call_from_test
-
-#include <bits/stdc++.h>
-using namespace std;
 
 using ll = long long;
 using pii = pair<int, int>;
@@ -53,7 +54,7 @@ int main() {
 	int n, m; cin >> n >> m;
 	unionfind uf;
 	uf.init(n);
-	
+
 	rep(i, m) {
 		int a, b;
 		cin >> a >> b;
