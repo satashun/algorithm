@@ -3,10 +3,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define call_from_test
-#include "../../cpp_src/graph/LCA.hpp"
-#undef call_from_test
-
 typedef pair<int, int> pii;
 typedef long long ll;
 template<class T> using V = vector<T>;
@@ -48,6 +44,10 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	os<<"}";
 	return os;
 }
+
+#define call_from_test
+#include "../../cpp_src/graph/LCA.hpp"
+#undef call_from_test
 
 int main() {
 	int N, Q; scanf("%d %d", &N, &Q);
