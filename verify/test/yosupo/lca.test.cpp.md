@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/yosupo/lca.test.cpp
+# :heavy_check_mark: test/yosupo/lca.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/lca.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 21:50:09+09:00
+    - Last commit date: 2020-03-28 03:00:41+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/lca">https://judge.yosupo.jp/problem/lca</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
+* :heavy_check_mark: <a href="../../../library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
 
 
 ## Code
@@ -51,10 +51,6 @@ layout: default
 
 #include <bits/stdc++.h>
 using namespace std;
-
-#define call_from_test
-#include "../../cpp_src/graph/LCA.hpp"
-#undef call_from_test
 
 typedef pair<int, int> pii;
 typedef long long ll;
@@ -98,6 +94,10 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	return os;
 }
 
+#define call_from_test
+#include "../../cpp_src/graph/LCA.hpp"
+#undef call_from_test
+
 int main() {
 	int N, Q; scanf("%d %d", &N, &Q);
 	V<int> p(N);
@@ -126,6 +126,48 @@ int main() {
 
 #include <bits/stdc++.h>
 using namespace std;
+
+typedef pair<int, int> pii;
+typedef long long ll;
+template<class T> using V = vector<T>;
+template<class T> using VV = V<V<T>>;
+
+#define pb push_back
+#define eb emplace_back
+#define mp make_pair
+#define fi first
+#define se second
+#define rep(i,n) rep2(i,0,n)
+#define rep2(i,m,n) for(int i=m;i<(n);i++)
+#define ALL(c) (c).begin(),(c).end()
+
+#ifdef LOCAL
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else 
+#define dump(x) true
+#endif
+
+constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
+
+template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
+template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
+
+template<class T, class U>
+ostream& operator<<(ostream& os, const pair<T, U>& p) {
+	os<<"("<<p.first<<","<<p.second<<")";
+	return os;
+}
+
+template<class T>
+ostream& operator<<(ostream& os, const vector<T>& v) {
+	os<<"{";
+	rep(i, v.size()) {
+		if (i) os<<",";
+		os<<v[i];
+	}
+	os<<"}";
+	return os;
+}
 
 #define call_from_test
 #line 1 "cpp_src/graph/LCA.hpp"
@@ -182,50 +224,8 @@ struct LCA {
 		return anc[0][u];
 	}
 };
-#line 8 "test/yosupo/lca.test.cpp"
+#line 50 "test/yosupo/lca.test.cpp"
 #undef call_from_test
-
-typedef pair<int, int> pii;
-typedef long long ll;
-template<class T> using V = vector<T>;
-template<class T> using VV = V<V<T>>;
-
-#define pb push_back
-#define eb emplace_back
-#define mp make_pair
-#define fi first
-#define se second
-#define rep(i,n) rep2(i,0,n)
-#define rep2(i,m,n) for(int i=m;i<(n);i++)
-#define ALL(c) (c).begin(),(c).end()
-
-#ifdef LOCAL
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else 
-#define dump(x) true
-#endif
-
-constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
-
-template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
-template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
-
-template<class T, class U>
-ostream& operator<<(ostream& os, const pair<T, U>& p) {
-	os<<"("<<p.first<<","<<p.second<<")";
-	return os;
-}
-
-template<class T>
-ostream& operator<<(ostream& os, const vector<T>& v) {
-	os<<"{";
-	rep(i, v.size()) {
-		if (i) os<<",";
-		os<<v[i];
-	}
-	os<<"}";
-	return os;
-}
 
 int main() {
 	int N, Q; scanf("%d %d", &N, &Q);

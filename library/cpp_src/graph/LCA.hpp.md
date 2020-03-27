@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: cpp_src/graph/LCA.hpp
+# :heavy_check_mark: cpp_src/graph/LCA.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -38,7 +38,7 @@ layout: default
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
 
 
 ## Code
