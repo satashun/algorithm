@@ -126,6 +126,12 @@ struct Poly : public V<D> {
 		return f.pref(n);
 	}
 
+	//f_0 = 0 must hold?
+	//**537
+	Poly pow(int n, ll k) const {
+		return (log(n) * (D)k).exp(n);
+	}
+
 	//f_0 = 1 must hold (use it with modular sqrt)
 	//CF250E
 	Poly sqrt(int n) const {
