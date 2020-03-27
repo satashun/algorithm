@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: cpp_src/data_structure/unionfind.hpp
+# :x: cpp_src/data_structure/unionfind.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-01-12 13:49:41+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../../verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 
 
 ## Code
