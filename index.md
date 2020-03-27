@@ -47,7 +47,7 @@ layout: default
 
 * :warning: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/starry_sky_tree.cpp.html">cpp_src/data_structure/starry_sky_tree.cpp</a>
-* :x: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
+* :heavy_check_mark: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
 
 <div id="899db7edb5841537da14f45d9b6032f9"></div>
@@ -89,6 +89,6 @@ layout: default
 
 ## Verify Files
 
-* :x: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 
 

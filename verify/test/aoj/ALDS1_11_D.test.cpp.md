@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/aoj/ALDS1_11_D.test.cpp
+# :heavy_check_mark: test/aoj/ALDS1_11_D.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0d0c91c0cca30af9c1c9faef0cf04aa9">test/aoj</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/aoj/ALDS1_11_D.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 19:38:35+09:00
+    - Last commit date: 2020-03-27 20:09:07+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
+* :heavy_check_mark: <a href="../../../library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
 
 ## Code
@@ -49,12 +49,13 @@ layout: default
 ```cpp
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D"
 
+#include <bits/stdc++.h>
+
+using namespace std;
+
 #define call_from_test
 #include "../../cpp_src/data_structure/unionfind.hpp"
 #undef call_from_test
-
-#include <bits/stdc++.h>
-using namespace std;
 
 using ll = long long;
 using pii = pair<int, int>;
@@ -102,7 +103,7 @@ int main() {
 	int n, m; cin >> n >> m;
 	unionfind uf;
 	uf.init(n);
-	
+
 	rep(i, m) {
 		int a, b;
 		cin >> a >> b;
@@ -124,6 +125,10 @@ int main() {
 ```cpp
 #line 1 "test/aoj/ALDS1_11_D.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D"
+
+#include <bits/stdc++.h>
+
+using namespace std;
 
 #define call_from_test
 #line 1 "cpp_src/data_structure/unionfind.hpp"
@@ -160,11 +165,8 @@ public:
 
 	bool same(int x, int y) { return (find(x) == find(y)); }
 };
-#line 5 "test/aoj/ALDS1_11_D.test.cpp"
+#line 9 "test/aoj/ALDS1_11_D.test.cpp"
 #undef call_from_test
-
-#include <bits/stdc++.h>
-using namespace std;
 
 using ll = long long;
 using pii = pair<int, int>;
@@ -212,7 +214,7 @@ int main() {
 	int n, m; cin >> n >> m;
 	unionfind uf;
 	uf.init(n);
-	
+
 	rep(i, m) {
 		int a, b;
 		cin >> a >> b;
