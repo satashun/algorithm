@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/lca.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-28 03:00:41+09:00
+    - Last commit date: 2020-04-01 18:25:18+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/lca">https://judge.yosupo.jp/problem/lca</a>
@@ -52,8 +52,8 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> pii;
-typedef long long ll;
+using ll = long long;
+using pii = pair<int, int>;
 template<class T> using V = vector<T>;
 template<class T> using VV = V<V<T>>;
 
@@ -127,8 +127,8 @@ int main() {
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> pii;
-typedef long long ll;
+using ll = long long;
+using pii = pair<int, int>;
 template<class T> using V = vector<T>;
 template<class T> using VV = V<V<T>>;
 

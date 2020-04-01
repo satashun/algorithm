@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: cpp_src/math/totient.hpp
+# :warning: cpp_src/math/number_theory.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
-* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/totient.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-12 22:31:33+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/number_theory.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-01 18:25:18+09:00
 
 
 
@@ -41,9 +41,10 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-int totient(int x) {
-	int res = x;
-	for (int i = 2; i * i <= x; ++i) {
+//O(sqrt(x))
+ll totient(ll x) {
+	ll res = x;
+	for (ll i = 2; i * i <= x; ++i) {
 		if (x % i == 0) {
 			res = res / i * (i-1);
 			while (x % i == 0) {
@@ -53,8 +54,38 @@ int totient(int x) {
 	}
 	if (x != 1) {
 		res = res / x * (x - 1);
-	} 
+	}
 	return res;
+}
+
+using R = __int128;
+
+ll pollrard_single(ll n) {
+	auto f = [&](ll x) {
+		return ((R)x * x + 1) % n;
+	}
+	if (is_prime(n)) return n;
+	int x = 0;
+	while (true) {
+		x++;
+		ll y = f(x);
+		while (true) {
+			ll p = __gcd((y - x + n), n);
+			if (p == 0 || p == n) break;
+			if (p != 1) return p;
+			x = f(x);
+			y = f(f(y));
+		}
+	}
+}
+
+V<ll> pollrard(ll n) {
+	if (n == 1) return {};
+	ll x = pollrard_single(n);
+	if (x == n) return {x};
+	V<ll> v1 = pollrard(x), v2 = pollrard(n / x);
+	v1.insert(v1.end(), ALL(v2));
+	return v1;
 }
 ```
 {% endraw %}
@@ -62,10 +93,11 @@ int totient(int x) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "cpp_src/math/totient.hpp"
-int totient(int x) {
-	int res = x;
-	for (int i = 2; i * i <= x; ++i) {
+#line 1 "cpp_src/math/number_theory.hpp"
+//O(sqrt(x))
+ll totient(ll x) {
+	ll res = x;
+	for (ll i = 2; i * i <= x; ++i) {
 		if (x % i == 0) {
 			res = res / i * (i-1);
 			while (x % i == 0) {
@@ -75,8 +107,38 @@ int totient(int x) {
 	}
 	if (x != 1) {
 		res = res / x * (x - 1);
-	} 
+	}
 	return res;
+}
+
+using R = __int128;
+
+ll pollrard_single(ll n) {
+	auto f = [&](ll x) {
+		return ((R)x * x + 1) % n;
+	}
+	if (is_prime(n)) return n;
+	int x = 0;
+	while (true) {
+		x++;
+		ll y = f(x);
+		while (true) {
+			ll p = __gcd((y - x + n), n);
+			if (p == 0 || p == n) break;
+			if (p != 1) return p;
+			x = f(x);
+			y = f(f(y));
+		}
+	}
+}
+
+V<ll> pollrard(ll n) {
+	if (n == 1) return {};
+	ll x = pollrard_single(n);
+	if (x == n) return {x};
+	V<ll> v1 = pollrard(x), v2 = pollrard(n / x);
+	v1.insert(v1.end(), ALL(v2));
+	return v1;
 }
 
 ```

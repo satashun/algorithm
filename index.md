@@ -55,6 +55,8 @@ layout: default
 ### cpp_src/graph
 
 * :heavy_check_mark: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
+* :warning: <a href="library/cpp_src/graph/Namori.hpp.html">cpp_src/graph/Namori.hpp</a>
+* :heavy_check_mark: <a href="library/cpp_src/graph/SCC.hpp.html">cpp_src/graph/SCC.hpp</a>
 * :warning: <a href="library/cpp_src/graph/lowlink.hpp.html">cpp_src/graph/lowlink.hpp</a>
 * :warning: <a href="library/cpp_src/graph/mincostflow.hpp.html">cpp_src/graph/mincostflow.hpp</a>
 
@@ -68,8 +70,8 @@ layout: default
 * :warning: <a href="library/cpp_src/math/modint.hpp.html">cpp_src/math/modint.hpp</a>
 * :warning: <a href="library/cpp_src/math/multipoint_evaluation.hpp.html">cpp_src/math/multipoint_evaluation.hpp</a>
 * :warning: <a href="library/cpp_src/math/number_theoretic_transform.hpp.html">cpp_src/math/number_theoretic_transform.hpp</a>
+* :warning: <a href="library/cpp_src/math/number_theory.hpp.html">cpp_src/math/number_theory.hpp</a>
 * :warning: <a href="library/cpp_src/math/polynomial.hpp.html">cpp_src/math/polynomial.hpp</a>
-* :warning: <a href="library/cpp_src/math/totient.hpp.html">cpp_src/math/totient.hpp</a>
 * :warning: <a href="library/cpp_src/math/typical_mod_operation.hpp.html">cpp_src/math/typical_mod_operation.hpp</a>
 
 
@@ -91,5 +93,6 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
 
 
