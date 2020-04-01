@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/lca"
+#define PROBLEM "https://judge.yosupo.jp/problem/scc"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -46,23 +46,27 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 }
 
 #define call_from_test
-#include "../../cpp_src/graph/LCA.hpp"
+#include "../../cpp_src/graph/SCC.hpp"
 #undef call_from_test
 
 int main() {
-	int N, Q; scanf("%d %d", &N, &Q);
-	V<int> p(N);
-	VV<int> g(N);
-	for (int i = 1; i < N; ++i) {
-		scanf("%d", &p[i]);
-		g[p[i]].pb(i);
-	}
-	LCA<int> lca(g, 0);
-	while (Q--) {
+	int N, M; scanf("%d %d", &N, &M);
+	SCC scc(N);
+	rep(i, M) {
 		int a, b;
 		scanf("%d %d", &a, &b);
-		int v = lca.query(a, b);
-		printf("%d\n", v);
+		scc.add_edge(a, b);
+	}
+	auto v = scc.calc();
+	printf("%d\n", v.size());
+	rep(i, v.size()) {
+		auto &vec = v[i];
+		int sz = vec.size();
+		printf("%d", sz);
+		for (int j = 0; j < vec.size(); ++j) {
+			printf(" %d", vec[j]);
+		}
+		puts("");
 	}
 	return 0;
 }
