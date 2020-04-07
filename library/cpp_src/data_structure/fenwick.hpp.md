@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: cpp_src/data_structure/fenwick.hpp
+# :x: cpp_src/data_structure/fenwick.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-01-13 00:12:49+09:00
 
 
+
+
+## Verified with
+
+* :x: <a href="../../../verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 
 
 ## Code

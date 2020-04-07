@@ -45,8 +45,9 @@ layout: default
 
 ### cpp_src/data_structure
 
-* :warning: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
-* :warning: <a href="library/cpp_src/data_structure/starry_sky_tree.cpp.html">cpp_src/data_structure/starry_sky_tree.cpp</a>
+* :x: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
+* :x: <a href="library/cpp_src/data_structure/segment_tree.hpp.html">cpp_src/data_structure/segment_tree.hpp</a>
+* :warning: <a href="library/cpp_src/data_structure/starry_sky_tree.hpp.html">cpp_src/data_structure/starry_sky_tree.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
 
@@ -73,12 +74,14 @@ layout: default
 * :warning: <a href="library/cpp_src/math/number_theory.hpp.html">cpp_src/math/number_theory.hpp</a>
 * :warning: <a href="library/cpp_src/math/polynomial.hpp.html">cpp_src/math/polynomial.hpp</a>
 * :warning: <a href="library/cpp_src/math/typical_mod_operation.hpp.html">cpp_src/math/typical_mod_operation.hpp</a>
+* :warning: <a href="library/cpp_src/math/useful.hpp.html">cpp_src/math/useful.hpp</a>
 
 
 <div id="3a410910d29f06f5e038fad6075af5c6"></div>
 
 ### cpp_src/other
 
+* :warning: <a href="library/cpp_src/other/FWT.hpp.html">cpp_src/other/FWT.hpp</a>
 * :warning: <a href="library/cpp_src/other/Mo.hpp.html">cpp_src/other/Mo.hpp</a>
 
 
@@ -93,6 +96,8 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
+* :x: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
+* :x: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 
 
