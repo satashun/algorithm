@@ -45,8 +45,8 @@ layout: default
 
 ### cpp_src/data_structure
 
-* :x: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
-* :x: <a href="library/cpp_src/data_structure/segment_tree.hpp.html">cpp_src/data_structure/segment_tree.hpp</a>
+* :heavy_check_mark: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
+* :heavy_check_mark: <a href="library/cpp_src/data_structure/segment_tree.hpp.html">cpp_src/data_structure/segment_tree.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/starry_sky_tree.hpp.html">cpp_src/data_structure/starry_sky_tree.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
@@ -96,8 +96,8 @@ layout: default
 
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
-* :x: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
-* :x: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 
 

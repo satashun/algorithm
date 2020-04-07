@@ -25,20 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/yosupo/staticrmq.test.cpp
+# :heavy_check_mark: test/yosupo/staticrmq.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/staticrmq.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 22:26:01+09:00
+    - Last commit date: 2020-04-07 22:37:23+09:00
 
 
+* see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
 
 
 ## Depends on
 
-* :x: <a href="../../../library/cpp_src/data_structure/segment_tree.hpp.html">cpp_src/data_structure/segment_tree.hpp</a>
+* :heavy_check_mark: <a href="../../../library/cpp_src/data_structure/segment_tree.hpp.html">cpp_src/data_structure/segment_tree.hpp</a>
 
 
 ## Code
@@ -46,6 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
+#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -116,6 +118,7 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "test/yosupo/staticrmq.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -220,7 +223,7 @@ struct U {
     	return min(a, b);
     }
 };
-#line 48 "test/yosupo/staticrmq.test.cpp"
+#line 49 "test/yosupo/staticrmq.test.cpp"
 #undef call_from_test
 
 int main() {
