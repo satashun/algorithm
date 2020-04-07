@@ -39,6 +39,7 @@ layout: default
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 
 
 ## Code
