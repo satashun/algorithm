@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/polynomial.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 19:07:10+09:00
+    - Last commit date: 2020-04-26 04:03:03+09:00
 
 
 
@@ -212,8 +212,46 @@ struct Poly : public V<D> {
 			}
 		}
 		return os;
-	}	
+	}
 };
+
+//calculate characteristic polynomial
+//c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0
+//c_k = -1
+
+template<class T>
+Poly<T> berlekamp_massey(const V<T>& s) {
+	int n = int(s.size());
+	V<T> b = {T(-1)}, c = {T(-1)};
+	T y = Mint(1);
+	for (int ed = 1; ed <= n; ed++) {
+		int l = int(c.size()), m = int(b.size());
+		T x = 0;
+		for (int i = 0; i < l; i++) {
+			x += c[i] * s[ed - l + i];
+		}
+		b.push_back(0);
+		m++;
+		if (!x) {
+			continue;
+		}
+		T freq = x / y;
+		if (l < m) {
+			auto tmp = c;
+			c.insert(begin(c), m - l, Mint(0));
+			for (int i = 0; i < m; i++) {
+				c[m - 1 - i] -= freq * b[m - 1 - i];
+			}
+			b = tmp;
+			y = x;
+		} else {
+			for (int i = 0; i < m; i++) {
+				c[l - 1 - i] -= freq * b[m - 1 - i];
+			}
+		}
+	}
+	return c;
+}
 ```
 {% endraw %}
 
@@ -392,8 +430,46 @@ struct Poly : public V<D> {
 			}
 		}
 		return os;
-	}	
+	}
 };
+
+//calculate characteristic polynomial
+//c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0
+//c_k = -1
+
+template<class T>
+Poly<T> berlekamp_massey(const V<T>& s) {
+	int n = int(s.size());
+	V<T> b = {T(-1)}, c = {T(-1)};
+	T y = Mint(1);
+	for (int ed = 1; ed <= n; ed++) {
+		int l = int(c.size()), m = int(b.size());
+		T x = 0;
+		for (int i = 0; i < l; i++) {
+			x += c[i] * s[ed - l + i];
+		}
+		b.push_back(0);
+		m++;
+		if (!x) {
+			continue;
+		}
+		T freq = x / y;
+		if (l < m) {
+			auto tmp = c;
+			c.insert(begin(c), m - l, Mint(0));
+			for (int i = 0; i < m; i++) {
+				c[m - 1 - i] -= freq * b[m - 1 - i];
+			}
+			b = tmp;
+			y = x;
+		} else {
+			for (int i = 0; i < m; i++) {
+				c[l - 1 - i] -= freq * b[m - 1 - i];
+			}
+		}
+	}
+	return c;
+}
 
 ```
 {% endraw %}

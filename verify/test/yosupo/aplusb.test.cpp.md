@@ -25,21 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/point_add_range_sum.test.cpp
+# :heavy_check_mark: test/yosupo/aplusb.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/point_add_range_sum.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/aplusb.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-04-26 04:03:03+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
-
-
-## Depends on
-
-* :question: <a href="../../../library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
+* see: <a href="https://judge.yosupo.jp/problem/aplusb">https://judge.yosupo.jp/problem/aplusb</a>
 
 
 ## Code
@@ -47,7 +42,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -93,31 +89,9 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	return os;
 }
 
-#define call_from_test
-#include "../../cpp_src/data_structure/fenwick.hpp"
-#undef call_from_test
-
 int main() {
-	int N, Q; scanf("%d %d", &N, &Q);
-	BIT<ll> T(N);
-	V<ll> a(N);
-	rep(i, N) {
-		scanf("%lld", &a[i]);
-		T.add(i, a[i]);
-	}
-	while (Q--) {
-		int t;
-		scanf("%d", &t);
-		if (t == 0) {
-			int p, x;
-			scanf("%d %d", &p, &x);
-			T.add(p, x);
-		} else {
-			int l, r;
-			scanf("%d %d", &l, &r);
-			printf("%lld\n", T.sum(l, r));
-		}
-	}
+	int A, B; cin >> A >> B;
+	cout << A + B << endl;
 	return 0;
 }
 ```
@@ -126,8 +100,9 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/point_add_range_sum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+#line 1 "test/yosupo/aplusb.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -173,80 +148,9 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	return os;
 }
 
-#define call_from_test
-#line 1 "cpp_src/data_structure/fenwick.hpp"
-template<class T>
-struct BIT {
-	int n;
-	vector<T> bit;
-
-	BIT(int _n = 0) : n(_n), bit(n + 1) {}
-
-	//sum of [0, i), 0 <= i <= n
-	T sum(int i) {
-		T s = 0;
-		while (i > 0) {
-			s += bit[i];
-			i -= i & -i;
-		}
-		return s;
-	}
-
-	//0 <= i < n
-	void add(int i, T x) {
-		++i;
-		while (i <= n) {
-			bit[i] += x;
-			i += i & -i;
-		}
-	}
-
-	//[l, r) 0 <= l < r < n
-	T sum(int l, int r) {
-		return sum(r) - sum(l);
-	}
-
-	//not verified
-
-	//smallest i, sum(i) >= w, none -> n + 1
-	int lower_bound(T w) {
-		if (w <= 0) return 0;
-		int x = 0, l = 1;
-		while (l * 2 <= n) l *= 2;
-
-		for (int k = l; k > 0; k /= 2) {
-			if (x + k <= n && bit[x + k] < w) {
-				w -= bit[x + k];
-				x += k;
-			}
-		}
-		return x + 1;
-	}
-};
-#line 49 "test/yosupo/point_add_range_sum.test.cpp"
-#undef call_from_test
-
 int main() {
-	int N, Q; scanf("%d %d", &N, &Q);
-	BIT<ll> T(N);
-	V<ll> a(N);
-	rep(i, N) {
-		scanf("%lld", &a[i]);
-		T.add(i, a[i]);
-	}
-	while (Q--) {
-		int t;
-		scanf("%d", &t);
-		if (t == 0) {
-			int p, x;
-			scanf("%d %d", &p, &x);
-			T.add(p, x);
-		} else {
-			int l, r;
-			scanf("%d %d", &l, &r);
-			printf("%lld\n", T.sum(l, r));
-		}
-	}
+	int A, B; cin >> A >> B;
+	cout << A + B << endl;
 	return 0;
 }
 

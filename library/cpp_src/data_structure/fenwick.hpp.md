@@ -25,19 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: cpp_src/data_structure/fenwick.hpp
+# :question: cpp_src/data_structure/fenwick.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0efeb1959dbc8f7e9170e2d5bfa803ae">cpp_src/data_structure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/fenwick.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-13 00:12:49+09:00
+    - Last commit date: 2020-04-26 04:03:03+09:00
 
 
 
 
 ## Verified with
 
+* :x: <a href="../../../verify/test/aoj/0343.test.cpp.html">test/aoj/0343.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 
 
@@ -80,7 +81,7 @@ struct BIT {
 	//not verified
 
 	//smallest i, sum(i) >= w, none -> n + 1
-	int lower_bound(int w) {
+	int lower_bound(T w) {
 		if (w <= 0) return 0;
 		int x = 0, l = 1;
 		while (l * 2 <= n) l *= 2;
@@ -135,7 +136,7 @@ struct BIT {
 	//not verified
 
 	//smallest i, sum(i) >= w, none -> n + 1
-	int lower_bound(int w) {
+	int lower_bound(T w) {
 		if (w <= 0) return 0;
 		int x = 0, l = 1;
 		while (l * 2 <= n) l *= 2;

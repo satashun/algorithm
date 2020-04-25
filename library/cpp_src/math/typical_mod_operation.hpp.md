@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/typical_mod_operation.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-12 13:43:30+09:00
+    - Last commit date: 2020-04-26 04:03:03+09:00
 
 
 
@@ -43,7 +43,7 @@ layout: default
 ```cpp
 const int maxv = 1000010;
 
-Mint fact[maxv], finv[maxv], inv[maxv];
+V<Mint> fact(maxv), ifact(maxv), inv(maxv);
 
 void init() {
     fact[0] = 1;
@@ -51,19 +51,20 @@ void init() {
         fact[i] = fact[i-1] * i;
     }
 
-    finv[maxv-1] = fact[maxv-1].inv();
+    ifact[maxv-1] = fact[maxv-1].inv();
+
     for (int i = maxv - 2; i >= 0; --i) {
-        finv[i] = finv[i+1] * (i+1);
+        ifact[i] = ifact[i+1] * (i+1);
     }
 
     for (int i = 1; i < maxv; ++i) {
-        inv[i] = finv[i] * fact[i-1];
+        inv[i] = ifact[i] * fact[i-1];
     }
 }
 
 Mint comb(int n, int r) {
     if (n < 0 || r < 0 || r > n) return Mint(0);
-    return fact[n] * finv[r] * finv[n-r];
+    return fact[n] * ifact[r] * ifact[n-r];
 }
 ```
 {% endraw %}
@@ -74,7 +75,7 @@ Mint comb(int n, int r) {
 #line 1 "cpp_src/math/typical_mod_operation.hpp"
 const int maxv = 1000010;
 
-Mint fact[maxv], finv[maxv], inv[maxv];
+V<Mint> fact(maxv), ifact(maxv), inv(maxv);
 
 void init() {
     fact[0] = 1;
@@ -82,19 +83,20 @@ void init() {
         fact[i] = fact[i-1] * i;
     }
 
-    finv[maxv-1] = fact[maxv-1].inv();
+    ifact[maxv-1] = fact[maxv-1].inv();
+
     for (int i = maxv - 2; i >= 0; --i) {
-        finv[i] = finv[i+1] * (i+1);
+        ifact[i] = ifact[i+1] * (i+1);
     }
 
     for (int i = 1; i < maxv; ++i) {
-        inv[i] = finv[i] * fact[i-1];
+        inv[i] = ifact[i] * fact[i-1];
     }
 }
 
 Mint comb(int n, int r) {
     if (n < 0 || r < 0 || r > n) return Mint(0);
-    return fact[n] * finv[r] * finv[n-r];
+    return fact[n] * ifact[r] * ifact[n-r];
 }
 
 ```

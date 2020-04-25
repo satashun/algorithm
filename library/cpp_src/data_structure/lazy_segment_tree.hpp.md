@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: cpp_src/data_structure/segment_tree.hpp
+# :warning: cpp_src/data_structure/lazy_segment_tree.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0efeb1959dbc8f7e9170e2d5bfa803ae">cpp_src/data_structure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/segment_tree.hpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/lazy_segment_tree.hpp">View this file on GitHub</a>
     - Last commit date: 2020-04-26 04:03:03+09:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 
 
 ## Code
@@ -104,9 +99,17 @@ const int INF = TEN(9) + 10;
 
 struct U {
     using T = ll;
-    static T id() { return INF; }
-    static T op(const T& a, const T& b) {
+    using E = ll;
+    static T id1() { return 0; }
+    static E id2() { return INF; }
+    static T op11(const T& a, const T& b) {
     	return min(a, b);
+    }
+    static T op12(const T& a, const E& b) {
+    	return b + a;
+    }
+    static E op22(const E& a, const E& b) {
+    	return a + b;
     }
 };
 ```
@@ -115,7 +118,7 @@ struct U {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "cpp_src/data_structure/segment_tree.hpp"
+#line 1 "cpp_src/data_structure/lazy_segment_tree.hpp"
 //index of root = 1
 
 template<class U>
@@ -174,9 +177,17 @@ const int INF = TEN(9) + 10;
 
 struct U {
     using T = ll;
-    static T id() { return INF; }
-    static T op(const T& a, const T& b) {
+    using E = ll;
+    static T id1() { return 0; }
+    static E id2() { return INF; }
+    static T op11(const T& a, const T& b) {
     	return min(a, b);
+    }
+    static T op12(const T& a, const E& b) {
+    	return b + a;
+    }
+    static E op22(const E& a, const E& b) {
+    	return a + b;
     }
 };
 

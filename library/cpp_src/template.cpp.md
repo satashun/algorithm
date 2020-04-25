@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#9a58b284f26bf03008f1a9518086b10c">cpp_src</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/template.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-01 18:25:18+09:00
+    - Last commit date: 2020-04-26 04:03:03+09:00
 
 
 
@@ -58,12 +58,6 @@ template<class T> using VV = V<V<T>>;
 #define rep2(i,m,n) for(int i=m;i<(n);i++)
 #define ALL(c) (c).begin(),(c).end()
 
-#ifdef LOCAL
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else 
-#define dump(x) true
-#endif
-
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
 template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
@@ -85,6 +79,20 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	os<<"}";
 	return os;
 }
+
+#ifdef LOCAL
+void debug_out() { cerr << endl; }
+template<typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+	cerr << " " << H;
+	debug_out(T...);
+}
+#define debug(...) cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else
+#define debug(...) (void(0))
+#define dump(x) (void(0))
+#endif
 
 int main() {
 	return 0;
@@ -113,12 +121,6 @@ template<class T> using VV = V<V<T>>;
 #define rep2(i,m,n) for(int i=m;i<(n);i++)
 #define ALL(c) (c).begin(),(c).end()
 
-#ifdef LOCAL
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else 
-#define dump(x) true
-#endif
-
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
 template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
@@ -140,6 +142,20 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	os<<"}";
 	return os;
 }
+
+#ifdef LOCAL
+void debug_out() { cerr << endl; }
+template<typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+	cerr << " " << H;
+	debug_out(T...);
+}
+#define debug(...) cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else
+#define debug(...) (void(0))
+#define dump(x) (void(0))
+#endif
 
 int main() {
 	return 0;

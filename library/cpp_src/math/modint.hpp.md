@@ -25,15 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: cpp_src/math/modint.hpp
+# :heavy_check_mark: cpp_src/math/modint.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/modint.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-11 22:01:52+09:00
+    - Last commit date: 2020-04-26 04:03:03+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
 
 
 ## Code
@@ -95,7 +100,7 @@ struct ModInt {
 	static int get_mod() { return MOD; }	
 };
 
-using Mint = ModInt<1000000007>;
+//using Mint = ModInt<1000000007>;
 ```
 {% endraw %}
 
@@ -157,7 +162,7 @@ struct ModInt {
 	static int get_mod() { return MOD; }	
 };
 
-using Mint = ModInt<1000000007>;
+//using Mint = ModInt<1000000007>;
 
 ```
 {% endraw %}

@@ -45,7 +45,8 @@ layout: default
 
 ### cpp_src/data_structure
 
-* :heavy_check_mark: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
+* :question: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
+* :warning: <a href="library/cpp_src/data_structure/lazy_segment_tree.hpp.html">cpp_src/data_structure/lazy_segment_tree.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/data_structure/segment_tree.hpp.html">cpp_src/data_structure/segment_tree.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/starry_sky_tree.hpp.html">cpp_src/data_structure/starry_sky_tree.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
@@ -66,9 +67,11 @@ layout: default
 
 ### cpp_src/math
 
+* :warning: <a href="library/cpp_src/math/fft_arbitrarymod.hpp.html">cpp_src/math/fft_arbitrarymod.hpp</a>
 * :warning: <a href="library/cpp_src/math/interpolation.hpp.html">cpp_src/math/interpolation.hpp</a>
 * :warning: <a href="library/cpp_src/math/matrix.hpp.html">cpp_src/math/matrix.hpp</a>
-* :warning: <a href="library/cpp_src/math/modint.hpp.html">cpp_src/math/modint.hpp</a>
+* :heavy_check_mark: <a href="library/cpp_src/math/modint.hpp.html">cpp_src/math/modint.hpp</a>
+* :warning: <a href="library/cpp_src/math/modint_runtime.hpp.html">cpp_src/math/modint_runtime.hpp</a>
 * :warning: <a href="library/cpp_src/math/multipoint_evaluation.hpp.html">cpp_src/math/multipoint_evaluation.hpp</a>
 * :warning: <a href="library/cpp_src/math/number_theoretic_transform.hpp.html">cpp_src/math/number_theoretic_transform.hpp</a>
 * :warning: <a href="library/cpp_src/math/number_theory.hpp.html">cpp_src/math/number_theory.hpp</a>
@@ -90,13 +93,17 @@ layout: default
 ### cpp_src/string
 
 * :warning: <a href="library/cpp_src/string/Z_algorithm.hpp.html">cpp_src/string/Z_algorithm.hpp</a>
+* :warning: <a href="library/cpp_src/string/manacher.hpp.html">cpp_src/string/manacher.hpp</a>
 
 
 ## Verify Files
 
+* :x: <a href="verify/test/aoj/0343.test.cpp.html">test/aoj/0343.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/aplusb.test.cpp.html">test/yosupo/aplusb.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
