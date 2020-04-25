@@ -52,4 +52,4 @@ struct ModInt {
 	static int get_mod() { return MOD; }	
 };
 
-using Mint = ModInt<1000000007>;
+//using Mint = ModInt<1000000007>;

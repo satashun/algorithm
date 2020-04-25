@@ -56,8 +56,16 @@ const int INF = TEN(9) + 10;
 
 struct U {
     using T = ll;
-    static T id() { return INF; }
-    static T op(const T& a, const T& b) {
+    using E = ll;
+    static T id1() { return 0; }
+    static E id2() { return INF; }
+    static T op11(const T& a, const T& b) {
     	return min(a, b);
+    }
+    static T op12(const T& a, const E& b) {
+    	return b + a;
+    }
+    static E op22(const E& a, const E& b) {
+    	return a + b;
     }
 };

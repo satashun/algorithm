@@ -1,3 +1,5 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,6 +16,12 @@ template<class T> using VV = V<V<T>>;
 #define rep(i,n) rep2(i,0,n)
 #define rep2(i,m,n) for(int i=m;i<(n);i++)
 #define ALL(c) (c).begin(),(c).end()
+
+#ifdef LOCAL
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else 
+#define dump(x) true
+#endif
 
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
@@ -37,20 +45,8 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	return os;
 }
 
-#ifdef LOCAL
-void debug_out() { cerr << endl; }
-template<typename Head, typename... Tail>
-void debug_out(Head H, Tail... T) {
-	cerr << " " << H;
-	debug_out(T...);
-}
-#define debug(...) cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else
-#define debug(...) (void(0))
-#define dump(x) (void(0))
-#endif
-
 int main() {
+	int A, B; cin >> A >> B;
+	cout << A + B << endl;
 	return 0;
 }
