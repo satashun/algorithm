@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/matrix.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-30 02:45:53+09:00
+    - Last commit date: 2020-04-30 02:46:51+09:00
 
 
 
