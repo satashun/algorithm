@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/matrix.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 19:07:10+09:00
+    - Last commit date: 2020-04-30 02:45:53+09:00
 
 
 
@@ -41,44 +41,44 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template<class T>
+template <class T>
 struct Matrix : VV<D> {
-	using Mat = Matrix<T>;
-	int H() const { return int(size()); }
-	int W() const { return int((*this)[0].size(); )}
+    using Mat = Matrix<T>;
+    int H() const { return int(size()); }
+    int W() const { return int((*this)[0].size();) }
 
-	Mat operator*(const Mat& a) const {
-		int h = H(), w = W();
-		int h2 = a.H(), w2 = a.W();
-		assert(w == h2);
-		Mat res(h, V<T>(w2));
+    Mat operator*(const Mat& a) const {
+        int h = H(), w = W();
+        int h2 = a.H(), w2 = a.W();
+        assert(w == h2);
+        Mat res(h, V<T>(w2));
 
-		for (int i = 0; i < h; ++i) {
-			for (int j = 0; j < w2; ++j) {
-				for (int k = 0; k < w; ++k) {
-					res[i][j] += (*this)[i][k] * a[k][j];
-				}
-			}
-		}
-		return res;
-	}
+        for (int i = 0; i < h; ++i) {
+            for (int j = 0; j < w2; ++j) {
+                for (int k = 0; k < w; ++k) {
+                    res[i][j] += (*this)[i][k] * a[k][j];
+                }
+            }
+        }
+        return res;
+    }
 
-	Mat& operator*=(const Mat& r) { return *this = *this * r; }
+    Mat& operator*=(const Mat& r) { return *this = *this * r; }
 
-	Mat pow(ll n) const {
-		assert(H() == W());
-		int h = H();
-		Mat x = *this, res(h, V<T>(h));
-		for (int i = 0; i < h; ++i) {
-			res[i] = T(1);
-		}
-		while (n > 0) {
-			if (n & 1) res *= x;
-			x *= x;
-			n >>= 1;
-		}
-		return res;
-	}
+    Mat pow(ll n) const {
+        assert(H() == W());
+        int h = H();
+        Mat x = *this, res(h, V<T>(h));
+        for (int i = 0; i < h; ++i) {
+            res[i] = T(1);
+        }
+        while (n > 0) {
+            if (n & 1) res *= x;
+            x *= x;
+            n >>= 1;
+        }
+        return res;
+    }
 };
 ```
 {% endraw %}
@@ -87,44 +87,44 @@ struct Matrix : VV<D> {
 {% raw %}
 ```cpp
 #line 1 "cpp_src/math/matrix.hpp"
-template<class T>
+template <class T>
 struct Matrix : VV<D> {
-	using Mat = Matrix<T>;
-	int H() const { return int(size()); }
-	int W() const { return int((*this)[0].size(); )}
+    using Mat = Matrix<T>;
+    int H() const { return int(size()); }
+    int W() const { return int((*this)[0].size();) }
 
-	Mat operator*(const Mat& a) const {
-		int h = H(), w = W();
-		int h2 = a.H(), w2 = a.W();
-		assert(w == h2);
-		Mat res(h, V<T>(w2));
+    Mat operator*(const Mat& a) const {
+        int h = H(), w = W();
+        int h2 = a.H(), w2 = a.W();
+        assert(w == h2);
+        Mat res(h, V<T>(w2));
 
-		for (int i = 0; i < h; ++i) {
-			for (int j = 0; j < w2; ++j) {
-				for (int k = 0; k < w; ++k) {
-					res[i][j] += (*this)[i][k] * a[k][j];
-				}
-			}
-		}
-		return res;
-	}
+        for (int i = 0; i < h; ++i) {
+            for (int j = 0; j < w2; ++j) {
+                for (int k = 0; k < w; ++k) {
+                    res[i][j] += (*this)[i][k] * a[k][j];
+                }
+            }
+        }
+        return res;
+    }
 
-	Mat& operator*=(const Mat& r) { return *this = *this * r; }
+    Mat& operator*=(const Mat& r) { return *this = *this * r; }
 
-	Mat pow(ll n) const {
-		assert(H() == W());
-		int h = H();
-		Mat x = *this, res(h, V<T>(h));
-		for (int i = 0; i < h; ++i) {
-			res[i] = T(1);
-		}
-		while (n > 0) {
-			if (n & 1) res *= x;
-			x *= x;
-			n >>= 1;
-		}
-		return res;
-	}
+    Mat pow(ll n) const {
+        assert(H() == W());
+        int h = H();
+        Mat x = *this, res(h, V<T>(h));
+        for (int i = 0; i < h; ++i) {
+            res[i] = T(1);
+        }
+        while (n > 0) {
+            if (n & 1) res *= x;
+            x *= x;
+            n >>= 1;
+        }
+        return res;
+    }
 };
 
 ```

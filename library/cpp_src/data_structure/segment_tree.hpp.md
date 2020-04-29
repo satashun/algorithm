@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0efeb1959dbc8f7e9170e2d5bfa803ae">cpp_src/data_structure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/segment_tree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 04:03:03+09:00
+    - Last commit date: 2020-04-30 02:45:53+09:00
 
 
 
@@ -46,68 +46,70 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-//index of root = 1
+// index of root = 1
 
-template<class U>
+template <class U>
 struct segtree {
-	using T = typename U::T;
-	int sz;
-	V<T> dat;
+    using T = typename U::T;
+    int sz;
+    V<T> dat;
 
-	segtree(const V<T>& a) {
-		int n = a.size();
-		sz = 1;
-		while (sz < n) sz <<= 1;
-		dat.assign(sz * 2, U::id());
-		for (int i = 0; i < n; ++i) {
-			dat[sz + i] = a[i];
-		}
-		for (int i = sz - 1; i >= 1; --i) {
-			upd(i);
-		}
-	}
+    segtree() {}
+    segtree(int n) {
+        sz = 1;
+        while (sz < n) sz <<= 1;
+        dat.assign(sz * 2, U::id());
+    }
 
-	void upd(int p) {
-		dat[p] = U::op(dat[p<<1], dat[p<<1|1]);
-	}
+    segtree(const V<T>& a) {
+        int n = a.size();
+        sz = 1;
+        while (sz < n) sz <<= 1;
+        dat.assign(sz * 2, U::id());
+        for (int i = 0; i < n; ++i) {
+            dat[sz + i] = a[i];
+        }
+        for (int i = sz - 1; i >= 1; --i) {
+            upd(i);
+        }
+    }
 
-	void build() {
-		for (int i = sz - 1; i > 0; --i) {
-			dat[i] = U::op(dat[i<<1], dat[i<<1|1]);		
-		}
-	}
+    void upd(int p) { dat[p] = U::op(dat[p << 1], dat[p << 1 | 1]); }
 
-	void modify(int p, T v) {
-		p += sz;
-		dat[p] = v;
-		while (p >>= 1) {
-			dat[p] = U::op(dat[p<<1], dat[p<<1|1]);
-		}
-	}
+    void build() {
+        for (int i = sz - 1; i > 0; --i) {
+            dat[i] = U::op(dat[i << 1], dat[i << 1 | 1]);
+        }
+    }
 
-	//[l, r)
+    void modify(int p, T v) {
+        p += sz;
+        dat[p] = v;
+        while (p >>= 1) {
+            dat[p] = U::op(dat[p << 1], dat[p << 1 | 1]);
+        }
+    }
 
-	T query(int l, int r) {
-		T lval = U::id(), rval = U::id();
-		int res = 0;
-		for (l += sz, r += sz; l < r; l >>= 1, r >>= 1) {
-			if (l & 1) lval = U::op(lval, dat[l++]);
-			if (r & 1) rval = U::op(dat[--r], rval);
-		}
-		return U::op(lval, rval);
-	}
+    //[l, r)
+
+    T query(int l, int r) {
+        T lval = U::id(), rval = U::id();
+        for (l += sz, r += sz; l < r; l >>= 1, r >>= 1) {
+            if (l & 1) lval = U::op(lval, dat[l++]);
+            if (r & 1) rval = U::op(dat[--r], rval);
+        }
+        return U::op(lval, rval);
+    }
 };
 
-//modify only U to use
+// modify only U for use
 
-const int INF = TEN(9) + 10;
+constexpr ll INF = TEN(9) + 10;
 
 struct U {
     using T = ll;
     static T id() { return INF; }
-    static T op(const T& a, const T& b) {
-    	return min(a, b);
-    }
+    static T op(const T& a, const T& b) { return min(a, b); }
 };
 ```
 {% endraw %}
@@ -116,68 +118,70 @@ struct U {
 {% raw %}
 ```cpp
 #line 1 "cpp_src/data_structure/segment_tree.hpp"
-//index of root = 1
+// index of root = 1
 
-template<class U>
+template <class U>
 struct segtree {
-	using T = typename U::T;
-	int sz;
-	V<T> dat;
+    using T = typename U::T;
+    int sz;
+    V<T> dat;
 
-	segtree(const V<T>& a) {
-		int n = a.size();
-		sz = 1;
-		while (sz < n) sz <<= 1;
-		dat.assign(sz * 2, U::id());
-		for (int i = 0; i < n; ++i) {
-			dat[sz + i] = a[i];
-		}
-		for (int i = sz - 1; i >= 1; --i) {
-			upd(i);
-		}
-	}
+    segtree() {}
+    segtree(int n) {
+        sz = 1;
+        while (sz < n) sz <<= 1;
+        dat.assign(sz * 2, U::id());
+    }
 
-	void upd(int p) {
-		dat[p] = U::op(dat[p<<1], dat[p<<1|1]);
-	}
+    segtree(const V<T>& a) {
+        int n = a.size();
+        sz = 1;
+        while (sz < n) sz <<= 1;
+        dat.assign(sz * 2, U::id());
+        for (int i = 0; i < n; ++i) {
+            dat[sz + i] = a[i];
+        }
+        for (int i = sz - 1; i >= 1; --i) {
+            upd(i);
+        }
+    }
 
-	void build() {
-		for (int i = sz - 1; i > 0; --i) {
-			dat[i] = U::op(dat[i<<1], dat[i<<1|1]);		
-		}
-	}
+    void upd(int p) { dat[p] = U::op(dat[p << 1], dat[p << 1 | 1]); }
 
-	void modify(int p, T v) {
-		p += sz;
-		dat[p] = v;
-		while (p >>= 1) {
-			dat[p] = U::op(dat[p<<1], dat[p<<1|1]);
-		}
-	}
+    void build() {
+        for (int i = sz - 1; i > 0; --i) {
+            dat[i] = U::op(dat[i << 1], dat[i << 1 | 1]);
+        }
+    }
 
-	//[l, r)
+    void modify(int p, T v) {
+        p += sz;
+        dat[p] = v;
+        while (p >>= 1) {
+            dat[p] = U::op(dat[p << 1], dat[p << 1 | 1]);
+        }
+    }
 
-	T query(int l, int r) {
-		T lval = U::id(), rval = U::id();
-		int res = 0;
-		for (l += sz, r += sz; l < r; l >>= 1, r >>= 1) {
-			if (l & 1) lval = U::op(lval, dat[l++]);
-			if (r & 1) rval = U::op(dat[--r], rval);
-		}
-		return U::op(lval, rval);
-	}
+    //[l, r)
+
+    T query(int l, int r) {
+        T lval = U::id(), rval = U::id();
+        for (l += sz, r += sz; l < r; l >>= 1, r >>= 1) {
+            if (l & 1) lval = U::op(lval, dat[l++]);
+            if (r & 1) rval = U::op(dat[--r], rval);
+        }
+        return U::op(lval, rval);
+    }
 };
 
-//modify only U to use
+// modify only U for use
 
-const int INF = TEN(9) + 10;
+constexpr ll INF = TEN(9) + 10;
 
 struct U {
     using T = ll;
     static T id() { return INF; }
-    static T op(const T& a, const T& b) {
-    	return min(a, b);
-    }
+    static T op(const T& a, const T& b) { return min(a, b); }
 };
 
 ```
