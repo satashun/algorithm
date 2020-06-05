@@ -1,5 +1,3 @@
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B"
-
 template<class C, class D> //capacity, distance
 struct MinCostFlow {
 	struct edge {
@@ -27,7 +25,7 @@ struct MinCostFlow {
 
 	void init_negative(int s) {
 		fill(h.begin(), h.end(), INF);
-		dst[s] = 0;
+		h[s] = 0;
 		for (int t = 0; t < n; ++t) {
 			for (int i = 0; i < n; ++i) {
 				for (auto e : g[i]) {

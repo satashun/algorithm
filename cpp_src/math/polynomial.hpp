@@ -126,8 +126,7 @@ struct Poly : public V<D> {
 		return f.pref(n);
 	}
 
-	//f_0 = 0 must hold?
-	//**537
+	//be careful when k = 0
 	Poly pow(int n, ll k) const {
 		return (log(n) * (D)k).exp(n);
 	}
