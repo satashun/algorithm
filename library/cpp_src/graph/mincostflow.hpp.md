@@ -31,10 +31,9 @@ layout: default
 
 * category: <a href="../../../index.html#899db7edb5841537da14f45d9b6032f9">cpp_src/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/graph/mincostflow.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-27 19:07:10+09:00
+    - Last commit date: 2020-06-06 01:31:45+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B</a>
 
 
 ## Code
@@ -42,8 +41,6 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B"
-
 template<class C, class D> //capacity, distance
 struct MinCostFlow {
 	struct edge {
@@ -71,7 +68,7 @@ struct MinCostFlow {
 
 	void init_negative(int s) {
 		fill(h.begin(), h.end(), INF);
-		dst[s] = 0;
+		h[s] = 0;
 		for (int t = 0; t < n; ++t) {
 			for (int i = 0; i < n; ++i) {
 				for (auto e : g[i]) {
@@ -135,8 +132,6 @@ struct MinCostFlow {
 {% raw %}
 ```cpp
 #line 1 "cpp_src/graph/mincostflow.hpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B"
-
 template<class C, class D> //capacity, distance
 struct MinCostFlow {
 	struct edge {
@@ -164,7 +159,7 @@ struct MinCostFlow {
 
 	void init_negative(int s) {
 		fill(h.begin(), h.end(), INF);
-		dst[s] = 0;
+		h[s] = 0;
 		for (int t = 0; t < n; ++t) {
 			for (int i = 0; i < n; ++i) {
 				for (auto e : g[i]) {

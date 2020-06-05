@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#7f80e2498998e03897cbfac19f068c09">cpp_src/math</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/math/polynomial.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-26 04:03:03+09:00
+    - Last commit date: 2020-06-06 01:31:45+09:00
 
 
 
@@ -169,8 +169,7 @@ struct Poly : public V<D> {
 		return f.pref(n);
 	}
 
-	//f_0 = 0 must hold?
-	//**537
+	//be careful when k = 0
 	Poly pow(int n, ll k) const {
 		return (log(n) * (D)k).exp(n);
 	}
@@ -387,8 +386,7 @@ struct Poly : public V<D> {
 		return f.pref(n);
 	}
 
-	//f_0 = 0 must hold?
-	//**537
+	//be careful when k = 0
 	Poly pow(int n, ll k) const {
 		return (log(n) * (D)k).exp(n);
 	}
