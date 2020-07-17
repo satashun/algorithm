@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: cpp_src/string/rolling_hash.hpp
+# :warning: cpp_src/string/RollingHash.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#1af93c576686231cc039edb77ac3381f">cpp_src/string</a>
-* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/string/rolling_hash.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-06 01:31:45+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/string/RollingHash.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-07-17 17:57:06+09:00
 
 
 
@@ -99,7 +99,7 @@ using RH = RollingHash<1000000007>;
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "cpp_src/string/rolling_hash.hpp"
+#line 1 "cpp_src/string/RollingHash.hpp"
 // from ei1333
 
 template <unsigned mod>

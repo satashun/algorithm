@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: cpp_src/string/Z_algorithm.hpp
+# :warning: cpp_src/string/Zalgo.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#1af93c576686231cc039edb77ac3381f">cpp_src/string</a>
-* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/string/Z_algorithm.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-14 23:17:55+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/string/Zalgo.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-07-17 17:57:06+09:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/Z.test.cpp.html">test/yosupo/Z.test.cpp</a>
 
 
 ## Code
@@ -66,7 +61,7 @@ vector<int> Z_algo(const string &S) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "cpp_src/string/Z_algorithm.hpp"
+#line 1 "cpp_src/string/Zalgo.hpp"
 vector<int> Z_algo(const string &S) {
 	vector<int> A(S.size());
 	A[0] = S.size();

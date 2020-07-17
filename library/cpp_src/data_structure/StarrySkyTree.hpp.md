@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: cpp_src/data_structure/starry_sky_tree.hpp
+# :warning: cpp_src/data_structure/StarrySkyTree.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0efeb1959dbc8f7e9170e2d5bfa803ae">cpp_src/data_structure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/starry_sky_tree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-07 22:26:01+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/StarrySkyTree.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-07-17 17:57:06+09:00
 
 
 
@@ -152,7 +152,7 @@ struct starry_sky_tree {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "cpp_src/data_structure/starry_sky_tree.hpp"
+#line 1 "cpp_src/data_structure/StarrySkyTree.hpp"
 const int SZ = (1 << 12);
 const int inf;
 

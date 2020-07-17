@@ -25,20 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: cpp_src/data_structure/segment_tree.hpp
+# :warning: cpp_src/data_structure/SegmentTree.hpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0efeb1959dbc8f7e9170e2d5bfa803ae">cpp_src/data_structure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/segment_tree.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-30 02:46:51+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/SegmentTree.hpp">View this file on GitHub</a>
+    - Last commit date: 2020-07-17 17:57:06+09:00
 
 
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
 
 
 ## Code
@@ -117,7 +112,7 @@ struct U {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "cpp_src/data_structure/segment_tree.hpp"
+#line 1 "cpp_src/data_structure/SegmentTree.hpp"
 // index of root = 1
 
 template <class U>
