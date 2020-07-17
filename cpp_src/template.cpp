@@ -16,7 +16,6 @@ template<class T> using VV = V<V<T>>;
 #define per(i,b) per2(i,0,b)
 #define per2(i,a,b) for(int i=int(b)-1;i>=int(a);i--)
 #define ALL(c) (c).begin(),(c).end()
-#define SZ(x) ((int)(x).size())
 
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
@@ -55,5 +54,7 @@ void debug_out(Head H, Tail... T) {
 #endif
 
 int main() {
+	cin.tie(nullptr);
+	ios::sync_with_stdio(false);
 	return 0;
 }
