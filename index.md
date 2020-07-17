@@ -56,7 +56,8 @@ layout: default
 
 ### cpp_src/graph
 
-* :warning: <a href="library/cpp_src/graph/Dinic.hpp.html">cpp_src/graph/Dinic.hpp</a>
+* :warning: <a href="library/cpp_src/graph/BipartiteMatching.hpp.html">cpp_src/graph/BipartiteMatching.hpp</a>
+* :heavy_check_mark: <a href="library/cpp_src/graph/Dinic.hpp.html">cpp_src/graph/Dinic.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
 * :warning: <a href="library/cpp_src/graph/Namori.hpp.html">cpp_src/graph/Namori.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/SCC.hpp.html">cpp_src/graph/SCC.hpp</a>
@@ -87,7 +88,6 @@ layout: default
 
 * :warning: <a href="library/cpp_src/other/FWT.hpp.html">cpp_src/other/FWT.hpp</a>
 * :warning: <a href="library/cpp_src/other/Mo.hpp.html">cpp_src/other/Mo.hpp</a>
-* :warning: <a href="library/cpp_src/other/random.hpp.html">cpp_src/other/random.hpp</a>
 
 
 <div id="1af93c576686231cc039edb77ac3381f"></div>
@@ -106,12 +106,22 @@ layout: default
 * :warning: <a href="library/cpp_src/utility/random.hpp.html">cpp_src/utility/random.hpp</a>
 
 
+<div id="0b58406058f6619a0f31a172defc0230"></div>
+
+### test/yosupo
+
+* :warning: <a href="library/test/yosupo/det.cpp.html">test/yosupo/det.cpp</a>
+
+
 ## Verify Files
 
 * :x: <a href="verify/test/aoj/0343.test.cpp.html">test/aoj/0343.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/Z.test.cpp.html">test/yosupo/Z.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/aplusb.test.cpp.html">test/yosupo/aplusb.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/assignment.test.cpp.html">test/yosupo/assignment.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/yosupo/bipartitematching.test.cpp.html">test/yosupo/bipartitematching.test.cpp</a>
+* :x: <a href="verify/test/yosupo/bipartitematching_slow.test.cpp.html">test/yosupo/bipartitematching_slow.test.cpp</a>
 * :x: <a href="verify/test/yosupo/exp_of_fps.test.cpp.html">test/yosupo/exp_of_fps.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
 * :x: <a href="verify/test/yosupo/log_of_fps.test.cpp.html">test/yosupo/log_of_fps.test.cpp</a>

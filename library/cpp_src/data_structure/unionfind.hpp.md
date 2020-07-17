@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#0efeb1959dbc8f7e9170e2d5bfa803ae">cpp_src/data_structure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/data_structure/unionfind.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-12 13:49:41+09:00
+    - Last commit date: 2020-07-17 17:36:15+09:00
 
 
 
@@ -80,7 +80,6 @@ public:
 
 	bool same(int x, int y) { return (find(x) == find(y)); }
 };
-
 ```
 {% endraw %}
 

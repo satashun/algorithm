@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#9a58b284f26bf03008f1a9518086b10c">cpp_src</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/template.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-06 01:31:45+09:00
+    - Last commit date: 2020-07-17 17:36:15+09:00
 
 
 
@@ -59,7 +59,6 @@ template<class T> using VV = V<V<T>>;
 #define per(i,b) per2(i,0,b)
 #define per2(i,a,b) for(int i=int(b)-1;i>=int(a);i--)
 #define ALL(c) (c).begin(),(c).end()
-#define SZ(x) ((int)(x).size())
 
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
@@ -98,6 +97,8 @@ void debug_out(Head H, Tail... T) {
 #endif
 
 int main() {
+	cin.tie(nullptr);
+	ios::sync_with_stdio(false);
 	return 0;
 }
 ```
@@ -125,7 +126,6 @@ template<class T> using VV = V<V<T>>;
 #define per(i,b) per2(i,0,b)
 #define per2(i,a,b) for(int i=int(b)-1;i>=int(a);i--)
 #define ALL(c) (c).begin(),(c).end()
-#define SZ(x) ((int)(x).size())
 
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
@@ -164,6 +164,8 @@ void debug_out(Head H, Tail... T) {
 #endif
 
 int main() {
+	cin.tie(nullptr);
+	ios::sync_with_stdio(false);
 	return 0;
 }
 
