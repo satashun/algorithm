@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#d4e24500d23f47b8d075758221d17bd2">cpp_src/utility</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/utility/random.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-06-06 01:31:45+09:00
+    - Last commit date: 2020-08-06 01:21:11+09:00
 
 
 
@@ -44,10 +44,20 @@ layout: default
 ll rand_int(ll l, ll r) {  //[l,r]
     static random_device rd;
     static mt19937 gen(rd());
-    // for Codeforces:
-    // static mt19937
-    // gen(chrono::steady_clock::now().time_since_epoch().count())
+    // static mt19937 gen(chrono::steady_clock::now().time_since_epoch().count());
     return uniform_int_distribution<ll>(l, r)(gen);
+}
+
+// Fisher–Yates
+template <class T>
+vector<T> random_perm(vector<T> vec) {
+    vector<T> res;
+    rep(i, vec.size()) {
+        res.pb(vec[i]);
+        int j = rand_int(0, i);
+        swap(res[j], res[i]);
+    }
+    return res;
 }
 ```
 {% endraw %}
@@ -59,10 +69,20 @@ ll rand_int(ll l, ll r) {  //[l,r]
 ll rand_int(ll l, ll r) {  //[l,r]
     static random_device rd;
     static mt19937 gen(rd());
-    // for Codeforces:
-    // static mt19937
-    // gen(chrono::steady_clock::now().time_since_epoch().count())
+    // static mt19937 gen(chrono::steady_clock::now().time_since_epoch().count());
     return uniform_int_distribution<ll>(l, r)(gen);
+}
+
+// Fisher–Yates
+template <class T>
+vector<T> random_perm(vector<T> vec) {
+    vector<T> res;
+    rep(i, vec.size()) {
+        res.pb(vec[i]);
+        int j = rand_int(0, i);
+        swap(res[j], res[i]);
+    }
+    return res;
 }
 
 ```
