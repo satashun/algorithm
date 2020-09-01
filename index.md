@@ -107,12 +107,28 @@ layout: default
 * :warning: <a href="library/cpp_src/utility/random.hpp.html">cpp_src/utility/random.hpp</a>
 
 
+<div id="895f3d248130be399c7a2293f16f9fdc"></div>
+
+### py_src
+
+* :warning: <a href="library/py_src/DSU.py.html">py_src/DSU.py</a>
+
+
+<div id="85a521aa2d03f1be2e7433de34f238a4"></div>
+
+### test/learning
+
+* :warning: <a href="library/test/learning/exp.cpp.html">test/learning/exp.cpp</a>
+* :warning: <a href="library/test/learning/four_element.cpp.html">test/learning/four_element.cpp</a>
+
+
 <div id="0b58406058f6619a0f31a172defc0230"></div>
 
 ### test/yosupo
 
 * :warning: <a href="library/test/yosupo/det.cpp.html">test/yosupo/det.cpp</a>
 * :warning: <a href="library/test/yosupo/min_cost_b_flow.cpp.html">test/yosupo/min_cost_b_flow.cpp</a>
+* :warning: <a href="library/test/yosupo/stirling_number_of_the_first_kind.cpp.html">test/yosupo/stirling_number_of_the_first_kind.cpp</a>
 
 
 ## Verify Files
