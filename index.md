@@ -58,6 +58,7 @@ layout: default
 
 * :warning: <a href="library/cpp_src/graph/BipartiteMatching.hpp.html">cpp_src/graph/BipartiteMatching.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/Dinic.hpp.html">cpp_src/graph/Dinic.hpp</a>
+* :warning: <a href="library/cpp_src/graph/EulerPath.hpp.html">cpp_src/graph/EulerPath.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
 * :warning: <a href="library/cpp_src/graph/Namori.hpp.html">cpp_src/graph/Namori.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/SCC.hpp.html">cpp_src/graph/SCC.hpp</a>
@@ -126,8 +127,10 @@ layout: default
 
 ### test/yosupo
 
+* :warning: <a href="library/test/yosupo/SubsetSum.cpp.html">test/yosupo/SubsetSum.cpp</a>
 * :warning: <a href="library/test/yosupo/det.cpp.html">test/yosupo/det.cpp</a>
 * :warning: <a href="library/test/yosupo/min_cost_b_flow.cpp.html">test/yosupo/min_cost_b_flow.cpp</a>
+* :warning: <a href="library/test/yosupo/number_of_substrings.cpp.html">test/yosupo/number_of_substrings.cpp</a>
 * :warning: <a href="library/test/yosupo/stirling_number_of_the_first_kind.cpp.html">test/yosupo/stirling_number_of_the_first_kind.cpp</a>
 
 
