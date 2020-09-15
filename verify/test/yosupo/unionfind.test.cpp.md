@@ -25,21 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/unionfind.test.cpp
+# :x: test/yosupo/unionfind.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-07-17 17:36:15+09:00
+    - Last commit date: 1970-01-01 00:00:00+00:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
-
-
-## Depends on
-
-* :heavy_check_mark: <a href="../../../library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
 
 ## Code
@@ -119,107 +113,16 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/unionfind.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
-#include <bits/stdc++.h>
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-template<class T> using V = vector<T>;
-template<class T> using VV = V<V<T>>;
-
-#define pb push_back
-#define eb emplace_back
-#define mp make_pair
-#define fi first
-#define se second
-#define rep(i,n) rep2(i,0,n)
-#define rep2(i,m,n) for(int i=m;i<(n);i++)
-#define ALL(c) (c).begin(),(c).end()
-
-#ifdef LOCAL
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else 
-#define dump(x) true
-#endif
-
-constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
-
-template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
-template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
-
-template<class T, class U>
-ostream& operator<<(ostream& os, const pair<T, U>& p) {
-	os<<"("<<p.first<<","<<p.second<<")";
-	return os;
-}
-
-template<class T>
-ostream& operator<<(ostream& os, const vector<T>& v) {
-	os<<"{";
-	rep(i, v.size()) {
-		if (i) os<<",";
-		os<<v[i];
-	}
-	os<<"}";
-	return os;
-}
-
-#define call_from_test
-#line 1 "cpp_src/data_structure/unionfind.hpp"
-class unionfind {
-	vector<int> par, rank;
-
-public:
-	void init(int n) {
-		par.resize(n);
-		rank.resize(n);
-
-		for (int i = 0; i < n; i++) {
-			par[i] = i;
-			rank[i] = 0;
-		}
-	}
-
-	int find(int x) {
-		if (par[x] == x) return x;
-		else return par[x] = find(par[x]);
-	}
-
-	void unite(int x, int y) {
-		x = find(x);
-		y = find(y);
-		if (x == y) return ;
-
-		if (rank[x] < rank[y]) par[x] = y;
-		else {
-			par[y] = x;
-			if (rank[x] == rank[y]) ++rank[x];
-		}
-	}
-
-	bool same(int x, int y) { return (find(x) == find(y)); }
-};
-#line 49 "test/yosupo/unionfind.test.cpp"
-#undef call_from_test
-
-int main() {
-	int N, Q; scanf("%d %d", &N, &Q);
-	unionfind uf;
-	uf.init(N);
-
-	rep(i, Q) {
-		int t, u, v;
-		scanf("%d %d %d", &t, &u, &v);
-		if (t == 0) {
-			uf.unite(u, v);
-		} else {
-			printf("%d\n", uf.same(u, v));
-		}
-	}
-	return 0;
-}
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 349, in write_contents
+    bundled_code = language.bundle(self.file_class.file_path, basedir=pathlib.Path.cwd())
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py", line 185, in bundle
+    bundler.update(path)
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 399, in update
+    self.update(self._resolve(pathlib.Path(included), included_from=path))
+  File "/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py", line 258, in _resolve
+    raise BundleErrorAt(path, -1, "no such header")
+onlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../cpp_src/data_structure/unionfind.hpp: line -1: no such header
 
 ```
 {% endraw %}

@@ -50,8 +50,6 @@ layout: default
 * :warning: <a href="library/cpp_src/data_structure/SegmentTree.hpp.html">cpp_src/data_structure/SegmentTree.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/StarrySkyTree.hpp.html">cpp_src/data_structure/StarrySkyTree.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/UnionFind.hpp.html">cpp_src/data_structure/UnionFind.hpp</a>
-* :question: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
-* :heavy_check_mark: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
 
 <div id="899db7edb5841537da14f45d9b6032f9"></div>
@@ -102,7 +100,6 @@ layout: default
 * :warning: <a href="library/cpp_src/string/Manacher.hpp.html">cpp_src/string/Manacher.hpp</a>
 * :warning: <a href="library/cpp_src/string/RollingHash.hpp.html">cpp_src/string/RollingHash.hpp</a>
 * :warning: <a href="library/cpp_src/string/Zalgo.hpp.html">cpp_src/string/Zalgo.hpp</a>
-* :warning: <a href="library/cpp_src/string/manacher.hpp.html">cpp_src/string/manacher.hpp</a>
 
 
 <div id="d4e24500d23f47b8d075758221d17bd2"></div>
@@ -142,7 +139,7 @@ layout: default
 ## Verify Files
 
 * :x: <a href="verify/test/aoj/0343.test.cpp.html">test/aoj/0343.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
+* :x: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
 * :x: <a href="verify/test/yosupo/Z.test.cpp.html">test/yosupo/Z.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/aplusb.test.cpp.html">test/yosupo/aplusb.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/assignment.test.cpp.html">test/yosupo/assignment.test.cpp</a>
@@ -151,10 +148,10 @@ layout: default
 * :x: <a href="verify/test/yosupo/exp_of_fps.test.cpp.html">test/yosupo/exp_of_fps.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/lca.test.cpp.html">test/yosupo/lca.test.cpp</a>
 * :x: <a href="verify/test/yosupo/log_of_fps.test.cpp.html">test/yosupo/log_of_fps.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
+* :x: <a href="verify/test/yosupo/point_add_range_sum.test.cpp.html">test/yosupo/point_add_range_sum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/point_set_range_composite.test.cpp.html">test/yosupo/point_set_range_composite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/yosupo/scc.test.cpp.html">test/yosupo/scc.test.cpp</a>
 * :x: <a href="verify/test/yosupo/staticrmq.test.cpp.html">test/yosupo/staticrmq.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
+* :x: <a href="verify/test/yosupo/unionfind.test.cpp.html">test/yosupo/unionfind.test.cpp</a>
 
 
