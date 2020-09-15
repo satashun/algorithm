@@ -66,7 +66,6 @@ layout: default
 * :warning: <a href="library/cpp_src/graph/MinCostFlow.hpp.html">cpp_src/graph/MinCostFlow.hpp</a>
 * :warning: <a href="library/cpp_src/graph/Namori.hpp.html">cpp_src/graph/Namori.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/SCC.hpp.html">cpp_src/graph/SCC.hpp</a>
-* :warning: <a href="library/cpp_src/graph/lowlink.hpp.html">cpp_src/graph/lowlink.hpp</a>
 * :warning: <a href="library/cpp_src/graph/mincostflow.hpp.html">cpp_src/graph/mincostflow.hpp</a>
 
 
