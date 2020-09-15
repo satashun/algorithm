@@ -45,9 +45,11 @@ layout: default
 
 ### cpp_src/data_structure
 
+* :warning: <a href="library/cpp_src/data_structure/Fenwick.hpp.html">cpp_src/data_structure/Fenwick.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/LazySegmentTree.hpp.html">cpp_src/data_structure/LazySegmentTree.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/SegmentTree.hpp.html">cpp_src/data_structure/SegmentTree.hpp</a>
 * :warning: <a href="library/cpp_src/data_structure/StarrySkyTree.hpp.html">cpp_src/data_structure/StarrySkyTree.hpp</a>
+* :warning: <a href="library/cpp_src/data_structure/UnionFind.hpp.html">cpp_src/data_structure/UnionFind.hpp</a>
 * :question: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
 
@@ -60,6 +62,8 @@ layout: default
 * :heavy_check_mark: <a href="library/cpp_src/graph/Dinic.hpp.html">cpp_src/graph/Dinic.hpp</a>
 * :warning: <a href="library/cpp_src/graph/EulerPath.hpp.html">cpp_src/graph/EulerPath.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
+* :warning: <a href="library/cpp_src/graph/LowLink.hpp.html">cpp_src/graph/LowLink.hpp</a>
+* :warning: <a href="library/cpp_src/graph/MinCostFlow.hpp.html">cpp_src/graph/MinCostFlow.hpp</a>
 * :warning: <a href="library/cpp_src/graph/Namori.hpp.html">cpp_src/graph/Namori.hpp</a>
 * :heavy_check_mark: <a href="library/cpp_src/graph/SCC.hpp.html">cpp_src/graph/SCC.hpp</a>
 * :warning: <a href="library/cpp_src/graph/lowlink.hpp.html">cpp_src/graph/lowlink.hpp</a>
@@ -96,6 +100,7 @@ layout: default
 
 ### cpp_src/string
 
+* :warning: <a href="library/cpp_src/string/Manacher.hpp.html">cpp_src/string/Manacher.hpp</a>
 * :warning: <a href="library/cpp_src/string/RollingHash.hpp.html">cpp_src/string/RollingHash.hpp</a>
 * :warning: <a href="library/cpp_src/string/Zalgo.hpp.html">cpp_src/string/Zalgo.hpp</a>
 * :warning: <a href="library/cpp_src/string/manacher.hpp.html">cpp_src/string/manacher.hpp</a>
