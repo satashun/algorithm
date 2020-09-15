@@ -132,6 +132,7 @@ layout: default
 * :warning: <a href="library/test/yosupo/min_cost_b_flow.cpp.html">test/yosupo/min_cost_b_flow.cpp</a>
 * :warning: <a href="library/test/yosupo/number_of_substrings.cpp.html">test/yosupo/number_of_substrings.cpp</a>
 * :warning: <a href="library/test/yosupo/stirling_number_of_the_first_kind.cpp.html">test/yosupo/stirling_number_of_the_first_kind.cpp</a>
+* :warning: <a href="library/test/yosupo/suffixarray.cpp.html">test/yosupo/suffixarray.cpp</a>
 
 
 ## Verify Files

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#899db7edb5841537da14f45d9b6032f9">cpp_src/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/cpp_src/graph/mincostflow.hpp">View this file on GitHub</a>
-    - Last commit date: 2020-08-06 01:21:11+09:00
+    - Last commit date: 2020-09-15 11:18:09+09:00
 
 
 
@@ -41,13 +41,14 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-template<class C, class D> //capacity, distance
+template <class C, class D>  // capacity, distance
 struct MinCostFlow {
     struct edge {
         int to, rev;
         C cap;
         D cost;
-        edge(int to, C cap, D cost, int rev) : to(to), cap(cap), cost(cost), rev(rev){};
+        edge(int to, C cap, D cost, int rev)
+            : to(to), cap(cap), cost(cost), rev(rev){};
     };
 
     using E = edge;
@@ -57,7 +58,7 @@ struct MinCostFlow {
     int n;
     VV<E> g;
     V<D> h, dst;
-    V<int> prevv, preve; 
+    V<int> prevv, preve;
 
     MinCostFlow(int n) : n(n), g(n), h(n), dst(n), prevv(n), preve(n) {}
 
@@ -66,23 +67,27 @@ struct MinCostFlow {
         g[t].emplace_back(f, 0, -cost, (int)g[f].size() - 1);
     }
 
-    void init_negative(int s) {
+    // true : no negative cycle
+    bool init_negative(int s) {
         fill(h.begin(), h.end(), INF);
         h[s] = 0;
-        for (int t = 0; t < n; ++t) {
+        for (int t = 0; t <= n; ++t) {
             for (int i = 0; i < n; ++i) {
                 for (auto e : g[i]) {
-                    if (!e.cap || h[i] == INF) continue;
+                    if (!e.cap) continue;
+                    if (h[e.to] > h[i] + e.cost && t == n) {
+                        return false;
+                    }
                     h[e.to] = min(h[e.to], h[i] + e.cost);
                 }
             }
-        }       
+        }
+        return true;
     }
 
     D exec(int s, int t, C f) {
         D res = 0;
         using Data = pair<D, int>;
-
         while (f > 0) {
             priority_queue<Data, vector<Data>, greater<Data>> que;
             fill(dst.begin(), dst.end(), INF);
@@ -90,9 +95,10 @@ struct MinCostFlow {
             que.push(Data(0, s));
 
             while (!que.empty()) {
-                auto p = que.top(); que.pop();
-                int v = p.se;
-                if (dst[v] < p.fi) continue;
+                auto p = que.top();
+                que.pop();
+                int v = p.second;
+                if (dst[v] < p.first) continue;
 
                 rep(i, g[v].size()) {
                     auto e = g[v][i];
@@ -106,7 +112,7 @@ struct MinCostFlow {
                 }
             }
 
-            if (dst[t] == INF) return D(-1);
+            if (dst[t] == INF) return D(-inf);
             rep(i, n) h[i] += dst[i];
 
             C d = f;
@@ -116,7 +122,7 @@ struct MinCostFlow {
             f -= d;
             res += d * h[t];
             for (int v = t; v != s; v = prevv[v]) {
-                edge &e = g[prevv[v]][preve[v]];
+                edge& e = g[prevv[v]][preve[v]];
                 e.cap -= d;
                 g[v][e.rev].cap += d;
             }
@@ -132,13 +138,14 @@ struct MinCostFlow {
 {% raw %}
 ```cpp
 #line 1 "cpp_src/graph/mincostflow.hpp"
-template<class C, class D> //capacity, distance
+template <class C, class D>  // capacity, distance
 struct MinCostFlow {
     struct edge {
         int to, rev;
         C cap;
         D cost;
-        edge(int to, C cap, D cost, int rev) : to(to), cap(cap), cost(cost), rev(rev){};
+        edge(int to, C cap, D cost, int rev)
+            : to(to), cap(cap), cost(cost), rev(rev){};
     };
 
     using E = edge;
@@ -148,7 +155,7 @@ struct MinCostFlow {
     int n;
     VV<E> g;
     V<D> h, dst;
-    V<int> prevv, preve; 
+    V<int> prevv, preve;
 
     MinCostFlow(int n) : n(n), g(n), h(n), dst(n), prevv(n), preve(n) {}
 
@@ -157,23 +164,27 @@ struct MinCostFlow {
         g[t].emplace_back(f, 0, -cost, (int)g[f].size() - 1);
     }
 
-    void init_negative(int s) {
+    // true : no negative cycle
+    bool init_negative(int s) {
         fill(h.begin(), h.end(), INF);
         h[s] = 0;
-        for (int t = 0; t < n; ++t) {
+        for (int t = 0; t <= n; ++t) {
             for (int i = 0; i < n; ++i) {
                 for (auto e : g[i]) {
-                    if (!e.cap || h[i] == INF) continue;
+                    if (!e.cap) continue;
+                    if (h[e.to] > h[i] + e.cost && t == n) {
+                        return false;
+                    }
                     h[e.to] = min(h[e.to], h[i] + e.cost);
                 }
             }
-        }       
+        }
+        return true;
     }
 
     D exec(int s, int t, C f) {
         D res = 0;
         using Data = pair<D, int>;
-
         while (f > 0) {
             priority_queue<Data, vector<Data>, greater<Data>> que;
             fill(dst.begin(), dst.end(), INF);
@@ -181,9 +192,10 @@ struct MinCostFlow {
             que.push(Data(0, s));
 
             while (!que.empty()) {
-                auto p = que.top(); que.pop();
-                int v = p.se;
-                if (dst[v] < p.fi) continue;
+                auto p = que.top();
+                que.pop();
+                int v = p.second;
+                if (dst[v] < p.first) continue;
 
                 rep(i, g[v].size()) {
                     auto e = g[v][i];
@@ -197,7 +209,7 @@ struct MinCostFlow {
                 }
             }
 
-            if (dst[t] == INF) return D(-1);
+            if (dst[t] == INF) return D(-inf);
             rep(i, n) h[i] += dst[i];
 
             C d = f;
@@ -207,7 +219,7 @@ struct MinCostFlow {
             f -= d;
             res += d * h[t];
             for (int v = t; v != s; v = prevv[v]) {
-                edge &e = g[prevv[v]][preve[v]];
+                edge& e = g[prevv[v]][preve[v]];
                 e.cap -= d;
                 g[v][e.rev].cap += d;
             }
