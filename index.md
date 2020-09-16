@@ -27,9 +27,6 @@ data:
       path: cpp_src/graph/LCA.hpp
       title: cpp_src/graph/LCA.hpp
     - icon: ':warning:'
-      path: cpp_src/graph/MinCostFlow.hpp
-      title: cpp_src/graph/MinCostFlow.hpp
-    - icon: ':warning:'
       path: cpp_src/graph/Namori.hpp
       title: cpp_src/graph/Namori.hpp
     - icon: ':heavy_check_mark:'
@@ -41,17 +38,8 @@ data:
       path: cpp_src/math/ArbmodFFT.hpp
       title: cpp_src/math/ArbmodFFT.hpp
     - icon: ':warning:'
-      path: cpp_src/math/Interpolation.hpp
-      title: cpp_src/math/Interpolation.hpp
-    - icon: ':warning:'
       path: cpp_src/math/LinearSieve.hpp
       title: cpp_src/math/LinearSieve.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/Matrix.hpp
-      title: cpp_src/math/Matrix.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/Modint.hpp
-      title: cpp_src/math/Modint.hpp
     - icon: ':warning:'
       path: cpp_src/math/ModintRuntime.hpp
       title: cpp_src/math/ModintRuntime.hpp
@@ -65,14 +53,8 @@ data:
       path: cpp_src/math/NumberTheory.hpp
       title: cpp_src/math/NumberTheory.hpp
     - icon: ':warning:'
-      path: cpp_src/math/Polynomial.hpp
-      title: cpp_src/math/Polynomial.hpp
-    - icon: ':warning:'
       path: cpp_src/math/TypicalModOperation.hpp
       title: cpp_src/math/TypicalModOperation.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/Useful.hpp
-      title: cpp_src/math/Useful.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
