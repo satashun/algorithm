@@ -35,9 +35,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/SCC.hpp
       title: cpp_src/graph/SCC.hpp
-    - icon: ':warning:'
-      path: cpp_src/graph/mincostflow.hpp
-      title: cpp_src/graph/mincostflow.hpp
   - name: cpp_src/math
     pages:
     - icon: ':warning:'
@@ -76,15 +73,6 @@ data:
     - icon: ':warning:'
       path: cpp_src/math/Useful.hpp
       title: cpp_src/math/Useful.hpp
-    - icon: ':heavy_check_mark:'
-      path: cpp_src/math/modint.hpp
-      title: cpp_src/math/modint.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/polynomial.hpp
-      title: cpp_src/math/polynomial.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/useful.hpp
-      title: cpp_src/math/useful.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
@@ -182,7 +170,7 @@ data:
     - icon: ':x:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
