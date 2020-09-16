@@ -76,12 +76,6 @@ data:
     - icon: ':warning:'
       path: cpp_src/math/Useful.hpp
       title: cpp_src/math/Useful.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/interpolation.hpp
-      title: cpp_src/math/interpolation.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/matrix.hpp
-      title: cpp_src/math/matrix.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/math/modint.hpp
       title: cpp_src/math/modint.hpp
