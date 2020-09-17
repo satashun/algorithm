@@ -62,8 +62,14 @@ data:
       path: cpp_src/math/FFTArbitraryMod.hpp
       title: cpp_src/math/FFTArbitraryMod.hpp
     - icon: ':warning:'
-      path: cpp_src/math/Interpolation.hpp
-      title: cpp_src/math/Interpolation.hpp
+      path: cpp_src/math/FormalPowerSeries.hpp
+      title: cpp_src/math/FormalPowerSeries.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/HelperFunctions.hpp
+      title: cpp_src/math/HelperFunctions.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/LinearSieve.hpp
+      title: cpp_src/math/LinearSieve.hpp
     - icon: ':warning:'
       path: cpp_src/math/MatrixLinearAlgebra.hpp
       title: cpp_src/math/MatrixLinearAlgebra.hpp
@@ -86,17 +92,8 @@ data:
       path: cpp_src/math/NumberTheory.hpp
       title: cpp_src/math/NumberTheory.hpp
     - icon: ':warning:'
-      path: cpp_src/math/interpolation.hpp
-      title: cpp_src/math/interpolation.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/polynomial.hpp
-      title: cpp_src/math/polynomial.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/sieve.hpp
-      title: cpp_src/math/sieve.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/useful.hpp
-      title: cpp_src/math/useful.hpp
+      path: cpp_src/math/PolynomialInterpolation.hpp
+      title: cpp_src/math/PolynomialInterpolation.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'

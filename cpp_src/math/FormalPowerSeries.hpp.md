@@ -8,13 +8,13 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/polynomial.hpp\"\n// depends on FFT libs\n\
-    // basically use with ModInt\n\nNumberTheoreticTransform<Mint> ntt;\n\ntemplate\
-    \ <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n    Poly(Args...\
-    \ args) : V<D>(args...) {}\n    Poly(initializer_list<D> init) : V<D>(init.begin(),\
-    \ init.end()) {}\n\n    int size() const { return V<D>::size(); }\n    D at(int\
-    \ p) const { return (p < this->size() ? (*this)[p] : D(0)); }\n\n    // first\
-    \ len terms\n    Poly pref(int len) const {\n        return Poly(this->begin(),\
+  bundledCode: "#line 1 \"cpp_src/math/FormalPowerSeries.hpp\"\n// depends on FFT\
+    \ libs\n// basically use with ModInt\n\nNumberTheoreticTransform<Mint> ntt;\n\n\
+    template <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n\
+    \    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D> init)\
+    \ : V<D>(init.begin(), init.end()) {}\n\n    int size() const { return V<D>::size();\
+    \ }\n    D at(int p) const { return (p < this->size() ? (*this)[p] : D(0)); }\n\
+    \n    // first len terms\n    Poly pref(int len) const {\n        return Poly(this->begin(),\
     \ this->begin() + min(this->size(), len));\n    }\n\n    // for polynomial division\n\
     \    Poly rev() const {\n        Poly res = *this;\n        reverse(res.begin(),\
     \ res.end());\n        return res;\n    }\n\n    Poly operator+(const Poly& r)\
@@ -171,15 +171,15 @@ data:
     \    }\n\n    return que.top();\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/polynomial.hpp
+  path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:16:36+09:00'
+  timestamp: '2020-09-17 22:18:23+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/polynomial.hpp
+documentation_of: cpp_src/math/FormalPowerSeries.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/polynomial.hpp
-- /library/cpp_src/math/polynomial.hpp.html
-title: cpp_src/math/polynomial.hpp
+- /library/cpp_src/math/FormalPowerSeries.hpp
+- /library/cpp_src/math/FormalPowerSeries.hpp.html
+title: cpp_src/math/FormalPowerSeries.hpp
 ---
