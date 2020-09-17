@@ -59,8 +59,32 @@ data:
   - name: cpp_src/math
     pages:
     - icon: ':warning:'
-      path: cpp_src/math/fft_arbitrarymod.hpp
-      title: cpp_src/math/fft_arbitrarymod.hpp
+      path: cpp_src/math/FFTArbitraryMod.hpp
+      title: cpp_src/math/FFTArbitraryMod.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/Interpolation.hpp
+      title: cpp_src/math/Interpolation.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/Matrix.hpp
+      title: cpp_src/math/Matrix.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModInt.hpp
+      title: cpp_src/math/ModInt.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModIntRuntime.hpp
+      title: cpp_src/math/ModIntRuntime.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModularOperation.hpp
+      title: cpp_src/math/ModularOperation.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/MultipointEvaluation.hpp
+      title: cpp_src/math/MultipointEvaluation.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/NumberTheoreticTransform.hpp
+      title: cpp_src/math/NumberTheoreticTransform.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/NumberTheory.hpp
+      title: cpp_src/math/NumberTheory.hpp
     - icon: ':warning:'
       path: cpp_src/math/interpolation.hpp
       title: cpp_src/math/interpolation.hpp
@@ -71,26 +95,11 @@ data:
       path: cpp_src/math/modint.hpp
       title: cpp_src/math/modint.hpp
     - icon: ':warning:'
-      path: cpp_src/math/modint_runtime.hpp
-      title: cpp_src/math/modint_runtime.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/multipoint_evaluation.hpp
-      title: cpp_src/math/multipoint_evaluation.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/number_theoretic_transform.hpp
-      title: cpp_src/math/number_theoretic_transform.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/number_theory.hpp
-      title: cpp_src/math/number_theory.hpp
-    - icon: ':warning:'
       path: cpp_src/math/polynomial.hpp
       title: cpp_src/math/polynomial.hpp
     - icon: ':warning:'
       path: cpp_src/math/sieve.hpp
       title: cpp_src/math/sieve.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/typical_mod_operation.hpp
-      title: cpp_src/math/typical_mod_operation.hpp
     - icon: ':warning:'
       path: cpp_src/math/useful.hpp
       title: cpp_src/math/useful.hpp

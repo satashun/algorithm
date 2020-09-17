@@ -8,8 +8,8 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/number_theoretic_transform.hpp\"\n//depend\
-    \ on ModInt, must use NTT friendly mod\n\ntemplate<class D>\nstruct NumberTheoreticTransform\
+  bundledCode: "#line 1 \"cpp_src/math/NumberTheoreticTransform.hpp\"\n//depend on\
+    \ ModInt, must use NTT friendly mod\n\ntemplate<class D>\nstruct NumberTheoreticTransform\
     \ {\n\tD root;\n\tV<D> roots = {0, 1};\n\tV<int> rev = {0, 1};\n\tint base = 1,\
     \ max_base = -1;\n\n\tvoid init() {\n\t\tint mod = D::get_mod();\n\t\tint tmp\
     \ = mod - 1;\n\t\tmax_base = 0;\n\t\twhile (tmp % 2 == 0) {\n\t\t\ttmp /= 2;\n\
@@ -69,15 +69,15 @@ data:
     a.resize(s);\n\t\treturn a;\n\t}\n};"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/number_theoretic_transform.hpp
+  path: cpp_src/math/NumberTheoreticTransform.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:07:27+09:00'
+  timestamp: '2020-09-17 22:13:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/number_theoretic_transform.hpp
+documentation_of: cpp_src/math/NumberTheoreticTransform.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/number_theoretic_transform.hpp
-- /library/cpp_src/math/number_theoretic_transform.hpp.html
-title: cpp_src/math/number_theoretic_transform.hpp
+- /library/cpp_src/math/NumberTheoreticTransform.hpp
+- /library/cpp_src/math/NumberTheoreticTransform.hpp.html
+title: cpp_src/math/NumberTheoreticTransform.hpp
 ---

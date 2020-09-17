@@ -8,7 +8,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/number_theory.hpp\"\n//O(sqrt(x))\nll totient(ll\
+  bundledCode: "#line 1 \"cpp_src/math/NumberTheory.hpp\"\n//O(sqrt(x))\nll totient(ll\
     \ x) {\n\tll res = x;\n\tfor (ll i = 2; i * i <= x; ++i) {\n\t\tif (x % i == 0)\
     \ {\n\t\t\tres = res / i * (i-1);\n\t\t\twhile (x % i == 0) {\n\t\t\t\tx /= i;\n\
     \t\t\t}\n\t\t}\n\t}\n\tif (x != 1) {\n\t\tres = res / x * (x - 1);\n\t}\n\treturn\
@@ -33,15 +33,15 @@ data:
     v1.insert(v1.end(), ALL(v2));\n\treturn v1;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/number_theory.hpp
+  path: cpp_src/math/NumberTheory.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:07:27+09:00'
+  timestamp: '2020-09-17 22:13:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/number_theory.hpp
+documentation_of: cpp_src/math/NumberTheory.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/number_theory.hpp
-- /library/cpp_src/math/number_theory.hpp.html
-title: cpp_src/math/number_theory.hpp
+- /library/cpp_src/math/NumberTheory.hpp
+- /library/cpp_src/math/NumberTheory.hpp.html
+title: cpp_src/math/NumberTheory.hpp
 ---

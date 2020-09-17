@@ -8,7 +8,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/fft_arbitrarymod.hpp\"\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"cpp_src/math/FFTArbitraryMod.hpp\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class\
     \ T> using V = vector<T>;\ntemplate<class T> using VV = V<V<T>>;\n\n#define pb\
     \ push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
@@ -204,15 +204,15 @@ data:
     }\n"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/fft_arbitrarymod.hpp
+  path: cpp_src/math/FFTArbitraryMod.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:07:27+09:00'
+  timestamp: '2020-09-17 22:13:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/fft_arbitrarymod.hpp
+documentation_of: cpp_src/math/FFTArbitraryMod.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/fft_arbitrarymod.hpp
-- /library/cpp_src/math/fft_arbitrarymod.hpp.html
-title: cpp_src/math/fft_arbitrarymod.hpp
+- /library/cpp_src/math/FFTArbitraryMod.hpp
+- /library/cpp_src/math/FFTArbitraryMod.hpp.html
+title: cpp_src/math/FFTArbitraryMod.hpp
 ---

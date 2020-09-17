@@ -8,7 +8,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/multipoint_evaluation.hpp\"\ntemplate<class\
+  bundledCode: "#line 1 \"cpp_src/math/MultipointEvaluation.hpp\"\ntemplate<class\
     \ D>\nstruct MultiEval {\n\tusing P = MultiEval*;\n\tP lc, rc;\n\tV<D> xs;\n\t\
     int sz;\n\tPoly<D> dpol;\n\n\tconst int B = 100;\n\n\tMultiEval(const V<D>& _xs,\
     \ int l, int r) : sz(r - l) {\n\t\tif (r - l <= B) {\n\t\t\txs = {_xs.begin()\
@@ -35,15 +35,15 @@ data:
     return res;\n\t}\n};"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/multipoint_evaluation.hpp
+  path: cpp_src/math/MultipointEvaluation.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:07:27+09:00'
+  timestamp: '2020-09-17 22:13:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/multipoint_evaluation.hpp
+documentation_of: cpp_src/math/MultipointEvaluation.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/multipoint_evaluation.hpp
-- /library/cpp_src/math/multipoint_evaluation.hpp.html
-title: cpp_src/math/multipoint_evaluation.hpp
+- /library/cpp_src/math/MultipointEvaluation.hpp
+- /library/cpp_src/math/MultipointEvaluation.hpp.html
+title: cpp_src/math/MultipointEvaluation.hpp
 ---
