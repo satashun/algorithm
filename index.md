@@ -109,11 +109,8 @@ data:
   - name: cpp_src/utility
     pages:
     - icon: ':warning:'
-      path: cpp_src/utility/Random.hpp
-      title: cpp_src/utility/Random.hpp
-    - icon: ':warning:'
-      path: cpp_src/utility/random.hpp
-      title: cpp_src/utility/random.hpp
+      path: cpp_src/utility/RandomLib.hpp
+      title: cpp_src/utility/RandomLib.hpp
   - name: py_src
     pages:
     - icon: ':warning:'
