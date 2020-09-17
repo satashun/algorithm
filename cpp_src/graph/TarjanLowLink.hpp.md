@@ -8,9 +8,9 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/graph/LowLink.hpp\"\nstruct LowLink {\n\tVV<int>\
-    \ g;\n\tV<int> ord, low;\n\tV<bool> vis;\n\tvector<pair<int, int> > bridge;\n\t\
-    vector<int> articulation;\n\n\tvoid init(int n) {\n\t\tg.resize(n);\n\t\tord.resize(n);\n\
+  bundledCode: "#line 1 \"cpp_src/graph/TarjanLowLink.hpp\"\nstruct LowLink {\n\t\
+    VV<int> g;\n\tV<int> ord, low;\n\tV<bool> vis;\n\tvector<pair<int, int> > bridge;\n\
+    \tvector<int> articulation;\n\n\tvoid init(int n) {\n\t\tg.resize(n);\n\t\tord.resize(n);\n\
     \t\tlow.resize(n);\n\t\tvis.resize(n);\n\t}\n\n\tvoid add_edge(int u, int v) {\n\
     \t\tg[u].push_back(v);\n\t\tg[v].push_back(u);\n\t}\n\n\tvoid dfs(int v, int p,\
     \ int &k) {\n\t\tvis[v] = true;\n\n\t\tord[v] = k++;\n\t\tlow[v] = ord[v];\n\n\
@@ -62,15 +62,15 @@ data:
     \t}\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/graph/LowLink.hpp
+  path: cpp_src/graph/TarjanLowLink.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:07:27+09:00'
+  timestamp: '2020-09-17 22:26:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/graph/LowLink.hpp
+documentation_of: cpp_src/graph/TarjanLowLink.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/graph/LowLink.hpp
-- /library/cpp_src/graph/LowLink.hpp.html
-title: cpp_src/graph/LowLink.hpp
+- /library/cpp_src/graph/TarjanLowLink.hpp
+- /library/cpp_src/graph/TarjanLowLink.hpp.html
+title: cpp_src/graph/TarjanLowLink.hpp
 ---

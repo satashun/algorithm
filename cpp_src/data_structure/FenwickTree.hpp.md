@@ -8,10 +8,10 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/data_structure/Fenwick.hpp\"\ntemplate<class T>\n\
-    struct BIT {\n\tint n;\n\tvector<T> bit;\n\n\tBIT(int _n = 0) : n(_n), bit(n +\
-    \ 1) {}\n\n\t//sum of [0, i), 0 <= i <= n\n\tT sum(int i) {\n\t\tT s = 0;\n\t\t\
-    while (i > 0) {\n\t\t\ts += bit[i];\n\t\t\ti -= i & -i;\n\t\t}\n\t\treturn s;\n\
+  bundledCode: "#line 1 \"cpp_src/data_structure/FenwickTree.hpp\"\ntemplate<class\
+    \ T>\nstruct BIT {\n\tint n;\n\tvector<T> bit;\n\n\tBIT(int _n = 0) : n(_n), bit(n\
+    \ + 1) {}\n\n\t//sum of [0, i), 0 <= i <= n\n\tT sum(int i) {\n\t\tT s = 0;\n\t\
+    \twhile (i > 0) {\n\t\t\ts += bit[i];\n\t\t\ti -= i & -i;\n\t\t}\n\t\treturn s;\n\
     \t}\n\n\t//0 <= i < n\n\tvoid add(int i, T x) {\n\t\t++i;\n\t\twhile (i <= n)\
     \ {\n\t\t\tbit[i] += x;\n\t\t\ti += i & -i;\n\t\t}\n\t}\n\n\t//[l, r) 0 <= l <\
     \ r < n\n\tT sum(int l, int r) {\n\t\treturn sum(r) - sum(l);\n\t}\n\n\t//not\
@@ -33,15 +33,15 @@ data:
     \t\t\t}\n\t\t}\n\t\treturn x + 1;\n\t}\n};"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/data_structure/Fenwick.hpp
+  path: cpp_src/data_structure/FenwickTree.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:07:27+09:00'
+  timestamp: '2020-09-17 22:26:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/data_structure/Fenwick.hpp
+documentation_of: cpp_src/data_structure/FenwickTree.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/data_structure/Fenwick.hpp
-- /library/cpp_src/data_structure/Fenwick.hpp.html
-title: cpp_src/data_structure/Fenwick.hpp
+- /library/cpp_src/data_structure/FenwickTree.hpp
+- /library/cpp_src/data_structure/FenwickTree.hpp.html
+title: cpp_src/data_structure/FenwickTree.hpp
 ---

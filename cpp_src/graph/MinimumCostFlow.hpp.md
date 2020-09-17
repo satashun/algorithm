@@ -8,15 +8,15 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/graph/mincostflow.hpp\"\ntemplate <class C, class\
-    \ D>  // capacity, distance\nstruct MinCostFlow {\n    struct edge {\n       \
-    \ int to, rev;\n        C cap;\n        D cost;\n        edge(int to, C cap, D\
-    \ cost, int rev)\n            : to(to), cap(cap), cost(cost), rev(rev){};\n  \
-    \  };\n\n    using E = edge;\n\n    const D INF = numeric_limits<D>::max() / D(3);\n\
-    \n    int n;\n    VV<E> g;\n    V<D> h, dst;\n    V<int> prevv, preve;\n\n   \
-    \ MinCostFlow(int n) : n(n), g(n), h(n), dst(n), prevv(n), preve(n) {}\n\n   \
-    \ void add_edge(int f, int t, C cap, D cost) {\n        g[f].emplace_back(t, cap,\
-    \ cost, (int)g[t].size());\n        g[t].emplace_back(f, 0, -cost, (int)g[f].size()\
+  bundledCode: "#line 1 \"cpp_src/graph/MinimumCostFlow.hpp\"\ntemplate <class C,\
+    \ class D>  // capacity, distance\nstruct MinCostFlow {\n    struct edge {\n \
+    \       int to, rev;\n        C cap;\n        D cost;\n        edge(int to, C\
+    \ cap, D cost, int rev)\n            : to(to), cap(cap), cost(cost), rev(rev){};\n\
+    \    };\n\n    using E = edge;\n\n    const D INF = numeric_limits<D>::max() /\
+    \ D(3);\n\n    int n;\n    VV<E> g;\n    V<D> h, dst;\n    V<int> prevv, preve;\n\
+    \n    MinCostFlow(int n) : n(n), g(n), h(n), dst(n), prevv(n), preve(n) {}\n\n\
+    \    void add_edge(int f, int t, C cap, D cost) {\n        g[f].emplace_back(t,\
+    \ cap, cost, (int)g[t].size());\n        g[t].emplace_back(f, 0, -cost, (int)g[f].size()\
     \ - 1);\n    }\n\n    // true : no negative cycle\n    bool init_negative(int\
     \ s) {\n        fill(h.begin(), h.end(), INF);\n        h[s] = 0;\n        for\
     \ (int t = 0; t <= n; ++t) {\n            for (int i = 0; i < n; ++i) {\n    \
@@ -79,15 +79,15 @@ data:
     \        }\n\n        return res;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/graph/mincostflow.hpp
+  path: cpp_src/graph/MinimumCostFlow.hpp
   requiredBy: []
-  timestamp: '2020-09-17 02:06:45+09:00'
+  timestamp: '2020-09-17 22:26:34+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/graph/mincostflow.hpp
+documentation_of: cpp_src/graph/MinimumCostFlow.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/graph/mincostflow.hpp
-- /library/cpp_src/graph/mincostflow.hpp.html
-title: cpp_src/graph/mincostflow.hpp
+- /library/cpp_src/graph/MinimumCostFlow.hpp
+- /library/cpp_src/graph/MinimumCostFlow.hpp.html
+title: cpp_src/graph/MinimumCostFlow.hpp
 ---
