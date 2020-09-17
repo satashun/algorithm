@@ -8,7 +8,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/string/Manacher_pal.hpp\"\nvector<int> manacher(const\
+  bundledCode: "#line 1 \"cpp_src/string/Manacher.hpp\"\nvector<int> manacher(const\
     \ string &_s) {\n    int n = _s.size();\n\n    string s(n*2-1, '#');\n\n    for\
     \ (int i = 0; i < n; ++i) {\n        s[i*2] = _s[i];\n    }\n\n    n = s.size();\n\
     \n    vector<int> rad(n);\n\n    int i = 0, j = 0;\n\n    while (i < n) {\n  \
@@ -25,15 +25,15 @@ data:
     \       }\n\n        i += k;\n        j -= k;\n    }\n\n    return rad;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/string/Manacher_pal.hpp
+  path: cpp_src/string/Manacher.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:26:34+09:00'
+  timestamp: '2020-09-17 22:27:47+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/string/Manacher_pal.hpp
+documentation_of: cpp_src/string/Manacher.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/string/Manacher_pal.hpp
-- /library/cpp_src/string/Manacher_pal.hpp.html
-title: cpp_src/string/Manacher_pal.hpp
+- /library/cpp_src/string/Manacher.hpp
+- /library/cpp_src/string/Manacher.hpp.html
+title: cpp_src/string/Manacher.hpp
 ---

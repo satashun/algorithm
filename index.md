@@ -93,8 +93,8 @@ data:
   - name: cpp_src/string
     pages:
     - icon: ':warning:'
-      path: cpp_src/string/Manacher_pal.hpp
-      title: cpp_src/string/Manacher_pal.hpp
+      path: cpp_src/string/Manacher.hpp
+      title: cpp_src/string/Manacher.hpp
     - icon: ':warning:'
       path: cpp_src/string/RollingHash.hpp
       title: cpp_src/string/RollingHash.hpp
@@ -108,6 +108,9 @@ data:
       title: cpp_src/template.cpp
   - name: cpp_src/utility
     pages:
+    - icon: ':warning:'
+      path: cpp_src/utility/Random.hpp
+      title: cpp_src/utility/Random.hpp
     - icon: ':warning:'
       path: cpp_src/utility/random.hpp
       title: cpp_src/utility/random.hpp
