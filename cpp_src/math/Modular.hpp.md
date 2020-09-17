@@ -8,7 +8,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/ModInt.hpp\"\ntemplate <unsigned int MOD>\n\
+  bundledCode: "#line 1 \"cpp_src/math/Modular.hpp\"\ntemplate <unsigned int MOD>\n\
     struct ModInt {\n    using uint = unsigned int;\n    using ull = unsigned long\
     \ long;\n    using M = ModInt;\n\n    uint v;\n\n    ModInt(ll _v = 0) { set_norm(_v\
     \ % MOD + MOD); }\n    M& set_norm(uint _v) {  //[0, MOD * 2)->[0, MOD)\n    \
@@ -58,15 +58,15 @@ data:
     \ = ModInt<1000000007>;"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/ModInt.hpp
+  path: cpp_src/math/Modular.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:13:34+09:00'
+  timestamp: '2020-09-17 22:16:38+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/ModInt.hpp
+documentation_of: cpp_src/math/Modular.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/ModInt.hpp
-- /library/cpp_src/math/ModInt.hpp.html
-title: cpp_src/math/ModInt.hpp
+- /library/cpp_src/math/Modular.hpp
+- /library/cpp_src/math/Modular.hpp.html
+title: cpp_src/math/Modular.hpp
 ---

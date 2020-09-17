@@ -65,17 +65,17 @@ data:
       path: cpp_src/math/Interpolation.hpp
       title: cpp_src/math/Interpolation.hpp
     - icon: ':warning:'
-      path: cpp_src/math/Matrix.hpp
-      title: cpp_src/math/Matrix.hpp
+      path: cpp_src/math/MatrixLinearAlgebra.hpp
+      title: cpp_src/math/MatrixLinearAlgebra.hpp
     - icon: ':warning:'
-      path: cpp_src/math/ModInt.hpp
-      title: cpp_src/math/ModInt.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/ModIntRuntime.hpp
-      title: cpp_src/math/ModIntRuntime.hpp
+      path: cpp_src/math/Modular.hpp
+      title: cpp_src/math/Modular.hpp
     - icon: ':warning:'
       path: cpp_src/math/ModularOperation.hpp
       title: cpp_src/math/ModularOperation.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModularRuntime.hpp
+      title: cpp_src/math/ModularRuntime.hpp
     - icon: ':warning:'
       path: cpp_src/math/MultipointEvaluation.hpp
       title: cpp_src/math/MultipointEvaluation.hpp
@@ -88,12 +88,6 @@ data:
     - icon: ':warning:'
       path: cpp_src/math/interpolation.hpp
       title: cpp_src/math/interpolation.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/matrix.hpp
-      title: cpp_src/math/matrix.hpp
-    - icon: ':heavy_check_mark:'
-      path: cpp_src/math/modint.hpp
-      title: cpp_src/math/modint.hpp
     - icon: ':warning:'
       path: cpp_src/math/polynomial.hpp
       title: cpp_src/math/polynomial.hpp
@@ -206,7 +200,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'

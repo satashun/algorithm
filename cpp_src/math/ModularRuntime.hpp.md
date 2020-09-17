@@ -8,7 +8,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"cpp_src/math/ModIntRuntime.hpp\"\ntemplate <typename T>\n\
+  bundledCode: "#line 1 \"cpp_src/math/ModularRuntime.hpp\"\ntemplate <typename T>\n\
     struct ModInt {\n    using uint = unsigned int;\n    using ull = unsigned long\
     \ long;\n    using M = ModInt;\n    uint MOD = T::mod;\n\n    uint v;\n\n    ModInt(ll\
     \ _v = 0) { set_norm(_v % MOD + MOD); }\n    M& set_norm(uint _v) {  //[0, MOD\
@@ -63,15 +63,15 @@ data:
     \ mod;\n};\n\nint ModInfo::mod;\nint& md = ModInfo::mod;\nusing Mint = ModInt<ModInfo>;"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/math/ModIntRuntime.hpp
+  path: cpp_src/math/ModularRuntime.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:13:34+09:00'
+  timestamp: '2020-09-17 22:16:38+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/math/ModIntRuntime.hpp
+documentation_of: cpp_src/math/ModularRuntime.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/math/ModIntRuntime.hpp
-- /library/cpp_src/math/ModIntRuntime.hpp.html
-title: cpp_src/math/ModIntRuntime.hpp
+- /library/cpp_src/math/ModularRuntime.hpp
+- /library/cpp_src/math/ModularRuntime.hpp.html
+title: cpp_src/math/ModularRuntime.hpp
 ---
