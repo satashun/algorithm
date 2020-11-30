@@ -210,7 +210,7 @@ Poly<T> berlekamp_massey(const V<T>& s) {
 // deg(result) must be bounded
 
 template <class T>
-Poly<T> prod(const V<Poly>& vec) {
+Poly<T> prod(const V<Poly<T>>& vec) {
     auto comp = [](const auto& a, const auto& b) -> bool {
         return a.size() > b.size();
     };
