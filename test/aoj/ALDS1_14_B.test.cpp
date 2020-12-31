@@ -1,12 +1,11 @@
 #define PROBLEM \
-    "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D"
-
+    "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 #include <bits/stdc++.h>
 
 using namespace std;
 
 #define call_from_test
-#include "../../cpp_src/data_structure/DisjointSetUnion.hpp"
+#include "../../cpp_src/string/RollingHash.hpp"
 #undef call_from_test
 
 using ll = long long;
@@ -23,13 +22,10 @@ using VV = V<V<T>>;
 #define se second
 #define rep(i, n) rep2(i, 0, n)
 #define rep2(i, m, n) for (int i = m; i < (n); i++)
+#define per(i, b) per2(i, 0, b)
+#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)
 #define ALL(c) (c).begin(), (c).end()
-
-#ifdef LOCAL
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else
-#define dump(x) true
-#endif
+#define SZ(x) ((int)(x).size())
 
 constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }
 
@@ -59,23 +55,32 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
     return os;
 }
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-    unionfind uf;
-    uf.init(n);
+#ifdef LOCAL
+void debug_out() { cerr << endl; }
+template <typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+    cerr << " " << H;
+    debug_out(T...);
+}
+#define debug(...) \
+    cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else
+#define debug(...) (void(0))
+#define dump(x) (void(0))
+#endif
 
-    rep(i, m) {
-        int a, b;
-        cin >> a >> b;
-        uf.unite(a, b);
-    }
-    int q;
-    cin >> q;
-    while (q--) {
-        int a, b;
-        cin >> a >> b;
-        puts(uf.same(a, b) ? "yes" : "no");
+int main() {
+    RollingHash rh;
+    string S, T;
+    cin >> S >> T;
+    auto vh = rh.build(S);
+    auto thash = rh.whole_hash(T);
+    int sl = SZ(S), tl = SZ(T);
+    for (int l = 0; l <= sl - tl; ++l) {
+        if (rh.query(vh, l, l + tl) == thash) {
+            cout << l << '\n';
+        }
     }
     return 0;
 }

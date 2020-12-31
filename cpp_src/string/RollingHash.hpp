@@ -1,52 +1,75 @@
-// from ei1333
+class RollingHash {
+   public:
+    using u128 = __uint128_t;
+    using u64 = uint64_t;
 
-template <unsigned mod>
-struct RollingHash {
-    vector<unsigned> hashed, power;
+    static const u64 mod = (1ull << 61ull) - 1;
+    vector<u64> power;
+    const u64 base;
 
-    inline unsigned mul(unsigned a, unsigned b) const {
-        unsigned long long x = (unsigned long long)a * b;
-        unsigned xh = (unsigned)(x >> 32), xl = (unsigned)x, d, m;
-        asm("divl %4; \n\t" : "=a"(d), "=d"(m) : "d"(xh), "a"(xl), "r"(mod));
-        return m;
+    static inline u64 add(u64 a, u64 b) {
+        if ((a += b) >= mod) a -= mod;
+        return a;
     }
 
-    RollingHash(const string &s, unsigned base = 10007) {
-        int sz = (int)s.size();
-        hashed.assign(sz + 1, 0);
-        power.assign(sz + 1, 0);
-        power[0] = 1;
+    static inline u64 mul(u64 a, u64 b) {
+        u128 c = (u128)a * b;
+        return add(c >> 61, c & mod);
+    }
+
+    // make sure that no different characters / elements have the same value
+    // modulo base
+    static inline u64 generate_base(int minB = 1000) {
+        mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());
+        uniform_int_distribution<u64> rand(minB, RollingHash::mod - 1);
+        return rand(mt);
+    }
+
+    inline void expand(int sz) {
+        if (power.size() <= sz) {
+            int pre_sz = (int)power.size();
+            power.resize(sz + 1);
+            for (int i = pre_sz - 1; i < sz; i++) {
+                power[i + 1] = mul(power[i], base);
+            }
+        }
+    }
+
+    explicit RollingHash(u64 base = generate_base()) : base(base), power{1} {}
+
+    vector<u64> build(const string& s) const {
+        int sz = s.size();
+        vector<u64> vhash(sz + 1);
         for (int i = 0; i < sz; i++) {
-            power[i + 1] = mul(power[i], base);
-            hashed[i + 1] = mul(hashed[i], base) + s[i];
-            if (hashed[i + 1] >= mod) hashed[i + 1] -= mod;
+            vhash[i + 1] = add(mul(vhash[i], base), s[i]);
         }
+        return vhash;
     }
 
-    unsigned get(int l, int r) const {
-        unsigned ret = hashed[r] + mod - mul(hashed[l], power[r - l]);
-        if (ret >= mod) ret -= mod;
-        return ret;
-    }
-
-    unsigned connect(unsigned h1, int h2, int h2len) const {
-        unsigned ret = mul(h1, power[h2len]) + h2;
-        if (ret >= mod) ret -= mod;
-        return ret;
-    }
-
-    int LCP(const RollingHash<mod> &b, int l1, int r1, int l2, int r2) {
-        int len = min(r1 - l1, r2 - l2);
-        int low = -1, high = len + 1;
-        while (high - low > 1) {
-            int mid = (low + high) / 2;
-            if (get(l1, l1 + mid) == b.get(l2, l2 + mid))
-                low = mid;
-            else
-                high = mid;
+    template <class T>
+    vector<u64> build(const vector<T>& s) const {
+        int sz = s.size();
+        vector<u64> vhash(sz + 1);
+        for (int i = 0; i < sz; i++) {
+            vhash[i + 1] = add(mul(vhash[i], base), s[i]);
         }
-        return (low);
+        return vhash;
+    }
+
+    u64 query(const vector<u64>& s, int l, int r) {
+        expand(r - l);
+        return add(s[r], mod - mul(s[l], power[r - l]));
+    }
+
+    u64 merge(u64 h1, u64 h2, int h2len) {
+        expand(h2len);
+        return add(mul(h1, power[h2len]), h2);
+    }
+
+    u64 whole_hash(const string& s) const {
+        int sz = s.size();
+        u64 res = 0;
+        for (auto& c : s) res = add(mul(res, base), c);
+        return res;
     }
 };
-
-using RH = RollingHash<1000000007>;

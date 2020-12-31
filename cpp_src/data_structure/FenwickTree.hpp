@@ -29,8 +29,6 @@ struct BIT {
 		return sum(r) - sum(l);
 	}
 
-	//not verified
-
 	//smallest i, sum(i) >= w, none -> n + 1
 	int lower_bound(T w) {
 		if (w <= 0) return 0;

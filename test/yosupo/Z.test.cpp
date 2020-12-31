@@ -53,7 +53,7 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 }
 
 #define call_from_test
-#include "../../cpp_src/string/Z_algorithm.hpp"
+#include "../../cpp_src/string/Zalgo.hpp"
 #undef call_from_test
 
 int main() {

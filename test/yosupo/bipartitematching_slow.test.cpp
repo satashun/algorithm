@@ -1,4 +1,3 @@
-//#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 #include <bits/stdc++.h>
 using namespace std;
 
