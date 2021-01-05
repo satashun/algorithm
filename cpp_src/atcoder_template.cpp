@@ -42,6 +42,13 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 	return os;
 }
 
+template <class T>
+auto operator<<(ostream& os, T t) ->
+    typename std::enable_if_t<internal::is_modint<T>::value, ostream&> {
+    os << t.val();
+    return os;
+}
+
 #ifdef LOCAL
 void debug_out() { cerr << endl; }
 template<typename Head, typename... Tail>
