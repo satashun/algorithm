@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/template.cpp\"\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class\

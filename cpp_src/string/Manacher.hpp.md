@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/string/Manacher.hpp\"\nvector<int> manacher(const\
     \ string &_s) {\n    int n = _s.size();\n\n    string s(n*2-1, '#');\n\n    for\

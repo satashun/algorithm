@@ -6,8 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: 'https:'
     links: []
   bundledCode: "#line 1 \"test/yosupo/det.cpp\"\n#define PROBLEM \\\n    https:  //\
     \ judge.yosupo.jp/problem/matrix_det\n\n#include <bits/stdc++.h>\nusing namespace\

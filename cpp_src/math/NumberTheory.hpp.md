@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/NumberTheory.hpp\"\n//O(sqrt(x))\nll totient(ll\
     \ x) {\n\tll res = x;\n\tfor (ll i = 2; i * i <= x; ++i) {\n\t\tif (x % i == 0)\

@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/data_structure/StarrySkyTree.hpp\"\nconst int SZ\
     \ = (1 << 12);\nconst int inf;\n\nstruct starry_sky_tree {\n    int all[SZ * 2],\

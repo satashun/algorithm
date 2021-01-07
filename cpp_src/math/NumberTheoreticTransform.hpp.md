@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/NumberTheoreticTransform.hpp\"\n//depend on\
     \ ModInt, must use NTT friendly mod\n\ntemplate<class D>\nstruct NumberTheoreticTransform\

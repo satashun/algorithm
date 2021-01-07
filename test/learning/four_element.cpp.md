@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"test/learning/four_element.cpp\"\n#pragma GCC optimize(\"\
     O3\")\n#pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\nusing\

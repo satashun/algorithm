@@ -1,12 +1,20 @@
 ---
 data:
   libraryCategories:
-  - name: cpp_src/data_structure
+  - name: cpp_src
     pages:
     - icon: ':warning:'
+      path: cpp_src/atcoder_template.cpp
+      title: cpp_src/atcoder_template.cpp
+    - icon: ':warning:'
+      path: cpp_src/template.cpp
+      title: cpp_src/template.cpp
+  - name: cpp_src/data_structure
+    pages:
+    - icon: ':heavy_check_mark:'
       path: cpp_src/data_structure/DisjointSetUnion.hpp
       title: cpp_src/data_structure/DisjointSetUnion.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/data_structure/FenwickTree.hpp
       title: cpp_src/data_structure/FenwickTree.hpp
     - icon: ':warning:'
@@ -44,6 +52,12 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/TarjanLowLink.hpp
       title: cpp_src/graph/TarjanLowLink.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/graph_template.hpp
+      title: cpp_src/graph/graph_template.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/tree.hpp
+      title: cpp_src/graph/tree.hpp
   - name: cpp_src/math
     pages:
     - icon: ':warning:'
@@ -61,7 +75,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/math/MatrixLinearAlgebra.hpp
       title: cpp_src/math/MatrixLinearAlgebra.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/math/Modular.hpp
       title: cpp_src/math/Modular.hpp
     - icon: ':warning:'
@@ -87,6 +101,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/FWT.hpp
       title: cpp_src/other/FWT.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/other/LineContainer.hpp
+      title: cpp_src/other/LineContainer.hpp
     - icon: ':warning:'
       path: cpp_src/other/Mo.hpp
       title: cpp_src/other/Mo.hpp
@@ -95,17 +112,12 @@ data:
     - icon: ':warning:'
       path: cpp_src/string/Manacher.hpp
       title: cpp_src/string/Manacher.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/string/RollingHash.hpp
       title: cpp_src/string/RollingHash.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/string/Zalgo.hpp
       title: cpp_src/string/Zalgo.hpp
-  - name: cpp_src
-    pages:
-    - icon: ':warning:'
-      path: cpp_src/template.cpp
-      title: cpp_src/template.cpp
   - name: cpp_src/utility
     pages:
     - icon: ':warning:'
@@ -147,15 +159,18 @@ data:
   verificationCategories:
   - name: test/aoj
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/0343.test.cpp
       title: test/aoj/0343.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_11_D.test.cpp
       title: test/aoj/ALDS1_11_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_B.test.cpp
+      title: test/aoj/ALDS1_14_B.test.cpp
   - name: test/yosupo
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/Z.test.cpp
       title: test/yosupo/Z.test.cpp
     - icon: ':heavy_check_mark:'
@@ -179,20 +194,22 @@ data:
     - icon: ':x:'
       path: test/yosupo/log_of_fps.test.cpp
       title: test/yosupo/log_of_fps.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/staticrmq.test.cpp
-      title: test/yosupo/staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1297.test.cpp
+      title: test/yukicoder/1297.test.cpp
 layout: toppage
 ---

@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/FormalPowerSeries.hpp\"\n// depends on FFT\
     \ libs\n// basically use with ModInt\n\nNumberTheoreticTransform<Mint> ntt;\n\n\
@@ -82,7 +81,7 @@ data:
     \       } else {\n            for (int i = 0; i < m; i++) {\n                c[l\
     \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n        }\n    }\n    return\
     \ c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1] * ...\n// deg(result)\
-    \ must be bounded\n\ntemplate <class T>\nPoly<T> prod(const V<Poly>& vec) {\n\
+    \ must be bounded\n\ntemplate <class T>\nPoly<T> prod(const V<Poly<T>>& vec) {\n\
     \    auto comp = [](const auto& a, const auto& b) -> bool {\n        return a.size()\
     \ > b.size();\n    };\n    priority_queue<Poly<T>, V<Poly<T>>, decltype(comp)>\
     \ que(comp);\n    que.push(Poly<T>{1});\n\n    for (auto& pl : vec) que.push(pl);\n\
@@ -162,7 +161,7 @@ data:
     \       } else {\n            for (int i = 0; i < m; i++) {\n                c[l\
     \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n        }\n    }\n    return\
     \ c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1] * ...\n// deg(result)\
-    \ must be bounded\n\ntemplate <class T>\nPoly<T> prod(const V<Poly>& vec) {\n\
+    \ must be bounded\n\ntemplate <class T>\nPoly<T> prod(const V<Poly<T>>& vec) {\n\
     \    auto comp = [](const auto& a, const auto& b) -> bool {\n        return a.size()\
     \ > b.size();\n    };\n    priority_queue<Poly<T>, V<Poly<T>>, decltype(comp)>\
     \ que(comp);\n    que.push(Poly<T>{1});\n\n    for (auto& pl : vec) que.push(pl);\n\
@@ -173,7 +172,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:18:23+09:00'
+  timestamp: '2020-11-30 17:18:04+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp

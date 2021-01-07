@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/other/FWT.hpp\"\n//vector size : power of 2\n\n\
     template<class T>\nvoid and_fwt(vector<T>& f) {\n    int n = f.size();\n    for\

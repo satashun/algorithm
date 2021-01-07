@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/ModularRuntime.hpp\"\ntemplate <typename T>\n\
     struct ModInt {\n    using uint = unsigned int;\n    using ull = unsigned long\

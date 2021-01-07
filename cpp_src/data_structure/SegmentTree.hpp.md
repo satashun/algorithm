@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/data_structure/SegmentTree.hpp\"\n// index of root\
     \ = 1\n\ntemplate <class U>\nstruct segtree {\n    using T = typename U::T;\n\

@@ -2,11 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/point_set_range_composite.test.cpp
+    title: test/yosupo/point_set_range_composite.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/Modular.hpp\"\ntemplate <unsigned int MOD>\n\
     struct ModInt {\n    using uint = unsigned int;\n    using ull = unsigned long\
@@ -61,8 +63,9 @@ data:
   path: cpp_src/math/Modular.hpp
   requiredBy: []
   timestamp: '2020-09-17 22:16:38+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/point_set_range_composite.test.cpp
 documentation_of: cpp_src/math/Modular.hpp
 layout: document
 redirect_from:

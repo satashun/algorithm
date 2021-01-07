@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/Namori.hpp\"\n// allow multiple components\n\
     \nstruct Namori {\n\tint n;\n\tV<int> deg, par;\n\tVV<int> g, g2; //g2 for tree\

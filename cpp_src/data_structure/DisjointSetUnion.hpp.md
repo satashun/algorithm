@@ -2,11 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/ALDS1_11_D.test.cpp
+    title: test/aoj/ALDS1_11_D.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/unionfind.test.cpp
+    title: test/yosupo/unionfind.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/data_structure/DisjointSetUnion.hpp\"\nclass unionfind\
     \ {\n\tvector<int> par, rank;\n\npublic:\n\tvoid init(int n) {\n\t\tpar.resize(n);\n\
@@ -30,8 +35,10 @@ data:
   path: cpp_src/data_structure/DisjointSetUnion.hpp
   requiredBy: []
   timestamp: '2020-09-17 22:26:34+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/unionfind.test.cpp
+  - test/aoj/ALDS1_11_D.test.cpp
 documentation_of: cpp_src/data_structure/DisjointSetUnion.hpp
 layout: document
 redirect_from:

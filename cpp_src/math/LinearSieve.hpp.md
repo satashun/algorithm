@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links:
     - https://cp-algorithms.com/algebra/prime-sieve-linear.html
   bundledCode: "#line 1 \"cpp_src/math/LinearSieve.hpp\"\n//https://cp-algorithms.com/algebra/prime-sieve-linear.html\n\

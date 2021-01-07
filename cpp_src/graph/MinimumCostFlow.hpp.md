@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/MinimumCostFlow.hpp\"\ntemplate <class C,\
     \ class D>  // capacity, distance\nstruct MinCostFlow {\n    struct edge {\n \

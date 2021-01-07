@@ -9,7 +9,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\nstruct Dinic {\n\
     \    using F = ll;\n    static constexpr F INF = numeric_limits<F>::max();\n\n\

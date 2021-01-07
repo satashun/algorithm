@@ -1,45 +1,77 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: cpp_src/data_structure/DisjointSetUnion.hpp
+    title: cpp_src/data_structure/DisjointSetUnion.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 70, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir).decode()\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 191, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 399, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.8.5/x64/lib/python3.8/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 258, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../cpp_src/data_structure/unionfind.hpp:\
-    \ line -1: no such header\n"
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/unionfind
+    links:
+    - https://judge.yosupo.jp/problem/unionfind
+  bundledCode: "#line 1 \"test/yosupo/unionfind.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\
+    \n#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
+    \ pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class\
+    \ T>\nusing VV = V<V<T>>;\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define ALL(c) (c).begin(),\
+    \ (c).end()\n\n#ifdef LOCAL\n#define dump(x) cerr << __LINE__ << \" \" << #x <<\
+    \ \" = \" << (x) << endl\n#else\n#define dump(x) true\n#endif\n\nconstexpr ll\
+    \ TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T,\
+    \ class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const pair<T,\
+    \ U>& p) {\n    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return\
+    \ os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
+    \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\n#define call_from_test\n\
+    #line 1 \"cpp_src/data_structure/DisjointSetUnion.hpp\"\nclass unionfind {\n\t\
+    vector<int> par, rank;\n\npublic:\n\tvoid init(int n) {\n\t\tpar.resize(n);\n\t\
+    \trank.resize(n);\n\n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tpar[i] = i;\n\t\t\
+    \trank[i] = 0;\n\t\t}\n\t}\n\n\tint find(int x) {\n\t\tif (par[x] == x) return\
+    \ x;\n\t\telse return par[x] = find(par[x]);\n\t}\n\n\tvoid unite(int x, int y)\
+    \ {\n\t\tx = find(x);\n\t\ty = find(y);\n\t\tif (x == y) return ;\n\n\t\tif (rank[x]\
+    \ < rank[y]) par[x] = y;\n\t\telse {\n\t\t\tpar[y] = x;\n\t\t\tif (rank[x] ==\
+    \ rank[y]) ++rank[x];\n\t\t}\n\t}\n\n\tbool same(int x, int y) { return (find(x)\
+    \ == find(y)); }\n};\n#line 57 \"test/yosupo/unionfind.test.cpp\"\n#undef call_from_test\n\
+    \nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N, &Q);\n    unionfind uf;\n\
+    \    uf.init(N);\n\n    rep(i, Q) {\n        int t, u, v;\n        scanf(\"%d\
+    \ %d %d\", &t, &u, &v);\n        if (t == 0) {\n            uf.unite(u, v);\n\
+    \        } else {\n            printf(\"%d\\n\", uf.same(u, v));\n        }\n\
+    \    }\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class\
-    \ T> using V = vector<T>;\ntemplate<class T> using VV = V<V<T>>;\n\n#define pb\
-    \ push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
-    #define se second\n#define rep(i,n) rep2(i,0,n)\n#define rep2(i,m,n) for(int i=m;i<(n);i++)\n\
-    #define ALL(c) (c).begin(),(c).end()\n\n#ifdef LOCAL\n#define dump(x) cerr <<\
-    \ __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else \n#define dump(x) true\n\
-    #endif\n\nconstexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }\n\n\
-    template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }\n\
-    template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }\n\
-    \ntemplate<class T, class U>\nostream& operator<<(ostream& os, const pair<T, U>&\
-    \ p) {\n\tos<<\"(\"<<p.first<<\",\"<<p.second<<\")\";\n\treturn os;\n}\n\ntemplate<class\
-    \ T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n\tos<<\"{\";\n\t\
-    rep(i, v.size()) {\n\t\tif (i) os<<\",\";\n\t\tos<<v[i];\n\t}\n\tos<<\"}\";\n\t\
-    return os;\n}\n\n#define call_from_test\n#include \"../../cpp_src/data_structure/unionfind.hpp\"\
-    \n#undef call_from_test\n\nint main() {\n\tint N, Q; scanf(\"%d %d\", &N, &Q);\n\
-    \tunionfind uf;\n\tuf.init(N);\n\n\trep(i, Q) {\n\t\tint t, u, v;\n\t\tscanf(\"\
-    %d %d %d\", &t, &u, &v);\n\t\tif (t == 0) {\n\t\t\tuf.unite(u, v);\n\t\t} else\
-    \ {\n\t\t\tprintf(\"%d\\n\", uf.same(u, v));\n\t\t}\n\t}\n\treturn 0;\n}"
-  dependsOn: []
+    using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate\
+    \ <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\n\
+    #define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi\
+    \ first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m,\
+    \ n) for (int i = m; i < (n); i++)\n#define ALL(c) (c).begin(), (c).end()\n\n\
+    #ifdef LOCAL\n#define dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x)\
+    \ << endl\n#else\n#define dump(x) true\n#endif\n\nconstexpr ll TEN(int n) { return\
+    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
+    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
+    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T, class\
+    \ U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << \"(\"\
+    \ << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\ntemplate <class\
+    \ T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\"\
+    ;\n    rep(i, v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n\
+    \    }\n    os << \"}\";\n    return os;\n}\n\n#define call_from_test\n#include\
+    \ \"../../cpp_src/data_structure/DisjointSetUnion.hpp\"\n#undef call_from_test\n\
+    \nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N, &Q);\n    unionfind uf;\n\
+    \    uf.init(N);\n\n    rep(i, Q) {\n        int t, u, v;\n        scanf(\"%d\
+    \ %d %d\", &t, &u, &v);\n        if (t == 0) {\n            uf.unite(u, v);\n\
+    \        } else {\n            printf(\"%d\\n\", uf.same(u, v));\n        }\n\
+    \    }\n    return 0;\n}"
+  dependsOn:
+  - cpp_src/data_structure/DisjointSetUnion.hpp
   isVerificationFile: true
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-12-31 16:46:24+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp
 layout: document

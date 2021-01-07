@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/other/Mo.hpp\"\nstruct Mo {\n\tV<int> left, right,\
     \ order;\n\tV<bool> v;\n\tint Bsize, nl, nr, ptr;\n\n\tMo(int n) : Bsize((int)sqrt(n+1)),\

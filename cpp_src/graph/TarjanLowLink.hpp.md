@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/TarjanLowLink.hpp\"\nstruct LowLink {\n\t\
     VV<int> g;\n\tV<int> ord, low;\n\tV<bool> vis;\n\tvector<pair<int, int> > bridge;\n\

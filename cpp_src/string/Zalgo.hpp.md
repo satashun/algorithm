@@ -2,11 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/Z.test.cpp
+    title: test/yosupo/Z.test.cpp
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/string/Zalgo.hpp\"\nvector<int> Z_algo(const string\
     \ &S) {\n\tvector<int> A(S.size());\n\tA[0] = S.size();\n\tint i = 1, j = 0;\n\
@@ -24,8 +26,9 @@ data:
   path: cpp_src/string/Zalgo.hpp
   requiredBy: []
   timestamp: '2020-07-17 17:57:06+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/Z.test.cpp
 documentation_of: cpp_src/string/Zalgo.hpp
 layout: document
 redirect_from:

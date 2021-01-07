@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/ModularOperation.hpp\"\nconst int maxv = 1000010;\n\
     \nV<Mint> fact(maxv), ifact(maxv), inv(maxv);\n\nvoid init() {\n    fact[0] =\

@@ -9,7 +9,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/LCA.hpp\"\n//E : int or edge class\n\ntemplate<class\
     \ E>\nstruct LCA {\n\tVV<int> anc;\n\tV<int> dep;\n\tint lg;\n\tconst VV<E>& g;\n\

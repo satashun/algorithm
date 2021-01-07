@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"test/learning/exp.cpp\"\n// Gennady Korotkevich Contest\
     \ 5 E\n\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\n\

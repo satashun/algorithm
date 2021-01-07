@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/FFTArbitraryMod.hpp\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class\

@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/PolynomialInterpolation.hpp\"\ntemplate<class\
     \ D>\nstruct PolyBuf {\n\tconst V<D> &xs;\n\tPolyBuf(const V<D>& xs) : xs(xs)\

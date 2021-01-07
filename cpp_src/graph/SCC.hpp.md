@@ -9,7 +9,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/SCC.hpp\"\nstruct SCC {\n    int n;\n    VV<int>\
     \ g, rg;\n    V<int> vs, cmp;\n    V<bool> vis;\n\n    SCC(){}\n    SCC(int n)\

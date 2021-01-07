@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links:
     - https://codeforces.com/contest/508/submission/92099335
   bundledCode: "#line 1 \"cpp_src/graph/EulerPath.hpp\"\n// Hierholzer algorithm\n\

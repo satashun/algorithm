@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links:
     - https://atcoder.jp/contests/tenka1-2016-qualb/tasks/tenka1_2016_qualB_d
   bundledCode: "#line 1 \"cpp_src/data_structure/LazySegmentTree.hpp\"\n// index of\

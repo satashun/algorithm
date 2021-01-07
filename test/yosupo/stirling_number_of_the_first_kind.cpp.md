@@ -6,7 +6,6 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"test/yosupo/stirling_number_of_the_first_kind.cpp\"\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing pii =\

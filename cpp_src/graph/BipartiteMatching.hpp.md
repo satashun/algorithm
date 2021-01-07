@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/BipartiteMatching.hpp\"\n//O(NM)\nstruct bipartite_matching\
     \ {\n    int n;\n    VV<int> g;\n    V<int> match;\n    V<bool> used;\n    bipartite_matching()\

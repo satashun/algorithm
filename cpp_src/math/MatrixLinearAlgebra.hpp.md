@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/MatrixLinearAlgebra.hpp\"\ntemplate <class\
     \ T>\nstruct Matrix : VV<D> {\n    using Mat = Matrix<T>;\n    int H() const {\

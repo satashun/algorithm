@@ -6,7 +6,6 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
   bundledCode: "#line 1 \"cpp_src/math/MultipointEvaluation.hpp\"\ntemplate<class\
     \ D>\nstruct MultiEval {\n\tusing P = MultiEval*;\n\tP lc, rc;\n\tV<D> xs;\n\t\
