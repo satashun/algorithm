@@ -25,21 +25,21 @@ constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
 template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
 
-template<class T, class U>
+template <class T, class U>
 ostream& operator<<(ostream& os, const pair<T, U>& p) {
-	os<<"("<<p.first<<","<<p.second<<")";
-	return os;
+    os << "(" << p.first << "," << p.second << ")";
+    return os;
 }
 
-template<class T>
+template <class T>
 ostream& operator<<(ostream& os, const vector<T>& v) {
-	os<<"{";
-	rep(i, v.size()) {
-		if (i) os<<",";
-		os<<v[i];
-	}
-	os<<"}";
-	return os;
+    os << "{";
+    rep(i, v.size()) {
+        if (i) os << ",";
+        os << v[i];
+    }
+    os << "}";
+    return os;
 }
 
 template <class T>
@@ -53,8 +53,8 @@ auto operator<<(ostream& os, T t) ->
 void debug_out() { cerr << endl; }
 template<typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {
-	cerr << " " << H;
-	debug_out(T...);
+    cerr << " " << H;
+    debug_out(T...);
 }
 #define debug(...) cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
 #define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
@@ -64,7 +64,7 @@ void debug_out(Head H, Tail... T) {
 #endif
 
 int main() {
-	cin.tie(nullptr);
-	ios::sync_with_stdio(false);
-	return 0;
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    return 0;
 }
