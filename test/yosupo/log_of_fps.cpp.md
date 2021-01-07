@@ -4,11 +4,10 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     links: []
-  bundledCode: "#line 1 \"test/yosupo/log_of_fps.test.cpp\"\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"test/yosupo/log_of_fps.cpp\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate\
     \ <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\n\
     #define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi\
@@ -291,16 +290,16 @@ data:
     \  }\n\n    ntt.init();\n    Poly<Mint> f(a);\n    auto res = f.log(N);\n    rep(i,\
     \ N) printf(\"%d%c\", res[i].v, i == N - 1 ? '\\n' : ' ');\n\n    return 0;\n}"
   dependsOn: []
-  isVerificationFile: true
-  path: test/yosupo/log_of_fps.test.cpp
+  isVerificationFile: false
+  path: test/yosupo/log_of_fps.cpp
   requiredBy: []
-  timestamp: '2020-06-06 01:31:45+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-01-07 20:07:22+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/yosupo/log_of_fps.test.cpp
+documentation_of: test/yosupo/log_of_fps.cpp
 layout: document
 redirect_from:
-- /verify/test/yosupo/log_of_fps.test.cpp
-- /verify/test/yosupo/log_of_fps.test.cpp.html
-title: test/yosupo/log_of_fps.test.cpp
+- /library/test/yosupo/log_of_fps.cpp
+- /library/test/yosupo/log_of_fps.cpp.html
+title: test/yosupo/log_of_fps.cpp
 ---

@@ -142,8 +142,17 @@ data:
       path: test/yosupo/SubsetSum.cpp
       title: test/yosupo/SubsetSum.cpp
     - icon: ':warning:'
+      path: test/yosupo/bipartitematching_slow.cpp
+      title: test/yosupo/bipartitematching_slow.cpp
+    - icon: ':warning:'
       path: test/yosupo/det.cpp
       title: test/yosupo/det.cpp
+    - icon: ':warning:'
+      path: test/yosupo/exp_of_fps.cpp
+      title: test/yosupo/exp_of_fps.cpp
+    - icon: ':warning:'
+      path: test/yosupo/log_of_fps.cpp
+      title: test/yosupo/log_of_fps.cpp
     - icon: ':warning:'
       path: test/yosupo/min_cost_b_flow.cpp
       title: test/yosupo/min_cost_b_flow.cpp
@@ -182,18 +191,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/bipartitematching_slow.test.cpp
-      title: test/yosupo/bipartitematching_slow.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/exp_of_fps.test.cpp
-      title: test/yosupo/exp_of_fps.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca.test.cpp
       title: test/yosupo/lca.test.cpp
-    - icon: ':x:'
-      path: test/yosupo/log_of_fps.test.cpp
-      title: test/yosupo/log_of_fps.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp
