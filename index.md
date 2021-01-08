@@ -24,6 +24,9 @@ data:
       path: cpp_src/data_structure/SegmentTree.hpp
       title: cpp_src/data_structure/SegmentTree.hpp
     - icon: ':warning:'
+      path: cpp_src/data_structure/SegmentTreeKth.cpp
+      title: cpp_src/data_structure/SegmentTreeKth.cpp
+    - icon: ':warning:'
       path: cpp_src/data_structure/StarrySkyTree.hpp
       title: cpp_src/data_structure/StarrySkyTree.hpp
   - name: cpp_src/graph
