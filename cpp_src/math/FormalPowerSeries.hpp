@@ -24,6 +24,17 @@ struct Poly : public V<D> {
         return res;
     }
 
+    Poly shiftr(int d) const {
+        int n = max(size() + d, 0);
+        Poly res(n);
+        for (int i = 0; i < size(); ++i) {
+            if (i + d >= 0) {
+                res[i + d] = at(i);
+            }
+        }
+        return res;
+    }
+    
     Poly operator+(const Poly& r) const {
         auto n = max(size(), r.size());
         V<D> tmp(n);
