@@ -17,16 +17,19 @@ data:
     \n    // first len terms\n    Poly pref(int len) const {\n        return Poly(this->begin(),\
     \ this->begin() + min(this->size(), len));\n    }\n\n    // for polynomial division\n\
     \    Poly rev() const {\n        Poly res = *this;\n        reverse(res.begin(),\
-    \ res.end());\n        return res;\n    }\n\n    Poly operator+(const Poly& r)\
-    \ const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n   \
-    \     for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) + r.at(i);\n \
-    \       }\n        return tmp;\n    }\n    Poly operator-(const Poly& r) const\
-    \ {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n        for\
-    \ (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n        }\n\
-    \        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const D& k) const\
-    \ {\n        int n = size();\n        V<D> tmp(n);\n        for (int i = 0; i\
-    \ < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return tmp;\n\
-    \    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
+    \ res.end());\n        return res;\n    }\n\n    Poly shiftr(int d) const {\n\
+    \        int n = max(size() + d, 0);\n        Poly res(n);\n        for (int i\
+    \ = 0; i < size(); ++i) {\n            if (i + d >= 0) {\n                res[i\
+    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n    \n\
+    \    Poly operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
+    \        V<D> tmp(n);\n        for (int i = 0; i < n; ++i) {\n            tmp[i]\
+    \ = at(i) + r.at(i);\n        }\n        return tmp;\n    }\n    Poly operator-(const\
+    \ Poly& r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
+    \        for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n\
+    \        }\n        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const\
+    \ D& k) const {\n        int n = size();\n        V<D> tmp(n);\n        for (int\
+    \ i = 0; i < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return\
+    \ tmp;\n    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
     \        Poly b = r;\n        auto v = ntt.mul(a, b);\n        return v;\n   \
     \ }\n\n    // scalar\n    Poly operator/(const D& k) const { return *this * k.inv();\
     \ }\n\n    Poly operator/(const Poly& r) const {\n        if (size() < r.size())\
@@ -97,16 +100,19 @@ data:
     \n    // first len terms\n    Poly pref(int len) const {\n        return Poly(this->begin(),\
     \ this->begin() + min(this->size(), len));\n    }\n\n    // for polynomial division\n\
     \    Poly rev() const {\n        Poly res = *this;\n        reverse(res.begin(),\
-    \ res.end());\n        return res;\n    }\n\n    Poly operator+(const Poly& r)\
-    \ const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n   \
-    \     for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) + r.at(i);\n \
-    \       }\n        return tmp;\n    }\n    Poly operator-(const Poly& r) const\
-    \ {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n        for\
-    \ (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n        }\n\
-    \        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const D& k) const\
-    \ {\n        int n = size();\n        V<D> tmp(n);\n        for (int i = 0; i\
-    \ < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return tmp;\n\
-    \    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
+    \ res.end());\n        return res;\n    }\n\n    Poly shiftr(int d) const {\n\
+    \        int n = max(size() + d, 0);\n        Poly res(n);\n        for (int i\
+    \ = 0; i < size(); ++i) {\n            if (i + d >= 0) {\n                res[i\
+    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n    \n\
+    \    Poly operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
+    \        V<D> tmp(n);\n        for (int i = 0; i < n; ++i) {\n            tmp[i]\
+    \ = at(i) + r.at(i);\n        }\n        return tmp;\n    }\n    Poly operator-(const\
+    \ Poly& r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
+    \        for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n\
+    \        }\n        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const\
+    \ D& k) const {\n        int n = size();\n        V<D> tmp(n);\n        for (int\
+    \ i = 0; i < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return\
+    \ tmp;\n    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
     \        Poly b = r;\n        auto v = ntt.mul(a, b);\n        return v;\n   \
     \ }\n\n    // scalar\n    Poly operator/(const D& k) const { return *this * k.inv();\
     \ }\n\n    Poly operator/(const Poly& r) const {\n        if (size() < r.size())\
@@ -173,7 +179,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2020-11-30 17:18:04+09:00'
+  timestamp: '2021-02-05 11:59:46+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp
