@@ -13,6 +13,7 @@ struct ModInt {
     }
 
     explicit operator bool() const { return v != 0; }
+    explicit operator int() const { return v; }
     M operator+(const M& a) const { return M().set_norm(v + a.v); }
     M operator-(const M& a) const { return M().set_norm(v + MOD - a.v); }
     M operator*(const M& a) const { return M().set_norm(ull(v) * a.v % MOD); }
@@ -49,6 +50,7 @@ struct ModInt {
     bool operator==(const M& a) const { return v == a.v; }
     bool operator!=(const M& a) const { return v != a.v; }
     friend ostream& operator<<(ostream& os, const M& a) { return os << a.v; }
+    friend istream& operator>>(istream& in, M& x) { ll v_; in >> v_; x = M(v_); return in; }
     static uint get_mod() { return MOD; }
 };
 

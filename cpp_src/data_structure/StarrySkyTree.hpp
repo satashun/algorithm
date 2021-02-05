@@ -1,26 +1,29 @@
-const int SZ = (1 << 12);
-const int inf;
-
 struct starry_sky_tree {
-    int all[SZ * 2], ma[SZ * 2];
+    const int inf = -1e9;
+    V<int> all, ma;
+    int sz;
 
-    void init() {
-        memset(all, 0, sizeof(all));
-        memset(ma, 0, sizeof(ma));
+    void init(int n) {
+        sz = 1;
+        while (sz < n) sz *= 2;
+        all.resize(sz * 2);
+        ma.resize(sz * 2);
     }
 
-    void add(int a, int b, int x, int k = 0, int l = 0, int r = SZ) {
-        if (b <= l || r <= a) return ;
+    void add(int a, int b, int x, int k, int l, int r) {
+        if (b <= l || r <= a) return;
         if (a <= l && r <= b) {
-            all[k] += x; return ; 
+            all[k] += x;
+            return;
         }
 
         add(a, b, x, k * 2 + 1, l, (l + r) / 2);
         add(a, b, x, k * 2 + 2, (l + r) / 2, r);
-        ma[k] = max(ma[k * 2 + 1] + all[k * 2 + 1], ma[k * 2 + 2] + all[k * 2 + 2]);
+        ma[k] =
+            max(ma[k * 2 + 1] + all[k * 2 + 1], ma[k * 2 + 2] + all[k * 2 + 2]);
     }
 
-    int get(int a, int b, int k = 0, int l = 0, int r = SZ) {
+    int get(int a, int b, int k, int l, int r) {
         if (b <= l || r <= a) return inf;
         if (a <= l && r <= b) {
             return ma[k] + all[k];

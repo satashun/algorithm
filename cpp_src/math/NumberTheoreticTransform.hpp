@@ -83,6 +83,7 @@ struct NumberTheoreticTransform {
 	}
 
 	V<D> mul(V<D> a, V<D> b) {
+		if (a.size() == 0 && b.size() == 0) return {};
 		int s = a.size() + b.size() - 1;
 		int nbase = 1;
 		while ((1 << nbase) < s) nbase++;
