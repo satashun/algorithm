@@ -3,6 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
@@ -32,11 +33,11 @@ data:
     a[i + j] = x + y;\n\t\t\t\t\ta[i + j + k] = x - y;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\
     \n\t\tint v = D(n).inv().v;\n\t\tif (inv) {\n\t\t\treverse(a.begin() + 1, a.end());\n\
     \t\t\tfor (int i = 0; i < n; i++) {\n\t\t\t\ta[i] *= v;\n\t\t\t}\n\t\t}\n\t}\n\
-    \n\tV<D> mul(V<D> a, V<D> b) {\n\t\tint s = a.size() + b.size() - 1;\n\t\tint\
-    \ nbase = 1;\n\t\twhile ((1 << nbase) < s) nbase++;\n\t\tint sz = 1 << nbase;\n\
-    \t\ta.resize(sz);\n\t\tb.resize(sz);\n\t\tntt(a);\n\t\tntt(b);\n\n\t\tfor (int\
-    \ i = 0; i < sz; i++) {\n\t\t\ta[i] *= b[i];\n\t\t}\n\t\tntt(a, true);\n\n\t\t\
-    a.resize(s);\n\t\treturn a;\n\t}\n};\n"
+    \n\tV<D> mul(V<D> a, V<D> b) {\n\t\tif (a.size() == 0 && b.size() == 0) return\
+    \ {};\n\t\tint s = a.size() + b.size() - 1;\n\t\tint nbase = 1;\n\t\twhile ((1\
+    \ << nbase) < s) nbase++;\n\t\tint sz = 1 << nbase;\n\t\ta.resize(sz);\n\t\tb.resize(sz);\n\
+    \t\tntt(a);\n\t\tntt(b);\n\n\t\tfor (int i = 0; i < sz; i++) {\n\t\t\ta[i] *=\
+    \ b[i];\n\t\t}\n\t\tntt(a, true);\n\n\t\ta.resize(s);\n\t\treturn a;\n\t}\n};\n"
   code: "//depend on ModInt, must use NTT friendly mod\n\ntemplate<class D>\nstruct\
     \ NumberTheoreticTransform {\n\tD root;\n\tV<D> roots = {0, 1};\n\tV<int> rev\
     \ = {0, 1};\n\tint base = 1, max_base = -1;\n\n\tvoid init() {\n\t\tint mod =\
@@ -61,16 +62,16 @@ data:
     a[i + j] = x + y;\n\t\t\t\t\ta[i + j + k] = x - y;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\
     \n\t\tint v = D(n).inv().v;\n\t\tif (inv) {\n\t\t\treverse(a.begin() + 1, a.end());\n\
     \t\t\tfor (int i = 0; i < n; i++) {\n\t\t\t\ta[i] *= v;\n\t\t\t}\n\t\t}\n\t}\n\
-    \n\tV<D> mul(V<D> a, V<D> b) {\n\t\tint s = a.size() + b.size() - 1;\n\t\tint\
-    \ nbase = 1;\n\t\twhile ((1 << nbase) < s) nbase++;\n\t\tint sz = 1 << nbase;\n\
-    \t\ta.resize(sz);\n\t\tb.resize(sz);\n\t\tntt(a);\n\t\tntt(b);\n\n\t\tfor (int\
-    \ i = 0; i < sz; i++) {\n\t\t\ta[i] *= b[i];\n\t\t}\n\t\tntt(a, true);\n\n\t\t\
-    a.resize(s);\n\t\treturn a;\n\t}\n};"
+    \n\tV<D> mul(V<D> a, V<D> b) {\n\t\tif (a.size() == 0 && b.size() == 0) return\
+    \ {};\n\t\tint s = a.size() + b.size() - 1;\n\t\tint nbase = 1;\n\t\twhile ((1\
+    \ << nbase) < s) nbase++;\n\t\tint sz = 1 << nbase;\n\t\ta.resize(sz);\n\t\tb.resize(sz);\n\
+    \t\tntt(a);\n\t\tntt(b);\n\n\t\tfor (int i = 0; i < sz; i++) {\n\t\t\ta[i] *=\
+    \ b[i];\n\t\t}\n\t\tntt(a, true);\n\n\t\ta.resize(s);\n\t\treturn a;\n\t}\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/math/NumberTheoreticTransform.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:13:34+09:00'
+  timestamp: '2021-02-05 11:44:04+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/NumberTheoreticTransform.hpp

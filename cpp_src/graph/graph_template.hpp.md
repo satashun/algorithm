@@ -6,6 +6,7 @@ data:
     path: cpp_src/graph/tree.hpp
     title: cpp_src/graph/tree.hpp
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:

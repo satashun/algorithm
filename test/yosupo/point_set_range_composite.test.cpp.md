@@ -6,6 +6,7 @@ data:
     title: cpp_src/math/Modular.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -35,25 +36,27 @@ data:
     \ using M = ModInt;\n\n    uint v;\n\n    ModInt(ll _v = 0) { set_norm(_v % MOD\
     \ + MOD); }\n    M& set_norm(uint _v) {  //[0, MOD * 2)->[0, MOD)\n        v =\
     \ (_v < MOD) ? _v : _v - MOD;\n        return *this;\n    }\n\n    explicit operator\
-    \ bool() const { return v != 0; }\n    M operator+(const M& a) const { return\
-    \ M().set_norm(v + a.v); }\n    M operator-(const M& a) const { return M().set_norm(v\
-    \ + MOD - a.v); }\n    M operator*(const M& a) const { return M().set_norm(ull(v)\
-    \ * a.v % MOD); }\n    M operator/(const M& a) const { return *this * a.inv();\
-    \ }\n    M& operator+=(const M& a) { return *this = *this + a; }\n    M& operator-=(const\
-    \ M& a) { return *this = *this - a; }\n    M& operator*=(const M& a) { return\
-    \ *this = *this * a; }\n    M& operator/=(const M& a) { return *this = *this /\
-    \ a; }\n    M operator-() const { return M() - *this; }\n    M& operator++(int)\
-    \ { return *this = *this + 1; }\n    M& operator--(int) { return *this = *this\
-    \ - 1; }\n\n    M pow(ll n) const {\n        if (n < 0) return inv().pow(-n);\n\
-    \        M x = *this, res = 1;\n        while (n) {\n            if (n & 1) res\
-    \ *= x;\n            x *= x;\n            n >>= 1;\n        }\n        return\
-    \ res;\n    }\n\n    M inv() const {\n        ll a = v, b = MOD, p = 1, q = 0,\
-    \ t;\n        while (b != 0) {\n            t = a / b;\n            swap(a -=\
-    \ t * b, b);\n            swap(p -= t * q, q);\n        }\n        return M(p);\n\
-    \    }\n\n    bool operator==(const M& a) const { return v == a.v; }\n    bool\
-    \ operator!=(const M& a) const { return v != a.v; }\n    friend ostream& operator<<(ostream&\
-    \ os, const M& a) { return os << a.v; }\n    static uint get_mod() { return MOD;\
-    \ }\n};\n\n// using Mint = ModInt<1000000007>;\n#line 58 \"test/yosupo/point_set_range_composite.test.cpp\"\
+    \ bool() const { return v != 0; }\n    explicit operator int() const { return\
+    \ v; }\n    M operator+(const M& a) const { return M().set_norm(v + a.v); }\n\
+    \    M operator-(const M& a) const { return M().set_norm(v + MOD - a.v); }\n \
+    \   M operator*(const M& a) const { return M().set_norm(ull(v) * a.v % MOD); }\n\
+    \    M operator/(const M& a) const { return *this * a.inv(); }\n    M& operator+=(const\
+    \ M& a) { return *this = *this + a; }\n    M& operator-=(const M& a) { return\
+    \ *this = *this - a; }\n    M& operator*=(const M& a) { return *this = *this *\
+    \ a; }\n    M& operator/=(const M& a) { return *this = *this / a; }\n    M operator-()\
+    \ const { return M() - *this; }\n    M& operator++(int) { return *this = *this\
+    \ + 1; }\n    M& operator--(int) { return *this = *this - 1; }\n\n    M pow(ll\
+    \ n) const {\n        if (n < 0) return inv().pow(-n);\n        M x = *this, res\
+    \ = 1;\n        while (n) {\n            if (n & 1) res *= x;\n            x *=\
+    \ x;\n            n >>= 1;\n        }\n        return res;\n    }\n\n    M inv()\
+    \ const {\n        ll a = v, b = MOD, p = 1, q = 0, t;\n        while (b != 0)\
+    \ {\n            t = a / b;\n            swap(a -= t * b, b);\n            swap(p\
+    \ -= t * q, q);\n        }\n        return M(p);\n    }\n\n    bool operator==(const\
+    \ M& a) const { return v == a.v; }\n    bool operator!=(const M& a) const { return\
+    \ v != a.v; }\n    friend ostream& operator<<(ostream& os, const M& a) { return\
+    \ os << a.v; }\n    friend istream& operator>>(istream& in, M& x) { ll v_; in\
+    \ >> v_; x = M(v_); return in; }\n    static uint get_mod() { return MOD; }\n\
+    };\n\n// using Mint = ModInt<1000000007>;\n#line 58 \"test/yosupo/point_set_range_composite.test.cpp\"\
     \n#undef call_from_test\n\nusing Mint = ModInt<998244353>;\n\n// index of root\
     \ = 1\n\ntemplate <class U>\nstruct segtree {\n    using T = typename U::T;\n\
     \    int sz;\n    V<T> dat;\n\n    segtree(const V<T>& a) {\n        int n = a.size();\n\
@@ -131,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2020-12-31 16:46:24+09:00'
+  timestamp: '2021-02-05 11:44:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp

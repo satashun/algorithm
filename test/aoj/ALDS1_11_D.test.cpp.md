@@ -6,6 +6,7 @@ data:
     title: cpp_src/data_structure/DisjointSetUnion.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
