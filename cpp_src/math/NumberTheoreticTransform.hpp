@@ -2,8 +2,6 @@
  * @docs docs/ntt.md
  */
 
-// depend on ModInt, must use NTT friendly mod
-
 template <class D>
 struct NumberTheoreticTransform {
     D root;
