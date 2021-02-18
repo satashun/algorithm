@@ -8,12 +8,13 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/template.cpp\"\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class\
-    \ T> using V = vector<T>;\ntemplate<class T> using VV = V<V<T>>;\n\n#define pb\
-    \ push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
-    #define se second\n#define rep(i,n) rep2(i,0,n)\n#define rep2(i,m,n) for(int i=m;i<(n);i++)\n\
-    #define per(i,b) per2(i,0,b)\n#define per2(i,a,b) for(int i=int(b)-1;i>=int(a);i--)\n\
+  bundledCode: "#line 1 \"cpp_src/template.cpp\"\n//#pragma GCC optimize(\"Ofast\"\
+    )\n//#pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class T>\
+    \ using V = vector<T>;\ntemplate<class T> using VV = V<V<T>>;\n\n#define pb push_back\n\
+    #define eb emplace_back\n#define mp make_pair\n#define fi first\n#define se second\n\
+    #define rep(i,n) rep2(i,0,n)\n#define rep2(i,m,n) for(int i=m;i<(n);i++)\n#define\
+    \ per(i,b) per2(i,0,b)\n#define per2(i,a,b) for(int i=int(b)-1;i>=int(a);i--)\n\
     #define ALL(c) (c).begin(),(c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
     \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }\n\ntemplate<class T,\
     \ class U> void chmin(T& t, const U& u) { if (t > u) t = u; }\ntemplate<class\
@@ -29,8 +30,9 @@ data:
     \ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n\
     #define dump(x) (void(0))\n#endif\n\nint main() {\n\tcin.tie(nullptr);\n\tios::sync_with_stdio(false);\n\
     \treturn 0;\n}\n"
-  code: "#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\n\
-    using pii = pair<int, int>;\ntemplate<class T> using V = vector<T>;\ntemplate<class\
+  code: "//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\"\
+    )\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
+    \ pii = pair<int, int>;\ntemplate<class T> using V = vector<T>;\ntemplate<class\
     \ T> using VV = V<V<T>>;\n\n#define pb push_back\n#define eb emplace_back\n#define\
     \ mp make_pair\n#define fi first\n#define se second\n#define rep(i,n) rep2(i,0,n)\n\
     #define rep2(i,m,n) for(int i=m;i<(n);i++)\n#define per(i,b) per2(i,0,b)\n#define\
@@ -53,7 +55,7 @@ data:
   isVerificationFile: false
   path: cpp_src/template.cpp
   requiredBy: []
-  timestamp: '2020-09-01 14:11:05+09:00'
+  timestamp: '2021-02-18 22:43:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/template.cpp
