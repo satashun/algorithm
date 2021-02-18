@@ -1,94 +1,218 @@
 ---
-layout: default
+data:
+  libraryCategories:
+  - name: cpp_src
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/atcoder_template.cpp
+      title: cpp_src/atcoder_template.cpp
+    - icon: ':warning:'
+      path: cpp_src/template.cpp
+      title: cpp_src/template.cpp
+  - name: cpp_src/data_structure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/data_structure/DisjointSetUnion.hpp
+      title: cpp_src/data_structure/DisjointSetUnion.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/data_structure/FenwickTree.hpp
+      title: cpp_src/data_structure/FenwickTree.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/LazySegmentTree.hpp
+      title: cpp_src/data_structure/LazySegmentTree.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/SegmentTree.hpp
+      title: cpp_src/data_structure/SegmentTree.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/SegmentTreeKth.cpp
+      title: cpp_src/data_structure/SegmentTreeKth.cpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/StarrySkyTree.hpp
+      title: cpp_src/data_structure/StarrySkyTree.hpp
+  - name: cpp_src/graph
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/graph/BipartiteMatching.hpp
+      title: cpp_src/graph/BipartiteMatching.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/graph/Dinic.hpp
+      title: cpp_src/graph/Dinic.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/EulerPath.hpp
+      title: cpp_src/graph/EulerPath.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/graph/LCA.hpp
+      title: cpp_src/graph/LCA.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/MinimumCostFlow.hpp
+      title: cpp_src/graph/MinimumCostFlow.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/Namori.hpp
+      title: cpp_src/graph/Namori.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/graph/SCC.hpp
+      title: cpp_src/graph/SCC.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/TarjanLowLink.hpp
+      title: cpp_src/graph/TarjanLowLink.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/graph_template.hpp
+      title: cpp_src/graph/graph_template.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/tree.hpp
+      title: cpp_src/graph/tree.hpp
+  - name: cpp_src/math
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/math/FFTArbitraryMod.hpp
+      title: cpp_src/math/FFTArbitraryMod.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/FormalPowerSeries.hpp
+      title: cpp_src/math/FormalPowerSeries.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/HelperFunctions.hpp
+      title: cpp_src/math/HelperFunctions.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/LinearSieve.hpp
+      title: cpp_src/math/LinearSieve.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/MatrixLinearAlgebra.hpp
+      title: cpp_src/math/MatrixLinearAlgebra.hpp
+    - icon: ':x:'
+      path: cpp_src/math/Modular.hpp
+      title: cpp_src/math/Modular.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModularOperation.hpp
+      title: cpp_src/math/ModularOperation.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModularRuntime.hpp
+      title: cpp_src/math/ModularRuntime.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/MultipointEvaluation.hpp
+      title: cpp_src/math/MultipointEvaluation.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/NumberTheoreticTransform.hpp
+      title: cpp_src/math/NumberTheoreticTransform.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/NumberTheory.hpp
+      title: cpp_src/math/NumberTheory.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/PolynomialInterpolation.hpp
+      title: cpp_src/math/PolynomialInterpolation.hpp
+  - name: cpp_src/other
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/other/FWT.hpp
+      title: cpp_src/other/FWT.hpp
+    - icon: ':x:'
+      path: cpp_src/other/LineContainer.hpp
+      title: cpp_src/other/LineContainer.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/Mo.hpp
+      title: cpp_src/other/Mo.hpp
+  - name: cpp_src/string
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/string/Manacher.hpp
+      title: cpp_src/string/Manacher.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/string/RollingHash.hpp
+      title: cpp_src/string/RollingHash.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/string/Zalgo.hpp
+      title: cpp_src/string/Zalgo.hpp
+  - name: cpp_src/utility
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/utility/RandomLib.hpp
+      title: cpp_src/utility/RandomLib.hpp
+  - name: py_src
+    pages:
+    - icon: ':warning:'
+      path: py_src/DSU.py
+      title: py_src/DSU.py
+  - name: test/learning
+    pages:
+    - icon: ':warning:'
+      path: test/learning/exp.cpp
+      title: test/learning/exp.cpp
+    - icon: ':warning:'
+      path: test/learning/four_element.cpp
+      title: test/learning/four_element.cpp
+  - name: test/yosupo
+    pages:
+    - icon: ':warning:'
+      path: test/yosupo/SubsetSum.cpp
+      title: test/yosupo/SubsetSum.cpp
+    - icon: ':warning:'
+      path: test/yosupo/bipartitematching_slow.cpp
+      title: test/yosupo/bipartitematching_slow.cpp
+    - icon: ':warning:'
+      path: test/yosupo/det.cpp
+      title: test/yosupo/det.cpp
+    - icon: ':warning:'
+      path: test/yosupo/exp_of_fps.cpp
+      title: test/yosupo/exp_of_fps.cpp
+    - icon: ':warning:'
+      path: test/yosupo/log_of_fps.cpp
+      title: test/yosupo/log_of_fps.cpp
+    - icon: ':warning:'
+      path: test/yosupo/min_cost_b_flow.cpp
+      title: test/yosupo/min_cost_b_flow.cpp
+    - icon: ':warning:'
+      path: test/yosupo/number_of_substrings.cpp
+      title: test/yosupo/number_of_substrings.cpp
+    - icon: ':warning:'
+      path: test/yosupo/stirling_number_of_the_first_kind.cpp
+      title: test/yosupo/stirling_number_of_the_first_kind.cpp
+    - icon: ':warning:'
+      path: test/yosupo/suffixarray.cpp
+      title: test/yosupo/suffixarray.cpp
+  verificationCategories:
+  - name: test/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/0343.test.cpp
+      title: test/aoj/0343.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_11_D.test.cpp
+      title: test/aoj/ALDS1_11_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_14_B.test.cpp
+      title: test/aoj/ALDS1_14_B.test.cpp
+  - name: test/yosupo
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/Z.test.cpp
+      title: test/yosupo/Z.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/aplusb.test.cpp
+      title: test/yosupo/aplusb.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/assignment.test.cpp
+      title: test/yosupo/assignment.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/bipartitematching.test.cpp
+      title: test/yosupo/bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/lca.test.cpp
+      title: test/yosupo/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/point_add_range_sum.test.cpp
+      title: test/yosupo/point_add_range_sum.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/point_set_range_composite.test.cpp
+      title: test/yosupo/point_set_range_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/scc.test.cpp
+      title: test/yosupo/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/unionfind.test.cpp
+      title: test/yosupo/unionfind.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/1297.test.cpp
+      title: test/yukicoder/1297.test.cpp
+layout: toppage
 ---
-
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: { equationNumbers: { autoNumber: "AMS" }},
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      processEscapes: true
-    },
-    "HTML-CSS": { matchFontHeight: false },
-    displayAlign: "left",
-    displayIndent: "2em"
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-balloon-js@1.1.2/jquery.balloon.min.js" integrity="sha256-ZEYs9VrgAeNuPvs15E39OsyOJaIkXEEt10fzxJ20+2I=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/js/copy-button.js"></script>
-<link rel="stylesheet" href="assets/css/copy-button.css" />
-
-
-# {{ site.title }}
-
-[![Actions Status]({{ site.github.repository_url }}/workflows/verify/badge.svg)]({{ site.github.repository_url }}/actions)
-<a href="{{ site.github.repository_url }}"><img src="https://img.shields.io/github/last-commit/{{ site.github.owner_name }}/{{ site.github.repository_name }}" /></a>
-
-{% if site.github.project_tagline %}{{ site.github.project_tagline }}{% else %}This documentation is automatically generated by <a href="https://github.com/kmyk/online-judge-verify-helper">online-judge-verify-helper</a>.{% endif %}
-
-## Library Files
-
-<div id="9a58b284f26bf03008f1a9518086b10c"></div>
-
-### cpp_src
-
-* :warning: <a href="library/cpp_src/template.cpp.html">cpp_src/template.cpp</a>
-
-
-<div id="0efeb1959dbc8f7e9170e2d5bfa803ae"></div>
-
-### cpp_src/data_structure
-
-* :warning: <a href="library/cpp_src/data_structure/fenwick.hpp.html">cpp_src/data_structure/fenwick.hpp</a>
-* :warning: <a href="library/cpp_src/data_structure/starry_sky_tree.cpp.html">cpp_src/data_structure/starry_sky_tree.cpp</a>
-* :x: <a href="library/cpp_src/data_structure/unionfind.hpp.html">cpp_src/data_structure/unionfind.hpp</a>
-
-
-<div id="899db7edb5841537da14f45d9b6032f9"></div>
-
-### cpp_src/graph
-
-* :warning: <a href="library/cpp_src/graph/LCA.hpp.html">cpp_src/graph/LCA.hpp</a>
-* :warning: <a href="library/cpp_src/graph/lowlink.hpp.html">cpp_src/graph/lowlink.hpp</a>
-* :warning: <a href="library/cpp_src/graph/mincostflow.hpp.html">cpp_src/graph/mincostflow.hpp</a>
-
-
-<div id="7f80e2498998e03897cbfac19f068c09"></div>
-
-### cpp_src/math
-
-* :warning: <a href="library/cpp_src/math/interpolation.hpp.html">cpp_src/math/interpolation.hpp</a>
-* :warning: <a href="library/cpp_src/math/matrix.hpp.html">cpp_src/math/matrix.hpp</a>
-* :warning: <a href="library/cpp_src/math/modint.hpp.html">cpp_src/math/modint.hpp</a>
-* :warning: <a href="library/cpp_src/math/multipoint_evaluation.hpp.html">cpp_src/math/multipoint_evaluation.hpp</a>
-* :warning: <a href="library/cpp_src/math/number_theoretic_transform.hpp.html">cpp_src/math/number_theoretic_transform.hpp</a>
-* :warning: <a href="library/cpp_src/math/polynomial.hpp.html">cpp_src/math/polynomial.hpp</a>
-* :warning: <a href="library/cpp_src/math/totient.hpp.html">cpp_src/math/totient.hpp</a>
-* :warning: <a href="library/cpp_src/math/typical_mod_operation.hpp.html">cpp_src/math/typical_mod_operation.hpp</a>
-
-
-<div id="3a410910d29f06f5e038fad6075af5c6"></div>
-
-### cpp_src/other
-
-* :warning: <a href="library/cpp_src/other/Mo.hpp.html">cpp_src/other/Mo.hpp</a>
-
-
-<div id="1af93c576686231cc039edb77ac3381f"></div>
-
-### cpp_src/string
-
-* :warning: <a href="library/cpp_src/string/Z_algorithm.hpp.html">cpp_src/string/Z_algorithm.hpp</a>
-
-
-## Verify Files
-
-* :x: <a href="verify/test/aoj/ALDS1_11_D.test.cpp.html">test/aoj/ALDS1_11_D.test.cpp</a>
-
-
