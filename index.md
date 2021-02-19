@@ -148,6 +148,9 @@ data:
       path: test/yosupo/bipartitematching_slow.cpp
       title: test/yosupo/bipartitematching_slow.cpp
     - icon: ':warning:'
+      path: test/yosupo/bitwise_xor_convolution.cpp
+      title: test/yosupo/bitwise_xor_convolution.cpp
+    - icon: ':warning:'
       path: test/yosupo/det.cpp
       title: test/yosupo/det.cpp
     - icon: ':warning:'
