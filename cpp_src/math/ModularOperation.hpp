@@ -33,3 +33,7 @@ Mint comb_slow(ll n, ll k) {
     }
     return res;
 }
+
+// line up
+// a 'o' + b 'x'
+Mint comb2(int a, int b) { return comb(a + b, a); }

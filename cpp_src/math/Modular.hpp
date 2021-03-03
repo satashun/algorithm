@@ -47,11 +47,23 @@ struct ModInt {
         return M(p);
     }
 
+    friend ostream& operator<<(ostream& os, const M& a) { return os << a.v; }
+    friend istream& operator>>(istream& in, M& x) {
+        ll v_;
+        in >> v_;
+        x = M(v_);
+        return in;
+    }
+
+    bool operator<(const M& r) const { return v < r.v; }
+    bool operator>(const M& r) const { return v < *this; }
+    bool operator<=(const M& r) const { return !(r < *this); }
+    bool operator>=(const M& r) const { return !(*this < r); }
     bool operator==(const M& a) const { return v == a.v; }
     bool operator!=(const M& a) const { return v != a.v; }
-    friend ostream& operator<<(ostream& os, const M& a) { return os << a.v; }
-    friend istream& operator>>(istream& in, M& x) { ll v_; in >> v_; x = M(v_); return in; }
+
     static uint get_mod() { return MOD; }
 };
 
 // using Mint = ModInt<1000000007>;
+// using Mint = ModInt<998244353>;

@@ -34,7 +34,7 @@ struct Poly : public V<D> {
         }
         return res;
     }
-    
+
     Poly operator+(const Poly& r) const {
         auto n = max(size(), r.size());
         V<D> tmp(n);
@@ -175,6 +175,16 @@ struct Poly : public V<D> {
             }
         }
         return os;
+    }
+
+    explicit operator bool() const {
+        bool f = false;
+        for (int i = 0; i < size(); ++i) {
+            if (at(i)) {
+                f = true;
+            }
+        }
+        return f;
     }
 };
 
