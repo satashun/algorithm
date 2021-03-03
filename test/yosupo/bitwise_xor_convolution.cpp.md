@@ -58,17 +58,21 @@ data:
     \ x;\n            n >>= 1;\n        }\n        return res;\n    }\n\n    M inv()\
     \ const {\n        ll a = v, b = MOD, p = 1, q = 0, t;\n        while (b != 0)\
     \ {\n            t = a / b;\n            swap(a -= t * b, b);\n            swap(p\
-    \ -= t * q, q);\n        }\n        return M(p);\n    }\n\n    bool operator==(const\
+    \ -= t * q, q);\n        }\n        return M(p);\n    }\n\n    friend ostream&\
+    \ operator<<(ostream& os, const M& a) { return os << a.v; }\n    friend istream&\
+    \ operator>>(istream& in, M& x) {\n        ll v_;\n        in >> v_;\n       \
+    \ x = M(v_);\n        return in;\n    }\n\n    bool operator<(const M& r) const\
+    \ { return v < r.v; }\n    bool operator>(const M& r) const { return v < *this;\
+    \ }\n    bool operator<=(const M& r) const { return !(r < *this); }\n    bool\
+    \ operator>=(const M& r) const { return !(*this < r); }\n    bool operator==(const\
     \ M& a) const { return v == a.v; }\n    bool operator!=(const M& a) const { return\
-    \ v != a.v; }\n    friend ostream& operator<<(ostream& os, const M& a) { return\
-    \ os << a.v; }\n    friend istream& operator>>(istream& in, M& x) { ll v_; in\
-    \ >> v_; x = M(v_); return in; }\n    static uint get_mod() { return MOD; }\n\
-    };\n\n// using Mint = ModInt<1000000007>;\n#line 1 \"cpp_src/other/FWT.hpp\"\n\
-    //vector size : power of 2\n\ntemplate<class T>\nvoid and_fwt(vector<T>& f) {\n\
-    \    int n = f.size();\n    for (int d = 1; d < n; d <<= 1) {\n        for (int\
-    \ i = 0; i < n; i += d * 2) {\n            for (int j = 0; j < d; ++j) {\n   \
-    \             T x = f[i+j], y = f[i+j+d];\n                f[i+j] = x + y;\n \
-    \           }\n        }\n    }\n}\n\ntemplate<class T>\nvoid and_ifwt(vector<T>&\
+    \ v != a.v; }\n\n    static uint get_mod() { return MOD; }\n};\n\n// using Mint\
+    \ = ModInt<1000000007>;\n// using Mint = ModInt<998244353>;\n#line 1 \"cpp_src/other/FWT.hpp\"\
+    \n//vector size : power of 2\n\ntemplate<class T>\nvoid and_fwt(vector<T>& f)\
+    \ {\n    int n = f.size();\n    for (int d = 1; d < n; d <<= 1) {\n        for\
+    \ (int i = 0; i < n; i += d * 2) {\n            for (int j = 0; j < d; ++j) {\n\
+    \                T x = f[i+j], y = f[i+j+d];\n                f[i+j] = x + y;\n\
+    \            }\n        }\n    }\n}\n\ntemplate<class T>\nvoid and_ifwt(vector<T>&\
     \ f) {\n    int n = f.size();\n    for (int d = 1; d < n; d <<= 1) {\n       \
     \ for (int i = 0; i < n; i += d * 2) {\n            for (int j = 0; j < d; ++j)\
     \ {\n                T x = f[i+j], y = f[i+j+d];\n                f[i+j] = x -\
@@ -121,7 +125,7 @@ data:
   isVerificationFile: false
   path: test/yosupo/bitwise_xor_convolution.cpp
   requiredBy: []
-  timestamp: '2021-02-19 20:19:41+09:00'
+  timestamp: '2021-03-04 05:51:44+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/yosupo/bitwise_xor_convolution.cpp

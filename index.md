@@ -70,6 +70,9 @@ data:
       path: cpp_src/math/FormalPowerSeries.hpp
       title: cpp_src/math/FormalPowerSeries.hpp
     - icon: ':warning:'
+      path: cpp_src/math/Fraction.hpp
+      title: cpp_src/math/Fraction.hpp
+    - icon: ':warning:'
       path: cpp_src/math/HelperFunctions.hpp
       title: cpp_src/math/HelperFunctions.hpp
     - icon: ':warning:'

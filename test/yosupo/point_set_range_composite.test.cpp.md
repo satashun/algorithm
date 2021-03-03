@@ -51,12 +51,16 @@ data:
     \ x;\n            n >>= 1;\n        }\n        return res;\n    }\n\n    M inv()\
     \ const {\n        ll a = v, b = MOD, p = 1, q = 0, t;\n        while (b != 0)\
     \ {\n            t = a / b;\n            swap(a -= t * b, b);\n            swap(p\
-    \ -= t * q, q);\n        }\n        return M(p);\n    }\n\n    bool operator==(const\
+    \ -= t * q, q);\n        }\n        return M(p);\n    }\n\n    friend ostream&\
+    \ operator<<(ostream& os, const M& a) { return os << a.v; }\n    friend istream&\
+    \ operator>>(istream& in, M& x) {\n        ll v_;\n        in >> v_;\n       \
+    \ x = M(v_);\n        return in;\n    }\n\n    bool operator<(const M& r) const\
+    \ { return v < r.v; }\n    bool operator>(const M& r) const { return v < *this;\
+    \ }\n    bool operator<=(const M& r) const { return !(r < *this); }\n    bool\
+    \ operator>=(const M& r) const { return !(*this < r); }\n    bool operator==(const\
     \ M& a) const { return v == a.v; }\n    bool operator!=(const M& a) const { return\
-    \ v != a.v; }\n    friend ostream& operator<<(ostream& os, const M& a) { return\
-    \ os << a.v; }\n    friend istream& operator>>(istream& in, M& x) { ll v_; in\
-    \ >> v_; x = M(v_); return in; }\n    static uint get_mod() { return MOD; }\n\
-    };\n\n// using Mint = ModInt<1000000007>;\n#line 58 \"test/yosupo/point_set_range_composite.test.cpp\"\
+    \ v != a.v; }\n\n    static uint get_mod() { return MOD; }\n};\n\n// using Mint\
+    \ = ModInt<1000000007>;\n// using Mint = ModInt<998244353>;\n#line 58 \"test/yosupo/point_set_range_composite.test.cpp\"\
     \n#undef call_from_test\n\nusing Mint = ModInt<998244353>;\n\n// index of root\
     \ = 1\n\ntemplate <class U>\nstruct segtree {\n    using T = typename U::T;\n\
     \    int sz;\n    V<T> dat;\n\n    segtree(const V<T>& a) {\n        int n = a.size();\n\
@@ -134,7 +138,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2021-02-05 11:44:04+09:00'
+  timestamp: '2021-03-04 05:51:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/point_set_range_composite.test.cpp

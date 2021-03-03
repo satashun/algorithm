@@ -20,8 +20,8 @@ data:
     \ res.end());\n        return res;\n    }\n\n    Poly shiftr(int d) const {\n\
     \        int n = max(size() + d, 0);\n        Poly res(n);\n        for (int i\
     \ = 0; i < size(); ++i) {\n            if (i + d >= 0) {\n                res[i\
-    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n    \n\
-    \    Poly operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
+    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n\n    Poly\
+    \ operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
     \        V<D> tmp(n);\n        for (int i = 0; i < n; ++i) {\n            tmp[i]\
     \ = at(i) + r.at(i);\n        }\n        return tmp;\n    }\n    Poly operator-(const\
     \ Poly& r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
@@ -71,16 +71,19 @@ data:
     \    if (pl.size() == 0) return os << \"0\";\n        for (int i = 0; i < pl.size();\
     \ ++i) {\n            if (pl[i]) {\n                os << pl[i] << \"x^\" << i;\n\
     \                if (i + 1 != pl.size()) os << \",\";\n            }\n       \
-    \ }\n        return os;\n    }\n};\n\n// calculate characteristic polynomial\n\
-    // c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k = -1\n\ntemplate\
-    \ <class T>\nPoly<T> berlekamp_massey(const V<T>& s) {\n    int n = int(s.size());\n\
-    \    V<T> b = {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n    for (int ed = 1;\
-    \ ed <= n; ed++) {\n        int l = int(c.size()), m = int(b.size());\n      \
-    \  T x = 0;\n        for (int i = 0; i < l; i++) {\n            x += c[i] * s[ed\
-    \ - l + i];\n        }\n        b.push_back(0);\n        m++;\n        if (!x)\
-    \ {\n            continue;\n        }\n        T freq = x / y;\n        if (l\
-    \ < m) {\n            auto tmp = c;\n            c.insert(begin(c), m - l, Mint(0));\n\
-    \            for (int i = 0; i < m; i++) {\n                c[m - 1 - i] -= freq\
+    \ }\n        return os;\n    }\n\n    explicit operator bool() const {\n     \
+    \   bool f = false;\n        for (int i = 0; i < size(); ++i) {\n            if\
+    \ (at(i)) {\n                f = true;\n            }\n        }\n        return\
+    \ f;\n    }\n};\n\n// calculate characteristic polynomial\n// c_0 * s_i + c_1\
+    \ * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k = -1\n\ntemplate <class T>\nPoly<T>\
+    \ berlekamp_massey(const V<T>& s) {\n    int n = int(s.size());\n    V<T> b =\
+    \ {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n    for (int ed = 1; ed <= n; ed++)\
+    \ {\n        int l = int(c.size()), m = int(b.size());\n        T x = 0;\n   \
+    \     for (int i = 0; i < l; i++) {\n            x += c[i] * s[ed - l + i];\n\
+    \        }\n        b.push_back(0);\n        m++;\n        if (!x) {\n       \
+    \     continue;\n        }\n        T freq = x / y;\n        if (l < m) {\n  \
+    \          auto tmp = c;\n            c.insert(begin(c), m - l, Mint(0));\n  \
+    \          for (int i = 0; i < m; i++) {\n                c[m - 1 - i] -= freq\
     \ * b[m - 1 - i];\n            }\n            b = tmp;\n            y = x;\n \
     \       } else {\n            for (int i = 0; i < m; i++) {\n                c[l\
     \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n        }\n    }\n    return\
@@ -103,8 +106,8 @@ data:
     \ res.end());\n        return res;\n    }\n\n    Poly shiftr(int d) const {\n\
     \        int n = max(size() + d, 0);\n        Poly res(n);\n        for (int i\
     \ = 0; i < size(); ++i) {\n            if (i + d >= 0) {\n                res[i\
-    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n    \n\
-    \    Poly operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
+    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n\n    Poly\
+    \ operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
     \        V<D> tmp(n);\n        for (int i = 0; i < n; ++i) {\n            tmp[i]\
     \ = at(i) + r.at(i);\n        }\n        return tmp;\n    }\n    Poly operator-(const\
     \ Poly& r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
@@ -154,16 +157,19 @@ data:
     \    if (pl.size() == 0) return os << \"0\";\n        for (int i = 0; i < pl.size();\
     \ ++i) {\n            if (pl[i]) {\n                os << pl[i] << \"x^\" << i;\n\
     \                if (i + 1 != pl.size()) os << \",\";\n            }\n       \
-    \ }\n        return os;\n    }\n};\n\n// calculate characteristic polynomial\n\
-    // c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k = -1\n\ntemplate\
-    \ <class T>\nPoly<T> berlekamp_massey(const V<T>& s) {\n    int n = int(s.size());\n\
-    \    V<T> b = {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n    for (int ed = 1;\
-    \ ed <= n; ed++) {\n        int l = int(c.size()), m = int(b.size());\n      \
-    \  T x = 0;\n        for (int i = 0; i < l; i++) {\n            x += c[i] * s[ed\
-    \ - l + i];\n        }\n        b.push_back(0);\n        m++;\n        if (!x)\
-    \ {\n            continue;\n        }\n        T freq = x / y;\n        if (l\
-    \ < m) {\n            auto tmp = c;\n            c.insert(begin(c), m - l, Mint(0));\n\
-    \            for (int i = 0; i < m; i++) {\n                c[m - 1 - i] -= freq\
+    \ }\n        return os;\n    }\n\n    explicit operator bool() const {\n     \
+    \   bool f = false;\n        for (int i = 0; i < size(); ++i) {\n            if\
+    \ (at(i)) {\n                f = true;\n            }\n        }\n        return\
+    \ f;\n    }\n};\n\n// calculate characteristic polynomial\n// c_0 * s_i + c_1\
+    \ * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k = -1\n\ntemplate <class T>\nPoly<T>\
+    \ berlekamp_massey(const V<T>& s) {\n    int n = int(s.size());\n    V<T> b =\
+    \ {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n    for (int ed = 1; ed <= n; ed++)\
+    \ {\n        int l = int(c.size()), m = int(b.size());\n        T x = 0;\n   \
+    \     for (int i = 0; i < l; i++) {\n            x += c[i] * s[ed - l + i];\n\
+    \        }\n        b.push_back(0);\n        m++;\n        if (!x) {\n       \
+    \     continue;\n        }\n        T freq = x / y;\n        if (l < m) {\n  \
+    \          auto tmp = c;\n            c.insert(begin(c), m - l, Mint(0));\n  \
+    \          for (int i = 0; i < m; i++) {\n                c[m - 1 - i] -= freq\
     \ * b[m - 1 - i];\n            }\n            b = tmp;\n            y = x;\n \
     \       } else {\n            for (int i = 0; i < m; i++) {\n                c[l\
     \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n        }\n    }\n    return\
@@ -179,7 +185,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2021-02-05 11:59:46+09:00'
+  timestamp: '2021-03-04 05:51:44+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp
