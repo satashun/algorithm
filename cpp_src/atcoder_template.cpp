@@ -1,9 +1,12 @@
+//#pragma GCC optimize("Ofast")
+//#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 #include <atcoder/modint>
 using namespace std;
 using namespace atcoder;
 
-using ll = long long;
+using ll = int64_t;
+using ull = uint64_t;
 using pii = pair<int, int>;
 template<class T> using V = vector<T>;
 template<class T> using VV = V<V<T>>;
