@@ -43,12 +43,14 @@ data:
     if ((df >> i) & 1) {\n\t\t\t\tdf -= (1 << i);\n\t\t\t\tu = anc[i][u];\n\t\t\t\
     }\n\t\t}\n\t\tif (u == v) return u;\n\t\tfor (int i = lg - 1; i >= 0; --i) {\n\
     \t\t\tif (anc[i][u] != anc[i][v]) {\n\t\t\t\tu = anc[i][u];\n\t\t\t\tv = anc[i][v];\n\
-    \t\t\t}\n\t\t}\n\t\treturn anc[0][u];\n\t}\n};\n#line 50 \"test/yosupo/lca.test.cpp\"\
-    \n#undef call_from_test\n\nint main() {\n\tint N, Q; scanf(\"%d %d\", &N, &Q);\n\
-    \tV<int> p(N);\n\tVV<int> g(N);\n\tfor (int i = 1; i < N; ++i) {\n\t\tscanf(\"\
-    %d\", &p[i]);\n\t\tg[p[i]].pb(i);\n\t}\n\tLCA<int> lca(g, 0);\n\twhile (Q--) {\n\
-    \t\tint a, b;\n\t\tscanf(\"%d %d\", &a, &b);\n\t\tint v = lca.query(a, b);\n\t\
-    \tprintf(\"%d\\n\", v);\n\t}\n\treturn 0;\n}\n"
+    \t\t\t}\n\t\t}\n\t\treturn anc[0][u];\n\t}\n\n\tint dist(int a, int b) {\n   \
+    \     int lc = query(a, b);\n        return dep[a] + dep[b] - dep[lc] * 2;\n \
+    \   }\n};\n#line 50 \"test/yosupo/lca.test.cpp\"\n#undef call_from_test\n\nint\
+    \ main() {\n\tint N, Q; scanf(\"%d %d\", &N, &Q);\n\tV<int> p(N);\n\tVV<int> g(N);\n\
+    \tfor (int i = 1; i < N; ++i) {\n\t\tscanf(\"%d\", &p[i]);\n\t\tg[p[i]].pb(i);\n\
+    \t}\n\tLCA<int> lca(g, 0);\n\twhile (Q--) {\n\t\tint a, b;\n\t\tscanf(\"%d %d\"\
+    , &a, &b);\n\t\tint v = lca.query(a, b);\n\t\tprintf(\"%d\\n\", v);\n\t}\n\treturn\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate<class\
     \ T> using V = vector<T>;\ntemplate<class T> using VV = V<V<T>>;\n\n#define pb\
@@ -74,7 +76,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2020-04-01 18:25:18+09:00'
+  timestamp: '2021-04-19 01:11:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

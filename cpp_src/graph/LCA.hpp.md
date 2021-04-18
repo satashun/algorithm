@@ -25,7 +25,9 @@ data:
     if ((df >> i) & 1) {\n\t\t\t\tdf -= (1 << i);\n\t\t\t\tu = anc[i][u];\n\t\t\t\
     }\n\t\t}\n\t\tif (u == v) return u;\n\t\tfor (int i = lg - 1; i >= 0; --i) {\n\
     \t\t\tif (anc[i][u] != anc[i][v]) {\n\t\t\t\tu = anc[i][u];\n\t\t\t\tv = anc[i][v];\n\
-    \t\t\t}\n\t\t}\n\t\treturn anc[0][u];\n\t}\n};\n"
+    \t\t\t}\n\t\t}\n\t\treturn anc[0][u];\n\t}\n\n\tint dist(int a, int b) {\n   \
+    \     int lc = query(a, b);\n        return dep[a] + dep[b] - dep[lc] * 2;\n \
+    \   }\n};\n"
   code: "//E : int or edge class\n\ntemplate<class E>\nstruct LCA {\n\tVV<int> anc;\n\
     \tV<int> dep;\n\tint lg;\n\tconst VV<E>& g;\n\n\tLCA(const VV<E>& g, int root)\
     \ : g(g) {\n\t\tint n = g.size();\n\t\tlg = 1;\n\t\twhile ((1 << lg) < n) lg++;\n\
@@ -40,12 +42,13 @@ data:
     df -= (1 << i);\n\t\t\t\tu = anc[i][u];\n\t\t\t}\n\t\t}\n\t\tif (u == v) return\
     \ u;\n\t\tfor (int i = lg - 1; i >= 0; --i) {\n\t\t\tif (anc[i][u] != anc[i][v])\
     \ {\n\t\t\t\tu = anc[i][u];\n\t\t\t\tv = anc[i][v];\n\t\t\t}\n\t\t}\n\t\treturn\
-    \ anc[0][u];\n\t}\n};"
+    \ anc[0][u];\n\t}\n\n\tint dist(int a, int b) {\n        int lc = query(a, b);\n\
+    \        return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/LCA.hpp
   requiredBy: []
-  timestamp: '2020-02-12 22:31:33+09:00'
+  timestamp: '2021-04-19 01:11:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp
