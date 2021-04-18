@@ -40,3 +40,16 @@ Mint comb2(int a, int b) {
     if (a < 0 || b < 0) return 0;
     return comb(a + b, a);
 }
+
+// O(p + log_p n)
+
+Mint lucas(ll n, ll k, int p) {
+    if (n < 0 || k < 0 || k > n) return Mint(0);
+    Mint res = 1;
+    while (n > 0) {
+        res *= comb(n % p, k % p);
+        n /= p;
+        k /= p;
+    }
+    return res;
+}

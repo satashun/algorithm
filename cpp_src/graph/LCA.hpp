@@ -50,4 +50,9 @@ struct LCA {
 		}
 		return anc[0][u];
 	}
+
+	int dist(int a, int b) {
+        int lc = query(a, b);
+        return dep[a] + dep[b] - dep[lc] * 2;
+    }
 };
