@@ -40,6 +40,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/GraphBase.hpp
+      title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/LCA.hpp
       title: cpp_src/graph/LCA.hpp
@@ -56,13 +59,13 @@ data:
       path: cpp_src/graph/TarjanLowLink.hpp
       title: cpp_src/graph/TarjanLowLink.hpp
     - icon: ':warning:'
-      path: cpp_src/graph/graph_template.hpp
-      title: cpp_src/graph/graph_template.hpp
-    - icon: ':warning:'
-      path: cpp_src/graph/tree.hpp
-      title: cpp_src/graph/tree.hpp
+      path: cpp_src/graph/Ttree.hpp
+      title: cpp_src/graph/Ttree.hpp
   - name: cpp_src/math
     pages:
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/math/BostanMori.hpp
+      title: cpp_src/math/BostanMori.hpp
     - icon: ':warning:'
       path: cpp_src/math/FFTArbitraryMod.hpp
       title: cpp_src/math/FFTArbitraryMod.hpp
@@ -200,6 +203,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
+      title: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca.test.cpp
       title: test/yosupo/lca.test.cpp
