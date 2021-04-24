@@ -1,4 +1,4 @@
-#include "graph_template.hpp"
+#include "GraphBase.hpp"
 
 template <class T>
 class forest : public Graph<T> {
