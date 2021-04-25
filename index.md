@@ -70,6 +70,9 @@ data:
       path: cpp_src/math/FFTArbitraryMod.hpp
       title: cpp_src/math/FFTArbitraryMod.hpp
     - icon: ':warning:'
+      path: cpp_src/math/Fiduccia.cpp
+      title: cpp_src/math/Fiduccia.cpp
+    - icon: ':warning:'
       path: cpp_src/math/FormalPowerSeries.hpp
       title: cpp_src/math/FormalPowerSeries.hpp
     - icon: ':warning:'
@@ -137,6 +140,11 @@ data:
     - icon: ':warning:'
       path: py_src/DSU.py
       title: py_src/DSU.py
+  - name: test/codechef
+    pages:
+    - icon: ':warning:'
+      path: test/codechef/rng.cpp
+      title: test/codechef/rng.cpp
   - name: test/learning
     pages:
     - icon: ':warning:'
