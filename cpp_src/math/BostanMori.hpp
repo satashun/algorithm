@@ -1,3 +1,5 @@
+// ref :
+// https://qiita.com/ryuhe1/items/da5acbcce4ac1911f47a#%E5%BD%A2%E5%BC%8F%E7%9A%84%E3%81%B9%E3%81%8D%E7%B4%9A%E6%95%B0
 // a_i = \sum_{j=1}^d c_j * a_{i-j}
 // input
 // a_0, a_1, a_2, ..., a_{d-1}
