@@ -158,6 +158,19 @@ struct Poly : public V<D> {
         return res;
     }
 
+    Poly powmod(ll k, const Poly& md) {
+        auto v = *this % md;
+        Poly res{1};
+        while (k) {
+            if (k & 1) {
+                res = res * v % md;
+            }
+            v = v * v % md;
+            k /= 2;
+        }
+        return res;
+    }
+
     Poly& operator+=(const Poly& r) { return *this = *this + r; }
     Poly& operator-=(const Poly& r) { return *this = *this - r; }
     Poly& operator*=(const D& r) { return *this = *this * r; }
