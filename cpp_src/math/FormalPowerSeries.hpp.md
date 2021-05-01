@@ -61,40 +61,43 @@ data:
     \ * 2)) * D(2).inv();\n        }\n        return g.pref(n);\n    }\n\n    D eval(D\
     \ x) const {\n        D res = 0, c = 1;\n        for (auto a : *this) {\n    \
     \        res += a * c;\n            c *= x;\n        }\n        return res;\n\
-    \    }\n\n    Poly& operator+=(const Poly& r) { return *this = *this + r; }\n\
-    \    Poly& operator-=(const Poly& r) { return *this = *this - r; }\n    Poly&\
-    \ operator*=(const D& r) { return *this = *this * r; }\n    Poly& operator*=(const\
-    \ Poly& r) { return *this = *this * r; }\n    Poly& operator/=(const Poly& r)\
-    \ { return *this = *this / r; }\n    Poly& operator/=(const D& r) { return *this\
-    \ = *this / r; }\n    Poly& operator%=(const Poly& r) { return *this = *this %\
-    \ r; }\n\n    friend ostream& operator<<(ostream& os, const Poly& pl) {\n    \
-    \    if (pl.size() == 0) return os << \"0\";\n        for (int i = 0; i < pl.size();\
-    \ ++i) {\n            if (pl[i]) {\n                os << pl[i] << \"x^\" << i;\n\
-    \                if (i + 1 != pl.size()) os << \",\";\n            }\n       \
-    \ }\n        return os;\n    }\n\n    explicit operator bool() const {\n     \
-    \   bool f = false;\n        for (int i = 0; i < size(); ++i) {\n            if\
-    \ (at(i)) {\n                f = true;\n            }\n        }\n        return\
-    \ f;\n    }\n};\n\n// calculate characteristic polynomial\n// c_0 * s_i + c_1\
-    \ * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k = -1\n\ntemplate <class T>\nPoly<T>\
-    \ berlekamp_massey(const V<T>& s) {\n    int n = int(s.size());\n    V<T> b =\
-    \ {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n    for (int ed = 1; ed <= n; ed++)\
-    \ {\n        int l = int(c.size()), m = int(b.size());\n        T x = 0;\n   \
-    \     for (int i = 0; i < l; i++) {\n            x += c[i] * s[ed - l + i];\n\
-    \        }\n        b.push_back(0);\n        m++;\n        if (!x) {\n       \
-    \     continue;\n        }\n        T freq = x / y;\n        if (l < m) {\n  \
-    \          auto tmp = c;\n            c.insert(begin(c), m - l, Mint(0));\n  \
-    \          for (int i = 0; i < m; i++) {\n                c[m - 1 - i] -= freq\
-    \ * b[m - 1 - i];\n            }\n            b = tmp;\n            y = x;\n \
-    \       } else {\n            for (int i = 0; i < m; i++) {\n                c[l\
-    \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n        }\n    }\n    return\
-    \ c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1] * ...\n// deg(result)\
-    \ must be bounded\n\ntemplate <class T>\nPoly<T> prod(const V<Poly<T>>& vec) {\n\
-    \    auto comp = [](const auto& a, const auto& b) -> bool {\n        return a.size()\
-    \ > b.size();\n    };\n    priority_queue<Poly<T>, V<Poly<T>>, decltype(comp)>\
-    \ que(comp);\n    que.push(Poly<T>{1});\n\n    for (auto& pl : vec) que.push(pl);\n\
-    \n    while (que.size() > 1) {\n        auto va = que.top();\n        que.pop();\n\
-    \        auto vb = que.top();\n        que.pop();\n        que.push(va * vb);\n\
-    \    }\n\n    return que.top();\n}\n"
+    \    }\n\n    Poly powmod(ll k, const Poly& md) {\n        auto v = *this % md;\n\
+    \        Poly res{1};\n        while (k) {\n            if (k & 1) {\n       \
+    \         res = res * v % md;\n            }\n            v = v * v % md;\n  \
+    \          k /= 2;\n        }\n        return res;\n    }\n\n    Poly& operator+=(const\
+    \ Poly& r) { return *this = *this + r; }\n    Poly& operator-=(const Poly& r)\
+    \ { return *this = *this - r; }\n    Poly& operator*=(const D& r) { return *this\
+    \ = *this * r; }\n    Poly& operator*=(const Poly& r) { return *this = *this *\
+    \ r; }\n    Poly& operator/=(const Poly& r) { return *this = *this / r; }\n  \
+    \  Poly& operator/=(const D& r) { return *this = *this / r; }\n    Poly& operator%=(const\
+    \ Poly& r) { return *this = *this % r; }\n\n    friend ostream& operator<<(ostream&\
+    \ os, const Poly& pl) {\n        if (pl.size() == 0) return os << \"0\";\n   \
+    \     for (int i = 0; i < pl.size(); ++i) {\n            if (pl[i]) {\n      \
+    \          os << pl[i] << \"x^\" << i;\n                if (i + 1 != pl.size())\
+    \ os << \",\";\n            }\n        }\n        return os;\n    }\n\n    explicit\
+    \ operator bool() const {\n        bool f = false;\n        for (int i = 0; i\
+    \ < size(); ++i) {\n            if (at(i)) {\n                f = true;\n    \
+    \        }\n        }\n        return f;\n    }\n};\n\n// calculate characteristic\
+    \ polynomial\n// c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k =\
+    \ -1\n\ntemplate <class T>\nPoly<T> berlekamp_massey(const V<T>& s) {\n    int\
+    \ n = int(s.size());\n    V<T> b = {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n\
+    \    for (int ed = 1; ed <= n; ed++) {\n        int l = int(c.size()), m = int(b.size());\n\
+    \        T x = 0;\n        for (int i = 0; i < l; i++) {\n            x += c[i]\
+    \ * s[ed - l + i];\n        }\n        b.push_back(0);\n        m++;\n       \
+    \ if (!x) {\n            continue;\n        }\n        T freq = x / y;\n     \
+    \   if (l < m) {\n            auto tmp = c;\n            c.insert(begin(c), m\
+    \ - l, Mint(0));\n            for (int i = 0; i < m; i++) {\n                c[m\
+    \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n            b = tmp;\n    \
+    \        y = x;\n        } else {\n            for (int i = 0; i < m; i++) {\n\
+    \                c[l - 1 - i] -= freq * b[m - 1 - i];\n            }\n       \
+    \ }\n    }\n    return c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1]\
+    \ * ...\n// deg(result) must be bounded\n\ntemplate <class T>\nPoly<T> prod(const\
+    \ V<Poly<T>>& vec) {\n    auto comp = [](const auto& a, const auto& b) -> bool\
+    \ {\n        return a.size() > b.size();\n    };\n    priority_queue<Poly<T>,\
+    \ V<Poly<T>>, decltype(comp)> que(comp);\n    que.push(Poly<T>{1});\n\n    for\
+    \ (auto& pl : vec) que.push(pl);\n\n    while (que.size() > 1) {\n        auto\
+    \ va = que.top();\n        que.pop();\n        auto vb = que.top();\n        que.pop();\n\
+    \        que.push(va * vb);\n    }\n\n    return que.top();\n}\n"
   code: "// depends on FFT libs\n// basically use with ModInt\n\nNumberTheoreticTransform<Mint>\
     \ ntt;\n\ntemplate <class D>\nstruct Poly : public V<D> {\n    template <class...\
     \ Args>\n    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D>\
@@ -147,45 +150,48 @@ data:
     \ * 2)) * D(2).inv();\n        }\n        return g.pref(n);\n    }\n\n    D eval(D\
     \ x) const {\n        D res = 0, c = 1;\n        for (auto a : *this) {\n    \
     \        res += a * c;\n            c *= x;\n        }\n        return res;\n\
-    \    }\n\n    Poly& operator+=(const Poly& r) { return *this = *this + r; }\n\
-    \    Poly& operator-=(const Poly& r) { return *this = *this - r; }\n    Poly&\
-    \ operator*=(const D& r) { return *this = *this * r; }\n    Poly& operator*=(const\
-    \ Poly& r) { return *this = *this * r; }\n    Poly& operator/=(const Poly& r)\
-    \ { return *this = *this / r; }\n    Poly& operator/=(const D& r) { return *this\
-    \ = *this / r; }\n    Poly& operator%=(const Poly& r) { return *this = *this %\
-    \ r; }\n\n    friend ostream& operator<<(ostream& os, const Poly& pl) {\n    \
-    \    if (pl.size() == 0) return os << \"0\";\n        for (int i = 0; i < pl.size();\
-    \ ++i) {\n            if (pl[i]) {\n                os << pl[i] << \"x^\" << i;\n\
-    \                if (i + 1 != pl.size()) os << \",\";\n            }\n       \
-    \ }\n        return os;\n    }\n\n    explicit operator bool() const {\n     \
-    \   bool f = false;\n        for (int i = 0; i < size(); ++i) {\n            if\
-    \ (at(i)) {\n                f = true;\n            }\n        }\n        return\
-    \ f;\n    }\n};\n\n// calculate characteristic polynomial\n// c_0 * s_i + c_1\
-    \ * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k = -1\n\ntemplate <class T>\nPoly<T>\
-    \ berlekamp_massey(const V<T>& s) {\n    int n = int(s.size());\n    V<T> b =\
-    \ {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n    for (int ed = 1; ed <= n; ed++)\
-    \ {\n        int l = int(c.size()), m = int(b.size());\n        T x = 0;\n   \
-    \     for (int i = 0; i < l; i++) {\n            x += c[i] * s[ed - l + i];\n\
-    \        }\n        b.push_back(0);\n        m++;\n        if (!x) {\n       \
-    \     continue;\n        }\n        T freq = x / y;\n        if (l < m) {\n  \
-    \          auto tmp = c;\n            c.insert(begin(c), m - l, Mint(0));\n  \
-    \          for (int i = 0; i < m; i++) {\n                c[m - 1 - i] -= freq\
-    \ * b[m - 1 - i];\n            }\n            b = tmp;\n            y = x;\n \
-    \       } else {\n            for (int i = 0; i < m; i++) {\n                c[l\
-    \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n        }\n    }\n    return\
-    \ c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1] * ...\n// deg(result)\
-    \ must be bounded\n\ntemplate <class T>\nPoly<T> prod(const V<Poly<T>>& vec) {\n\
-    \    auto comp = [](const auto& a, const auto& b) -> bool {\n        return a.size()\
-    \ > b.size();\n    };\n    priority_queue<Poly<T>, V<Poly<T>>, decltype(comp)>\
-    \ que(comp);\n    que.push(Poly<T>{1});\n\n    for (auto& pl : vec) que.push(pl);\n\
-    \n    while (que.size() > 1) {\n        auto va = que.top();\n        que.pop();\n\
-    \        auto vb = que.top();\n        que.pop();\n        que.push(va * vb);\n\
-    \    }\n\n    return que.top();\n}"
+    \    }\n\n    Poly powmod(ll k, const Poly& md) {\n        auto v = *this % md;\n\
+    \        Poly res{1};\n        while (k) {\n            if (k & 1) {\n       \
+    \         res = res * v % md;\n            }\n            v = v * v % md;\n  \
+    \          k /= 2;\n        }\n        return res;\n    }\n\n    Poly& operator+=(const\
+    \ Poly& r) { return *this = *this + r; }\n    Poly& operator-=(const Poly& r)\
+    \ { return *this = *this - r; }\n    Poly& operator*=(const D& r) { return *this\
+    \ = *this * r; }\n    Poly& operator*=(const Poly& r) { return *this = *this *\
+    \ r; }\n    Poly& operator/=(const Poly& r) { return *this = *this / r; }\n  \
+    \  Poly& operator/=(const D& r) { return *this = *this / r; }\n    Poly& operator%=(const\
+    \ Poly& r) { return *this = *this % r; }\n\n    friend ostream& operator<<(ostream&\
+    \ os, const Poly& pl) {\n        if (pl.size() == 0) return os << \"0\";\n   \
+    \     for (int i = 0; i < pl.size(); ++i) {\n            if (pl[i]) {\n      \
+    \          os << pl[i] << \"x^\" << i;\n                if (i + 1 != pl.size())\
+    \ os << \",\";\n            }\n        }\n        return os;\n    }\n\n    explicit\
+    \ operator bool() const {\n        bool f = false;\n        for (int i = 0; i\
+    \ < size(); ++i) {\n            if (at(i)) {\n                f = true;\n    \
+    \        }\n        }\n        return f;\n    }\n};\n\n// calculate characteristic\
+    \ polynomial\n// c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0\n// c_k =\
+    \ -1\n\ntemplate <class T>\nPoly<T> berlekamp_massey(const V<T>& s) {\n    int\
+    \ n = int(s.size());\n    V<T> b = {T(-1)}, c = {T(-1)};\n    T y = Mint(1);\n\
+    \    for (int ed = 1; ed <= n; ed++) {\n        int l = int(c.size()), m = int(b.size());\n\
+    \        T x = 0;\n        for (int i = 0; i < l; i++) {\n            x += c[i]\
+    \ * s[ed - l + i];\n        }\n        b.push_back(0);\n        m++;\n       \
+    \ if (!x) {\n            continue;\n        }\n        T freq = x / y;\n     \
+    \   if (l < m) {\n            auto tmp = c;\n            c.insert(begin(c), m\
+    \ - l, Mint(0));\n            for (int i = 0; i < m; i++) {\n                c[m\
+    \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n            b = tmp;\n    \
+    \        y = x;\n        } else {\n            for (int i = 0; i < m; i++) {\n\
+    \                c[l - 1 - i] -= freq * b[m - 1 - i];\n            }\n       \
+    \ }\n    }\n    return c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1]\
+    \ * ...\n// deg(result) must be bounded\n\ntemplate <class T>\nPoly<T> prod(const\
+    \ V<Poly<T>>& vec) {\n    auto comp = [](const auto& a, const auto& b) -> bool\
+    \ {\n        return a.size() > b.size();\n    };\n    priority_queue<Poly<T>,\
+    \ V<Poly<T>>, decltype(comp)> que(comp);\n    que.push(Poly<T>{1});\n\n    for\
+    \ (auto& pl : vec) que.push(pl);\n\n    while (que.size() > 1) {\n        auto\
+    \ va = que.top();\n        que.pop();\n        auto vb = que.top();\n        que.pop();\n\
+    \        que.push(va * vb);\n    }\n\n    return que.top();\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2021-03-04 05:51:44+09:00'
+  timestamp: '2021-05-01 18:46:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp

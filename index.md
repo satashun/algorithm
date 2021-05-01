@@ -108,6 +108,11 @@ data:
     - icon: ':warning:'
       path: cpp_src/math/PolynomialInterpolation.hpp
       title: cpp_src/math/PolynomialInterpolation.hpp
+  - name: cpp_src/math/fps
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/math/fps/StirlingSecond.hpp
+      title: cpp_src/math/fps/StirlingSecond.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
@@ -226,6 +231,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+      title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp
