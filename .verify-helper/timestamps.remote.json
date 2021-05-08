@@ -10,6 +10,7 @@
 "test/yosupo/lca.test.cpp": "2021-04-19 01:11:54 +0900",
 "test/yosupo/point_add_range_sum.test.cpp": "2020-12-31 16:46:24 +0900",
 "test/yosupo/point_set_range_composite.test.cpp": "2021-03-04 05:51:44 +0900",
+"test/yosupo/polynomial_taylor_shift.test.cpp": "2021-05-08 14:23:21 +0900",
 "test/yosupo/scc.test.cpp": "2020-04-01 18:25:18 +0900",
 "test/yosupo/stirling_number_of_the_second_kind.test.cpp": "2021-05-01 18:46:49 +0900",
 "test/yosupo/unionfind.test.cpp": "2020-12-31 16:46:24 +0900",
