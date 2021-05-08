@@ -5,11 +5,19 @@
 using namespace std;
 using namespace atcoder;
 
-using ll = int64_t;
-using ull = uint64_t;
+using ll = long long;
+using ull = unsigned long long;
 using pii = pair<int, int>;
 template<class T> using V = vector<T>;
 template<class T> using VV = V<V<T>>;
+template<class T>
+V<T> make_vec(size_t a) {
+    return V<T>(a);
+}
+template<class T, class... Ts>
+auto make_vec(size_t a, Ts... ts) {
+  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));
+}
 
 #define pb push_back
 #define eb emplace_back

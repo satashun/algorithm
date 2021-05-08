@@ -263,3 +263,22 @@ Poly<T> prod(const V<Poly<T>>& vec) {
 
     return que.top();
 }
+
+// expand f(x + c)
+// require factorial
+template <class T>
+Poly<T> taylor_shift(const Poly<T>& f, ll c) {
+    using P = Poly<T>;
+    int n = f.size();
+    T powc = 1;
+    P p(n), q(n);
+
+    rep(i, n) {
+        p[i] = f[i] * fact[i];
+        q[n - 1 - i] = powc * ifact[i];
+        powc *= c;
+    }
+    p = p * q;
+    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];
+    return q;
+}
