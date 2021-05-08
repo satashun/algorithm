@@ -190,6 +190,11 @@ data:
     - icon: ':warning:'
       path: test/yosupo/suffixarray.cpp
       title: test/yosupo/suffixarray.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':warning:'
+      path: test/yukicoder/1145.cpp
+      title: test/yukicoder/1145.cpp
   verificationCategories:
   - name: test/aoj
     pages:
@@ -228,6 +233,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_set_range_composite.test.cpp
       title: test/yosupo/point_set_range_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/polynomial_taylor_shift.test.cpp
+      title: test/yosupo/polynomial_taylor_shift.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp

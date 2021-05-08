@@ -97,7 +97,12 @@ data:
     \ V<Poly<T>>, decltype(comp)> que(comp);\n    que.push(Poly<T>{1});\n\n    for\
     \ (auto& pl : vec) que.push(pl);\n\n    while (que.size() > 1) {\n        auto\
     \ va = que.top();\n        que.pop();\n        auto vb = que.top();\n        que.pop();\n\
-    \        que.push(va * vb);\n    }\n\n    return que.top();\n}\n"
+    \        que.push(va * vb);\n    }\n\n    return que.top();\n}\n\n// expand f(x\
+    \ + c)\n// require factorial\ntemplate <class T>\nPoly<T> taylor_shift(const Poly<T>&\
+    \ f, ll c) {\n    using P = Poly<T>;\n    int n = f.size();\n    T powc = 1;\n\
+    \    P p(n), q(n);\n\n    rep(i, n) {\n        p[i] = f[i] * fact[i];\n      \
+    \  q[n - 1 - i] = powc * ifact[i];\n        powc *= c;\n    }\n    p = p * q;\n\
+    \    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}\n"
   code: "// depends on FFT libs\n// basically use with ModInt\n\nNumberTheoreticTransform<Mint>\
     \ ntt;\n\ntemplate <class D>\nstruct Poly : public V<D> {\n    template <class...\
     \ Args>\n    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D>\
@@ -186,12 +191,17 @@ data:
     \ V<Poly<T>>, decltype(comp)> que(comp);\n    que.push(Poly<T>{1});\n\n    for\
     \ (auto& pl : vec) que.push(pl);\n\n    while (que.size() > 1) {\n        auto\
     \ va = que.top();\n        que.pop();\n        auto vb = que.top();\n        que.pop();\n\
-    \        que.push(va * vb);\n    }\n\n    return que.top();\n}"
+    \        que.push(va * vb);\n    }\n\n    return que.top();\n}\n\n// expand f(x\
+    \ + c)\n// require factorial\ntemplate <class T>\nPoly<T> taylor_shift(const Poly<T>&\
+    \ f, ll c) {\n    using P = Poly<T>;\n    int n = f.size();\n    T powc = 1;\n\
+    \    P p(n), q(n);\n\n    rep(i, n) {\n        p[i] = f[i] * fact[i];\n      \
+    \  q[n - 1 - i] = powc * ifact[i];\n        powc *= c;\n    }\n    p = p * q;\n\
+    \    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2021-05-01 18:46:49+09:00'
+  timestamp: '2021-05-08 14:23:21+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp
