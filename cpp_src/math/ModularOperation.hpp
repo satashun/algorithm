@@ -1,8 +1,11 @@
-const int maxv = 1000010;
-
-V<Mint> fact(maxv), ifact(maxv), inv(maxv);
+V<Mint> fact, ifact, inv;
 
 void init() {
+    const int maxv = 1000010;
+    fact.resize(maxv);
+    ifact.resize(maxv);
+    inv.resize(maxv);
+
     fact[0] = 1;
     for (int i = 1; i < maxv; ++i) {
         fact[i] = fact[i - 1] * i;
