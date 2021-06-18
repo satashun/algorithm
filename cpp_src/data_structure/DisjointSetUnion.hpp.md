@@ -38,8 +38,8 @@ data:
   timestamp: '2020-09-17 22:26:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/ALDS1_11_D.test.cpp
   - test/yosupo/unionfind.test.cpp
+  - test/aoj/ALDS1_11_D.test.cpp
 documentation_of: cpp_src/data_structure/DisjointSetUnion.hpp
 layout: document
 redirect_from:
