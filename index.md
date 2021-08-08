@@ -59,6 +59,12 @@ data:
       path: cpp_src/graph/TarjanLowLink.hpp
       title: cpp_src/graph/TarjanLowLink.hpp
     - icon: ':warning:'
+      path: cpp_src/graph/TreeDP.hpp
+      title: cpp_src/graph/TreeDP.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/TreeHash.cpp
+      title: cpp_src/graph/TreeHash.cpp
+    - icon: ':warning:'
       path: cpp_src/graph/Ttree.hpp
       title: cpp_src/graph/Ttree.hpp
   - name: cpp_src/math

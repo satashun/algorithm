@@ -36,7 +36,7 @@ data:
     \                        dst[e.to] = nd;\n                        prevv[e.to]\
     \ = v;\n                        preve[e.to] = i;\n                        que.push(Data(dst[e.to],\
     \ e.to));\n                    }\n                }\n            }\n\n       \
-    \     if (dst[t] == INF) return D(-inf);\n            rep(i, n) h[i] += dst[i];\n\
+    \     if (dst[t] == INF) return D(-INF);\n            rep(i, n) h[i] += dst[i];\n\
     \n            C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n\
     \                d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n     \
     \       f -= d;\n            res += d * h[t];\n            for (int v = t; v !=\
@@ -70,7 +70,7 @@ data:
     \                        dst[e.to] = nd;\n                        prevv[e.to]\
     \ = v;\n                        preve[e.to] = i;\n                        que.push(Data(dst[e.to],\
     \ e.to));\n                    }\n                }\n            }\n\n       \
-    \     if (dst[t] == INF) return D(-inf);\n            rep(i, n) h[i] += dst[i];\n\
+    \     if (dst[t] == INF) return D(-INF);\n            rep(i, n) h[i] += dst[i];\n\
     \n            C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n\
     \                d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n     \
     \       f -= d;\n            res += d * h[t];\n            for (int v = t; v !=\
@@ -81,7 +81,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/MinimumCostFlow.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:26:34+09:00'
+  timestamp: '2021-08-08 16:09:04+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/MinimumCostFlow.hpp
