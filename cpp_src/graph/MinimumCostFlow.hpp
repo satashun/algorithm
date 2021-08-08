@@ -69,7 +69,7 @@ struct MinCostFlow {
                 }
             }
 
-            if (dst[t] == INF) return D(-inf);
+            if (dst[t] == INF) return D(-INF);
             rep(i, n) h[i] += dst[i];
 
             C d = f;
