@@ -33,7 +33,7 @@ class treedp {
         res[v] = cur;
     }
 
-    treedp(const vvc<E>& gg, int root = 0)
+    treedp(const VV<E>& gg, int root = 0)
         : n(gg.size()), g(gg), a(n), b(n), res(n), sub(n), bus(n) {
         dfs_pre(root, -1);
         N tmp;

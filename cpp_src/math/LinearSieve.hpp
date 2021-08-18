@@ -6,7 +6,7 @@ int lp[maxv];
 bool pri[maxv];
 vector<int> pr;
 
-void linear_sive() {
+void linear_sieve() {
     for (int i = 2; i < maxv; ++i) pri[i] = true;
     for (int i = 2; i < maxv; ++i) {
         if (pri[i]) {
