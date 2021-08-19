@@ -11,7 +11,7 @@ data:
     - https://cp-algorithms.com/algebra/prime-sieve-linear.html
   bundledCode: "#line 1 \"cpp_src/math/LinearSieve.hpp\"\n//https://cp-algorithms.com/algebra/prime-sieve-linear.html\n\
     \nconst int maxv = 10000010;\n// lowest prime factor\nint lp[maxv];\nbool pri[maxv];\n\
-    vector<int> pr;\n\nvoid linear_sive() {\n    for (int i = 2; i < maxv; ++i) pri[i]\
+    vector<int> pr;\n\nvoid linear_sieve() {\n    for (int i = 2; i < maxv; ++i) pri[i]\
     \ = true;\n    for (int i = 2; i < maxv; ++i) {\n        if (pri[i]) {\n     \
     \       lp[i] = i;\n            pr.pb(i);\n        }\n        for (int j = 0;\n\
     \             j < (int)pr.size() && pr[j] <= lp[i] && i * pr[j] < maxv; ++j) {\n\
@@ -19,7 +19,7 @@ data:
     \         if (i % pr[j] == 0) break;\n        }\n    }\n}\n"
   code: "//https://cp-algorithms.com/algebra/prime-sieve-linear.html\n\nconst int\
     \ maxv = 10000010;\n// lowest prime factor\nint lp[maxv];\nbool pri[maxv];\nvector<int>\
-    \ pr;\n\nvoid linear_sive() {\n    for (int i = 2; i < maxv; ++i) pri[i] = true;\n\
+    \ pr;\n\nvoid linear_sieve() {\n    for (int i = 2; i < maxv; ++i) pri[i] = true;\n\
     \    for (int i = 2; i < maxv; ++i) {\n        if (pri[i]) {\n            lp[i]\
     \ = i;\n            pr.pb(i);\n        }\n        for (int j = 0;\n          \
     \   j < (int)pr.size() && pr[j] <= lp[i] && i * pr[j] < maxv; ++j) {\n       \
@@ -29,7 +29,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/LinearSieve.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:18:23+09:00'
+  timestamp: '2021-08-18 21:00:40+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/LinearSieve.hpp

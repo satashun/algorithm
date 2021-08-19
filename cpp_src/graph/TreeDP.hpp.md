@@ -19,7 +19,7 @@ data:
     \ {\n        for (int i = int(g[v].size()) - 1; i >= 0; --i) {\n            auto\
     \ e = g[v][i];\n            if (e == p) continue;\n            bus[e] = cur +\
     \ b[e];\n            dfs_all(e, v, bus[e].up(e));\n            cur = cur + a[e];\n\
-    \        }\n        res[v] = cur;\n    }\n\n    treedp(const vvc<E>& gg, int root\
+    \        }\n        res[v] = cur;\n    }\n\n    treedp(const VV<E>& gg, int root\
     \ = 0)\n        : n(gg.size()), g(gg), a(n), b(n), res(n), sub(n), bus(n) {\n\
     \        dfs_pre(root, -1);\n        N tmp;\n        tmp.init(root);\n       \
     \ dfs_all(root, -1, tmp);\n    }\n};\n\n/*\nstruct N {\n    void init(int v) {}\n\
@@ -39,7 +39,7 @@ data:
     \ >= 0; --i) {\n            auto e = g[v][i];\n            if (e == p) continue;\n\
     \            bus[e] = cur + b[e];\n            dfs_all(e, v, bus[e].up(e));\n\
     \            cur = cur + a[e];\n        }\n        res[v] = cur;\n    }\n\n  \
-    \  treedp(const vvc<E>& gg, int root = 0)\n        : n(gg.size()), g(gg), a(n),\
+    \  treedp(const VV<E>& gg, int root = 0)\n        : n(gg.size()), g(gg), a(n),\
     \ b(n), res(n), sub(n), bus(n) {\n        dfs_pre(root, -1);\n        N tmp;\n\
     \        tmp.init(root);\n        dfs_all(root, -1, tmp);\n    }\n};\n\n/*\nstruct\
     \ N {\n    void init(int v) {}\n\n    // v -> to -> *\n    // after calculation\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/TreeDP.hpp
   requiredBy: []
-  timestamp: '2021-08-08 16:09:04+09:00'
+  timestamp: '2021-08-18 21:00:40+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/TreeDP.hpp

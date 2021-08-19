@@ -56,17 +56,11 @@ data:
       path: cpp_src/graph/SCC.hpp
       title: cpp_src/graph/SCC.hpp
     - icon: ':warning:'
-      path: cpp_src/graph/TarjanLowLink.hpp
-      title: cpp_src/graph/TarjanLowLink.hpp
-    - icon: ':warning:'
       path: cpp_src/graph/TreeDP.hpp
       title: cpp_src/graph/TreeDP.hpp
     - icon: ':warning:'
       path: cpp_src/graph/TreeHash.cpp
       title: cpp_src/graph/TreeHash.cpp
-    - icon: ':warning:'
-      path: cpp_src/graph/Ttree.hpp
-      title: cpp_src/graph/Ttree.hpp
   - name: cpp_src/math
     pages:
     - icon: ':heavy_check_mark:'
@@ -121,6 +115,9 @@ data:
       title: cpp_src/math/fps/StirlingSecond.hpp
   - name: cpp_src/other
     pages:
+    - icon: ':warning:'
+      path: cpp_src/other/Bigdecimal.hpp
+      title: cpp_src/other/Bigdecimal.hpp
     - icon: ':warning:'
       path: cpp_src/other/FWT.hpp
       title: cpp_src/other/FWT.hpp
