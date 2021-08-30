@@ -141,6 +141,12 @@ data:
   - name: cpp_src/utility
     pages:
     - icon: ':warning:'
+      path: cpp_src/utility/Builtin.hpp
+      title: cpp_src/utility/Builtin.hpp
+    - icon: ':warning:'
+      path: cpp_src/utility/Helper.hpp
+      title: cpp_src/utility/Helper.hpp
+    - icon: ':warning:'
       path: cpp_src/utility/RandomLib.hpp
       title: cpp_src/utility/RandomLib.hpp
   - name: py_src

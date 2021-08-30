@@ -24,7 +24,15 @@ data:
     \ offset;\n            T c = T(1);\n            if (weighted) cin >> c;\n    \
     \        edges.emplace_back(a, b, c);\n            if (directed)\n           \
     \     add_directed_edge(a, b, c);\n            else\n                add_edge(a,\
-    \ b, c);\n        }\n    }\n};\n"
+    \ b, c);\n        }\n    }\n};\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>&\
+    \ g, int s = 0) {\n    int n = g.sz;\n    V<T> ds(n, numeric_limits<T>::max()\
+    \ / 2);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>, greater<P>>\
+    \ que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty()) {\n \
+    \       auto p = que.top();\n        que.pop();\n        int v = p.se;\n     \
+    \   if (ds[v] < p.fi) continue;\n        for (auto e : g.g[v]) {\n           \
+    \ T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to]\
+    \ = nx;\n                que.emplace(nx, e.to);\n            }\n        }\n  \
+    \  }\n    return ds;\n}\n"
   code: "#pragma once\n\ntemplate <class T>\nclass Edge {\n   public:\n    int from,\
     \ to, idx;\n    T cost;\n\n    Edge() = default;\n    Edge(int from, int to, T\
     \ cost = T(1), int idx = -1)\n        : from(from), to(to), cost(cost), idx(idx)\
@@ -41,12 +49,20 @@ data:
     \ offset;\n            T c = T(1);\n            if (weighted) cin >> c;\n    \
     \        edges.emplace_back(a, b, c);\n            if (directed)\n           \
     \     add_directed_edge(a, b, c);\n            else\n                add_edge(a,\
-    \ b, c);\n        }\n    }\n};"
+    \ b, c);\n        }\n    }\n};\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>&\
+    \ g, int s = 0) {\n    int n = g.sz;\n    V<T> ds(n, numeric_limits<T>::max()\
+    \ / 2);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>, greater<P>>\
+    \ que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty()) {\n \
+    \       auto p = que.top();\n        que.pop();\n        int v = p.se;\n     \
+    \   if (ds[v] < p.fi) continue;\n        for (auto e : g.g[v]) {\n           \
+    \ T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to]\
+    \ = nx;\n                que.emplace(nx, e.to);\n            }\n        }\n  \
+    \  }\n    return ds;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
-  timestamp: '2021-08-18 21:00:40+09:00'
+  timestamp: '2021-08-30 10:48:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/GraphBase.hpp
