@@ -49,3 +49,27 @@ class Graph {
         }
     }
 };
+
+template <class T>
+V<T> dijkstra(const Graph<T>& g, int s = 0) {
+    int n = g.sz;
+    V<T> ds(n, numeric_limits<T>::max() / 2);
+    using P = pair<T, int>;
+    priority_queue<P, V<P>, greater<P>> que;
+    que.emplace(0, s);
+    ds[s] = 0;
+    while (!que.empty()) {
+        auto p = que.top();
+        que.pop();
+        int v = p.se;
+        if (ds[v] < p.fi) continue;
+        for (auto e : g.g[v]) {
+            T nx = ds[v] + e.cost;
+            if (ds[e.to] > nx) {
+                ds[e.to] = nx;
+                que.emplace(nx, e.to);
+            }
+        }
+    }
+    return ds;
+}
