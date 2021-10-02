@@ -1,3 +1,5 @@
+// init_dag : yuki 1678
+
 template <class C, class D>  // capacity, distance
 struct MinCostFlow {
     struct edge {
@@ -22,6 +24,39 @@ struct MinCostFlow {
     void add_edge(int f, int t, C cap, D cost) {
         g[f].emplace_back(t, cap, cost, (int)g[t].size());
         g[t].emplace_back(f, 0, -cost, (int)g[f].size() - 1);
+    }
+
+    void init_dag(int s) {
+        fill(h.begin(), h.end(), INF);
+        h[s] = 0;
+
+        V<int> vis(n);
+        // topological sort
+        V<int> vs;
+
+        auto topo = [&](auto&& f, int v) -> void {
+            vis[v] = 1;
+            for (auto& e : g[v]) {
+                if (e.cap > 0 && !vis[e.to]) {
+                    f(f, e.to);
+                }
+            }
+            vs.pb(v);
+        };
+
+        for (int i = 0; i < n; ++i) {
+            if (!vis[i]) topo(topo, i);
+        }
+
+        reverse(vs.begin(), vs.end());
+        for (int v : vs) {
+            if (h[v] == INF) continue;
+            for (auto& e : g[v]) {
+                if (e.cap > 0) {
+                    chmin(h[e.to], h[v] + e.cost);
+                }
+            }
+        }
     }
 
     // true : no negative cycle
@@ -70,7 +105,7 @@ struct MinCostFlow {
             }
 
             if (dst[t] == INF) return D(-INF);
-            rep(i, n) h[i] += dst[i];
+            rep(i, n) if (dst[i] != INF) h[i] += dst[i];
 
             C d = f;
             for (int v = t; v != s; v = prevv[v]) {

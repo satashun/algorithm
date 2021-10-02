@@ -3,6 +3,9 @@ ll rand_int(ll l, ll r) {  //[l,r]
     return uniform_int_distribution<ll>(l, r)(gen);
 }
 
+// x/y
+bool rand_prob(ll x, ll y) { return rand_int(1, y) <= x; }
+
 // Fisher–Yates
 template <class T>
 vector<T> random_perm(vector<T> vec) {

@@ -54,6 +54,12 @@ struct ModInt {
     bool operator==(const M& a) const { return v == a.v; }
     bool operator!=(const M& a) const { return v != a.v; }
     friend ostream& operator<<(ostream& os, const M& a) { return os << a.v; }
+    friend istream& operator>>(istream& in, M& x) {
+        ll v_;
+        in >> v_;
+        x = M(v_);
+        return in;
+    }
     uint get_mod() { return MOD; }
 };
 

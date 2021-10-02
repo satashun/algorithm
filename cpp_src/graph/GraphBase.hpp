@@ -18,10 +18,12 @@ class Graph {
     using E = Edge<T>;
     vector<vector<E>> g;
     vector<E> edges;
-    int sz, es;
+    int es;
 
     Graph() {}
-    Graph(int n) : sz(n), g(n), edges(0), es(0){};
+    Graph(int n) : g(n), edges(0), es(0){};
+
+    int size() const { return g.size(); }
 
     virtual void add_directed_edge(int from, int to, T cost = 1) {
         g[from].emplace_back(from, to, cost, es++);
@@ -31,6 +33,8 @@ class Graph {
         g[from].emplace_back(from, to, cost, es);
         g[to].emplace_back(to, from, cost, es++);
     }
+
+    inline vector<Edge<T>>& operator[](const int& k) { return g[k]; }
 
     void read(int M, int offset = -1, bool directed = false,
               bool weighted = false) {
@@ -52,7 +56,7 @@ class Graph {
 
 template <class T>
 V<T> dijkstra(const Graph<T>& g, int s = 0) {
-    int n = g.sz;
+    int n = g.size();
     V<T> ds(n, numeric_limits<T>::max() / 2);
     using P = pair<T, int>;
     priority_queue<P, V<P>, greater<P>> que;
@@ -68,6 +72,29 @@ V<T> dijkstra(const Graph<T>& g, int s = 0) {
             if (ds[e.to] > nx) {
                 ds[e.to] = nx;
                 que.emplace(nx, e.to);
+            }
+        }
+    }
+    return ds;
+}
+
+template <class T>
+V<T> bfs(const Graph<T>& g, int s = 0) {
+    int n = g.size();
+    V<T> ds(n, numeric_limits<T>::max() / 2);
+    using P = pair<T, int>;
+    queue<int> que;
+    que.push(s);
+    ds[s] = 0;
+
+    while (!que.empty()) {
+        auto v = que.front();
+        que.pop();
+        for (auto e : g.g[v]) {
+            T nx = ds[v] + 1;
+            if (ds[e.to] > nx) {
+                ds[e.to] = nx;
+                que.push(e.to);
             }
         }
     }

@@ -10,10 +10,12 @@ using ull = unsigned long long;
 using pii = pair<int, int>;
 template<class T> using V = vector<T>;
 template<class T> using VV = V<V<T>>;
+
 template<class T>
 V<T> make_vec(size_t a) {
     return V<T>(a);
 }
+
 template<class T, class... Ts>
 auto make_vec(size_t a, Ts... ts) {
   return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));
@@ -36,6 +38,12 @@ constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
 template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
 
+template <class T>
+void mkuni(vector<T>& v) {
+    sort(ALL(v));
+    v.erase(unique(ALL(v)), end(v));
+}
+
 template <class T, class U>
 ostream& operator<<(ostream& os, const pair<T, U>& p) {
     os << "(" << p.first << "," << p.second << ")";
@@ -55,7 +63,7 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
 
 template <class T>
 auto operator<<(ostream& os, T t) ->
-    typename std::enable_if_t<internal::is_modint<T>::value, ostream&> {
+typename std::enable_if_t<internal::is_modint<T>::value, ostream&> {
     os << t.val();
     return os;
 }
@@ -73,6 +81,29 @@ void debug_out(Head H, Tail... T) {
 #define debug(...) (void(0))
 #define dump(x) (void(0))
 #endif
+
+template <class T>
+void scan(vector<T>& v, T offset = T(0)) {
+    for (auto& x : v) {
+        cin >> x;
+        x += offset;
+    }
+}
+
+template <class T>
+void print(T x, int suc = 1) {
+    cout << x;
+    if (suc == 1)
+        cout << "\n";
+    else if (suc == 2)
+        cout << " ";
+}
+
+template <class T>
+void print(const vector<T>& v, int suc = 1) {
+    for (int i = 0; i < v.size(); ++i)
+        print(v[i], i == int(v.size()) - 1 ? suc : 2);
+}
 
 int main() {
     cin.tie(nullptr);
