@@ -3,15 +3,16 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https:judge.yosupo.jp/problem/multivariate_convolution
-    links: []
+    PROBLEM: https://judge.yosupo.jp/problem/multivariate_convolution
+    links:
+    - https://judge.yosupo.jp/problem/multivariate_convolution
   bundledCode: "#line 1 \"test/yosupo/multivariate_convolution.test.cpp\"\n#define\
-    \ PROBLEM \"https:judge.yosupo.jp/problem/multivariate_convolution\"\n//#pragma\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/multivariate_convolution\"\n//#pragma\
     \ GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing ull =\
     \ unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\nusing\
@@ -125,7 +126,7 @@ data:
     \ n = 1;\n    rep(i, K) n *= N[i];\n    V<int> base;\n    V<Mint> f(n), g(n);\n\
     \    rep(i, n) cin >> f[i];\n    rep(i, n) cin >> g[i];\n\n    auto ans = multivariate_convolution(f,\
     \ g, N);\n    print(ans);\n\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https:judge.yosupo.jp/problem/multivariate_convolution\"\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/multivariate_convolution\"\
     \n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
     \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
@@ -243,8 +244,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/multivariate_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-10-03 00:07:39+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-10-03 00:10:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/multivariate_convolution.test.cpp
 layout: document
