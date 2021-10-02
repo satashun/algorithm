@@ -4,6 +4,9 @@ data:
   - name: cpp_src
     pages:
     - icon: ':warning:'
+      path: cpp_src/GCJ_template.cpp
+      title: cpp_src/GCJ_template.cpp
+    - icon: ':warning:'
       path: cpp_src/atcoder_template.cpp
       title: cpp_src/atcoder_template.cpp
     - icon: ':warning:'
@@ -110,6 +113,9 @@ data:
       title: cpp_src/math/PolynomialInterpolation.hpp
   - name: cpp_src/math/fps
     pages:
+    - icon: ':warning:'
+      path: cpp_src/math/fps/MultivariateConvolution.hpp
+      title: cpp_src/math/fps/MultivariateConvolution.hpp
     - icon: ':warning:'
       path: cpp_src/math/fps/StirlingSecond.hpp
       title: cpp_src/math/fps/StirlingSecond.hpp
@@ -236,6 +242,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/lca.test.cpp
       title: test/yosupo/lca.test.cpp
+    - icon: ':x:'
+      path: test/yosupo/multivariate_convolution.test.cpp
+      title: test/yosupo/multivariate_convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/point_add_range_sum.test.cpp
       title: test/yosupo/point_add_range_sum.test.cpp

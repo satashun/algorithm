@@ -32,9 +32,11 @@ data:
     \       swap(p -= t * q, q);\n                }\n                return M(p);\n\
     \        }*/\n\n    bool operator==(const M& a) const { return v == a.v; }\n \
     \   bool operator!=(const M& a) const { return v != a.v; }\n    friend ostream&\
-    \ operator<<(ostream& os, const M& a) { return os << a.v; }\n    uint get_mod()\
-    \ { return MOD; }\n};\n\nstruct ModInfo {\n    static int mod;\n};\n\nint ModInfo::mod;\n\
-    int& md = ModInfo::mod;\nusing Mint = ModInt<ModInfo>;\n"
+    \ operator<<(ostream& os, const M& a) { return os << a.v; }\n    friend istream&\
+    \ operator>>(istream& in, M& x) {\n        ll v_;\n        in >> v_;\n       \
+    \ x = M(v_);\n        return in;\n    }\n    uint get_mod() { return MOD; }\n\
+    };\n\nstruct ModInfo {\n    static int mod;\n};\n\nint ModInfo::mod;\nint& md\
+    \ = ModInfo::mod;\nusing Mint = ModInt<ModInfo>;\n"
   code: "template <typename T>\nstruct ModInt {\n    using uint = unsigned int;\n\
     \    using ull = unsigned long long;\n    using M = ModInt;\n    uint MOD = T::mod;\n\
     \n    uint v;\n\n    ModInt(ll _v = 0) { set_norm(_v % MOD + MOD); }\n    M& set_norm(uint\
@@ -59,13 +61,15 @@ data:
     \              return M(p);\n        }*/\n\n    bool operator==(const M& a) const\
     \ { return v == a.v; }\n    bool operator!=(const M& a) const { return v != a.v;\
     \ }\n    friend ostream& operator<<(ostream& os, const M& a) { return os << a.v;\
-    \ }\n    uint get_mod() { return MOD; }\n};\n\nstruct ModInfo {\n    static int\
-    \ mod;\n};\n\nint ModInfo::mod;\nint& md = ModInfo::mod;\nusing Mint = ModInt<ModInfo>;"
+    \ }\n    friend istream& operator>>(istream& in, M& x) {\n        ll v_;\n   \
+    \     in >> v_;\n        x = M(v_);\n        return in;\n    }\n    uint get_mod()\
+    \ { return MOD; }\n};\n\nstruct ModInfo {\n    static int mod;\n};\n\nint ModInfo::mod;\n\
+    int& md = ModInfo::mod;\nusing Mint = ModInt<ModInfo>;"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/math/ModularRuntime.hpp
   requiredBy: []
-  timestamp: '2020-09-17 22:16:38+09:00'
+  timestamp: '2021-10-02 23:37:41+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/ModularRuntime.hpp
