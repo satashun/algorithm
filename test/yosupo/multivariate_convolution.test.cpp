@@ -1,5 +1,6 @@
 #define PROBLEM \
-    https:  // judge.yosupo.jp/problem/multivariate_convolution
+    https:      \
+    judge.yosupo.jp / problem / multivariate_convolution
 //#pragma GCC optimize("Ofast")
 //#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
