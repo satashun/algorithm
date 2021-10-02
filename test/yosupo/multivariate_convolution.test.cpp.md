@@ -8,16 +8,16 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: 'https: judge.yosupo.jp / problem / multivariate_convolution'
+    PROBLEM: https:judge.yosupo.jp/problem/multivariate_convolution
     links: []
   bundledCode: "#line 1 \"test/yosupo/multivariate_convolution.test.cpp\"\n#define\
-    \ PROBLEM \\\n    https:      \\\n    judge.yosupo.jp / problem / multivariate_convolution\n\
-    //#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
-    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
-    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
-    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
-    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ PROBLEM \"https:judge.yosupo.jp/problem/multivariate_convolution\"\n//#pragma\
+    \ GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing ull =\
+    \ unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\nusing\
+    \ V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\n\
+    V<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T, class...\
+    \ Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
     \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
     \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
     \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
@@ -125,8 +125,8 @@ data:
     \ n = 1;\n    rep(i, K) n *= N[i];\n    V<int> base;\n    V<Mint> f(n), g(n);\n\
     \    rep(i, n) cin >> f[i];\n    rep(i, n) cin >> g[i];\n\n    auto ans = multivariate_convolution(f,\
     \ g, N);\n    print(ans);\n\n    return 0;\n}\n"
-  code: "#define PROBLEM \\\n    https:      \\\n    judge.yosupo.jp / problem / multivariate_convolution\n\
-    //#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
+  code: "#define PROBLEM \"https:judge.yosupo.jp/problem/multivariate_convolution\"\
+    \n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
     \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
     using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
@@ -243,7 +243,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/multivariate_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-10-03 00:05:38+09:00'
+  timestamp: '2021-10-03 00:07:39+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/multivariate_convolution.test.cpp
