@@ -11,44 +11,49 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/graph/LCA.hpp\"\n//E : int or edge class\n\ntemplate<class\
-    \ E>\nstruct LCA {\n\tVV<int> anc;\n\tV<int> dep;\n\tint lg;\n\tconst VV<E>& g;\n\
-    \n\tLCA(const VV<E>& g, int root) : g(g) {\n\t\tint n = g.size();\n\t\tlg = 1;\n\
-    \t\twhile ((1 << lg) < n) lg++;\n\t\tanc = VV<int>(lg, V<int>(n, -1));\n\t\tdep\
-    \ = V<int>(n);\n\t\tdfs(root, -1, 0);\n\n\t\tfor (int i = 1; i < lg; i++) {\n\t\
-    \t\tfor (int j = 0; j < n; j++) {\n\t\t\t\tanc[i][j] = (anc[i - 1][j] == -1) ?\
-    \ -1 : anc[i - 1][anc[i - 1][j]];\n\t\t\t}\n\t\t}\t\t\n\t}\n\n\tvoid dfs(int v,\
-    \ int p, int d) {\n\t\tanc[0][v] = p;\n\t\tdep[v] = d;\n\t\tfor (auto e : g[v])\
-    \ {\n\t\t\tint to = e;\n\t\t\tif (to == p) continue;\n\t\t\tdfs(to, v, d + 1);\n\
-    \t\t}\n\t}\n\n\tint query(int u, int v) {\n\t\tif (dep[u] < dep[v]) swap(u, v);\n\
-    \t\tint df = dep[u] - dep[v];\n\t\tfor (int i = lg - 1; i >= 0; --i) {\n\t\t\t\
-    if ((df >> i) & 1) {\n\t\t\t\tdf -= (1 << i);\n\t\t\t\tu = anc[i][u];\n\t\t\t\
-    }\n\t\t}\n\t\tif (u == v) return u;\n\t\tfor (int i = lg - 1; i >= 0; --i) {\n\
-    \t\t\tif (anc[i][u] != anc[i][v]) {\n\t\t\t\tu = anc[i][u];\n\t\t\t\tv = anc[i][v];\n\
-    \t\t\t}\n\t\t}\n\t\treturn anc[0][u];\n\t}\n\n\tint dist(int a, int b) {\n   \
-    \     int lc = query(a, b);\n        return dep[a] + dep[b] - dep[lc] * 2;\n \
-    \   }\n};\n"
-  code: "//E : int or edge class\n\ntemplate<class E>\nstruct LCA {\n\tVV<int> anc;\n\
-    \tV<int> dep;\n\tint lg;\n\tconst VV<E>& g;\n\n\tLCA(const VV<E>& g, int root)\
-    \ : g(g) {\n\t\tint n = g.size();\n\t\tlg = 1;\n\t\twhile ((1 << lg) < n) lg++;\n\
-    \t\tanc = VV<int>(lg, V<int>(n, -1));\n\t\tdep = V<int>(n);\n\t\tdfs(root, -1,\
-    \ 0);\n\n\t\tfor (int i = 1; i < lg; i++) {\n\t\t\tfor (int j = 0; j < n; j++)\
-    \ {\n\t\t\t\tanc[i][j] = (anc[i - 1][j] == -1) ? -1 : anc[i - 1][anc[i - 1][j]];\n\
-    \t\t\t}\n\t\t}\t\t\n\t}\n\n\tvoid dfs(int v, int p, int d) {\n\t\tanc[0][v] =\
-    \ p;\n\t\tdep[v] = d;\n\t\tfor (auto e : g[v]) {\n\t\t\tint to = e;\n\t\t\tif\
-    \ (to == p) continue;\n\t\t\tdfs(to, v, d + 1);\n\t\t}\n\t}\n\n\tint query(int\
-    \ u, int v) {\n\t\tif (dep[u] < dep[v]) swap(u, v);\n\t\tint df = dep[u] - dep[v];\n\
-    \t\tfor (int i = lg - 1; i >= 0; --i) {\n\t\t\tif ((df >> i) & 1) {\n\t\t\t\t\
-    df -= (1 << i);\n\t\t\t\tu = anc[i][u];\n\t\t\t}\n\t\t}\n\t\tif (u == v) return\
-    \ u;\n\t\tfor (int i = lg - 1; i >= 0; --i) {\n\t\t\tif (anc[i][u] != anc[i][v])\
-    \ {\n\t\t\t\tu = anc[i][u];\n\t\t\t\tv = anc[i][v];\n\t\t\t}\n\t\t}\n\t\treturn\
-    \ anc[0][u];\n\t}\n\n\tint dist(int a, int b) {\n        int lc = query(a, b);\n\
-    \        return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};"
+  bundledCode: "#line 1 \"cpp_src/graph/LCA.hpp\"\ntemplate <class E>\nstruct LCA\
+    \ {\n    VV<int> anc;\n    V<int> dep;\n    int lg;\n    const Graph<E>& g;\n\n\
+    \    LCA(const Graph<E>& g, int root) : g(g) {\n        int n = g.size();\n  \
+    \      lg = 1;\n        while ((1 << lg) < n) lg++;\n        anc = VV<int>(lg,\
+    \ V<int>(n, -1));\n        dep = V<int>(n);\n        dfs(root, -1, 0);\n\n   \
+    \     for (int i = 1; i < lg; i++) {\n            for (int j = 0; j < n; j++)\
+    \ {\n                anc[i][j] =\n                    (anc[i - 1][j] == -1) ?\
+    \ -1 : anc[i - 1][anc[i - 1][j]];\n            }\n        }\n    }\n\n    void\
+    \ dfs(int v, int p, int d) {\n        anc[0][v] = p;\n        dep[v] = d;\n  \
+    \      for (auto e : g[v]) {\n            if (e.to == p) continue;\n         \
+    \   dfs(e.to, v, d + 1);\n        }\n    }\n\n    int query(int u, int v) {\n\
+    \        if (dep[u] < dep[v]) swap(u, v);\n        int df = dep[u] - dep[v];\n\
+    \        for (int i = lg - 1; i >= 0; --i) {\n            if ((df >> i) & 1) {\n\
+    \                df -= (1 << i);\n                u = anc[i][u];\n           \
+    \ }\n        }\n        if (u == v) return u;\n        for (int i = lg - 1; i\
+    \ >= 0; --i) {\n            if (anc[i][u] != anc[i][v]) {\n                u =\
+    \ anc[i][u];\n                v = anc[i][v];\n            }\n        }\n     \
+    \   return anc[0][u];\n    }\n\n    int dist(int a, int b) {\n        int lc =\
+    \ query(a, b);\n        return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};\n"
+  code: "template <class E>\nstruct LCA {\n    VV<int> anc;\n    V<int> dep;\n   \
+    \ int lg;\n    const Graph<E>& g;\n\n    LCA(const Graph<E>& g, int root) : g(g)\
+    \ {\n        int n = g.size();\n        lg = 1;\n        while ((1 << lg) < n)\
+    \ lg++;\n        anc = VV<int>(lg, V<int>(n, -1));\n        dep = V<int>(n);\n\
+    \        dfs(root, -1, 0);\n\n        for (int i = 1; i < lg; i++) {\n       \
+    \     for (int j = 0; j < n; j++) {\n                anc[i][j] =\n           \
+    \         (anc[i - 1][j] == -1) ? -1 : anc[i - 1][anc[i - 1][j]];\n          \
+    \  }\n        }\n    }\n\n    void dfs(int v, int p, int d) {\n        anc[0][v]\
+    \ = p;\n        dep[v] = d;\n        for (auto e : g[v]) {\n            if (e.to\
+    \ == p) continue;\n            dfs(e.to, v, d + 1);\n        }\n    }\n\n    int\
+    \ query(int u, int v) {\n        if (dep[u] < dep[v]) swap(u, v);\n        int\
+    \ df = dep[u] - dep[v];\n        for (int i = lg - 1; i >= 0; --i) {\n       \
+    \     if ((df >> i) & 1) {\n                df -= (1 << i);\n                u\
+    \ = anc[i][u];\n            }\n        }\n        if (u == v) return u;\n    \
+    \    for (int i = lg - 1; i >= 0; --i) {\n            if (anc[i][u] != anc[i][v])\
+    \ {\n                u = anc[i][u];\n                v = anc[i][v];\n        \
+    \    }\n        }\n        return anc[0][u];\n    }\n\n    int dist(int a, int\
+    \ b) {\n        int lc = query(a, b);\n        return dep[a] + dep[b] - dep[lc]\
+    \ * 2;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/LCA.hpp
   requiredBy: []
-  timestamp: '2021-04-19 01:11:54+09:00'
+  timestamp: '2021-10-08 22:49:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp

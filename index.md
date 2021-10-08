@@ -43,7 +43,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/GraphBase.hpp
       title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
