@@ -34,7 +34,11 @@ class Graph {
         g[to].emplace_back(to, from, cost, es++);
     }
 
-    inline vector<Edge<T>>& operator[](const int& k) { return g[k]; }
+    inline vector<E>& operator[](const int& k) { return g[k]; }
+
+    inline const vector<E>& operator[](const int& k) const {
+        return g[k];
+    }
 
     void read(int M, int offset = -1, bool directed = false,
               bool weighted = false) {
@@ -55,6 +59,29 @@ class Graph {
 };
 
 template <class T>
+V<T> bfs(const Graph<T>& g, int s = 0) {
+    int n = g.size();
+    V<T> ds(n, numeric_limits<T>::max() / 2);
+    using P = pair<T, int>;
+    queue<int> que;
+    que.push(s);
+    ds[s] = 0;
+
+    while (!que.empty()) {
+        auto v = que.front();
+        que.pop();
+        for (auto e : g[v]) {
+            T nx = ds[v] + 1;
+            if (ds[e.to] > nx) {
+                ds[e.to] = nx;
+                que.push(e.to);
+            }
+        }
+    }
+    return ds;
+}
+
+template <class T>
 V<T> dijkstra(const Graph<T>& g, int s = 0) {
     int n = g.size();
     V<T> ds(n, numeric_limits<T>::max() / 2);
@@ -67,34 +94,11 @@ V<T> dijkstra(const Graph<T>& g, int s = 0) {
         que.pop();
         int v = p.se;
         if (ds[v] < p.fi) continue;
-        for (auto e : g.g[v]) {
+        for (auto e : g[v]) {
             T nx = ds[v] + e.cost;
             if (ds[e.to] > nx) {
                 ds[e.to] = nx;
                 que.emplace(nx, e.to);
-            }
-        }
-    }
-    return ds;
-}
-
-template <class T>
-V<T> bfs(const Graph<T>& g, int s = 0) {
-    int n = g.size();
-    V<T> ds(n, numeric_limits<T>::max() / 2);
-    using P = pair<T, int>;
-    queue<int> que;
-    que.push(s);
-    ds[s] = 0;
-
-    while (!que.empty()) {
-        auto v = que.front();
-        que.pop();
-        for (auto e : g.g[v]) {
-            T nx = ds[v] + 1;
-            if (ds[e.to] > nx) {
-                ds[e.to] = nx;
-                que.push(e.to);
             }
         }
     }

@@ -1,68 +1,131 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
-
+//#pragma GCC optimize("Ofast")
+//#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 using namespace std;
 
 using ll = long long;
+using ull = unsigned long long;
 using pii = pair<int, int>;
-template<class T> using V = vector<T>;
-template<class T> using VV = V<V<T>>;
+template <class T>
+using V = vector<T>;
+template <class T>
+using VV = V<V<T>>;
+
+template <class T>
+V<T> make_vec(size_t a) {
+    return V<T>(a);
+}
+
+template <class T, class... Ts>
+auto make_vec(size_t a, Ts... ts) {
+    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));
+}
 
 #define pb push_back
 #define eb emplace_back
 #define mp make_pair
 #define fi first
 #define se second
-#define rep(i,n) rep2(i,0,n)
-#define rep2(i,m,n) for(int i=m;i<(n);i++)
-#define ALL(c) (c).begin(),(c).end()
+#define rep(i, n) rep2(i, 0, n)
+#define rep2(i, m, n) for (int i = m; i < (n); i++)
+#define per(i, b) per2(i, 0, b)
+#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)
+#define ALL(c) (c).begin(), (c).end()
+#define SZ(x) ((int)(x).size())
 
-#ifdef LOCAL
-#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
-#else 
-#define dump(x) true
-#endif
+constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }
 
-constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
-
-template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
-template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
-
-template<class T, class U>
-ostream& operator<<(ostream& os, const pair<T, U>& p) {
-	os<<"("<<p.first<<","<<p.second<<")";
-	return os;
+template <class T, class U>
+void chmin(T& t, const U& u) {
+    if (t > u) t = u;
+}
+template <class T, class U>
+void chmax(T& t, const U& u) {
+    if (t < u) t = u;
 }
 
-template<class T>
+template <class T>
+void mkuni(vector<T>& v) {
+    sort(ALL(v));
+    v.erase(unique(ALL(v)), end(v));
+}
+
+template <class T, class U>
+ostream& operator<<(ostream& os, const pair<T, U>& p) {
+    os << "(" << p.first << "," << p.second << ")";
+    return os;
+}
+
+template <class T>
 ostream& operator<<(ostream& os, const vector<T>& v) {
-	os<<"{";
-	rep(i, v.size()) {
-		if (i) os<<",";
-		os<<v[i];
-	}
-	os<<"}";
-	return os;
+    os << "{";
+    rep(i, v.size()) {
+        if (i) os << ",";
+        os << v[i];
+    }
+    os << "}";
+    return os;
+}
+
+#ifdef LOCAL
+void debug_out() { cerr << endl; }
+template <typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+    cerr << " " << H;
+    debug_out(T...);
+}
+#define debug(...) \
+    cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
+#else
+#define debug(...) (void(0))
+#define dump(x) (void(0))
+#endif
+
+template <class T>
+void scan(vector<T>& v, T offset = T(0)) {
+    for (auto& x : v) {
+        cin >> x;
+        x += offset;
+    }
+}
+
+template <class T>
+void print(T x, int suc = 1) {
+    cout << x;
+    if (suc == 1)
+        cout << "\n";
+    else if (suc == 2)
+        cout << " ";
+}
+
+template <class T>
+void print(const vector<T>& v, int suc = 1) {
+    for (int i = 0; i < v.size(); ++i)
+        print(v[i], i == int(v.size()) - 1 ? suc : 2);
 }
 
 #define call_from_test
+#include "../../cpp_src/graph/GraphBase.hpp"
 #include "../../cpp_src/graph/LCA.hpp"
 #undef call_from_test
 
 int main() {
-	int N, Q; scanf("%d %d", &N, &Q);
-	V<int> p(N);
-	VV<int> g(N);
-	for (int i = 1; i < N; ++i) {
-		scanf("%d", &p[i]);
-		g[p[i]].pb(i);
-	}
-	LCA<int> lca(g, 0);
-	while (Q--) {
-		int a, b;
-		scanf("%d %d", &a, &b);
-		int v = lca.query(a, b);
-		printf("%d\n", v);
-	}
-	return 0;
+    int N, Q;
+    scanf("%d %d", &N, &Q);
+    V<int> p(N);
+    Graph<int> g(N);
+    for (int i = 1; i < N; ++i) {
+        scanf("%d", &p[i]);
+        g.add_edge(p[i], i);
+    }
+    LCA<int> lca(g, 0);
+    while (Q--) {
+        int a, b;
+        scanf("%d %d", &a, &b);
+        int v = lca.query(a, b);
+        printf("%d\n", v);
+    }
+    return 0;
 }
