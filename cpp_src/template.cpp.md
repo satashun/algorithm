@@ -38,9 +38,10 @@ data:
     \ x, int suc = 1) {\n    cout << x;\n    if (suc == 1)\n        cout << \"\\n\"\
     ;\n    else if (suc == 2)\n        cout << \" \";\n}\n\ntemplate <class T>\nvoid\
     \ print(const vector<T>& v, int suc = 1) {\n    for (int i = 0; i < v.size();\
-    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\nint main()\
-    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    return 0;\n\
-    }\n"
+    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io\
+    \ {\n    prepare_io() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n\nint main() {\n\
+    \    return 0;\n}\n"
   code: "//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\"\
     )\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
     \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate<class T> using\
@@ -71,13 +72,15 @@ data:
     \ int suc = 1) {\n    cout << x;\n    if (suc == 1)\n        cout << \"\\n\";\n\
     \    else if (suc == 2)\n        cout << \" \";\n}\n\ntemplate <class T>\nvoid\
     \ print(const vector<T>& v, int suc = 1) {\n    for (int i = 0; i < v.size();\
-    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\nint main()\
-    \ {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    return 0;\n}"
+    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io\
+    \ {\n    prepare_io() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
+    \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n\nint main() {\n\
+    \    return 0;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/template.cpp
   requiredBy: []
-  timestamp: '2021-10-02 23:37:41+09:00'
+  timestamp: '2021-10-17 02:18:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/template.cpp
