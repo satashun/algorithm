@@ -56,19 +56,6 @@ class Graph {
                 add_edge(a, b, c);
         }
     }
-
-    void to_graphviz(string filename, bool directed = false, bool weighted = false) {
-        ofstream ss(filename + ".DOT");
-        ss << "digraph\n";
-        for (int i = 0; i < size(); ++i) {
-            for (auto e : g[i]) {
-                of << i << "->" << e.to << "[label=" << e.idx << '];\n';
-            }
-        }
-        ss << "}\n";
-        ss.close();
-        return ;
-    }
 };
 
 template <class T>

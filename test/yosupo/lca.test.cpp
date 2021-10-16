@@ -106,6 +106,14 @@ void print(const vector<T>& v, int suc = 1) {
         print(v[i], i == int(v.size()) - 1 ? suc : 2);
 }
 
+struct prepare_io {
+    prepare_io() {
+        cin.tie(nullptr);
+        ios::sync_with_stdio(false);
+        cout << fixed << setprecision(10);
+    }
+} prep_io;
+
 #define call_from_test
 #include "../../cpp_src/graph/GraphBase.hpp"
 #include "../../cpp_src/graph/LCA.hpp"
