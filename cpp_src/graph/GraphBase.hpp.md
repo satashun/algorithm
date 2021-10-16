@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"cpp_src/graph/GraphBase.hpp\"\n\ntemplate <class T>\nclass\
@@ -29,27 +29,22 @@ data:
     \          a += offset;\n            b += offset;\n            T c = T(1);\n \
     \           if (weighted) cin >> c;\n            edges.emplace_back(a, b, c);\n\
     \            if (directed)\n                add_directed_edge(a, b, c);\n    \
-    \        else\n                add_edge(a, b, c);\n        }\n    }\n\n    void\
-    \ to_graphviz(string filename, bool directed = false, bool weighted = false) {\n\
-    \        ofstream ss(filename + \".DOT\");\n        ss << \"digraph\\n\";\n  \
-    \      for (int i = 0; i < size(); ++i) {\n            for (auto e : g[i]) {\n\
-    \                of << i << \"->\" << e.to << \"[label=\" << e.idx << '];\\n';\n\
-    \            }\n        }\n        ss << \"}\\n\";\n        ss.close();\n    \
-    \    return ;\n    }\n};\n\ntemplate <class T>\nV<T> bfs(const Graph<T>& g, int\
-    \ s = 0) {\n    int n = g.size();\n    V<T> ds(n, numeric_limits<T>::max() / 2);\n\
-    \    using P = pair<T, int>;\n    queue<int> que;\n    que.push(s);\n    ds[s]\
-    \ = 0;\n\n    while (!que.empty()) {\n        auto v = que.front();\n        que.pop();\n\
-    \        for (auto e : g[v]) {\n            T nx = ds[v] + 1;\n            if\
-    \ (ds[e.to] > nx) {\n                ds[e.to] = nx;\n                que.push(e.to);\n\
-    \            }\n        }\n    }\n    return ds;\n}\n\ntemplate <class T>\nV<T>\
-    \ dijkstra(const Graph<T>& g, int s = 0) {\n    int n = g.size();\n    V<T> ds(n,\
-    \ numeric_limits<T>::max() / 2);\n    using P = pair<T, int>;\n    priority_queue<P,\
-    \ V<P>, greater<P>> que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty())\
-    \ {\n        auto p = que.top();\n        que.pop();\n        int v = p.se;\n\
-    \        if (ds[v] < p.fi) continue;\n        for (auto e : g[v]) {\n        \
-    \    T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n              \
-    \  ds[e.to] = nx;\n                que.emplace(nx, e.to);\n            }\n   \
-    \     }\n    }\n    return ds;\n}\n"
+    \        else\n                add_edge(a, b, c);\n        }\n    }\n};\n\ntemplate\
+    \ <class T>\nV<T> bfs(const Graph<T>& g, int s = 0) {\n    int n = g.size();\n\
+    \    V<T> ds(n, numeric_limits<T>::max() / 2);\n    using P = pair<T, int>;\n\
+    \    queue<int> que;\n    que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
+    \ {\n        auto v = que.front();\n        que.pop();\n        for (auto e :\
+    \ g[v]) {\n            T nx = ds[v] + 1;\n            if (ds[e.to] > nx) {\n \
+    \               ds[e.to] = nx;\n                que.push(e.to);\n            }\n\
+    \        }\n    }\n    return ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const\
+    \ Graph<T>& g, int s = 0) {\n    int n = g.size();\n    V<T> ds(n, numeric_limits<T>::max()\
+    \ / 2);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>, greater<P>>\
+    \ que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty()) {\n \
+    \       auto p = que.top();\n        que.pop();\n        int v = p.se;\n     \
+    \   if (ds[v] < p.fi) continue;\n        for (auto e : g[v]) {\n            T\
+    \ nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to]\
+    \ = nx;\n                que.emplace(nx, e.to);\n            }\n        }\n  \
+    \  }\n    return ds;\n}\n"
   code: "#pragma once\n\ntemplate <class T>\nclass Edge {\n   public:\n    int from,\
     \ to, idx;\n    T cost;\n\n    Edge() = default;\n    Edge(int from, int to, T\
     \ cost = T(1), int idx = -1)\n        : from(from), to(to), cost(cost), idx(idx)\
@@ -68,33 +63,27 @@ data:
     \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
     \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
     \                add_directed_edge(a, b, c);\n            else\n             \
-    \   add_edge(a, b, c);\n        }\n    }\n\n    void to_graphviz(string filename,\
-    \ bool directed = false, bool weighted = false) {\n        ofstream ss(filename\
-    \ + \".DOT\");\n        ss << \"digraph\\n\";\n        for (int i = 0; i < size();\
-    \ ++i) {\n            for (auto e : g[i]) {\n                of << i << \"->\"\
-    \ << e.to << \"[label=\" << e.idx << '];\\n';\n            }\n        }\n    \
-    \    ss << \"}\\n\";\n        ss.close();\n        return ;\n    }\n};\n\ntemplate\
-    \ <class T>\nV<T> bfs(const Graph<T>& g, int s = 0) {\n    int n = g.size();\n\
-    \    V<T> ds(n, numeric_limits<T>::max() / 2);\n    using P = pair<T, int>;\n\
-    \    queue<int> que;\n    que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
-    \ {\n        auto v = que.front();\n        que.pop();\n        for (auto e :\
-    \ g[v]) {\n            T nx = ds[v] + 1;\n            if (ds[e.to] > nx) {\n \
-    \               ds[e.to] = nx;\n                que.push(e.to);\n            }\n\
-    \        }\n    }\n    return ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const\
+    \   add_edge(a, b, c);\n        }\n    }\n};\n\ntemplate <class T>\nV<T> bfs(const\
     \ Graph<T>& g, int s = 0) {\n    int n = g.size();\n    V<T> ds(n, numeric_limits<T>::max()\
-    \ / 2);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>, greater<P>>\
-    \ que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty()) {\n \
-    \       auto p = que.top();\n        que.pop();\n        int v = p.se;\n     \
-    \   if (ds[v] < p.fi) continue;\n        for (auto e : g[v]) {\n            T\
-    \ nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to]\
-    \ = nx;\n                que.emplace(nx, e.to);\n            }\n        }\n  \
-    \  }\n    return ds;\n}"
+    \ / 2);\n    using P = pair<T, int>;\n    queue<int> que;\n    que.push(s);\n\
+    \    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v = que.front();\n\
+    \        que.pop();\n        for (auto e : g[v]) {\n            T nx = ds[v] +\
+    \ 1;\n            if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n     \
+    \           que.push(e.to);\n            }\n        }\n    }\n    return ds;\n\
+    }\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>& g, int s = 0) {\n    int\
+    \ n = g.size();\n    V<T> ds(n, numeric_limits<T>::max() / 2);\n    using P =\
+    \ pair<T, int>;\n    priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0,\
+    \ s);\n    ds[s] = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n\
+    \        que.pop();\n        int v = p.se;\n        if (ds[v] < p.fi) continue;\n\
+    \        for (auto e : g[v]) {\n            T nx = ds[v] + e.cost;\n         \
+    \   if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n                que.emplace(nx,\
+    \ e.to);\n            }\n        }\n    }\n    return ds;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
-  timestamp: '2021-10-17 02:18:11+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-10-17 02:25:18+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp
 documentation_of: cpp_src/graph/GraphBase.hpp
