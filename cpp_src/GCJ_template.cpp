@@ -103,11 +103,17 @@ void print(const vector<T>& v, int suc = 1) {
         print(v[i], i == int(v.size()) - 1 ? suc : 2);
 }
 
+struct prepare_io {
+    prepare_io() {
+        cin.tie(nullptr);
+        ios::sync_with_stdio(false);
+        cout << fixed << setprecision(10);
+    }
+} prep_io;
+
 void solve(int tc) { cout << "Case #" << tc << ": "; }
 
 int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
     int TC;
     cin >> TC;
     for (int tc = 1; tc <= TC; ++tc) {
