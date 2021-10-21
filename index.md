@@ -88,6 +88,9 @@ data:
       path: cpp_src/math/HelperFunctions.hpp
       title: cpp_src/math/HelperFunctions.hpp
     - icon: ':warning:'
+      path: cpp_src/math/Lagrange.cpp
+      title: cpp_src/math/Lagrange.cpp
+    - icon: ':warning:'
       path: cpp_src/math/LinearSieve.hpp
       title: cpp_src/math/LinearSieve.hpp
     - icon: ':warning:'
