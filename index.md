@@ -32,6 +32,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/StarrySkyTree.hpp
       title: cpp_src/data_structure/StarrySkyTree.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/Treap.cpp
+      title: cpp_src/data_structure/Treap.cpp
   - name: cpp_src/graph
     pages:
     - icon: ':warning:'
@@ -50,6 +53,9 @@ data:
       path: cpp_src/graph/LCA.hpp
       title: cpp_src/graph/LCA.hpp
     - icon: ':warning:'
+      path: cpp_src/graph/LowLink.hpp
+      title: cpp_src/graph/LowLink.hpp
+    - icon: ':warning:'
       path: cpp_src/graph/MinimumCostFlow.hpp
       title: cpp_src/graph/MinimumCostFlow.hpp
     - icon: ':warning:'
@@ -59,11 +65,17 @@ data:
       path: cpp_src/graph/SCC.hpp
       title: cpp_src/graph/SCC.hpp
     - icon: ':warning:'
+      path: cpp_src/graph/Tournament_Hamilton.cpp
+      title: cpp_src/graph/Tournament_Hamilton.cpp
+    - icon: ':warning:'
       path: cpp_src/graph/TreeDP.hpp
       title: cpp_src/graph/TreeDP.hpp
     - icon: ':warning:'
       path: cpp_src/graph/TreeHash.cpp
       title: cpp_src/graph/TreeHash.cpp
+    - icon: ':warning:'
+      path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
+      title: cpp_src/graph/TwoEdgeConnectedComponents.hpp
     - icon: ':warning:'
       path: cpp_src/graph/Visualize.hpp
       title: cpp_src/graph/Visualize.hpp
@@ -266,6 +278,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
       title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yosupo/two_edge_connected_components.test.cpp
+      title: test/yosupo/two_edge_connected_components.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp

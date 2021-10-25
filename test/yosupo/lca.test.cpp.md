@@ -55,8 +55,9 @@ data:
     #line 2 \"cpp_src/graph/GraphBase.hpp\"\n\ntemplate <class T>\nclass Edge {\n\
     \   public:\n    int from, to, idx;\n    T cost;\n\n    Edge() = default;\n  \
     \  Edge(int from, int to, T cost = T(1), int idx = -1)\n        : from(from),\
-    \ to(to), cost(cost), idx(idx) {}\n    operator int() const { return to; }\n};\n\
-    \ntemplate <class T>\nclass Graph {\n   public:\n    using E = Edge<T>;\n    vector<vector<E>>\
+    \ to(to), cost(cost), idx(idx) {}\n    operator int() const { return to; }\n\n\
+    \    bool operator<(const Edge& e) const { return cost < e.cost; }\n};\n\ntemplate\
+    \ <class T>\nclass Graph {\n   public:\n    using E = Edge<T>;\n    vector<vector<E>>\
     \ g;\n    vector<E> edges;\n    int es;\n\n    Graph() {}\n    Graph(int n) :\
     \ g(n), edges(0), es(0){};\n\n    int size() const { return g.size(); }\n\n  \
     \  virtual void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
@@ -158,7 +159,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2021-10-17 02:25:18+09:00'
+  timestamp: '2021-10-25 19:28:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp
