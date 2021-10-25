@@ -10,6 +10,8 @@ class Edge {
     Edge(int from, int to, T cost = T(1), int idx = -1)
         : from(from), to(to), cost(cost), idx(idx) {}
     operator int() const { return to; }
+
+    bool operator<(const Edge& e) const { return cost < e.cost; }
 };
 
 template <class T>
