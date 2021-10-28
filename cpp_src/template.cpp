@@ -42,6 +42,14 @@ void mkuni(vector<T>& v) {
     v.erase(unique(ALL(v)), end(v));
 }
 
+template <class T>
+vector<int> sort_by(const vector<T>& v) {
+    vector<int> res(v.size());
+    iota(res.begin(), res.end(), 0);
+    sort(res.begin(), res.end(), [&](int i, int j) { return v[i] < v[j]; });
+    return res;
+}
+
 template<class T, class U>
 ostream& operator<<(ostream& os, const pair<T, U>& p) {
     os<<"("<<p.first<<","<<p.second<<")";

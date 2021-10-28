@@ -5,7 +5,7 @@ struct LCA {
     int lg;
     const Graph<E>& g;
 
-    LCA(const Graph<E>& g, int root) : g(g) {
+    LCA(const Graph<E>& g, int root = 0) : g(g) {
         int n = g.size();
         lg = 1;
         while ((1 << lg) < n) lg++;
