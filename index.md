@@ -44,6 +44,9 @@ data:
       path: cpp_src/graph/Dinic.hpp
       title: cpp_src/graph/Dinic.hpp
     - icon: ':warning:'
+      path: cpp_src/graph/Dominator.cpp
+      title: cpp_src/graph/Dominator.cpp
+    - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
     - icon: ':heavy_check_mark:'
@@ -142,6 +145,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/EnumQuotient.cpp
+      title: cpp_src/other/EnumQuotient.cpp
     - icon: ':warning:'
       path: cpp_src/other/FWT.hpp
       title: cpp_src/other/FWT.hpp

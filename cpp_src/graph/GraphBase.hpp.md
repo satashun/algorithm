@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"cpp_src/graph/GraphBase.hpp\"\n\ntemplate <class T>\nclass\
+  bundledCode: "#line 1 \"cpp_src/graph/GraphBase.hpp\"\ntemplate <class T>\nclass\
     \ Edge {\n   public:\n    int from, to, idx;\n    T cost;\n\n    Edge() = default;\n\
     \    Edge(int from, int to, T cost = T(1), int idx = -1)\n        : from(from),\
     \ to(to), cost(cost), idx(idx) {}\n    operator int() const { return to; }\n\n\
@@ -46,16 +46,16 @@ data:
     \ nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to]\
     \ = nx;\n                que.emplace(nx, e.to);\n            }\n        }\n  \
     \  }\n    return ds;\n}\n"
-  code: "#pragma once\n\ntemplate <class T>\nclass Edge {\n   public:\n    int from,\
-    \ to, idx;\n    T cost;\n\n    Edge() = default;\n    Edge(int from, int to, T\
-    \ cost = T(1), int idx = -1)\n        : from(from), to(to), cost(cost), idx(idx)\
-    \ {}\n    operator int() const { return to; }\n\n    bool operator<(const Edge&\
-    \ e) const { return cost < e.cost; }\n};\n\ntemplate <class T>\nclass Graph {\n\
-    \   public:\n    using E = Edge<T>;\n    vector<vector<E>> g;\n    vector<E> edges;\n\
-    \    int es;\n\n    Graph() {}\n    Graph(int n) : g(n), edges(0), es(0){};\n\n\
-    \    int size() const { return g.size(); }\n\n    virtual void add_directed_edge(int\
-    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n\
-    \    }\n\n    virtual void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
+  code: "template <class T>\nclass Edge {\n   public:\n    int from, to, idx;\n  \
+    \  T cost;\n\n    Edge() = default;\n    Edge(int from, int to, T cost = T(1),\
+    \ int idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    operator\
+    \ int() const { return to; }\n\n    bool operator<(const Edge& e) const { return\
+    \ cost < e.cost; }\n};\n\ntemplate <class T>\nclass Graph {\n   public:\n    using\
+    \ E = Edge<T>;\n    vector<vector<E>> g;\n    vector<E> edges;\n    int es;\n\n\
+    \    Graph() {}\n    Graph(int n) : g(n), edges(0), es(0){};\n\n    int size()\
+    \ const { return g.size(); }\n\n    virtual void add_directed_edge(int from, int\
+    \ to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n   \
+    \ }\n\n    virtual void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
     \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n\n\
     \    inline vector<E>& operator[](const int& k) { return g[k]; }\n\n    inline\
     \ const vector<E>& operator[](const int& k) const {\n        return g[k];\n  \
@@ -84,7 +84,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
-  timestamp: '2021-10-25 19:28:02+09:00'
+  timestamp: '2021-10-28 16:07:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp

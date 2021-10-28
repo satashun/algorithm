@@ -23,14 +23,17 @@ data:
     \ class U> void chmin(T& t, const U& u) { if (t > u) t = u; }\ntemplate<class\
     \ T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }\n\ntemplate <class\
     \ T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
-    \ end(v));\n}\n\ntemplate<class T, class U>\nostream& operator<<(ostream& os,\
-    \ const pair<T, U>& p) {\n    os<<\"(\"<<p.first<<\",\"<<p.second<<\")\";\n  \
-    \  return os;\n}\n\ntemplate<class T>\nostream& operator<<(ostream& os, const\
-    \ vector<T>& v) {\n    os<<\"{\";\n    rep(i, v.size()) {\n        if (i) os<<\"\
-    ,\";\n        os<<v[i];\n    }\n    os<<\"}\";\n    return os;\n}\n\n#ifdef LOCAL\n\
-    void debug_out() { cerr << endl; }\ntemplate<typename Head, typename... Tail>\n\
-    void debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
-    }\n#define debug(...) cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n\
+    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n\
+    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    sort(res.begin(),\
+    \ res.end(), [&](int i, int j) { return v[i] < v[j]; });\n    return res;\n}\n\
+    \ntemplate<class T, class U>\nostream& operator<<(ostream& os, const pair<T, U>&\
+    \ p) {\n    os<<\"(\"<<p.first<<\",\"<<p.second<<\")\";\n    return os;\n}\n\n\
+    template<class T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n  \
+    \  os<<\"{\";\n    rep(i, v.size()) {\n        if (i) os<<\",\";\n        os<<v[i];\n\
+    \    }\n    os<<\"}\";\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out() {\
+    \ cerr << endl; }\ntemplate<typename Head, typename... Tail>\nvoid debug_out(Head\
+    \ H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
+    \ cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n\
     #define dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n\
     #define debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class\
     \ T>\nvoid scan(vector<T>& v, T offset = T(0)) {\n    for (auto& x : v) {\n  \
@@ -56,8 +59,11 @@ data:
     \ 1 : 10 * TEN(n-1); }\n\ntemplate<class T, class U> void chmin(T& t, const U&\
     \ u) { if (t > u) t = u; }\ntemplate<class T, class U> void chmax(T& t, const\
     \ U& u) { if (t < u) t = u; }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v)\
-    \ {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n}\n\ntemplate<class\
-    \ T, class U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os<<\"\
+    \ {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n}\n\ntemplate <class\
+    \ T>\nvector<int> sort_by(const vector<T>& v) {\n    vector<int> res(v.size());\n\
+    \    iota(res.begin(), res.end(), 0);\n    sort(res.begin(), res.end(), [&](int\
+    \ i, int j) { return v[i] < v[j]; });\n    return res;\n}\n\ntemplate<class T,\
+    \ class U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os<<\"\
     (\"<<p.first<<\",\"<<p.second<<\")\";\n    return os;\n}\n\ntemplate<class T>\n\
     ostream& operator<<(ostream& os, const vector<T>& v) {\n    os<<\"{\";\n    rep(i,\
     \ v.size()) {\n        if (i) os<<\",\";\n        os<<v[i];\n    }\n    os<<\"\
@@ -80,7 +86,7 @@ data:
   isVerificationFile: false
   path: cpp_src/template.cpp
   requiredBy: []
-  timestamp: '2021-10-17 02:18:11+09:00'
+  timestamp: '2021-10-28 16:07:17+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/template.cpp
