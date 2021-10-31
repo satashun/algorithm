@@ -20,10 +20,11 @@ data:
     \   Mint res = 1;\n    for (int i = 0; i < k; ++i) {\n        res = res * (n -\
     \ i) * inv[i + 1];\n    }\n    return res;\n}\n\n// line up\n// a 'o' + b 'x'\n\
     Mint comb2(int a, int b) {\n    if (a < 0 || b < 0) return 0;\n    return comb(a\
-    \ + b, a);\n}\n\n// O(p + log_p n)\n\nMint lucas(ll n, ll k, int p) {\n    if\
-    \ (n < 0 || k < 0 || k > n) return Mint(0);\n    Mint res = 1;\n    while (n >\
-    \ 0) {\n        res *= comb(n % p, k % p);\n        n /= p;\n        k /= p;\n\
-    \    }\n    return res;\n}\n"
+    \ + b, a);\n}\n\n// divide a into b groups\nMint nhr(int a, int b) {\n    if (b\
+    \ == 0) return Mint(a == 0);\n    return comb(a + b - 1, a);\n}\n\n// O(p + log_p\
+    \ n)\n\nMint lucas(ll n, ll k, int p) {\n    if (n < 0 || k < 0 || k > n) return\
+    \ Mint(0);\n    Mint res = 1;\n    while (n > 0) {\n        res *= comb(n % p,\
+    \ k % p);\n        n /= p;\n        k /= p;\n    }\n    return res;\n}\n"
   code: "V<Mint> fact, ifact, inv;\n\nvoid init() {\n    const int maxv = 1000010;\n\
     \    fact.resize(maxv);\n    ifact.resize(maxv);\n    inv.resize(maxv);\n\n  \
     \  fact[0] = 1;\n    for (int i = 1; i < maxv; ++i) {\n        fact[i] = fact[i\
@@ -35,15 +36,17 @@ data:
     \nMint comb_slow(ll n, ll k) {\n    Mint res = 1;\n    for (int i = 0; i < k;\
     \ ++i) {\n        res = res * (n - i) * inv[i + 1];\n    }\n    return res;\n\
     }\n\n// line up\n// a 'o' + b 'x'\nMint comb2(int a, int b) {\n    if (a < 0 ||\
-    \ b < 0) return 0;\n    return comb(a + b, a);\n}\n\n// O(p + log_p n)\n\nMint\
-    \ lucas(ll n, ll k, int p) {\n    if (n < 0 || k < 0 || k > n) return Mint(0);\n\
-    \    Mint res = 1;\n    while (n > 0) {\n        res *= comb(n % p, k % p);\n\
-    \        n /= p;\n        k /= p;\n    }\n    return res;\n}"
+    \ b < 0) return 0;\n    return comb(a + b, a);\n}\n\n// divide a into b groups\n\
+    Mint nhr(int a, int b) {\n    if (b == 0) return Mint(a == 0);\n    return comb(a\
+    \ + b - 1, a);\n}\n\n// O(p + log_p n)\n\nMint lucas(ll n, ll k, int p) {\n  \
+    \  if (n < 0 || k < 0 || k > n) return Mint(0);\n    Mint res = 1;\n    while\
+    \ (n > 0) {\n        res *= comb(n % p, k % p);\n        n /= p;\n        k /=\
+    \ p;\n    }\n    return res;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/math/ModularOperation.hpp
   requiredBy: []
-  timestamp: '2021-06-18 22:48:32+09:00'
+  timestamp: '2021-11-01 00:34:18+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/ModularOperation.hpp
