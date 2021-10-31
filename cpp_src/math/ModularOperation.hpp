@@ -44,6 +44,12 @@ Mint comb2(int a, int b) {
     return comb(a + b, a);
 }
 
+// divide a into b groups
+Mint nhr(int a, int b) {
+    if (b == 0) return Mint(a == 0);
+    return comb(a + b - 1, a);
+}
+
 // O(p + log_p n)
 
 Mint lucas(ll n, ll k, int p) {
