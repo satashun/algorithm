@@ -106,9 +106,6 @@ data:
       path: cpp_src/math/Lagrange.cpp
       title: cpp_src/math/Lagrange.cpp
     - icon: ':warning:'
-      path: cpp_src/math/LinearSieve.hpp
-      title: cpp_src/math/LinearSieve.hpp
-    - icon: ':warning:'
       path: cpp_src/math/MatrixLinearAlgebra.hpp
       title: cpp_src/math/MatrixLinearAlgebra.hpp
     - icon: ':heavy_check_mark:'
@@ -127,9 +124,6 @@ data:
       path: cpp_src/math/NumberTheoreticTransform.hpp
       title: cpp_src/math/NumberTheoreticTransform.hpp
     - icon: ':warning:'
-      path: cpp_src/math/NumberTheory.hpp
-      title: cpp_src/math/NumberTheory.hpp
-    - icon: ':warning:'
       path: cpp_src/math/PolynomialInterpolation.hpp
       title: cpp_src/math/PolynomialInterpolation.hpp
   - name: cpp_src/math/fps
@@ -140,6 +134,17 @@ data:
     - icon: ':warning:'
       path: cpp_src/math/fps/StirlingSecond.hpp
       title: cpp_src/math/fps/StirlingSecond.hpp
+  - name: cpp_src/number_theory
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/number_theory/GaussGcd.cpp
+      title: cpp_src/number_theory/GaussGcd.cpp
+    - icon: ':warning:'
+      path: cpp_src/number_theory/LinearSieve.hpp
+      title: cpp_src/number_theory/LinearSieve.hpp
+    - icon: ':warning:'
+      path: cpp_src/number_theory/NumberTheory.hpp
+      title: cpp_src/number_theory/NumberTheory.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
@@ -165,9 +170,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp_src/string/RollingHash.hpp
       title: cpp_src/string/RollingHash.hpp
+    - icon: ':warning:'
+      path: cpp_src/string/Trie.cpp
+      title: cpp_src/string/Trie.cpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/string/Zalgo.hpp
       title: cpp_src/string/Zalgo.hpp
+    - icon: ':warning:'
+      path: cpp_src/string/kmp.cpp
+      title: cpp_src/string/kmp.cpp
   - name: cpp_src/utility
     pages:
     - icon: ':warning:'
@@ -184,6 +195,9 @@ data:
     - icon: ':warning:'
       path: py_src/DSU.py
       title: py_src/DSU.py
+    - icon: ':warning:'
+      path: py_src/template.py
+      title: py_src/template.py
   - name: test/codechef
     pages:
     - icon: ':warning:'
