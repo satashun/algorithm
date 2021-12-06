@@ -8,6 +8,8 @@ using namespace atcoder;
 using ll = long long;
 using ull = unsigned long long;
 using pii = pair<int, int>;
+using Mint = modint998244353;
+
 template<class T> using V = vector<T>;
 template<class T> using VV = V<V<T>>;
 
