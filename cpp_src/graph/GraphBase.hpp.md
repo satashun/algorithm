@@ -37,8 +37,17 @@ data:
     \ {\n        auto v = que.front();\n        que.pop();\n        for (auto e :\
     \ g[v]) {\n            T nx = ds[v] + 1;\n            if (ds[e.to] > nx) {\n \
     \               ds[e.to] = nx;\n                que.push(e.to);\n            }\n\
-    \        }\n    }\n    return ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const\
-    \ Graph<T>& g, int s = 0) {\n    int n = g.size();\n    V<T> ds(n, numeric_limits<T>::max()\
+    \        }\n    }\n    return ds;\n}\n\n//must be optimized\ntemplate <class T>\n\
+    V<T> bfs01(const Graph<T>& g, int s = 0) {\n    int n = g.size();\n    V<T> ds(n,\
+    \ numeric_limits<T>::max() / 2);\n    using P = pair<T, int>;\n    deque<int>\
+    \ que;\n    que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n\
+    \        auto v = que.front();\n        que.pop_front();\n        for (auto e\
+    \ : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx)\
+    \ {\n                ds[e.to] = nx;\n                if (e.cost == 0) {\n    \
+    \                que.push_front(e.to);\n                } else {\n           \
+    \         que.push_back(e.to);\n                }\n            }\n        }\n\
+    \    }\n    return ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>&\
+    \ g, int s = 0) {\n    int n = g.size();\n    V<T> ds(n, numeric_limits<T>::max()\
     \ / 2);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>, greater<P>>\
     \ que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty()) {\n \
     \       auto p = que.top();\n        que.pop();\n        int v = p.se;\n     \
@@ -72,19 +81,28 @@ data:
     \        que.pop();\n        for (auto e : g[v]) {\n            T nx = ds[v] +\
     \ 1;\n            if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n     \
     \           que.push(e.to);\n            }\n        }\n    }\n    return ds;\n\
-    }\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>& g, int s = 0) {\n    int\
-    \ n = g.size();\n    V<T> ds(n, numeric_limits<T>::max() / 2);\n    using P =\
-    \ pair<T, int>;\n    priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0,\
-    \ s);\n    ds[s] = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n\
-    \        que.pop();\n        int v = p.se;\n        if (ds[v] < p.fi) continue;\n\
-    \        for (auto e : g[v]) {\n            T nx = ds[v] + e.cost;\n         \
-    \   if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n                que.emplace(nx,\
-    \ e.to);\n            }\n        }\n    }\n    return ds;\n}"
+    }\n\n//must be optimized\ntemplate <class T>\nV<T> bfs01(const Graph<T>& g, int\
+    \ s = 0) {\n    int n = g.size();\n    V<T> ds(n, numeric_limits<T>::max() / 2);\n\
+    \    using P = pair<T, int>;\n    deque<int> que;\n    que.push_back(s);\n   \
+    \ ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v = que.front();\n  \
+    \      que.pop_front();\n        for (auto e : g[v]) {\n            T nx = ds[v]\
+    \ + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n\
+    \                if (e.cost == 0) {\n                    que.push_front(e.to);\n\
+    \                } else {\n                    que.push_back(e.to);\n        \
+    \        }\n            }\n        }\n    }\n    return ds;\n}\n\ntemplate <class\
+    \ T>\nV<T> dijkstra(const Graph<T>& g, int s = 0) {\n    int n = g.size();\n \
+    \   V<T> ds(n, numeric_limits<T>::max() / 2);\n    using P = pair<T, int>;\n \
+    \   priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0, s);\n    ds[s]\
+    \ = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n        que.pop();\n\
+    \        int v = p.se;\n        if (ds[v] < p.fi) continue;\n        for (auto\
+    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
+    \ nx) {\n                ds[e.to] = nx;\n                que.emplace(nx, e.to);\n\
+    \            }\n        }\n    }\n    return ds;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
-  timestamp: '2021-10-28 16:07:17+09:00'
+  timestamp: '2021-12-06 23:46:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp
