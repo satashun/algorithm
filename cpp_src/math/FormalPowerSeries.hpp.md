@@ -90,10 +90,10 @@ data:
     \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n            b = tmp;\n    \
     \        y = x;\n        } else {\n            for (int i = 0; i < m; i++) {\n\
     \                c[l - 1 - i] -= freq * b[m - 1 - i];\n            }\n       \
-    \ }\n    }\n    return c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1]\
-    \ * ...\n// deg(result) must be bounded\n\ntemplate <class T>\nPoly<T> prod(const\
-    \ V<Poly<T>>& vec) {\n    auto comp = [](const auto& a, const auto& b) -> bool\
-    \ {\n        return a.size() > b.size();\n    };\n    priority_queue<Poly<T>,\
+    \ }\n    }\n    return c;\n}\n\n// HUPC 2020 day3 K, ABC225H\n// calculate vec[0]\
+    \ * vec[1] * ...\n// deg(result) must be bounded\n\ntemplate <class T>\nPoly<T>\
+    \ prod(const V<Poly<T>>& vec) {\n    auto comp = [](const auto& a, const auto&\
+    \ b) -> bool {\n        return a.size() > b.size();\n    };\n    priority_queue<Poly<T>,\
     \ V<Poly<T>>, decltype(comp)> que(comp);\n    que.push(Poly<T>{1});\n\n    for\
     \ (auto& pl : vec) que.push(pl);\n\n    while (que.size() > 1) {\n        auto\
     \ va = que.top();\n        que.pop();\n        auto vb = que.top();\n        que.pop();\n\
@@ -184,10 +184,10 @@ data:
     \ - 1 - i] -= freq * b[m - 1 - i];\n            }\n            b = tmp;\n    \
     \        y = x;\n        } else {\n            for (int i = 0; i < m; i++) {\n\
     \                c[l - 1 - i] -= freq * b[m - 1 - i];\n            }\n       \
-    \ }\n    }\n    return c;\n}\n\n// HUPC 2020 day3 K\n// calculate vec[0] * vec[1]\
-    \ * ...\n// deg(result) must be bounded\n\ntemplate <class T>\nPoly<T> prod(const\
-    \ V<Poly<T>>& vec) {\n    auto comp = [](const auto& a, const auto& b) -> bool\
-    \ {\n        return a.size() > b.size();\n    };\n    priority_queue<Poly<T>,\
+    \ }\n    }\n    return c;\n}\n\n// HUPC 2020 day3 K, ABC225H\n// calculate vec[0]\
+    \ * vec[1] * ...\n// deg(result) must be bounded\n\ntemplate <class T>\nPoly<T>\
+    \ prod(const V<Poly<T>>& vec) {\n    auto comp = [](const auto& a, const auto&\
+    \ b) -> bool {\n        return a.size() > b.size();\n    };\n    priority_queue<Poly<T>,\
     \ V<Poly<T>>, decltype(comp)> que(comp);\n    que.push(Poly<T>{1});\n\n    for\
     \ (auto& pl : vec) que.push(pl);\n\n    while (que.size() > 1) {\n        auto\
     \ va = que.top();\n        que.pop();\n        auto vb = que.top();\n        que.pop();\n\
@@ -201,7 +201,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2021-05-08 14:23:21+09:00'
+  timestamp: '2021-12-30 18:51:46+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp

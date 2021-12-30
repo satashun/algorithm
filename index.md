@@ -64,7 +64,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/Namori.hpp
       title: cpp_src/graph/Namori.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp_src/graph/SCC.hpp
       title: cpp_src/graph/SCC.hpp
     - icon: ':warning:'
@@ -140,8 +140,8 @@ data:
       path: cpp_src/number_theory/GaussGcd.cpp
       title: cpp_src/number_theory/GaussGcd.cpp
     - icon: ':warning:'
-      path: cpp_src/number_theory/LinearSieve.hpp
-      title: cpp_src/number_theory/LinearSieve.hpp
+      path: cpp_src/number_theory/LinearSieve.cpp
+      title: cpp_src/number_theory/LinearSieve.cpp
     - icon: ':warning:'
       path: cpp_src/number_theory/NumberTheory.hpp
       title: cpp_src/number_theory/NumberTheory.hpp
@@ -162,6 +162,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/Mo.hpp
       title: cpp_src/other/Mo.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/RLE.hpp
+      title: cpp_src/other/RLE.hpp
   - name: cpp_src/string
     pages:
     - icon: ':warning:'
@@ -190,14 +193,6 @@ data:
     - icon: ':warning:'
       path: cpp_src/utility/RandomLib.hpp
       title: cpp_src/utility/RandomLib.hpp
-  - name: py_src
-    pages:
-    - icon: ':warning:'
-      path: py_src/DSU.py
-      title: py_src/DSU.py
-    - icon: ':warning:'
-      path: py_src/template.py
-      title: py_src/template.py
   - name: test/codechef
     pages:
     - icon: ':warning:'
@@ -292,7 +287,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
     - icon: ':heavy_check_mark:'

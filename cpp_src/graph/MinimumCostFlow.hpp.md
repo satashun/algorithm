@@ -9,14 +9,14 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/MinimumCostFlow.hpp\"\n// init_dag : yuki\
-    \ 1678\n\ntemplate <class C, class D>  // capacity, distance\nstruct MinCostFlow\
-    \ {\n    struct edge {\n        int to, rev;\n        C cap;\n        D cost;\n\
-    \        edge(int to, C cap, D cost, int rev)\n            : to(to), cap(cap),\
-    \ cost(cost), rev(rev){};\n    };\n\n    using E = edge;\n\n    const D INF =\
-    \ numeric_limits<D>::max() / D(3);\n\n    int n;\n    VV<E> g;\n    V<D> h, dst;\n\
-    \    V<int> prevv, preve;\n\n    MinCostFlow(int n) : n(n), g(n), h(n), dst(n),\
-    \ prevv(n), preve(n) {}\n\n    void add_edge(int f, int t, C cap, D cost) {\n\
-    \        g[f].emplace_back(t, cap, cost, (int)g[t].size());\n        g[t].emplace_back(f,\
+    \ 1678, ABC214H\n\ntemplate <class C, class D>  // capacity, distance\nstruct\
+    \ MinCostFlow {\n    struct edge {\n        int to, rev;\n        C cap;\n   \
+    \     D cost;\n        edge(int to, C cap, D cost, int rev)\n            : to(to),\
+    \ cap(cap), cost(cost), rev(rev){};\n    };\n\n    using E = edge;\n\n    const\
+    \ D INF = numeric_limits<D>::max() / D(3);\n\n    int n;\n    VV<E> g;\n    V<D>\
+    \ h, dst;\n    V<int> prevv, preve;\n\n    MinCostFlow(int n) : n(n), g(n), h(n),\
+    \ dst(n), prevv(n), preve(n) {}\n\n    void add_edge(int f, int t, C cap, D cost)\
+    \ {\n        g[f].emplace_back(t, cap, cost, (int)g[t].size());\n        g[t].emplace_back(f,\
     \ 0, -cost, (int)g[f].size() - 1);\n    }\n\n    void init_dag(int s) {\n    \
     \    fill(h.begin(), h.end(), INF);\n        h[s] = 0;\n\n        V<int> vis(n);\n\
     \        // topological sort\n        V<int> vs;\n\n        auto topo = [&](auto&&\
@@ -54,14 +54,14 @@ data:
     \ s; v = prevv[v]) {\n                edge& e = g[prevv[v]][preve[v]];\n     \
     \           e.cap -= d;\n                g[v][e.rev].cap += d;\n            }\n\
     \        }\n\n        return res;\n    }\n};\n"
-  code: "// init_dag : yuki 1678\n\ntemplate <class C, class D>  // capacity, distance\n\
-    struct MinCostFlow {\n    struct edge {\n        int to, rev;\n        C cap;\n\
-    \        D cost;\n        edge(int to, C cap, D cost, int rev)\n            :\
-    \ to(to), cap(cap), cost(cost), rev(rev){};\n    };\n\n    using E = edge;\n\n\
-    \    const D INF = numeric_limits<D>::max() / D(3);\n\n    int n;\n    VV<E> g;\n\
-    \    V<D> h, dst;\n    V<int> prevv, preve;\n\n    MinCostFlow(int n) : n(n),\
-    \ g(n), h(n), dst(n), prevv(n), preve(n) {}\n\n    void add_edge(int f, int t,\
-    \ C cap, D cost) {\n        g[f].emplace_back(t, cap, cost, (int)g[t].size());\n\
+  code: "// init_dag : yuki 1678, ABC214H\n\ntemplate <class C, class D>  // capacity,\
+    \ distance\nstruct MinCostFlow {\n    struct edge {\n        int to, rev;\n  \
+    \      C cap;\n        D cost;\n        edge(int to, C cap, D cost, int rev)\n\
+    \            : to(to), cap(cap), cost(cost), rev(rev){};\n    };\n\n    using\
+    \ E = edge;\n\n    const D INF = numeric_limits<D>::max() / D(3);\n\n    int n;\n\
+    \    VV<E> g;\n    V<D> h, dst;\n    V<int> prevv, preve;\n\n    MinCostFlow(int\
+    \ n) : n(n), g(n), h(n), dst(n), prevv(n), preve(n) {}\n\n    void add_edge(int\
+    \ f, int t, C cap, D cost) {\n        g[f].emplace_back(t, cap, cost, (int)g[t].size());\n\
     \        g[t].emplace_back(f, 0, -cost, (int)g[f].size() - 1);\n    }\n\n    void\
     \ init_dag(int s) {\n        fill(h.begin(), h.end(), INF);\n        h[s] = 0;\n\
     \n        V<int> vis(n);\n        // topological sort\n        V<int> vs;\n\n\
@@ -103,7 +103,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/MinimumCostFlow.hpp
   requiredBy: []
-  timestamp: '2021-10-02 23:37:41+09:00'
+  timestamp: '2021-12-30 18:51:46+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/MinimumCostFlow.hpp

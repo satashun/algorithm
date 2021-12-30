@@ -3,53 +3,60 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/graph/SCC.hpp\"\nstruct SCC {\n    int n;\n    VV<int>\
-    \ g, rg;\n    V<int> vs, cmp;\n    V<bool> vis;\n\n    SCC(){}\n    SCC(int n)\
-    \ : n(n) {\n        g = rg = VV<int>(n);\n        vs = cmp = V<int>(n);\n    \
-    \    vis = V<bool>(n);\n    }\n\n    void add_edge(int from, int to) {\n     \
-    \   g[from].push_back(to);\n        rg[to].push_back(from);\n    }\n\n    void\
-    \ dfs(int v) {\n        vis[v] = true;\n\n        for (int to : g[v]) {\n    \
-    \        if (!vis[to]) {\n                dfs(to);\n            }\n        }\n\
-    \n        vs.push_back(v);\n    }\n\n    void rdfs(int v, int k, V<int>& vec)\
-    \ {\n        vis[v] = true;\n        cmp[v] = k;\n        vec.push_back(v);\n\n\
-    \        for (int to : rg[v]) {\n            if (!vis[to]) {\n               \
-    \ rdfs(to, k, vec);\n            }\n        }\n    }\n\n    VV<int> calc() {\n\
+  bundledCode: "#line 1 \"cpp_src/graph/SCC.hpp\"\n// ABC214H\n\ntemplate <class T>\n\
+    struct SCC : Graph<T> {\n   public:\n    using Graph<T>::Graph;\n    using Graph<T>::g;\n\
+    \    Graph<T> rg;\n\n    V<int> vs, cmp, vis;\n    VV<int> comps;\n\n    // allow\
+    \ multiple edges\n    Graph<T> g_comp;\n\n    void dfs(int v) {\n        vis[v]\
+    \ = true;\n\n        for (auto e : g[v]) {\n            if (!vis[e.to]) {\n  \
+    \              dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n\
+    \    }\n\n    void rdfs(int v, int k) {\n        vis[v] = true;\n        cmp[v]\
+    \ = k;\n\n        for (auto e : rg[v]) {\n            if (!vis[e.to]) {\n    \
+    \            rdfs(e.to, k);\n            }\n        }\n    }\n\n    void init()\
+    \ {\n        int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n\
+    \            for (auto e : g[i]) {\n                rg.add_directed_edge(e.to,\
+    \ e.from, e.cost);\n            }\n        }\n\n        vs = cmp = V<int>(n);\n\
+    \        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\n      \
+    \  fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n        reverse(vs.begin(),\
+    \ vs.end());\n\n        for (int v : vs) {\n            if (!vis[v]) {\n     \
+    \           rdfs(v, k++);\n            }\n        }\n\n        comps.resize(k);\n\
+    \        rep(v, n) { comps[cmp[v]].push_back(v); }\n\n        g_comp = Graph<T>(k);\n\
+    \n        rep(i, n) {\n            for (auto e : g[i]) {\n                if (cmp[i]\
+    \ != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i], cmp[e.to],\
+    \ e.cost);\n                }\n            }\n        }\n    }\n};\n"
+  code: "// ABC214H\n\ntemplate <class T>\nstruct SCC : Graph<T> {\n   public:\n \
+    \   using Graph<T>::Graph;\n    using Graph<T>::g;\n    Graph<T> rg;\n\n    V<int>\
+    \ vs, cmp, vis;\n    VV<int> comps;\n\n    // allow multiple edges\n    Graph<T>\
+    \ g_comp;\n\n    void dfs(int v) {\n        vis[v] = true;\n\n        for (auto\
+    \ e : g[v]) {\n            if (!vis[e.to]) {\n                dfs(e.to);\n   \
+    \         }\n        }\n\n        vs.push_back(v);\n    }\n\n    void rdfs(int\
+    \ v, int k) {\n        vis[v] = true;\n        cmp[v] = k;\n\n        for (auto\
+    \ e : rg[v]) {\n            if (!vis[e.to]) {\n                rdfs(e.to, k);\n\
+    \            }\n        }\n    }\n\n    void init() {\n        int n = g.size();\n\
+    \        rg = Graph<T>(n);\n        rep(i, n) {\n            for (auto e : g[i])\
+    \ {\n                rg.add_directed_edge(e.to, e.from, e.cost);\n           \
+    \ }\n        }\n\n        vs = cmp = V<int>(n);\n        vis = V<int>(n);\n\n\
     \        rep(v, n) if (!vis[v]) dfs(v);\n\n        fill(vis.begin(), vis.end(),\
     \ false);\n\n        int k = 0;\n        reverse(vs.begin(), vs.end());\n\n  \
-    \      VV<int> vcomp;\n\n        for (int v : vs) {\n            if (!vis[v])\
-    \ {\n                V<int> vec;\n                rdfs(v, k++, vec);\n       \
-    \         vcomp.push_back(vec);\n            }\n        }\n\n        return vcomp;\n\
-    \    }\n};\n"
-  code: "struct SCC {\n    int n;\n    VV<int> g, rg;\n    V<int> vs, cmp;\n    V<bool>\
-    \ vis;\n\n    SCC(){}\n    SCC(int n) : n(n) {\n        g = rg = VV<int>(n);\n\
-    \        vs = cmp = V<int>(n);\n        vis = V<bool>(n);\n    }\n\n    void add_edge(int\
-    \ from, int to) {\n        g[from].push_back(to);\n        rg[to].push_back(from);\n\
-    \    }\n\n    void dfs(int v) {\n        vis[v] = true;\n\n        for (int to\
-    \ : g[v]) {\n            if (!vis[to]) {\n                dfs(to);\n         \
-    \   }\n        }\n\n        vs.push_back(v);\n    }\n\n    void rdfs(int v, int\
-    \ k, V<int>& vec) {\n        vis[v] = true;\n        cmp[v] = k;\n        vec.push_back(v);\n\
-    \n        for (int to : rg[v]) {\n            if (!vis[to]) {\n              \
-    \  rdfs(to, k, vec);\n            }\n        }\n    }\n\n    VV<int> calc() {\n\
-    \        rep(v, n) if (!vis[v]) dfs(v);\n\n        fill(vis.begin(), vis.end(),\
-    \ false);\n\n        int k = 0;\n        reverse(vs.begin(), vs.end());\n\n  \
-    \      VV<int> vcomp;\n\n        for (int v : vs) {\n            if (!vis[v])\
-    \ {\n                V<int> vec;\n                rdfs(v, k++, vec);\n       \
-    \         vcomp.push_back(vec);\n            }\n        }\n\n        return vcomp;\n\
-    \    }\n};"
+    \      for (int v : vs) {\n            if (!vis[v]) {\n                rdfs(v,\
+    \ k++);\n            }\n        }\n\n        comps.resize(k);\n        rep(v,\
+    \ n) { comps[cmp[v]].push_back(v); }\n\n        g_comp = Graph<T>(k);\n\n    \
+    \    rep(i, n) {\n            for (auto e : g[i]) {\n                if (cmp[i]\
+    \ != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i], cmp[e.to],\
+    \ e.cost);\n                }\n            }\n        }\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/SCC.hpp
   requiredBy: []
-  timestamp: '2020-04-01 18:25:18+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2021-12-30 18:51:46+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/scc.test.cpp
 documentation_of: cpp_src/graph/SCC.hpp
