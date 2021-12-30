@@ -55,9 +55,23 @@ vector<int> sort_by(const vector<T>& v) {
 }
 
 template <class T, class U>
+istream& operator>>(istream& is, pair<T, U>& p) {
+    is >> p.first >> p.second;
+    return is;
+}
+
+template <class T, class U>
 ostream& operator<<(ostream& os, const pair<T, U>& p) {
     os << "(" << p.first << "," << p.second << ")";
     return os;
+}
+
+template <class T>
+istream& operator>>(istream& is, vector<T>& v) {
+    for (auto& x : v) {
+        is >> x;
+    }
+    return is;
 }
 
 template <class T>

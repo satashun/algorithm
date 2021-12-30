@@ -1,46 +1,53 @@
-struct SCC {
-    int n;
-    VV<int> g, rg;
-    V<int> vs, cmp;
-    V<bool> vis;
+// ABC214H
 
-    SCC(){}
-    SCC(int n) : n(n) {
-        g = rg = VV<int>(n);
-        vs = cmp = V<int>(n);
-        vis = V<bool>(n);
-    }
+template <class T>
+struct SCC : Graph<T> {
+   public:
+    using Graph<T>::Graph;
+    using Graph<T>::g;
+    Graph<T> rg;
 
-    void add_edge(int from, int to) {
-        g[from].push_back(to);
-        rg[to].push_back(from);
-    }
+    V<int> vs, cmp, vis;
+    VV<int> comps;
+
+    // allow multiple edges
+    Graph<T> g_comp;
 
     void dfs(int v) {
         vis[v] = true;
 
-        for (int to : g[v]) {
-            if (!vis[to]) {
-                dfs(to);
+        for (auto e : g[v]) {
+            if (!vis[e.to]) {
+                dfs(e.to);
             }
         }
 
         vs.push_back(v);
     }
 
-    void rdfs(int v, int k, V<int>& vec) {
+    void rdfs(int v, int k) {
         vis[v] = true;
         cmp[v] = k;
-        vec.push_back(v);
 
-        for (int to : rg[v]) {
-            if (!vis[to]) {
-                rdfs(to, k, vec);
+        for (auto e : rg[v]) {
+            if (!vis[e.to]) {
+                rdfs(e.to, k);
             }
         }
     }
 
-    VV<int> calc() {
+    void init() {
+        int n = g.size();
+        rg = Graph<T>(n);
+        rep(i, n) {
+            for (auto e : g[i]) {
+                rg.add_directed_edge(e.to, e.from, e.cost);
+            }
+        }
+
+        vs = cmp = V<int>(n);
+        vis = V<int>(n);
+
         rep(v, n) if (!vis[v]) dfs(v);
 
         fill(vis.begin(), vis.end(), false);
@@ -48,16 +55,23 @@ struct SCC {
         int k = 0;
         reverse(vs.begin(), vs.end());
 
-        VV<int> vcomp;
-
         for (int v : vs) {
             if (!vis[v]) {
-                V<int> vec;
-                rdfs(v, k++, vec);
-                vcomp.push_back(vec);
+                rdfs(v, k++);
             }
         }
 
-        return vcomp;
+        comps.resize(k);
+        rep(v, n) { comps[cmp[v]].push_back(v); }
+
+        g_comp = Graph<T>(k);
+
+        rep(i, n) {
+            for (auto e : g[i]) {
+                if (cmp[i] != cmp[e.to]) {
+                    g_comp.add_directed_edge(cmp[i], cmp[e.to], e.cost);
+                }
+            }
+        }
     }
 };

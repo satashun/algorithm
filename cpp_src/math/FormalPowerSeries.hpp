@@ -239,7 +239,7 @@ Poly<T> berlekamp_massey(const V<T>& s) {
     return c;
 }
 
-// HUPC 2020 day3 K
+// HUPC 2020 day3 K, ABC225H
 // calculate vec[0] * vec[1] * ...
 // deg(result) must be bounded
 

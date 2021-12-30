@@ -12,7 +12,7 @@ struct Line {
 template <bool maximum>
 struct LineContainer : multiset<Line, less<>> {
     // (for doubles, use inf = 1/.0, div(a,b) = a/b)
-    static const ll inf = LLONG_MAX;
+    static const ll inf = numeric_limits<ll>::max();
     ll div(ll a, ll b) {  // floored division
         return a / b - ((a ^ b) < 0 && a % b);
     }

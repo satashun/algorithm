@@ -6,5 +6,5 @@
 
 [![satashun](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Fsatashun)](https://codeforces.com/profile/satashun)
 
-- written in C++ (sometimes in Python, Rust)
+- written in C++
 - C++17 preferred
