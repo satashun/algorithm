@@ -3,16 +3,11 @@
 //#pragma GCC optimize("Ofast")
 //#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
-
-#include <atcoder/modint>
 using namespace std;
-using namespace atcoder;
 
 using ll = long long;
 using ull = unsigned long long;
 using pii = pair<int, int>;
-using Mint = modint1000000007;
-
 template <class T>
 using V = vector<T>;
 template <class T>
@@ -93,13 +88,6 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
         os << v[i];
     }
     os << "}";
-    return os;
-}
-
-template <class T>
-auto operator<<(ostream& os, T t) ->
-    typename std::enable_if_t<internal::is_modint<T>::value, ostream&> {
-    os << t.val();
     return os;
 }
 

@@ -1,4 +1,6 @@
 // ABC214H
+// if i -> j, then cmp[i] <= cmp[j]
+// g_comp : compressed DAG
 
 template <class T>
 struct SCC : Graph<T> {
