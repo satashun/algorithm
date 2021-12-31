@@ -12,6 +12,7 @@
 "test/yosupo/point_add_range_sum.test.cpp": "2021-12-30 18:51:46 +0900",
 "test/yosupo/point_set_range_composite.test.cpp": "2021-03-04 05:51:44 +0900",
 "test/yosupo/polynomial_taylor_shift.test.cpp": "2021-05-08 14:23:21 +0900",
+"test/yosupo/scc.test.cpp": "2022-01-01 02:55:52 +0900",
 "test/yosupo/stirling_number_of_the_second_kind.test.cpp": "2021-05-01 18:46:49 +0900",
 "test/yosupo/two_edge_connected_components.test.cpp": "2021-10-25 19:28:02 +0900",
 "test/yosupo/unionfind.test.cpp": "2021-11-27 23:06:43 +0900",
