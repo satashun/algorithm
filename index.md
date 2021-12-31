@@ -17,6 +17,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp_src/data_structure/DisjointSetUnion.hpp
       title: cpp_src/data_structure/DisjointSetUnion.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/DisjointSetUnionSize.hpp
+      title: cpp_src/data_structure/DisjointSetUnionSize.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/data_structure/FenwickTree.hpp
       title: cpp_src/data_structure/FenwickTree.hpp
