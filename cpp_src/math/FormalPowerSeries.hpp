@@ -264,6 +264,7 @@ Poly<T> prod(const V<Poly<T>>& vec) {
     return que.top();
 }
 
+// ABC215 G
 // expand f(x + c)
 // require factorial
 template <class T>
