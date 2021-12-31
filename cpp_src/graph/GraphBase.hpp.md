@@ -6,9 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
     title: test/yosupo/lca.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/scc.test.cpp
+    title: test/yosupo/scc.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/GraphBase.hpp\"\ntemplate <class T>\nclass\
@@ -103,9 +106,10 @@ data:
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
   timestamp: '2021-12-06 23:46:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yosupo/lca.test.cpp
+  - test/yosupo/scc.test.cpp
 documentation_of: cpp_src/graph/GraphBase.hpp
 layout: document
 redirect_from:

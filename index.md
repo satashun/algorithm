@@ -52,7 +52,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp_src/graph/GraphBase.hpp
       title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
