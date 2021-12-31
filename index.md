@@ -52,7 +52,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/GraphBase.hpp
       title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
@@ -67,7 +67,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/Namori.hpp
       title: cpp_src/graph/Namori.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/SCC.hpp
       title: cpp_src/graph/SCC.hpp
     - icon: ':warning:'
@@ -290,7 +290,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/polynomial_taylor_shift.test.cpp
       title: test/yosupo/polynomial_taylor_shift.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
     - icon: ':heavy_check_mark:'
