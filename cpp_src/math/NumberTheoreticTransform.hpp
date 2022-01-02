@@ -90,6 +90,15 @@ struct NumberTheoreticTransform {
         int nbase = 1;
         while ((1 << nbase) < s) nbase++;
         int sz = 1 << nbase;
+
+        if (sz <= 16) {
+            V<D> ret(s);
+            for (int i = 0; i < a.size(); i++) {
+                for (int j = 0; j < b.size(); j++) ret[i + j] += a[i] * b[j];
+            }
+            return ret;
+        }
+
         a.resize(sz);
         b.resize(sz);
         ntt(a);
