@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/data_structure/SegmentTreeKth.cpp\"\ntemplate <class\
+  bundledCode: "#line 1 \"cpp_src/data_structure/SegmentTreeKth.hpp\"\ntemplate <class\
     \ T>\nclass segtree {\n   public:\n    VV<T> dat;\n    int sz;\n\n    segtree()\
     \ = default;\n\n    void init(const vector<T>& vec) {\n        for (sz = 1; sz\
     \ < (int)vec.size(); sz *= 2)\n            ;\n        dat.resize(sz * 2);\n\n\
@@ -37,15 +37,15 @@ data:
     \  }\n\n    int ask(int a, int b, T t) { return ask(a, b, t, 0, 0, sz); }\n};"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/data_structure/SegmentTreeKth.cpp
+  path: cpp_src/data_structure/SegmentTreeKth.hpp
   requiredBy: []
-  timestamp: '2021-01-08 23:59:35+09:00'
+  timestamp: '2022-01-02 16:22:57+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/data_structure/SegmentTreeKth.cpp
+documentation_of: cpp_src/data_structure/SegmentTreeKth.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/data_structure/SegmentTreeKth.cpp
-- /library/cpp_src/data_structure/SegmentTreeKth.cpp.html
-title: cpp_src/data_structure/SegmentTreeKth.cpp
+- /library/cpp_src/data_structure/SegmentTreeKth.hpp
+- /library/cpp_src/data_structure/SegmentTreeKth.hpp.html
+title: cpp_src/data_structure/SegmentTreeKth.hpp
 ---

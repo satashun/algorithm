@@ -41,7 +41,10 @@ data:
     \ *= v;\n            }\n        }\n    }\n\n    V<D> mul(V<D> a, V<D> b) {\n \
     \       if (a.size() == 0 && b.size() == 0) return {};\n        int s = a.size()\
     \ + b.size() - 1;\n        int nbase = 1;\n        while ((1 << nbase) < s) nbase++;\n\
-    \        int sz = 1 << nbase;\n        a.resize(sz);\n        b.resize(sz);\n\
+    \        int sz = 1 << nbase;\n\n        if (sz <= 16) {\n            V<D> ret(s);\n\
+    \            for (int i = 0; i < a.size(); i++) {\n                for (int j\
+    \ = 0; j < b.size(); j++) ret[i + j] += a[i] * b[j];\n            }\n        \
+    \    return ret;\n        }\n\n        a.resize(sz);\n        b.resize(sz);\n\
     \        ntt(a);\n        ntt(b);\n\n        for (int i = 0; i < sz; i++) {\n\
     \            a[i] *= b[i];\n        }\n        ntt(a, true);\n\n        a.resize(s);\n\
     \        return a;\n    }\n};\n\n// T : modint\ntemplate <class T>\nvoid ntt_2d(VV<T>&\
@@ -81,7 +84,10 @@ data:
     \ *= v;\n            }\n        }\n    }\n\n    V<D> mul(V<D> a, V<D> b) {\n \
     \       if (a.size() == 0 && b.size() == 0) return {};\n        int s = a.size()\
     \ + b.size() - 1;\n        int nbase = 1;\n        while ((1 << nbase) < s) nbase++;\n\
-    \        int sz = 1 << nbase;\n        a.resize(sz);\n        b.resize(sz);\n\
+    \        int sz = 1 << nbase;\n\n        if (sz <= 16) {\n            V<D> ret(s);\n\
+    \            for (int i = 0; i < a.size(); i++) {\n                for (int j\
+    \ = 0; j < b.size(); j++) ret[i + j] += a[i] * b[j];\n            }\n        \
+    \    return ret;\n        }\n\n        a.resize(sz);\n        b.resize(sz);\n\
     \        ntt(a);\n        ntt(b);\n\n        for (int i = 0; i < sz; i++) {\n\
     \            a[i] *= b[i];\n        }\n        ntt(a, true);\n\n        a.resize(s);\n\
     \        return a;\n    }\n};\n\n// T : modint\ntemplate <class T>\nvoid ntt_2d(VV<T>&\
@@ -94,7 +100,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/NumberTheoreticTransform.hpp
   requiredBy: []
-  timestamp: '2021-02-18 22:47:03+09:00'
+  timestamp: '2022-01-02 16:22:57+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/NumberTheoreticTransform.hpp

@@ -27,17 +27,25 @@ data:
       path: cpp_src/data_structure/LazySegmentTree.hpp
       title: cpp_src/data_structure/LazySegmentTree.hpp
     - icon: ':warning:'
+      path: cpp_src/data_structure/PBDS.hpp
+      title: cpp_src/data_structure/PBDS.hpp
+    - icon: ':warning:'
       path: cpp_src/data_structure/SegmentTree.hpp
       title: cpp_src/data_structure/SegmentTree.hpp
     - icon: ':warning:'
-      path: cpp_src/data_structure/SegmentTreeKth.cpp
-      title: cpp_src/data_structure/SegmentTreeKth.cpp
+      path: cpp_src/data_structure/SegmentTreeKth.hpp
+      title: cpp_src/data_structure/SegmentTreeKth.hpp
     - icon: ':warning:'
       path: cpp_src/data_structure/StarrySkyTree.hpp
       title: cpp_src/data_structure/StarrySkyTree.hpp
     - icon: ':warning:'
       path: cpp_src/data_structure/Treap.cpp
       title: cpp_src/data_structure/Treap.cpp
+  - name: cpp_src/geometry
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/geometry/Line.cpp
+      title: cpp_src/geometry/Line.cpp
   - name: cpp_src/graph
     pages:
     - icon: ':warning:'
@@ -85,6 +93,11 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/Visualize.hpp
       title: cpp_src/graph/Visualize.hpp
+  - name: cpp_src/graph/helper
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/EdgeCount.hpp
+      title: cpp_src/graph/helper/EdgeCount.hpp
   - name: cpp_src/math
     pages:
     - icon: ':heavy_check_mark:'
@@ -140,8 +153,14 @@ data:
   - name: cpp_src/number_theory
     pages:
     - icon: ':warning:'
+      path: cpp_src/number_theory/CRT.cpp
+      title: cpp_src/number_theory/CRT.cpp
+    - icon: ':warning:'
       path: cpp_src/number_theory/GaussGcd.cpp
       title: cpp_src/number_theory/GaussGcd.cpp
+    - icon: ':warning:'
+      path: cpp_src/number_theory/GaussSum.cpp
+      title: cpp_src/number_theory/GaussSum.cpp
     - icon: ':warning:'
       path: cpp_src/number_theory/LinearSieve.cpp
       title: cpp_src/number_theory/LinearSieve.cpp
@@ -153,6 +172,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/CountSubsequence.hpp
+      title: cpp_src/other/CountSubsequence.hpp
     - icon: ':warning:'
       path: cpp_src/other/EnumQuotient.cpp
       title: cpp_src/other/EnumQuotient.cpp
