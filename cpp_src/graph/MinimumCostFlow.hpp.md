@@ -35,25 +35,28 @@ data:
     \ > h[i] + e.cost && t == n) {\n                        return false;\n      \
     \              }\n                    h[e.to] = min(h[e.to], h[i] + e.cost);\n\
     \                }\n            }\n        }\n        return true;\n    }\n\n\
-    \    D exec(int s, int t, C f) {\n        D res = 0;\n        using Data = pair<D,\
-    \ int>;\n        while (f > 0) {\n            priority_queue<Data, vector<Data>,\
-    \ greater<Data>> que;\n            fill(dst.begin(), dst.end(), INF);\n      \
-    \      dst[s] = 0;\n            que.push(Data(0, s));\n\n            while (!que.empty())\
-    \ {\n                auto p = que.top();\n                que.pop();\n       \
-    \         int v = p.second;\n                if (dst[v] < p.first) continue;\n\
-    \n                rep(i, g[v].size()) {\n                    auto e = g[v][i];\n\
-    \                    D nd = dst[v] + e.cost + h[v] - h[e.to];\n              \
-    \      if (e.cap > 0 && dst[e.to] > nd) {\n                        dst[e.to] =\
-    \ nd;\n                        prevv[e.to] = v;\n                        preve[e.to]\
-    \ = i;\n                        que.push(Data(dst[e.to], e.to));\n           \
-    \         }\n                }\n            }\n\n            if (dst[t] == INF)\
-    \ return D(-INF);\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n\
-    \            C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n \
-    \               d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n      \
-    \      f -= d;\n            res += d * h[t];\n            for (int v = t; v !=\
-    \ s; v = prevv[v]) {\n                edge& e = g[prevv[v]][preve[v]];\n     \
-    \           e.cap -= d;\n                g[v][e.rev].cap += d;\n            }\n\
-    \        }\n\n        return res;\n    }\n};\n"
+    \    D exec(int s, int t, C f, bool full = false) {\n        if (full) f = INF;\n\
+    \        D res = 0;\n        using Data = pair<D, int>;\n        while (f > 0)\
+    \ {\n            priority_queue<Data, vector<Data>, greater<Data>> que;\n    \
+    \        fill(dst.begin(), dst.end(), INF);\n            dst[s] = 0;\n       \
+    \     que.push(Data(0, s));\n\n            while (!que.empty()) {\n          \
+    \      auto p = que.top();\n                que.pop();\n                int v\
+    \ = p.second;\n                if (dst[v] < p.first) continue;\n\n           \
+    \     rep(i, g[v].size()) {\n                    auto e = g[v][i];\n         \
+    \           D nd = dst[v] + e.cost + h[v] - h[e.to];\n                    if (e.cap\
+    \ > 0 && dst[e.to] > nd) {\n                        dst[e.to] = nd;\n        \
+    \                prevv[e.to] = v;\n                        preve[e.to] = i;\n\
+    \                        que.push(Data(dst[e.to], e.to));\n                  \
+    \  }\n                }\n            }\n\n            if (dst[t] == INF) {\n \
+    \               if (full) {\n                    return res;\n               \
+    \ } else {\n                    return D(-INF);\n                }\n         \
+    \   }\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n          \
+    \  C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n           \
+    \     d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n            f -=\
+    \ d;\n            res += d * h[t];\n            for (int v = t; v != s; v = prevv[v])\
+    \ {\n                edge& e = g[prevv[v]][preve[v]];\n                e.cap -=\
+    \ d;\n                g[v][e.rev].cap += d;\n            }\n        }\n\n    \
+    \    return res;\n    }\n};\n"
   code: "// init_dag : yuki 1678, ABC214H\n\ntemplate <class C, class D>  // capacity,\
     \ distance\nstruct MinCostFlow {\n    struct edge {\n        int to, rev;\n  \
     \      C cap;\n        D cost;\n        edge(int to, C cap, D cost, int rev)\n\
@@ -80,30 +83,33 @@ data:
     \                    if (h[e.to] > h[i] + e.cost && t == n) {\n              \
     \          return false;\n                    }\n                    h[e.to] =\
     \ min(h[e.to], h[i] + e.cost);\n                }\n            }\n        }\n\
-    \        return true;\n    }\n\n    D exec(int s, int t, C f) {\n        D res\
-    \ = 0;\n        using Data = pair<D, int>;\n        while (f > 0) {\n        \
-    \    priority_queue<Data, vector<Data>, greater<Data>> que;\n            fill(dst.begin(),\
-    \ dst.end(), INF);\n            dst[s] = 0;\n            que.push(Data(0, s));\n\
-    \n            while (!que.empty()) {\n                auto p = que.top();\n  \
-    \              que.pop();\n                int v = p.second;\n               \
-    \ if (dst[v] < p.first) continue;\n\n                rep(i, g[v].size()) {\n \
-    \                   auto e = g[v][i];\n                    D nd = dst[v] + e.cost\
-    \ + h[v] - h[e.to];\n                    if (e.cap > 0 && dst[e.to] > nd) {\n\
-    \                        dst[e.to] = nd;\n                        prevv[e.to]\
-    \ = v;\n                        preve[e.to] = i;\n                        que.push(Data(dst[e.to],\
-    \ e.to));\n                    }\n                }\n            }\n\n       \
-    \     if (dst[t] == INF) return D(-INF);\n            rep(i, n) if (dst[i] !=\
-    \ INF) h[i] += dst[i];\n\n            C d = f;\n            for (int v = t; v\
-    \ != s; v = prevv[v]) {\n                d = min(d, g[prevv[v]][preve[v]].cap);\n\
-    \            }\n            f -= d;\n            res += d * h[t];\n          \
-    \  for (int v = t; v != s; v = prevv[v]) {\n                edge& e = g[prevv[v]][preve[v]];\n\
-    \                e.cap -= d;\n                g[v][e.rev].cap += d;\n        \
-    \    }\n        }\n\n        return res;\n    }\n};"
+    \        return true;\n    }\n\n    D exec(int s, int t, C f, bool full = false)\
+    \ {\n        if (full) f = INF;\n        D res = 0;\n        using Data = pair<D,\
+    \ int>;\n        while (f > 0) {\n            priority_queue<Data, vector<Data>,\
+    \ greater<Data>> que;\n            fill(dst.begin(), dst.end(), INF);\n      \
+    \      dst[s] = 0;\n            que.push(Data(0, s));\n\n            while (!que.empty())\
+    \ {\n                auto p = que.top();\n                que.pop();\n       \
+    \         int v = p.second;\n                if (dst[v] < p.first) continue;\n\
+    \n                rep(i, g[v].size()) {\n                    auto e = g[v][i];\n\
+    \                    D nd = dst[v] + e.cost + h[v] - h[e.to];\n              \
+    \      if (e.cap > 0 && dst[e.to] > nd) {\n                        dst[e.to] =\
+    \ nd;\n                        prevv[e.to] = v;\n                        preve[e.to]\
+    \ = i;\n                        que.push(Data(dst[e.to], e.to));\n           \
+    \         }\n                }\n            }\n\n            if (dst[t] == INF)\
+    \ {\n                if (full) {\n                    return res;\n          \
+    \      } else {\n                    return D(-INF);\n                }\n    \
+    \        }\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n     \
+    \       C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n      \
+    \          d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n           \
+    \ f -= d;\n            res += d * h[t];\n            for (int v = t; v != s; v\
+    \ = prevv[v]) {\n                edge& e = g[prevv[v]][preve[v]];\n          \
+    \      e.cap -= d;\n                g[v][e.rev].cap += d;\n            }\n   \
+    \     }\n\n        return res;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/MinimumCostFlow.hpp
   requiredBy: []
-  timestamp: '2021-12-30 18:51:46+09:00'
+  timestamp: '2022-01-15 23:16:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/MinimumCostFlow.hpp

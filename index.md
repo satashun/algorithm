@@ -41,6 +41,11 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/Treap.cpp
       title: cpp_src/data_structure/Treap.cpp
+  - name: cpp_src/enumeration
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/enumeration/Partition.hpp
+      title: cpp_src/enumeration/Partition.hpp
   - name: cpp_src/geometry
     pages:
     - icon: ':warning:'
@@ -96,8 +101,17 @@ data:
   - name: cpp_src/graph/helper
     pages:
     - icon: ':warning:'
+      path: cpp_src/graph/helper/BFSPath.hpp
+      title: cpp_src/graph/helper/BFSPath.hpp
+    - icon: ':warning:'
       path: cpp_src/graph/helper/EdgeCount.hpp
       title: cpp_src/graph/helper/EdgeCount.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/GetPath.hpp
+      title: cpp_src/graph/helper/GetPath.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/MergingTree.hpp
+      title: cpp_src/graph/helper/MergingTree.hpp
   - name: cpp_src/math
     pages:
     - icon: ':heavy_check_mark:'
