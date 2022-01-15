@@ -60,8 +60,10 @@ class Graph {
 
 template <class T>
 V<T> bfs(const Graph<T>& g, int s = 0) {
+    const T inf = numeric_limits<T>::max() / 2;
     int n = g.size();
-    V<T> ds(n, numeric_limits<T>::max() / 2);
+
+    V<T> ds(n, inf);
     using P = pair<T, int>;
     queue<int> que;
     que.push(s);
@@ -78,14 +80,18 @@ V<T> bfs(const Graph<T>& g, int s = 0) {
             }
         }
     }
+    for (auto& x : ds)
+        if (x == inf) x = -1;
     return ds;
 }
 
 //must be optimized
 template <class T>
 V<T> bfs01(const Graph<T>& g, int s = 0) {
+    const T inf = numeric_limits<T>::max() / 2;
     int n = g.size();
-    V<T> ds(n, numeric_limits<T>::max() / 2);
+
+    V<T> ds(n, inf);
     using P = pair<T, int>;
     deque<int> que;
     que.push_back(s);
@@ -106,13 +112,17 @@ V<T> bfs01(const Graph<T>& g, int s = 0) {
             }
         }
     }
+    for (auto& x : ds)
+        if (x == inf) x = -1;
     return ds;
 }
 
 template <class T>
 V<T> dijkstra(const Graph<T>& g, int s = 0) {
+    const T inf = numeric_limits<T>::max() / 2;
     int n = g.size();
-    V<T> ds(n, numeric_limits<T>::max() / 2);
+
+    V<T> ds(n, inf);
     using P = pair<T, int>;
     priority_queue<P, V<P>, greater<P>> que;
     que.emplace(0, s);
@@ -130,5 +140,7 @@ V<T> dijkstra(const Graph<T>& g, int s = 0) {
             }
         }
     }
+    for (auto& x : ds)
+        if (x == inf) x = -1;
     return ds;
 }

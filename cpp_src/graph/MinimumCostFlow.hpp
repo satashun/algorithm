@@ -77,7 +77,8 @@ struct MinCostFlow {
         return true;
     }
 
-    D exec(int s, int t, C f) {
+    D exec(int s, int t, C f, bool full = false) {
+        if (full) f = INF;
         D res = 0;
         using Data = pair<D, int>;
         while (f > 0) {
@@ -104,7 +105,13 @@ struct MinCostFlow {
                 }
             }
 
-            if (dst[t] == INF) return D(-INF);
+            if (dst[t] == INF) {
+                if (full) {
+                    return res;
+                } else {
+                    return D(-INF);
+                }
+            }
             rep(i, n) if (dst[i] != INF) h[i] += dst[i];
 
             C d = f;
