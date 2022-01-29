@@ -28,11 +28,11 @@ Mint comb(int n, int r) {
 }
 
 // O(k)
-
 Mint comb_slow(ll n, ll k) {
-    Mint res = 1;
+    if (n < 0 || k < 0 || k > n) return Mint(0);
+    Mint res = ifact[k];
     for (int i = 0; i < k; ++i) {
-        res = res * (n - i) * inv[i + 1];
+        res = res * (n - i);
     }
     return res;
 }

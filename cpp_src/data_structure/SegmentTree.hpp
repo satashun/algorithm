@@ -54,7 +54,7 @@ struct segtree {
     }
 };
 
-// modify only U for use
+// modify only U
 
 constexpr ll INF = TEN(9) + 10;
 
