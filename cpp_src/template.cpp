@@ -131,7 +131,7 @@ void slv() {
 }
 
 int main() {
-    int cases = 0;
+    int cases = 1;
     //cin >> cases;
     rep(i, cases) slv();
 

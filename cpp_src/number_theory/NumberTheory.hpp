@@ -15,6 +15,18 @@ ll totient(ll x) {
 	return res;
 }
 
+// p:prime
+// ord p of n!
+ll ord_fac(ll n, ll p) {
+    ll res = 0;
+    while (n) {
+        n /= p;
+        res += n;
+    }
+    return res;
+}
+
+
 using R = __int128;
 
 ll pollrard_single(ll n) {

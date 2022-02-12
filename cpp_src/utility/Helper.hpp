@@ -16,3 +16,15 @@ T pow(T x, ll k) {
     }
     return res;
 }
+
+template <class T>
+ll inversion(const V<T>& vec) {
+    int n = vec.size();
+    BIT<int> bit(n + 10);
+    ll res = 0;
+    rep(i, n) {
+        res += i - bit.sum(vec[i] + 1);
+        bit.add(vec[i], 1);
+    }
+    return res;
+}

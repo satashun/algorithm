@@ -16,6 +16,8 @@ ll inv_mod(ll x, ll md) {
 	return (z % md + md) % md;
 }
 
+// ** 271
+// find x s.t. x = b_i mod c_i
 pair<ll, ll> crt(const V<ll>& b, const V<ll>& c) {
 	int n = int(b.size());
 	ll r = 0, m = 1;
