@@ -114,8 +114,8 @@ data:
   timestamp: '2022-01-15 23:16:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/scc.test.cpp
   - test/yosupo/lca.test.cpp
+  - test/yosupo/scc.test.cpp
 documentation_of: cpp_src/graph/GraphBase.hpp
 layout: document
 redirect_from:

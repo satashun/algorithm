@@ -47,7 +47,7 @@ data:
     \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io\
     \ {\n    prepare_io() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n\nvoid slv() {\n\
-    \n}\n\nint main() {\n    int cases = 0;\n    //cin >> cases;\n    rep(i, cases)\
+    \n}\n\nint main() {\n    int cases = 1;\n    //cin >> cases;\n    rep(i, cases)\
     \ slv();\n\n    return 0;\n}\n"
   code: "//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\"\
     )\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
@@ -88,13 +88,13 @@ data:
     \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io\
     \ {\n    prepare_io() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n\nvoid slv() {\n\
-    \n}\n\nint main() {\n    int cases = 0;\n    //cin >> cases;\n    rep(i, cases)\
+    \n}\n\nint main() {\n    int cases = 1;\n    //cin >> cases;\n    rep(i, cases)\
     \ slv();\n\n    return 0;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/template.cpp
   requiredBy: []
-  timestamp: '2021-12-30 18:51:46+09:00'
+  timestamp: '2022-02-12 18:33:41+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/template.cpp

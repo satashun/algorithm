@@ -24,6 +24,9 @@ data:
       path: cpp_src/data_structure/FenwickTree.hpp
       title: cpp_src/data_structure/FenwickTree.hpp
     - icon: ':warning:'
+      path: cpp_src/data_structure/FenwickTree2D.hpp
+      title: cpp_src/data_structure/FenwickTree2D.hpp
+    - icon: ':warning:'
       path: cpp_src/data_structure/LazySegmentTree.hpp
       title: cpp_src/data_structure/LazySegmentTree.hpp
     - icon: ':warning:'
@@ -187,11 +190,14 @@ data:
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
     - icon: ':warning:'
+      path: cpp_src/other/ConvexHull.hpp
+      title: cpp_src/other/ConvexHull.hpp
+    - icon: ':warning:'
       path: cpp_src/other/CountSubsequence.hpp
       title: cpp_src/other/CountSubsequence.hpp
     - icon: ':warning:'
-      path: cpp_src/other/EnumQuotient.cpp
-      title: cpp_src/other/EnumQuotient.cpp
+      path: cpp_src/other/EnumQuotient.hpp
+      title: cpp_src/other/EnumQuotient.hpp
     - icon: ':warning:'
       path: cpp_src/other/FWT.hpp
       title: cpp_src/other/FWT.hpp
