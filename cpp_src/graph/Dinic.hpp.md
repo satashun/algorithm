@@ -3,17 +3,17 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yosupo/bipartitematching.test.cpp
     title: test/yosupo/bipartitematching.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\nstruct Dinic {\n\
-    \    using F = ll;\n    static constexpr F INF = numeric_limits<F>::max();\n\n\
-    \    struct Edge {\n        int to, rev;\n        F cap;\n        Edge(int to,\
+  bundledCode: "#line 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\ntemplate <class\
+    \ F>\nstruct Dinic {\n    static constexpr F INF = numeric_limits<F>::max();\n\
+    \n    struct Edge {\n        int to, rev;\n        F cap;\n        Edge(int to,\
     \ F cap, int rev) : to(to), cap(cap), rev(rev){};\n    };\n\n    using E = Edge;\n\
     \n    VV<E> g;\n    V<int> level, iter;\n\n    Dinic() {}\n    Dinic(int n) :\
     \ g(n), level(n), iter(n) {}\n\n    void add_edge(int from, int to, F cap) {\n\
@@ -33,8 +33,14 @@ data:
     \        return 0;\n    }\n\n    F max_flow(int s, int t) {\n        F flow =\
     \ 0;\n        while (true) {\n            bfs(s);\n            if (level[t] <\
     \ 0) return flow;\n            fill(ALL(iter), 0);\n            F f;\n       \
-    \     while ((f = dfs(s, t, INF)) > 0) flow += f;\n        }\n    }\n};\n"
-  code: "// O(V^2 E)\nstruct Dinic {\n    using F = ll;\n    static constexpr F INF\
+    \     while ((f = dfs(s, t, INF)) > 0) flow += f;\n        }\n    }\n\n    //\
+    \ after calling max_flow\n    // vector of {0, 1} (S side : 0)\n    V<int> mincut(int\
+    \ S = 0) {\n        V<int> vis(g.size());\n        V<int> res(g.size(), 1);\n\
+    \        min_dfs(S, res, vis);\n        return res;\n    }\n\n    void min_dfs(int\
+    \ v, V<int>& col, V<int>& vis) {\n        col[v] = 0;\n        vis[v] = 1;\n \
+    \       for (auto e : g[v]) {\n            if (!vis[e.to] && e.cap > 0) {\n  \
+    \              min_dfs(e.to, col, vis);\n            }\n        }\n    }\n};\n"
+  code: "// O(V^2 E)\ntemplate <class F>\nstruct Dinic {\n    static constexpr F INF\
     \ = numeric_limits<F>::max();\n\n    struct Edge {\n        int to, rev;\n   \
     \     F cap;\n        Edge(int to, F cap, int rev) : to(to), cap(cap), rev(rev){};\n\
     \    };\n\n    using E = Edge;\n\n    VV<E> g;\n    V<int> level, iter;\n\n  \
@@ -56,13 +62,19 @@ data:
     \ t) {\n        F flow = 0;\n        while (true) {\n            bfs(s);\n   \
     \         if (level[t] < 0) return flow;\n            fill(ALL(iter), 0);\n  \
     \          F f;\n            while ((f = dfs(s, t, INF)) > 0) flow += f;\n   \
-    \     }\n    }\n};"
+    \     }\n    }\n\n    // after calling max_flow\n    // vector of {0, 1} (S side\
+    \ : 0)\n    V<int> mincut(int S = 0) {\n        V<int> vis(g.size());\n      \
+    \  V<int> res(g.size(), 1);\n        min_dfs(S, res, vis);\n        return res;\n\
+    \    }\n\n    void min_dfs(int v, V<int>& col, V<int>& vis) {\n        col[v]\
+    \ = 0;\n        vis[v] = 1;\n        for (auto e : g[v]) {\n            if (!vis[e.to]\
+    \ && e.cap > 0) {\n                min_dfs(e.to, col, vis);\n            }\n \
+    \       }\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/Dinic.hpp
   requiredBy: []
-  timestamp: '2020-06-06 01:31:45+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-27 23:48:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yosupo/bipartitematching.test.cpp
 documentation_of: cpp_src/graph/Dinic.hpp

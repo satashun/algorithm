@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp_src/graph/Dinic.hpp
     title: cpp_src/graph/Dinic.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
@@ -36,11 +36,11 @@ data:
     \ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n#define dump(x)\
     \ cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define debug(...)\
     \ (void(0))\n#define dump(x) (void(0))\n#endif\n\n#define call_from_test\n#line\
-    \ 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\nstruct Dinic {\n    using F = ll;\n\
-    \    static constexpr F INF = numeric_limits<F>::max();\n\n    struct Edge {\n\
-    \        int to, rev;\n        F cap;\n        Edge(int to, F cap, int rev) :\
-    \ to(to), cap(cap), rev(rev){};\n    };\n\n    using E = Edge;\n\n    VV<E> g;\n\
-    \    V<int> level, iter;\n\n    Dinic() {}\n    Dinic(int n) : g(n), level(n),\
+    \ 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\ntemplate <class F>\nstruct Dinic\
+    \ {\n    static constexpr F INF = numeric_limits<F>::max();\n\n    struct Edge\
+    \ {\n        int to, rev;\n        F cap;\n        Edge(int to, F cap, int rev)\
+    \ : to(to), cap(cap), rev(rev){};\n    };\n\n    using E = Edge;\n\n    VV<E>\
+    \ g;\n    V<int> level, iter;\n\n    Dinic() {}\n    Dinic(int n) : g(n), level(n),\
     \ iter(n) {}\n\n    void add_edge(int from, int to, F cap) {\n        g[from].emplace_back(to,\
     \ cap, (int)g[to].size());\n        g[to].emplace_back(from, 0, (int)g[from].size()\
     \ - 1);\n    }\n\n    void bfs(int s) {\n        fill(ALL(level), -1);\n     \
@@ -58,7 +58,13 @@ data:
     \    F max_flow(int s, int t) {\n        F flow = 0;\n        while (true) {\n\
     \            bfs(s);\n            if (level[t] < 0) return flow;\n           \
     \ fill(ALL(iter), 0);\n            F f;\n            while ((f = dfs(s, t, INF))\
-    \ > 0) flow += f;\n        }\n    }\n};\n#line 68 \"test/yosupo/bipartitematching.test.cpp\"\
+    \ > 0) flow += f;\n        }\n    }\n\n    // after calling max_flow\n    // vector\
+    \ of {0, 1} (S side : 0)\n    V<int> mincut(int S = 0) {\n        V<int> vis(g.size());\n\
+    \        V<int> res(g.size(), 1);\n        min_dfs(S, res, vis);\n        return\
+    \ res;\n    }\n\n    void min_dfs(int v, V<int>& col, V<int>& vis) {\n       \
+    \ col[v] = 0;\n        vis[v] = 1;\n        for (auto e : g[v]) {\n          \
+    \  if (!vis[e.to] && e.cap > 0) {\n                min_dfs(e.to, col, vis);\n\
+    \            }\n        }\n    }\n};\n#line 68 \"test/yosupo/bipartitematching.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int L, R, M;\n    scanf(\"%d %d %d\"\
     , &L, &R, &M);\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic\
     \ g(n);\n    rep(i, M) {\n        int a, b;\n        scanf(\"%d%d\", &a, &b);\n\
@@ -105,8 +111,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2020-07-17 17:36:15+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-02-27 23:48:07+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp
 layout: document

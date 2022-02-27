@@ -40,12 +40,12 @@ data:
     \ ++l;\n            if (r & 1) --r, rval = U::op11(U::op21(b[r], a[r]), rval);\n\
     \        }\n        return U::op11(lval, rval);\n    }\n};\n\n// for https://atcoder.jp/contests/tenka1-2016-qualb/tasks/tenka1_2016_qualB_d\n\
     // range addition and range minimum query needed, initialization must be cared\n\
-    // (set all to 0, while id1 = INF)\n\n// modify only U for use\n\nconstexpr ll\
-    \ INF = TEN(18);\n\nstruct U {\n    using T1 = ll;\n    using T2 = ll;\n    static\
-    \ T1 id1() { return INF; }\n    static T2 id2() { return 0; }\n    static T1 op11(const\
-    \ T1& a, const T1& b) { return min(a, b); }\n    static T1 op21(const T2& b, const\
-    \ T1& a) { return b + a; }\n    static T2 op22(const T2& a, const T2& b) { return\
-    \ a + b; }\n};\n"
+    // (set all to 0, while id1 = INF)\n\n// modify only U\n\nconstexpr ll INF = TEN(18);\n\
+    \nstruct U {\n    using T1 = ll;\n    using T2 = ll;\n    static T1 id1() { return\
+    \ INF; }\n    static T2 id2() { return 0; }\n    static T1 op11(const T1& a, const\
+    \ T1& b) { return min(a, b); }\n    static T1 op21(const T2& b, const T1& a) {\
+    \ return b + a; }\n    // a : new!\n    static T2 op22(const T2& a, const T2&\
+    \ b) { return a + b; }\n};\n"
   code: "// index of root = 1\n// T1 : array value type\n// T2 : action type\n\ntemplate\
     \ <class U>\nstruct segtree {\n    using T1 = typename U::T1;\n    using T2 =\
     \ typename U::T2;\n    int sz, H;\n\n    V<T1> a;\n    V<T2> b;\n\n    segtree()\
@@ -76,17 +76,17 @@ data:
     \ ++l;\n            if (r & 1) --r, rval = U::op11(U::op21(b[r], a[r]), rval);\n\
     \        }\n        return U::op11(lval, rval);\n    }\n};\n\n// for https://atcoder.jp/contests/tenka1-2016-qualb/tasks/tenka1_2016_qualB_d\n\
     // range addition and range minimum query needed, initialization must be cared\n\
-    // (set all to 0, while id1 = INF)\n\n// modify only U for use\n\nconstexpr ll\
-    \ INF = TEN(18);\n\nstruct U {\n    using T1 = ll;\n    using T2 = ll;\n    static\
-    \ T1 id1() { return INF; }\n    static T2 id2() { return 0; }\n    static T1 op11(const\
-    \ T1& a, const T1& b) { return min(a, b); }\n    static T1 op21(const T2& b, const\
-    \ T1& a) { return b + a; }\n    static T2 op22(const T2& a, const T2& b) { return\
-    \ a + b; }\n};"
+    // (set all to 0, while id1 = INF)\n\n// modify only U\n\nconstexpr ll INF = TEN(18);\n\
+    \nstruct U {\n    using T1 = ll;\n    using T2 = ll;\n    static T1 id1() { return\
+    \ INF; }\n    static T2 id2() { return 0; }\n    static T1 op11(const T1& a, const\
+    \ T1& b) { return min(a, b); }\n    static T1 op21(const T2& b, const T1& a) {\
+    \ return b + a; }\n    // a : new!\n    static T2 op22(const T2& a, const T2&\
+    \ b) { return a + b; }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/data_structure/LazySegmentTree.hpp
   requiredBy: []
-  timestamp: '2020-07-17 17:57:06+09:00'
+  timestamp: '2022-02-27 23:48:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/data_structure/LazySegmentTree.hpp

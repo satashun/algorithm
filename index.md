@@ -59,7 +59,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/BipartiteMatching.hpp
       title: cpp_src/graph/BipartiteMatching.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp_src/graph/Dinic.hpp
       title: cpp_src/graph/Dinic.hpp
     - icon: ':warning:'
@@ -173,11 +173,14 @@ data:
       path: cpp_src/number_theory/CRT.cpp
       title: cpp_src/number_theory/CRT.cpp
     - icon: ':warning:'
+      path: cpp_src/number_theory/DefiniteMillerRabin.hpp
+      title: cpp_src/number_theory/DefiniteMillerRabin.hpp
+    - icon: ':warning:'
       path: cpp_src/number_theory/GaussGcd.cpp
       title: cpp_src/number_theory/GaussGcd.cpp
     - icon: ':warning:'
-      path: cpp_src/number_theory/GaussSum.cpp
-      title: cpp_src/number_theory/GaussSum.cpp
+      path: cpp_src/number_theory/GaussSum.hpp
+      title: cpp_src/number_theory/GaussSum.hpp
     - icon: ':warning:'
       path: cpp_src/number_theory/LinearSieve.cpp
       title: cpp_src/number_theory/LinearSieve.cpp
@@ -201,6 +204,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/FWT.hpp
       title: cpp_src/other/FWT.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/FastTransformation.cpp
+      title: cpp_src/other/FastTransformation.cpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/other/LineContainer.hpp
       title: cpp_src/other/LineContainer.hpp
@@ -311,7 +317,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
