@@ -17,6 +17,20 @@ T pow(T x, ll k) {
     return res;
 }
 
+// x^k mod m
+template <class T>
+T powmod(T x, ll k, T m) {
+    T res(1);
+    while (k) {
+        if (k & 1) {
+            res = res * x % m;
+        }
+        k >>= 1;
+        x = x * x % m;
+    }
+    return res;
+}
+
 template <class T>
 ll inversion(const V<T>& vec) {
     int n = vec.size();

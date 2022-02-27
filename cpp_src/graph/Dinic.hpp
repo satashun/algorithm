@@ -1,6 +1,6 @@
 // O(V^2 E)
+template <class F>
 struct Dinic {
-    using F = ll;
     static constexpr F INF = numeric_limits<F>::max();
 
     struct Edge {
@@ -64,6 +64,25 @@ struct Dinic {
             fill(ALL(iter), 0);
             F f;
             while ((f = dfs(s, t, INF)) > 0) flow += f;
+        }
+    }
+
+    // after calling max_flow
+    // vector of {0, 1} (S side : 0)
+    V<int> mincut(int S = 0) {
+        V<int> vis(g.size());
+        V<int> res(g.size(), 1);
+        min_dfs(S, res, vis);
+        return res;
+    }
+
+    void min_dfs(int v, V<int>& col, V<int>& vis) {
+        col[v] = 0;
+        vis[v] = 1;
+        for (auto e : g[v]) {
+            if (!vis[e.to] && e.cap > 0) {
+                min_dfs(e.to, col, vis);
+            }
         }
     }
 };
