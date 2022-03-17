@@ -176,6 +176,9 @@ data:
       path: cpp_src/number_theory/DefiniteMillerRabin.hpp
       title: cpp_src/number_theory/DefiniteMillerRabin.hpp
     - icon: ':warning:'
+      path: cpp_src/number_theory/Factorize.hpp
+      title: cpp_src/number_theory/Factorize.hpp
+    - icon: ':warning:'
       path: cpp_src/number_theory/GaussGcd.cpp
       title: cpp_src/number_theory/GaussGcd.cpp
     - icon: ':warning:'
@@ -192,6 +195,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/BinaryGCD.hpp
+      title: Binary GCD
     - icon: ':warning:'
       path: cpp_src/other/ConvexHull.hpp
       title: cpp_src/other/ConvexHull.hpp
@@ -274,6 +280,9 @@ data:
     - icon: ':warning:'
       path: test/yosupo/exp_of_fps.cpp
       title: test/yosupo/exp_of_fps.cpp
+    - icon: ':warning:'
+      path: test/yosupo/factorize.cpp
+      title: test/yosupo/factorize.cpp
     - icon: ':warning:'
       path: test/yosupo/log_of_fps.cpp
       title: test/yosupo/log_of_fps.cpp
