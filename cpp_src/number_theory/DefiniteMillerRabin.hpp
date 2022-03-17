@@ -1,7 +1,7 @@
-template <class T>
-T powmod(T x, ll k, T m) {
+template <class T, class U>
+T powmod(T x, U k, T m) {
     x %= m;
-    T res(1);
+    T res = 1 % m;
     while (k) {
         if (k & 1) {
             res = res * x % m;

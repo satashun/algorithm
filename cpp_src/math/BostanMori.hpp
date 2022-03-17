@@ -9,6 +9,7 @@
 
 template <class T>
 T bostan_mori(Poly<T> a, Poly<T> c, ll n) {
+    if (n < a.size()) return a[n];
     using P = Poly<T>;
 
     auto even = [&](const P& a) {

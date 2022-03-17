@@ -27,6 +27,11 @@ Mint comb(int n, int r) {
     return fact[n] * ifact[r] * ifact[n - r];
 }
 
+Mint inv_comb(int n, int r) {
+    if (n < 0 || r < 0 || r > n) return Mint(0);
+    return ifact[n] * fact[r] * fact[n - r];
+}
+
 // O(k)
 Mint comb_slow(ll n, ll k) {
     if (n < 0 || k < 0 || k > n) return Mint(0);

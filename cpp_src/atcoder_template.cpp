@@ -5,6 +5,7 @@
 using namespace std;
 using namespace atcoder;
 
+using uint = unsigned int;
 using ll = long long;
 using ull = unsigned long long;
 using pii = pair<int, int>;

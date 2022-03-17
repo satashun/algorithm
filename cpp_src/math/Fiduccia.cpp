@@ -13,6 +13,7 @@
 
 template <class T>
 T fiduccia(V<T> a, V<T> c, ll n) {
+    if (n < a.size()) return a[n];
     int k = SZ(c);
     // char poly
     V<T> vc(k + 1);
