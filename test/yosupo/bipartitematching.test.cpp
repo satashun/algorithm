@@ -72,7 +72,7 @@ int main() {
     scanf("%d %d %d", &L, &R, &M);
     int n = L + R + 2;
     int s = n - 2, t = n - 1;
-    Dinic g(n);
+    Dinic<ll> g(n);
     rep(i, M) {
         int a, b;
         scanf("%d%d", &a, &b);

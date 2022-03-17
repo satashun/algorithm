@@ -1,5 +1,3 @@
-// ref : https://zwxadz.hateblo.jp/entry/2015/04/17/220850
-
 // bit op
 int popcnt(uint x) { return __builtin_popcount(x); }
 int popcnt(ull x) { return __builtin_popcountll(x); }

@@ -15,4 +15,3 @@ long long g = binary_gcd(a, b);
 ## 参考
 
 - [Binary GCD algorithm - Wikipedia](https://en.wikipedia.org/wiki/Binary_GCD_algorithm)
-- https://zwxadz.hateblo.jp/entry/2015/04/17/220850
