@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/Dinic.hpp
     title: cpp_src/graph/Dinic.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
@@ -66,7 +66,7 @@ data:
     \  if (!vis[e.to] && e.cap > 0) {\n                min_dfs(e.to, col, vis);\n\
     \            }\n        }\n    }\n};\n#line 68 \"test/yosupo/bipartitematching.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int L, R, M;\n    scanf(\"%d %d %d\"\
-    , &L, &R, &M);\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic\
+    , &L, &R, &M);\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll>\
     \ g(n);\n    rep(i, M) {\n        int a, b;\n        scanf(\"%d%d\", &a, &b);\n\
     \        g.add_edge(a, b + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n\
     \    rep(i, R) g.add_edge(i + L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n \
@@ -98,12 +98,12 @@ data:
     #define debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\n#define call_from_test\n\
     #include \"../../cpp_src/graph/Dinic.hpp\"\n#undef call_from_test\n\nint main()\
     \ {\n    int L, R, M;\n    scanf(\"%d %d %d\", &L, &R, &M);\n    int n = L + R\
-    \ + 2;\n    int s = n - 2, t = n - 1;\n    Dinic g(n);\n    rep(i, M) {\n    \
-    \    int a, b;\n        scanf(\"%d%d\", &a, &b);\n        g.add_edge(a, b + L,\
-    \ 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i +\
-    \ L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n    printf(\"%d\\n\", K);\n  \
-    \  rep(i, L) {\n        int mt = -1;\n        for (auto e : g.g[i])\n        \
-    \    if (e.to >= L && e.to < L + R && e.cap == 0) {\n                mt = e.to;\n\
+    \ + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll> g(n);\n    rep(i, M) {\n\
+    \        int a, b;\n        scanf(\"%d%d\", &a, &b);\n        g.add_edge(a, b\
+    \ + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i\
+    \ + L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n    printf(\"%d\\n\", K);\n\
+    \    rep(i, L) {\n        int mt = -1;\n        for (auto e : g.g[i])\n      \
+    \      if (e.to >= L && e.to < L + R && e.cap == 0) {\n                mt = e.to;\n\
     \            }\n        if (mt != -1) {\n            printf(\"%d %d\\n\", i, mt\
     \ - L);\n        }\n    }\n\n    return 0;\n}"
   dependsOn:
@@ -111,8 +111,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2022-02-27 23:48:07+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-17 13:38:21+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp
 layout: document

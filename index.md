@@ -59,7 +59,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/BipartiteMatching.hpp
       title: cpp_src/graph/BipartiteMatching.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/Dinic.hpp
       title: cpp_src/graph/Dinic.hpp
     - icon: ':warning:'
@@ -170,6 +170,9 @@ data:
   - name: cpp_src/number_theory
     pages:
     - icon: ':warning:'
+      path: cpp_src/number_theory/Brute.hpp
+      title: cpp_src/number_theory/Brute.hpp
+    - icon: ':warning:'
       path: cpp_src/number_theory/CRT.cpp
       title: cpp_src/number_theory/CRT.cpp
     - icon: ':warning:'
@@ -187,9 +190,6 @@ data:
     - icon: ':warning:'
       path: cpp_src/number_theory/LinearSieve.cpp
       title: cpp_src/number_theory/LinearSieve.cpp
-    - icon: ':warning:'
-      path: cpp_src/number_theory/NumberTheory.hpp
-      title: cpp_src/number_theory/NumberTheory.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
@@ -326,7 +326,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
