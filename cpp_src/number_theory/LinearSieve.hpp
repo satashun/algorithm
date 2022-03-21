@@ -34,6 +34,10 @@ void sieve() {
     }
 }
 
+struct PrimePrepare {
+    PrimePrepare() { sieve(); }
+} prep_prime;
+
 vector<pii> factorize(int x) {
     vector<pii> vec;
     while (pf[x] > 1) {

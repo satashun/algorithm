@@ -1,3 +1,4 @@
+// ABC222E
 // ABC218F
 // dfs tree only with shortest paths
 template <class T>
@@ -20,7 +21,7 @@ tuple<V<T>, V<int>, V<Edge<T>>> bfs_with_path(const Graph<T>& g, int s = 0,
         que.pop();
         for (auto e : g[v]) {
             if (e.idx == ban) continue;
-            T nx = ds[v] + 1;
+            T nx = ds[v] + e.cost;
             if (ds[e.to] > nx) {
                 par[e.to] = v;
                 par_edge[e.to] = e;

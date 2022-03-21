@@ -1,10 +1,15 @@
 V<Mint> fact, ifact, inv;
+VV<Mint> small_comb;
 
-void init() {
+void mod_init() {
     const int maxv = 1000010;
+    const int maxvv = 5000;
+
     fact.resize(maxv);
     ifact.resize(maxv);
     inv.resize(maxv);
+
+    small_comb = make_vec<Mint>(maxvv, maxvv);
 
     fact[0] = 1;
     for (int i = 1; i < maxv; ++i) {
@@ -20,10 +25,18 @@ void init() {
     for (int i = 1; i < maxv; ++i) {
         inv[i] = ifact[i] * fact[i - 1];
     }
+
+    for (int i = 0; i < maxvv; ++i) {
+        small_comb[i][0] = small_comb[i][i] = 1;
+        for (int j = 1; j < i; ++j) {
+            small_comb[i][j] = small_comb[i - 1][j] + small_comb[i - 1][j - 1];
+        }
+    }
 }
 
 Mint comb(int n, int r) {
     if (n < 0 || r < 0 || r > n) return Mint(0);
+    if (n < small_comb.size()) return small_comb[n][r];
     return fact[n] * ifact[r] * ifact[n - r];
 }
 
@@ -67,3 +80,7 @@ Mint lucas(ll n, ll k, int p) {
     }
     return res;
 }
+
+struct ModPrepare {
+    ModPrepare() { mod_init(); }
+} prep_mod;

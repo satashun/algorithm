@@ -58,6 +58,7 @@ class Graph {
     }
 };
 
+// cost = 1 or tree
 template <class T>
 V<T> bfs(const Graph<T>& g, int s = 0) {
     const T inf = numeric_limits<T>::max() / 2;
@@ -73,7 +74,7 @@ V<T> bfs(const Graph<T>& g, int s = 0) {
         auto v = que.front();
         que.pop();
         for (auto e : g[v]) {
-            T nx = ds[v] + 1;
+            T nx = ds[v] + e.cost;
             if (ds[e.to] > nx) {
                 ds[e.to] = nx;
                 que.push(e.to);
