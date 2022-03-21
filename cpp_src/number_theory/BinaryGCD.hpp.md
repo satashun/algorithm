@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/other/BinaryGCD.hpp\"\n// bit op\nint popcnt(uint\
+  bundledCode: "#line 1 \"cpp_src/number_theory/BinaryGCD.hpp\"\n// bit op\nint popcnt(uint\
     \ x) { return __builtin_popcount(x); }\nint popcnt(ull x) { return __builtin_popcountll(x);\
     \ }\nint bsr(uint x) { return 31 - __builtin_clz(x); }\nint bsr(ull x) { return\
     \ 63 - __builtin_clzll(x); }\nint bsf(uint x) { return __builtin_ctz(x); }\nint\
@@ -27,25 +27,15 @@ data:
     \ b);\n        b -= a;\n    } while (b);\n    return (a << shift);\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/other/BinaryGCD.hpp
+  path: cpp_src/number_theory/BinaryGCD.hpp
   requiredBy: []
-  timestamp: '2022-03-17 13:38:21+09:00'
+  timestamp: '2022-03-21 17:35:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/other/BinaryGCD.hpp
+documentation_of: cpp_src/number_theory/BinaryGCD.hpp
 layout: document
-title: Binary GCD
+redirect_from:
+- /library/cpp_src/number_theory/BinaryGCD.hpp
+- /library/cpp_src/number_theory/BinaryGCD.hpp.html
+title: cpp_src/number_theory/BinaryGCD.hpp
 ---
-
-bit shift 以外の除算を使わない GCD
-
-## 使用例
-
-``` cpp
-long long a, b;
-long long g = binary_gcd(a, b);
-```
-
-## 参考
-
-- [Binary GCD algorithm - Wikipedia](https://en.wikipedia.org/wiki/Binary_GCD_algorithm)

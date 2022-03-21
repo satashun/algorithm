@@ -90,6 +90,9 @@ data:
       path: cpp_src/graph/Tournament_Hamilton.cpp
       title: cpp_src/graph/Tournament_Hamilton.cpp
     - icon: ':warning:'
+      path: cpp_src/graph/Tree.hpp
+      title: cpp_src/graph/Tree.hpp
+    - icon: ':warning:'
       path: cpp_src/graph/TreeDP.hpp
       title: cpp_src/graph/TreeDP.hpp
     - icon: ':warning:'
@@ -170,6 +173,9 @@ data:
   - name: cpp_src/number_theory
     pages:
     - icon: ':warning:'
+      path: cpp_src/number_theory/BinaryGCD.hpp
+      title: cpp_src/number_theory/BinaryGCD.hpp
+    - icon: ':warning:'
       path: cpp_src/number_theory/Brute.hpp
       title: cpp_src/number_theory/Brute.hpp
     - icon: ':warning:'
@@ -188,16 +194,13 @@ data:
       path: cpp_src/number_theory/GaussSum.hpp
       title: cpp_src/number_theory/GaussSum.hpp
     - icon: ':warning:'
-      path: cpp_src/number_theory/LinearSieve.cpp
-      title: cpp_src/number_theory/LinearSieve.cpp
+      path: cpp_src/number_theory/LinearSieve.hpp
+      title: cpp_src/number_theory/LinearSieve.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
-    - icon: ':warning:'
-      path: cpp_src/other/BinaryGCD.hpp
-      title: Binary GCD
     - icon: ':warning:'
       path: cpp_src/other/ConvexHull.hpp
       title: cpp_src/other/ConvexHull.hpp
