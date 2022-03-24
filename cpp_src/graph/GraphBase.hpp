@@ -65,7 +65,6 @@ V<T> bfs(const Graph<T>& g, int s = 0) {
     int n = g.size();
 
     V<T> ds(n, inf);
-    using P = pair<T, int>;
     queue<int> que;
     que.push(s);
     ds[s] = 0;

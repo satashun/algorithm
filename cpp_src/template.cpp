@@ -1,3 +1,4 @@
+#pragma region satashun
 //#pragma GCC optimize("Ofast")
 //#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
@@ -119,6 +120,17 @@ void print(const vector<T>& v, int suc = 1) {
         print(v[i], i == int(v.size()) - 1 ? suc : 2);
 }
 
+template <class T>
+void show(T x) {
+    print(x, 1);
+}
+
+template <typename Head, typename... Tail>
+void show(Head H, Tail... T) {
+    print(H, 2);
+    show(T...);
+}
+
 struct prepare_io {
     prepare_io() {
         cin.tie(nullptr);
@@ -126,6 +138,7 @@ struct prepare_io {
         cout << fixed << setprecision(10);
     }
 } prep_io;
+#pragma endregion satashun
 
 void slv() {
 
