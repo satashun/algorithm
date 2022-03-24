@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp_src/data_structure/DisjointSetUnion.hpp
     title: cpp_src/data_structure/DisjointSetUnion.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/unionfind
@@ -30,15 +30,17 @@ data:
     \ os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
     \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
     \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\n#define call_from_test\n\
-    #line 1 \"cpp_src/data_structure/DisjointSetUnion.hpp\"\nclass unionfind {\n\t\
-    vector<int> par, rank;\n\npublic:\n\tvoid init(int n) {\n\t\tpar.resize(n);\n\t\
-    \trank.resize(n);\n\n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tpar[i] = i;\n\t\t\
-    \trank[i] = 0;\n\t\t}\n\t}\n\n\tint find(int x) {\n\t\tif (par[x] == x) return\
-    \ x;\n\t\telse return par[x] = find(par[x]);\n\t}\n\n\tbool unite(int x, int y)\
-    \ {\n\t\tx = find(x);\n\t\ty = find(y);\n\t\tif (x == y) return false;\n\n\t\t\
-    if (rank[x] < rank[y]) par[x] = y;\n\t\telse {\n\t\t\tpar[y] = x;\n\t\t\tif (rank[x]\
-    \ == rank[y]) ++rank[x];\n\t\t}\n\t\treturn true;\n\t}\n\n\tbool same(int x, int\
-    \ y) { return (find(x) == find(y)); }\n};\n#line 57 \"test/yosupo/unionfind.test.cpp\"\
+    #line 1 \"cpp_src/data_structure/DisjointSetUnion.hpp\"\nclass unionfind {\n \
+    \   vector<int> par, rank;\n\n   public:\n    void init(int n) {\n        par.resize(n);\n\
+    \        rank.resize(n);\n\n        for (int i = 0; i < n; i++) {\n          \
+    \  par[i] = i;\n            rank[i] = 0;\n        }\n    }\n\n    unionfind(int\
+    \ n) { init(n); }\n\n    int find(int x) {\n        if (par[x] == x)\n       \
+    \     return x;\n        else\n            return par[x] = find(par[x]);\n   \
+    \ }\n\n    bool unite(int x, int y) {\n        x = find(x);\n        y = find(y);\n\
+    \        if (x == y) return false;\n\n        if (rank[x] < rank[y])\n       \
+    \     par[x] = y;\n        else {\n            par[y] = x;\n            if (rank[x]\
+    \ == rank[y]) ++rank[x];\n        }\n        return true;\n    }\n\n    bool same(int\
+    \ x, int y) { return (find(x) == find(y)); }\n};\n#line 57 \"test/yosupo/unionfind.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N,\
     \ &Q);\n    unionfind uf;\n    uf.init(N);\n\n    rep(i, Q) {\n        int t,\
     \ u, v;\n        scanf(\"%d %d %d\", &t, &u, &v);\n        if (t == 0) {\n   \
@@ -71,8 +73,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2021-11-27 23:06:43+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-03-24 23:54:57+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/unionfind.test.cpp
 layout: document

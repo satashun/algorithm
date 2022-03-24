@@ -73,43 +73,42 @@ data:
     \                add_directed_edge(a, b, c);\n            else\n             \
     \   add_edge(a, b, c);\n        }\n    }\n};\n\n// cost = 1 or tree\ntemplate\
     \ <class T>\nV<T> bfs(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
-    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
-    \    queue<int> que;\n    que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
-    \ {\n        auto v = que.front();\n        que.pop();\n        for (auto e :\
-    \ g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx)\
-    \ {\n                ds[e.to] = nx;\n                que.push(e.to);\n       \
-    \     }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n\
-    \    return ds;\n}\n\n//must be optimized\ntemplate <class T>\nV<T> bfs01(const\
-    \ Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max() / 2;\n\
-    \    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
-    \    deque<int> que;\n    que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
-    \ {\n        auto v = que.front();\n        que.pop_front();\n        for (auto\
-    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
-    \ nx) {\n                ds[e.to] = nx;\n                if (e.cost == 0) {\n\
-    \                    que.push_front(e.to);\n                } else {\n       \
-    \             que.push_back(e.to);\n                }\n            }\n       \
-    \ }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return\
-    \ ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>& g, int s = 0) {\n\
-    \    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\n  \
-    \  V<T> ds(n, inf);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>,\
-    \ greater<P>> que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty())\
-    \ {\n        auto p = que.top();\n        que.pop();\n        int v = p.se;\n\
-    \        if (ds[v] < p.fi) continue;\n        for (auto e : g[v]) {\n        \
+    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    queue<int> que;\n \
+    \   que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v\
+    \ = que.front();\n        que.pop();\n        for (auto e : g[v]) {\n        \
     \    T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n              \
-    \  ds[e.to] = nx;\n                que.emplace(nx, e.to);\n            }\n   \
-    \     }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return\
-    \ ds;\n}\n#line 1 \"cpp_src/graph/LCA.hpp\"\ntemplate <class E>\nstruct LCA {\n\
-    \    VV<int> anc;\n    V<int> dep;\n    int lg;\n    const Graph<E>& g;\n\n  \
-    \  LCA(const Graph<E>& g, int root = 0) : g(g) {\n        int n = g.size();\n\
-    \        lg = 1;\n        while ((1 << lg) < n) lg++;\n        anc = VV<int>(lg,\
-    \ V<int>(n, -1));\n        dep = V<int>(n);\n        dfs(root, -1, 0);\n\n   \
-    \     for (int i = 1; i < lg; i++) {\n            for (int j = 0; j < n; j++)\
-    \ {\n                anc[i][j] =\n                    (anc[i - 1][j] == -1) ?\
-    \ -1 : anc[i - 1][anc[i - 1][j]];\n            }\n        }\n    }\n\n    void\
-    \ dfs(int v, int p, int d) {\n        anc[0][v] = p;\n        dep[v] = d;\n  \
-    \      for (auto e : g[v]) {\n            if (e.to == p) continue;\n         \
-    \   dfs(e.to, v, d + 1);\n        }\n    }\n\n    int query(int u, int v) {\n\
-    \        if (dep[u] < dep[v]) swap(u, v);\n        int df = dep[u] - dep[v];\n\
+    \  ds[e.to] = nx;\n                que.push(e.to);\n            }\n        }\n\
+    \    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return ds;\n\
+    }\n\n//must be optimized\ntemplate <class T>\nV<T> bfs01(const Graph<T>& g, int\
+    \ s = 0) {\n    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\
+    \n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n    deque<int> que;\n   \
+    \ que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto\
+    \ v = que.front();\n        que.pop_front();\n        for (auto e : g[v]) {\n\
+    \            T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n      \
+    \          ds[e.to] = nx;\n                if (e.cost == 0) {\n              \
+    \      que.push_front(e.to);\n                } else {\n                    que.push_back(e.to);\n\
+    \                }\n            }\n        }\n    }\n    for (auto& x : ds)\n\
+    \        if (x == inf) x = -1;\n    return ds;\n}\n\ntemplate <class T>\nV<T>\
+    \ dijkstra(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
+    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
+    \    priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0, s);\n    ds[s]\
+    \ = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n        que.pop();\n\
+    \        int v = p.se;\n        if (ds[v] < p.fi) continue;\n        for (auto\
+    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
+    \ nx) {\n                ds[e.to] = nx;\n                que.emplace(nx, e.to);\n\
+    \            }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf)\
+    \ x = -1;\n    return ds;\n}\n#line 1 \"cpp_src/graph/LCA.hpp\"\ntemplate <class\
+    \ E>\nstruct LCA {\n    VV<int> anc;\n    V<int> dep;\n    int lg;\n    const\
+    \ Graph<E>& g;\n\n    LCA(const Graph<E>& g, int root = 0) : g(g) {\n        int\
+    \ n = g.size();\n        lg = 1;\n        while ((1 << lg) < n) lg++;\n      \
+    \  anc = VV<int>(lg, V<int>(n, -1));\n        dep = V<int>(n);\n        dfs(root,\
+    \ -1, 0);\n\n        for (int i = 1; i < lg; i++) {\n            for (int j =\
+    \ 0; j < n; j++) {\n                anc[i][j] =\n                    (anc[i -\
+    \ 1][j] == -1) ? -1 : anc[i - 1][anc[i - 1][j]];\n            }\n        }\n \
+    \   }\n\n    void dfs(int v, int p, int d) {\n        anc[0][v] = p;\n       \
+    \ dep[v] = d;\n        for (auto e : g[v]) {\n            if (e.to == p) continue;\n\
+    \            dfs(e.to, v, d + 1);\n        }\n    }\n\n    int query(int u, int\
+    \ v) {\n        if (dep[u] < dep[v]) swap(u, v);\n        int df = dep[u] - dep[v];\n\
     \        for (int i = lg - 1; i >= 0; --i) {\n            if ((df >> i) & 1) {\n\
     \                df -= (1 << i);\n                u = anc[i][u];\n           \
     \ }\n        }\n        if (u == v) return u;\n        for (int i = lg - 1; i\
@@ -171,7 +170,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2022-03-21 17:35:20+09:00'
+  timestamp: '2022-03-24 23:54:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

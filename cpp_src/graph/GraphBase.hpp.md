@@ -36,31 +36,31 @@ data:
     \        else\n                add_edge(a, b, c);\n        }\n    }\n};\n\n//\
     \ cost = 1 or tree\ntemplate <class T>\nV<T> bfs(const Graph<T>& g, int s = 0)\
     \ {\n    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\n\
-    \    V<T> ds(n, inf);\n    using P = pair<T, int>;\n    queue<int> que;\n    que.push(s);\n\
-    \    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v = que.front();\n\
-    \        que.pop();\n        for (auto e : g[v]) {\n            T nx = ds[v] +\
-    \ e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n\
-    \                que.push(e.to);\n            }\n        }\n    }\n    for (auto&\
-    \ x : ds)\n        if (x == inf) x = -1;\n    return ds;\n}\n\n//must be optimized\n\
-    template <class T>\nV<T> bfs01(const Graph<T>& g, int s = 0) {\n    const T inf\
-    \ = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n\
-    \    using P = pair<T, int>;\n    deque<int> que;\n    que.push_back(s);\n   \
-    \ ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v = que.front();\n  \
-    \      que.pop_front();\n        for (auto e : g[v]) {\n            T nx = ds[v]\
-    \ + e.cost;\n            if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n\
-    \                if (e.cost == 0) {\n                    que.push_front(e.to);\n\
-    \                } else {\n                    que.push_back(e.to);\n        \
-    \        }\n            }\n        }\n    }\n    for (auto& x : ds)\n        if\
-    \ (x == inf) x = -1;\n    return ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const\
-    \ Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max() / 2;\n\
-    \    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
-    \    priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0, s);\n    ds[s]\
-    \ = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n        que.pop();\n\
-    \        int v = p.se;\n        if (ds[v] < p.fi) continue;\n        for (auto\
-    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
-    \ nx) {\n                ds[e.to] = nx;\n                que.emplace(nx, e.to);\n\
+    \    V<T> ds(n, inf);\n    queue<int> que;\n    que.push(s);\n    ds[s] = 0;\n\
+    \n    while (!que.empty()) {\n        auto v = que.front();\n        que.pop();\n\
+    \        for (auto e : g[v]) {\n            T nx = ds[v] + e.cost;\n         \
+    \   if (ds[e.to] > nx) {\n                ds[e.to] = nx;\n                que.push(e.to);\n\
     \            }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf)\
-    \ x = -1;\n    return ds;\n}\n"
+    \ x = -1;\n    return ds;\n}\n\n//must be optimized\ntemplate <class T>\nV<T>\
+    \ bfs01(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
+    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
+    \    deque<int> que;\n    que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
+    \ {\n        auto v = que.front();\n        que.pop_front();\n        for (auto\
+    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
+    \ nx) {\n                ds[e.to] = nx;\n                if (e.cost == 0) {\n\
+    \                    que.push_front(e.to);\n                } else {\n       \
+    \             que.push_back(e.to);\n                }\n            }\n       \
+    \ }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return\
+    \ ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>& g, int s = 0) {\n\
+    \    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\n  \
+    \  V<T> ds(n, inf);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>,\
+    \ greater<P>> que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty())\
+    \ {\n        auto p = que.top();\n        que.pop();\n        int v = p.se;\n\
+    \        if (ds[v] < p.fi) continue;\n        for (auto e : g[v]) {\n        \
+    \    T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n              \
+    \  ds[e.to] = nx;\n                que.emplace(nx, e.to);\n            }\n   \
+    \     }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return\
+    \ ds;\n}\n"
   code: "template <class T>\nclass Edge {\n   public:\n    int from, to, idx;\n  \
     \  T cost;\n\n    Edge() = default;\n    Edge(int from, int to, T cost = T(1),\
     \ int idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    operator\
@@ -82,37 +82,36 @@ data:
     \                add_directed_edge(a, b, c);\n            else\n             \
     \   add_edge(a, b, c);\n        }\n    }\n};\n\n// cost = 1 or tree\ntemplate\
     \ <class T>\nV<T> bfs(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
-    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
-    \    queue<int> que;\n    que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
-    \ {\n        auto v = que.front();\n        que.pop();\n        for (auto e :\
-    \ g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx)\
-    \ {\n                ds[e.to] = nx;\n                que.push(e.to);\n       \
-    \     }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n\
-    \    return ds;\n}\n\n//must be optimized\ntemplate <class T>\nV<T> bfs01(const\
-    \ Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max() / 2;\n\
-    \    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
-    \    deque<int> que;\n    que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty())\
-    \ {\n        auto v = que.front();\n        que.pop_front();\n        for (auto\
-    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
-    \ nx) {\n                ds[e.to] = nx;\n                if (e.cost == 0) {\n\
-    \                    que.push_front(e.to);\n                } else {\n       \
-    \             que.push_back(e.to);\n                }\n            }\n       \
-    \ }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return\
-    \ ds;\n}\n\ntemplate <class T>\nV<T> dijkstra(const Graph<T>& g, int s = 0) {\n\
-    \    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\n  \
-    \  V<T> ds(n, inf);\n    using P = pair<T, int>;\n    priority_queue<P, V<P>,\
-    \ greater<P>> que;\n    que.emplace(0, s);\n    ds[s] = 0;\n    while (!que.empty())\
-    \ {\n        auto p = que.top();\n        que.pop();\n        int v = p.se;\n\
-    \        if (ds[v] < p.fi) continue;\n        for (auto e : g[v]) {\n        \
+    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    queue<int> que;\n \
+    \   que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v\
+    \ = que.front();\n        que.pop();\n        for (auto e : g[v]) {\n        \
     \    T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n              \
-    \  ds[e.to] = nx;\n                que.emplace(nx, e.to);\n            }\n   \
-    \     }\n    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return\
-    \ ds;\n}"
+    \  ds[e.to] = nx;\n                que.push(e.to);\n            }\n        }\n\
+    \    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return ds;\n\
+    }\n\n//must be optimized\ntemplate <class T>\nV<T> bfs01(const Graph<T>& g, int\
+    \ s = 0) {\n    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\
+    \n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n    deque<int> que;\n   \
+    \ que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto\
+    \ v = que.front();\n        que.pop_front();\n        for (auto e : g[v]) {\n\
+    \            T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n      \
+    \          ds[e.to] = nx;\n                if (e.cost == 0) {\n              \
+    \      que.push_front(e.to);\n                } else {\n                    que.push_back(e.to);\n\
+    \                }\n            }\n        }\n    }\n    for (auto& x : ds)\n\
+    \        if (x == inf) x = -1;\n    return ds;\n}\n\ntemplate <class T>\nV<T>\
+    \ dijkstra(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
+    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
+    \    priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0, s);\n    ds[s]\
+    \ = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n        que.pop();\n\
+    \        int v = p.se;\n        if (ds[v] < p.fi) continue;\n        for (auto\
+    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
+    \ nx) {\n                ds[e.to] = nx;\n                que.emplace(nx, e.to);\n\
+    \            }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf)\
+    \ x = -1;\n    return ds;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
-  timestamp: '2022-03-21 17:35:20+09:00'
+  timestamp: '2022-03-24 23:54:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp
