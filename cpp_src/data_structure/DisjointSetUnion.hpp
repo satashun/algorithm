@@ -12,6 +12,7 @@ class unionfind {
         }
     }
 
+    unionfind() {}
     unionfind(int n) { init(n); }
 
     int find(int x) {

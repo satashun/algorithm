@@ -1,22 +1,24 @@
+#pragma region satashun
 //#pragma GCC optimize("Ofast")
 //#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 using namespace std;
 
+using uint = unsigned int;
 using ll = long long;
 using ull = unsigned long long;
 using pii = pair<int, int>;
-template <class T>
-using V = vector<T>;
-template <class T>
-using VV = V<V<T>>;
-template <class T>
+template<class T> using V = vector<T>;
+template<class T> using VV = V<V<T>>;
+
+template<class T>
 V<T> make_vec(size_t a) {
     return V<T>(a);
 }
-template <class T, class... Ts>
+
+template<class T, class... Ts>
 auto make_vec(size_t a, Ts... ts) {
-    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));
+  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));
 }
 
 #define pb push_back
@@ -24,23 +26,17 @@ auto make_vec(size_t a, Ts... ts) {
 #define mp make_pair
 #define fi first
 #define se second
-#define rep(i, n) rep2(i, 0, n)
-#define rep2(i, m, n) for (int i = m; i < (n); i++)
-#define per(i, b) per2(i, 0, b)
-#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)
-#define ALL(c) (c).begin(), (c).end()
+#define rep(i,n) rep2(i,0,n)
+#define rep2(i,m,n) for(int i=m;i<(n);i++)
+#define per(i,b) per2(i,0,b)
+#define per2(i,a,b) for(int i=int(b)-1;i>=int(a);i--)
+#define ALL(c) (c).begin(),(c).end()
 #define SZ(x) ((int)(x).size())
 
-constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }
+constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
-template <class T, class U>
-void chmin(T& t, const U& u) {
-    if (t > u) t = u;
-}
-template <class T, class U>
-void chmax(T& t, const U& u) {
-    if (t < u) t = u;
-}
+template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
+template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
 
 template <class T>
 void mkuni(vector<T>& v) {
@@ -52,7 +48,8 @@ template <class T>
 vector<int> sort_by(const vector<T>& v) {
     vector<int> res(v.size());
     iota(res.begin(), res.end(), 0);
-    sort(res.begin(), res.end(), [&](int i, int j) { return v[i] < v[j]; });
+    stable_sort(res.begin(), res.end(),
+                [&](int i, int j) { return v[i] < v[j]; });
     return res;
 }
 
@@ -62,9 +59,9 @@ istream& operator>>(istream& is, pair<T, U>& p) {
     return is;
 }
 
-template <class T, class U>
+template<class T, class U>
 ostream& operator<<(ostream& os, const pair<T, U>& p) {
-    os << "(" << p.first << "," << p.second << ")";
+    os<<"("<<p.first<<","<<p.second<<")";
     return os;
 }
 
@@ -76,26 +73,25 @@ istream& operator>>(istream& is, vector<T>& v) {
     return is;
 }
 
-template <class T>
+template<class T>
 ostream& operator<<(ostream& os, const vector<T>& v) {
-    os << "{";
+    os<<"{";
     rep(i, v.size()) {
-        if (i) os << ",";
-        os << v[i];
+        if (i) os<<",";
+        os<<v[i];
     }
-    os << "}";
+    os<<"}";
     return os;
 }
 
 #ifdef LOCAL
 void debug_out() { cerr << endl; }
-template <typename Head, typename... Tail>
+template<typename Head, typename... Tail>
 void debug_out(Head H, Tail... T) {
     cerr << " " << H;
     debug_out(T...);
 }
-#define debug(...) \
-    cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#define debug(...) cerr << __LINE__ << " [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
 #define dump(x) cerr << __LINE__ << " " << #x << " = " << (x) << endl
 #else
 #define debug(...) (void(0))
@@ -125,6 +121,17 @@ void print(const vector<T>& v, int suc = 1) {
         print(v[i], i == int(v.size()) - 1 ? suc : 2);
 }
 
+template <class T>
+void show(T x) {
+    print(x, 1);
+}
+
+template <typename Head, typename... Tail>
+void show(Head H, Tail... T) {
+    print(H, 2);
+    show(T...);
+}
+
 struct prepare_io {
     prepare_io() {
         cin.tie(nullptr);
@@ -132,6 +139,7 @@ struct prepare_io {
         cout << fixed << setprecision(10);
     }
 } prep_io;
+#pragma endregion satashun
 
 void solve(int tc) { cout << "Case #" << tc << ": "; }
 

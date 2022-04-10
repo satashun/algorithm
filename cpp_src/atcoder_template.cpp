@@ -61,7 +61,8 @@ template <class T>
 vector<int> sort_by(const vector<T>& v) {
     vector<int> res(v.size());
     iota(res.begin(), res.end(), 0);
-    sort(res.begin(), res.end(), [&](int i, int j) { return v[i] < v[j]; });
+    stable_sort(res.begin(), res.end(),
+                [&](int i, int j) { return v[i] < v[j]; });
     return res;
 }
 

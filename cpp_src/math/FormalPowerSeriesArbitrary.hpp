@@ -1,11 +1,90 @@
-// depends on FFT libs
-// work only with NTT-friendly mod 
+/// g:gcd(a, b), ax+by=g
+struct EG {
+    ll g, x, y;
+};
 
-NumberTheoreticTransform<Mint> ntt;
+EG ext_gcd(ll a, ll b) {
+    if (b == 0) {
+        if (a >= 0)
+            return EG{a, 1, 0};
+        else
+            return EG{-a, -1, 0};
+    } else {
+        auto e = ext_gcd(b, a % b);
+        return EG{e.g, e.y, e.x - a / b * e.y};
+    }
+}
 
-struct prepare_FPS {
-    prepare_FPS() { ntt.init(); }
-} prep_FPS;
+ll inv_mod(ll x, ll md) {
+    auto z = ext_gcd(x, md).x;
+    return (z % md + md) % md;
+}
+
+template <class T>
+T zmod(T a, T b) {
+    a %= b;
+    if (a < 0) a += b;
+    return a;
+}
+
+// ここを mod に応じて適切に変える
+ll mulmod(ll x, ll y, ll mod) { return x * y % mod; }
+
+ll garner(const V<ll>& b, const V<ll>& c) {
+    vector<ll> coffs(b.size(), 1);
+    vector<ll> constants(b.size(), 0);
+
+    rep(i, (int)b.size() - 1) {
+        // coffs[i] * v + constants[i] == mr[i].second (mod mr[i].first) を解く
+        ll v = mulmod(zmod(b[i] - constants[i], c[i]), inv_mod(coffs[i], c[i]),
+                      c[i]);
+        assert(v >= 0);
+
+        for (int j = i + 1; j < (int)b.size(); j++) {
+            (constants[j] += mulmod(coffs[j], v, c[j])) %= c[j];
+            coffs[j] = mulmod(coffs[j], c[i], c[j]);
+        }
+    }
+
+    return constants[b.size() - 1];
+}
+
+using Mint1 = ModInt<1012924417>;  // 5
+using Mint2 = ModInt<1224736769>;  // 3
+using Mint3 = ModInt<1007681537>;  // 3
+using Mint4 = ModInt<1045430273>;  // 4
+
+NumberTheoreticTransform<Mint1> ntt1;
+NumberTheoreticTransform<Mint2> ntt2;
+NumberTheoreticTransform<Mint3> ntt3;
+NumberTheoreticTransform<Mint4> ntt4;
+
+// D : modint
+template <class D>
+V<D> arbmod_convolution(V<D> _a, V<D> _b, ll mod) {
+    V<ll> a(SZ(_a)), b(SZ(_b));
+    rep(i, SZ(_a)) a[i] = _a[i].v;
+    rep(i, SZ(_b)) b[i] = _b[i].v;
+    V<Mint1> a1(ALL(a)), b1(ALL(b));
+    V<Mint2> a2(ALL(a)), b2(ALL(b));
+    V<Mint3> a3(ALL(a)), b3(ALL(b));
+    V<Mint4> a4(ALL(a)), b4(ALL(b));
+
+    auto x = ntt1.mul(a1, b1);
+    auto y = ntt2.mul(a2, b2);
+    auto z = ntt3.mul(a3, b3);
+    auto w = ntt4.mul(a4, b4);
+
+    V<D> res(x.size());
+    V<ll> c{1012924417, 1224736769, 1007681537, 1045430273, mod};
+
+    rep(i, SZ(x)) {
+        V<ll> b{x[i].v, y[i].v, z[i].v, w[i].v, 0ll};
+        res[i] = garner(b, c);
+    }
+
+    return res;
+}
 
 template <class D>
 struct Poly : public V<D> {
@@ -15,7 +94,7 @@ struct Poly : public V<D> {
 
     int size() const { return V<D>::size(); }
     D at(int p) const { return (p < this->size() ? (*this)[p] : D(0)); }
-    
+
     void shrink() {
         while (this->size() > 0 && this->back() == D(0)) this->pop_back();
     }
@@ -73,7 +152,7 @@ struct Poly : public V<D> {
     Poly operator*(const Poly& r) const {
         Poly a = *this;
         Poly b = r;
-        auto v = ntt.mul(a, b);
+        auto v = arbmod_convolution(a, b, D::get_mod());
         return v;
     }
 
@@ -156,6 +235,7 @@ struct Poly : public V<D> {
         }
 
         Poly h(this->begin() + zero, this->end());
+        debug(h);
         D a = h[0], ra = D(1) / a;
         h *= ra;
         h = h.log(n - zero * k) * D(k);
@@ -226,86 +306,3 @@ struct Poly : public V<D> {
         return f;
     }
 };
-
-// calculate characteristic polynomial
-// c_0 * s_i + c_1 * s_{i+1} + ... + c_k * s_{i+k} = 0
-// c_k = -1
-
-template <class T>
-Poly<T> berlekamp_massey(const V<T>& s) {
-    int n = int(s.size());
-    V<T> b = {T(-1)}, c = {T(-1)};
-    T y = Mint(1);
-    for (int ed = 1; ed <= n; ed++) {
-        int l = int(c.size()), m = int(b.size());
-        T x = 0;
-        for (int i = 0; i < l; i++) {
-            x += c[i] * s[ed - l + i];
-        }
-        b.push_back(0);
-        m++;
-        if (!x) {
-            continue;
-        }
-        T freq = x / y;
-        if (l < m) {
-            auto tmp = c;
-            c.insert(begin(c), m - l, Mint(0));
-            for (int i = 0; i < m; i++) {
-                c[m - 1 - i] -= freq * b[m - 1 - i];
-            }
-            b = tmp;
-            y = x;
-        } else {
-            for (int i = 0; i < m; i++) {
-                c[l - 1 - i] -= freq * b[m - 1 - i];
-            }
-        }
-    }
-    return c;
-}
-
-// HUPC 2020 day3 K, ABC225H
-// calculate vec[0] * vec[1] * ...
-// deg(result) must be bounded
-
-template <class T>
-Poly<T> prod(const V<Poly<T>>& vec) {
-    auto comp = [](const auto& a, const auto& b) -> bool {
-        return a.size() > b.size();
-    };
-    priority_queue<Poly<T>, V<Poly<T>>, decltype(comp)> que(comp);
-    que.push(Poly<T>{1});
-
-    for (auto& pl : vec) que.push(pl);
-
-    while (que.size() > 1) {
-        auto va = que.top();
-        que.pop();
-        auto vb = que.top();
-        que.pop();
-        que.push(va * vb);
-    }
-
-    return que.top();
-}
-
-// ABC215 G
-// expand f(x + c)
-// require factorial
-template <class T>
-Poly<T> taylor_shift(const Poly<T>& f, ll c) {
-    using P = Poly<T>;
-    int n = f.size();
-    T powc = 1;
-    P p(n), q(n);
-
-    rep(i, n) {
-        p[i] = f[i] * fact[i];
-        q[n - 1 - i] = powc * ifact[i];
-        powc *= c;
-    }
-    p = p * q;
-    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];
-    return q;
-}

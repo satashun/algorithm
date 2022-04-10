@@ -27,3 +27,18 @@ V<ll> pollrard(ll n) {
     v1.insert(v1.end(), ALL(v2));
     return v1;
 }
+
+V<pair<ll, int>> factor(ll n) {
+    auto dv = pollrard(n);
+    sort(ALL(dv));
+
+    V<pair<ll, int>> res;
+    for (auto d : dv) {
+        if (SZ(res) > 0 && res.back().first == d) {
+            res.back().second++;
+        } else {
+            res.emplace_back(d, 1);
+        }
+    }
+    return res;
+}

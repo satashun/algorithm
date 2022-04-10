@@ -1,10 +1,12 @@
 // floor(a / b)
-ll div_floor(ll a, ll b) {
+template <class T>
+T div_floor(T a, T b) {
     return a / b - (((a ^ b) < 0 && a % b != 0) ? 1 : 0);
 }
 
 // ceil(a / b)
-ll div_ceil(ll a, ll b) {
+template <class T>
+T div_ceil(T a, T b) {
     return a / b + (((a ^ b) > 0 && a % b != 0) ? 1 : 0);
 }
 
