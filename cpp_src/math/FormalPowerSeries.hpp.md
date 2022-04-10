@@ -9,59 +9,68 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/math/FormalPowerSeries.hpp\"\n// depends on FFT\
-    \ libs\n// basically use with ModInt\n\nNumberTheoreticTransform<Mint> ntt;\n\n\
-    template <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n\
+    \ libs\n// work only with NTT-friendly mod \n\nNumberTheoreticTransform<Mint>\
+    \ ntt;\n\nstruct prepare_FPS {\n    prepare_FPS() { ntt.init(); }\n} prep_FPS;\n\
+    \ntemplate <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n\
     \    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D> init)\
     \ : V<D>(init.begin(), init.end()) {}\n\n    int size() const { return V<D>::size();\
     \ }\n    D at(int p) const { return (p < this->size() ? (*this)[p] : D(0)); }\n\
-    \n    // first len terms\n    Poly pref(int len) const {\n        return Poly(this->begin(),\
-    \ this->begin() + min(this->size(), len));\n    }\n\n    // for polynomial division\n\
-    \    Poly rev() const {\n        Poly res = *this;\n        reverse(res.begin(),\
-    \ res.end());\n        return res;\n    }\n\n    Poly shiftr(int d) const {\n\
-    \        int n = max(size() + d, 0);\n        Poly res(n);\n        for (int i\
-    \ = 0; i < size(); ++i) {\n            if (i + d >= 0) {\n                res[i\
-    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n\n    Poly\
-    \ operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
-    \        V<D> tmp(n);\n        for (int i = 0; i < n; ++i) {\n            tmp[i]\
-    \ = at(i) + r.at(i);\n        }\n        return tmp;\n    }\n    Poly operator-(const\
-    \ Poly& r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
-    \        for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n\
-    \        }\n        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const\
-    \ D& k) const {\n        int n = size();\n        V<D> tmp(n);\n        for (int\
-    \ i = 0; i < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return\
-    \ tmp;\n    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
+    \    \n    void shrink() {\n        while (this->size() > 0 && this->back() ==\
+    \ D(0)) this->pop_back();\n    }\n\n    // first len terms\n    Poly pref(int\
+    \ len) const {\n        return Poly(this->begin(), this->begin() + min(this->size(),\
+    \ len));\n    }\n\n    // for polynomial division\n    Poly rev() const {\n  \
+    \      Poly res = *this;\n        reverse(res.begin(), res.end());\n        return\
+    \ res;\n    }\n\n    Poly shiftr(int d) const {\n        int n = max(size() +\
+    \ d, 0);\n        Poly res(n);\n        for (int i = 0; i < size(); ++i) {\n \
+    \           if (i + d >= 0) {\n                res[i + d] = at(i);\n         \
+    \   }\n        }\n        return res;\n    }\n\n    Poly operator+(const Poly&\
+    \ r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
+    \        for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) + r.at(i);\n\
+    \        }\n        return tmp;\n    }\n    Poly operator-(const Poly& r) const\
+    \ {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n        for\
+    \ (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n        }\n\
+    \        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const D& k) const\
+    \ {\n        int n = size();\n        V<D> tmp(n);\n        for (int i = 0; i\
+    \ < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return tmp;\n\
+    \    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
     \        Poly b = r;\n        auto v = ntt.mul(a, b);\n        return v;\n   \
     \ }\n\n    // scalar\n    Poly operator/(const D& k) const { return *this * k.inv();\
     \ }\n\n    Poly operator/(const Poly& r) const {\n        if (size() < r.size())\
     \ {\n            return {{}};\n        }\n        int d = size() - r.size() +\
     \ 1;\n        return (rev().pref(d) * r.rev().inv(d)).pref(d).rev();\n    }\n\n\
     \    Poly operator%(const Poly& r) const {\n        auto res = *this - *this /\
-    \ r * r;\n        while (res.size() && !res.back()) {\n            res.pop_back();\n\
-    \        }\n        return res;\n    }\n\n    Poly diff() const {\n        V<D>\
-    \ res(max(0, size() - 1));\n        for (int i = 1; i < size(); ++i) {\n     \
-    \       res[i - 1] = at(i) * i;\n        }\n        return res;\n    }\n\n   \
-    \ Poly inte() const {\n        V<D> res(size() + 1);\n        for (int i = 0;\
-    \ i < size(); ++i) {\n            res[i + 1] = at(i) / (D)(i + 1);\n        }\n\
-    \        return res;\n    }\n\n    // f * f.inv(m) === 1 mod (x^m)\n    // f_0\
-    \ ^ -1 must exist\n    Poly inv(int m) const {\n        Poly res = Poly({D(1)\
-    \ / at(0)});\n        for (int i = 1; i < m; i *= 2) {\n            res = (res\
-    \ * D(2) - res * res * pref(i * 2)).pref(i * 2);\n        }\n        return res.pref(m);\n\
-    \    }\n\n    // f_0 = 1 must hold\n    Poly log(int n) const {\n        auto\
-    \ f = pref(n);\n        return (f.diff() * f.inv(n - 1)).pref(n - 1).inte();\n\
-    \    }\n\n    // f_0 = 0 must hold\n    Poly exp(int n) const {\n        auto\
-    \ h = diff();\n        Poly f({1}), g({1});\n\n        for (int m = 1; m < n;\
-    \ m *= 2) {\n            g = (g * D(2) - f * g * g).pref(m);\n            auto\
-    \ q = h.pref(m - 1);\n            auto w = (q + g * (f.diff() - f * q)).pref(m\
-    \ * 2 - 1);\n            f = (f + f * (*this - w.inte()).pref(m * 2)).pref(m *\
-    \ 2);\n        }\n\n        return f.pref(n);\n    }\n\n    // be careful when\
-    \ k = 0\n    Poly pow(int n, ll k) const { return (log(n) * (D)k).exp(n); }\n\n\
-    \    // f_0 = 1 must hold (use it with modular sqrt)\n    // CF250E\n    Poly\
-    \ sqrt(int n) const {\n        Poly f = pref(n);\n        Poly g({1});\n     \
-    \   for (int i = 1; i < n; i *= 2) {\n            g = (g + f.pref(i * 2) * g.inv(i\
-    \ * 2)) * D(2).inv();\n        }\n        return g.pref(n);\n    }\n\n    D eval(D\
-    \ x) const {\n        D res = 0, c = 1;\n        for (auto a : *this) {\n    \
-    \        res += a * c;\n            c *= x;\n        }\n        return res;\n\
-    \    }\n\n    Poly powmod(ll k, const Poly& md) {\n        auto v = *this % md;\n\
+    \ r * r;\n        res.shrink();\n        return res;\n    }\n\n    Poly diff()\
+    \ const {\n        V<D> res(max(0, size() - 1));\n        for (int i = 1; i <\
+    \ size(); ++i) {\n            res[i - 1] = at(i) * i;\n        }\n        return\
+    \ res;\n    }\n\n    Poly inte() const {\n        V<D> res(size() + 1);\n    \
+    \    for (int i = 0; i < size(); ++i) {\n            res[i + 1] = at(i) / (D)(i\
+    \ + 1);\n        }\n        return res;\n    }\n\n    // f * f.inv(m) === 1 mod\
+    \ (x^m)\n    // f_0 ^ -1 must exist\n    Poly inv(int m) const {\n        Poly\
+    \ res = Poly({D(1) / at(0)});\n        for (int i = 1; i < m; i *= 2) {\n    \
+    \        res = (res * D(2) - res * res * pref(i * 2)).pref(i * 2);\n        }\n\
+    \        return res.pref(m);\n    }\n\n    // f_0 = 1 must hold\n    Poly log(int\
+    \ n) const {\n        auto f = pref(n);\n        return (f.diff() * f.inv(n -\
+    \ 1)).pref(n - 1).inte();\n    }\n\n    // f_0 = 0 must hold\n    Poly exp(int\
+    \ n) const {\n        auto h = diff();\n        Poly f({1}), g({1});\n\n     \
+    \   for (int m = 1; m < n; m *= 2) {\n            g = (g * D(2) - f * g * g).pref(m);\n\
+    \            auto q = h.pref(m - 1);\n            auto w = (q + g * (f.diff()\
+    \ - f * q)).pref(m * 2 - 1);\n            f = (f + f * (*this - w.inte()).pref(m\
+    \ * 2)).pref(m * 2);\n        }\n\n        return f.pref(n);\n    }\n\n    //\
+    \ front n elements of f(x)^k\n    // be careful when k = 0\n    Poly pow(ll k,\
+    \ int n) const {\n        int zero = 0;\n        while (zero < size() && at(zero)\
+    \ == 0) {\n            zero++;\n        }\n\n        if (zero == size() || zero\
+    \ * k >= n) {\n            Poly res(n);\n            if (n > 0 && k == 0) res[0]\
+    \ = 1;\n            return res;\n        }\n\n        Poly h(this->begin() + zero,\
+    \ this->end());\n        D a = h[0], ra = D(1) / a;\n        h *= ra;\n      \
+    \  h = h.log(n - zero * k) * D(k);\n        h = h.exp(n - zero * k);\n       \
+    \ h = h.shiftr(zero * k) * a.pow(k);\n        return h;\n    }\n\n    // f_0 =\
+    \ 1 must hold (use it with modular sqrt)\n    // CF250E\n    Poly sqrt(int n)\
+    \ const {\n        Poly f = pref(n);\n        Poly g({1});\n        for (int i\
+    \ = 1; i < n; i *= 2) {\n            g = (g + f.pref(i * 2) * g.inv(i * 2)) *\
+    \ D(2).inv();\n        }\n        return g.pref(n);\n    }\n\n    D eval(D x)\
+    \ const {\n        D res = 0, c = 1;\n        for (auto a : *this) {\n       \
+    \     res += a * c;\n            c *= x;\n        }\n        return res;\n   \
+    \ }\n\n    Poly powmod(ll k, const Poly& md) {\n        auto v = *this % md;\n\
     \        Poly res{1};\n        while (k) {\n            if (k & 1) {\n       \
     \         res = res * v % md;\n            }\n            v = v * v % md;\n  \
     \          k /= 2;\n        }\n        return res;\n    }\n\n    Poly& operator+=(const\
@@ -103,59 +112,68 @@ data:
     \ = 1;\n    P p(n), q(n);\n\n    rep(i, n) {\n        p[i] = f[i] * fact[i];\n\
     \        q[n - 1 - i] = powc * ifact[i];\n        powc *= c;\n    }\n    p = p\
     \ * q;\n    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}\n"
-  code: "// depends on FFT libs\n// basically use with ModInt\n\nNumberTheoreticTransform<Mint>\
-    \ ntt;\n\ntemplate <class D>\nstruct Poly : public V<D> {\n    template <class...\
-    \ Args>\n    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D>\
-    \ init) : V<D>(init.begin(), init.end()) {}\n\n    int size() const { return V<D>::size();\
+  code: "// depends on FFT libs\n// work only with NTT-friendly mod \n\nNumberTheoreticTransform<Mint>\
+    \ ntt;\n\nstruct prepare_FPS {\n    prepare_FPS() { ntt.init(); }\n} prep_FPS;\n\
+    \ntemplate <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n\
+    \    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D> init)\
+    \ : V<D>(init.begin(), init.end()) {}\n\n    int size() const { return V<D>::size();\
     \ }\n    D at(int p) const { return (p < this->size() ? (*this)[p] : D(0)); }\n\
-    \n    // first len terms\n    Poly pref(int len) const {\n        return Poly(this->begin(),\
-    \ this->begin() + min(this->size(), len));\n    }\n\n    // for polynomial division\n\
-    \    Poly rev() const {\n        Poly res = *this;\n        reverse(res.begin(),\
-    \ res.end());\n        return res;\n    }\n\n    Poly shiftr(int d) const {\n\
-    \        int n = max(size() + d, 0);\n        Poly res(n);\n        for (int i\
-    \ = 0; i < size(); ++i) {\n            if (i + d >= 0) {\n                res[i\
-    \ + d] = at(i);\n            }\n        }\n        return res;\n    }\n\n    Poly\
-    \ operator+(const Poly& r) const {\n        auto n = max(size(), r.size());\n\
-    \        V<D> tmp(n);\n        for (int i = 0; i < n; ++i) {\n            tmp[i]\
-    \ = at(i) + r.at(i);\n        }\n        return tmp;\n    }\n    Poly operator-(const\
-    \ Poly& r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
-    \        for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n\
-    \        }\n        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const\
-    \ D& k) const {\n        int n = size();\n        V<D> tmp(n);\n        for (int\
-    \ i = 0; i < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return\
-    \ tmp;\n    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
+    \    \n    void shrink() {\n        while (this->size() > 0 && this->back() ==\
+    \ D(0)) this->pop_back();\n    }\n\n    // first len terms\n    Poly pref(int\
+    \ len) const {\n        return Poly(this->begin(), this->begin() + min(this->size(),\
+    \ len));\n    }\n\n    // for polynomial division\n    Poly rev() const {\n  \
+    \      Poly res = *this;\n        reverse(res.begin(), res.end());\n        return\
+    \ res;\n    }\n\n    Poly shiftr(int d) const {\n        int n = max(size() +\
+    \ d, 0);\n        Poly res(n);\n        for (int i = 0; i < size(); ++i) {\n \
+    \           if (i + d >= 0) {\n                res[i + d] = at(i);\n         \
+    \   }\n        }\n        return res;\n    }\n\n    Poly operator+(const Poly&\
+    \ r) const {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n\
+    \        for (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) + r.at(i);\n\
+    \        }\n        return tmp;\n    }\n    Poly operator-(const Poly& r) const\
+    \ {\n        auto n = max(size(), r.size());\n        V<D> tmp(n);\n        for\
+    \ (int i = 0; i < n; ++i) {\n            tmp[i] = at(i) - r.at(i);\n        }\n\
+    \        return tmp;\n    }\n\n    // scalar\n    Poly operator*(const D& k) const\
+    \ {\n        int n = size();\n        V<D> tmp(n);\n        for (int i = 0; i\
+    \ < n; ++i) {\n            tmp[i] = at(i) * k;\n        }\n        return tmp;\n\
+    \    }\n\n    Poly operator*(const Poly& r) const {\n        Poly a = *this;\n\
     \        Poly b = r;\n        auto v = ntt.mul(a, b);\n        return v;\n   \
     \ }\n\n    // scalar\n    Poly operator/(const D& k) const { return *this * k.inv();\
     \ }\n\n    Poly operator/(const Poly& r) const {\n        if (size() < r.size())\
     \ {\n            return {{}};\n        }\n        int d = size() - r.size() +\
     \ 1;\n        return (rev().pref(d) * r.rev().inv(d)).pref(d).rev();\n    }\n\n\
     \    Poly operator%(const Poly& r) const {\n        auto res = *this - *this /\
-    \ r * r;\n        while (res.size() && !res.back()) {\n            res.pop_back();\n\
-    \        }\n        return res;\n    }\n\n    Poly diff() const {\n        V<D>\
-    \ res(max(0, size() - 1));\n        for (int i = 1; i < size(); ++i) {\n     \
-    \       res[i - 1] = at(i) * i;\n        }\n        return res;\n    }\n\n   \
-    \ Poly inte() const {\n        V<D> res(size() + 1);\n        for (int i = 0;\
-    \ i < size(); ++i) {\n            res[i + 1] = at(i) / (D)(i + 1);\n        }\n\
-    \        return res;\n    }\n\n    // f * f.inv(m) === 1 mod (x^m)\n    // f_0\
-    \ ^ -1 must exist\n    Poly inv(int m) const {\n        Poly res = Poly({D(1)\
-    \ / at(0)});\n        for (int i = 1; i < m; i *= 2) {\n            res = (res\
-    \ * D(2) - res * res * pref(i * 2)).pref(i * 2);\n        }\n        return res.pref(m);\n\
-    \    }\n\n    // f_0 = 1 must hold\n    Poly log(int n) const {\n        auto\
-    \ f = pref(n);\n        return (f.diff() * f.inv(n - 1)).pref(n - 1).inte();\n\
-    \    }\n\n    // f_0 = 0 must hold\n    Poly exp(int n) const {\n        auto\
-    \ h = diff();\n        Poly f({1}), g({1});\n\n        for (int m = 1; m < n;\
-    \ m *= 2) {\n            g = (g * D(2) - f * g * g).pref(m);\n            auto\
-    \ q = h.pref(m - 1);\n            auto w = (q + g * (f.diff() - f * q)).pref(m\
-    \ * 2 - 1);\n            f = (f + f * (*this - w.inte()).pref(m * 2)).pref(m *\
-    \ 2);\n        }\n\n        return f.pref(n);\n    }\n\n    // be careful when\
-    \ k = 0\n    Poly pow(int n, ll k) const { return (log(n) * (D)k).exp(n); }\n\n\
-    \    // f_0 = 1 must hold (use it with modular sqrt)\n    // CF250E\n    Poly\
-    \ sqrt(int n) const {\n        Poly f = pref(n);\n        Poly g({1});\n     \
-    \   for (int i = 1; i < n; i *= 2) {\n            g = (g + f.pref(i * 2) * g.inv(i\
-    \ * 2)) * D(2).inv();\n        }\n        return g.pref(n);\n    }\n\n    D eval(D\
-    \ x) const {\n        D res = 0, c = 1;\n        for (auto a : *this) {\n    \
-    \        res += a * c;\n            c *= x;\n        }\n        return res;\n\
-    \    }\n\n    Poly powmod(ll k, const Poly& md) {\n        auto v = *this % md;\n\
+    \ r * r;\n        res.shrink();\n        return res;\n    }\n\n    Poly diff()\
+    \ const {\n        V<D> res(max(0, size() - 1));\n        for (int i = 1; i <\
+    \ size(); ++i) {\n            res[i - 1] = at(i) * i;\n        }\n        return\
+    \ res;\n    }\n\n    Poly inte() const {\n        V<D> res(size() + 1);\n    \
+    \    for (int i = 0; i < size(); ++i) {\n            res[i + 1] = at(i) / (D)(i\
+    \ + 1);\n        }\n        return res;\n    }\n\n    // f * f.inv(m) === 1 mod\
+    \ (x^m)\n    // f_0 ^ -1 must exist\n    Poly inv(int m) const {\n        Poly\
+    \ res = Poly({D(1) / at(0)});\n        for (int i = 1; i < m; i *= 2) {\n    \
+    \        res = (res * D(2) - res * res * pref(i * 2)).pref(i * 2);\n        }\n\
+    \        return res.pref(m);\n    }\n\n    // f_0 = 1 must hold\n    Poly log(int\
+    \ n) const {\n        auto f = pref(n);\n        return (f.diff() * f.inv(n -\
+    \ 1)).pref(n - 1).inte();\n    }\n\n    // f_0 = 0 must hold\n    Poly exp(int\
+    \ n) const {\n        auto h = diff();\n        Poly f({1}), g({1});\n\n     \
+    \   for (int m = 1; m < n; m *= 2) {\n            g = (g * D(2) - f * g * g).pref(m);\n\
+    \            auto q = h.pref(m - 1);\n            auto w = (q + g * (f.diff()\
+    \ - f * q)).pref(m * 2 - 1);\n            f = (f + f * (*this - w.inte()).pref(m\
+    \ * 2)).pref(m * 2);\n        }\n\n        return f.pref(n);\n    }\n\n    //\
+    \ front n elements of f(x)^k\n    // be careful when k = 0\n    Poly pow(ll k,\
+    \ int n) const {\n        int zero = 0;\n        while (zero < size() && at(zero)\
+    \ == 0) {\n            zero++;\n        }\n\n        if (zero == size() || zero\
+    \ * k >= n) {\n            Poly res(n);\n            if (n > 0 && k == 0) res[0]\
+    \ = 1;\n            return res;\n        }\n\n        Poly h(this->begin() + zero,\
+    \ this->end());\n        D a = h[0], ra = D(1) / a;\n        h *= ra;\n      \
+    \  h = h.log(n - zero * k) * D(k);\n        h = h.exp(n - zero * k);\n       \
+    \ h = h.shiftr(zero * k) * a.pow(k);\n        return h;\n    }\n\n    // f_0 =\
+    \ 1 must hold (use it with modular sqrt)\n    // CF250E\n    Poly sqrt(int n)\
+    \ const {\n        Poly f = pref(n);\n        Poly g({1});\n        for (int i\
+    \ = 1; i < n; i *= 2) {\n            g = (g + f.pref(i * 2) * g.inv(i * 2)) *\
+    \ D(2).inv();\n        }\n        return g.pref(n);\n    }\n\n    D eval(D x)\
+    \ const {\n        D res = 0, c = 1;\n        for (auto a : *this) {\n       \
+    \     res += a * c;\n            c *= x;\n        }\n        return res;\n   \
+    \ }\n\n    Poly powmod(ll k, const Poly& md) {\n        auto v = *this % md;\n\
     \        Poly res{1};\n        while (k) {\n            if (k & 1) {\n       \
     \         res = res * v % md;\n            }\n            v = v * v % md;\n  \
     \          k /= 2;\n        }\n        return res;\n    }\n\n    Poly& operator+=(const\
@@ -201,7 +219,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2022-01-01 02:21:32+09:00'
+  timestamp: '2022-04-10 12:39:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp

@@ -26,17 +26,17 @@ data:
     \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
     }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
     \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n\
-    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    sort(res.begin(),\
-    \ res.end(), [&](int i, int j) { return v[i] < v[j]; });\n    return res;\n}\n\
-    \ntemplate <class T, class U>\nistream& operator>>(istream& is, pair<T, U>& p)\
-    \ {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate <class T, class\
-    \ U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << \"(\"\
-    \ << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\ntemplate <class\
-    \ T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for (auto& x : v)\
-    \ {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\";\n    rep(i,\
-    \ v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n    }\n    os\
-    \ << \"}\";\n    return os;\n}\n\ntemplate <class T>\nauto operator<<(ostream&\
+    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
+    \ res.end(),\n                [&](int i, int j) { return v[i] < v[j]; });\n  \
+    \  return res;\n}\n\ntemplate <class T, class U>\nistream& operator>>(istream&\
+    \ is, pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
+    template <class T, class U>\nostream& operator<<(ostream& os, const pair<T, U>&\
+    \ p) {\n    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return\
+    \ os;\n}\n\ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v)\
+    \ {\n    for (auto& x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate\
+    \ <class T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n    os <<\
+    \ \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n\
+    \    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T>\nauto operator<<(ostream&\
     \ os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value, ostream&>\
     \ {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out() {\
     \ cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
@@ -74,17 +74,17 @@ data:
     \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
     void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
     }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n    vector<int>\
-    \ res(v.size());\n    iota(res.begin(), res.end(), 0);\n    sort(res.begin(),\
-    \ res.end(), [&](int i, int j) { return v[i] < v[j]; });\n    return res;\n}\n\
-    \ntemplate <class T, class U>\nistream& operator>>(istream& is, pair<T, U>& p)\
-    \ {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate <class T, class\
-    \ U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << \"(\"\
-    \ << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\ntemplate <class\
-    \ T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for (auto& x : v)\
-    \ {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\";\n    rep(i,\
-    \ v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n    }\n    os\
-    \ << \"}\";\n    return os;\n}\n\ntemplate <class T>\nauto operator<<(ostream&\
+    \ res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
+    \ res.end(),\n                [&](int i, int j) { return v[i] < v[j]; });\n  \
+    \  return res;\n}\n\ntemplate <class T, class U>\nistream& operator>>(istream&\
+    \ is, pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
+    template <class T, class U>\nostream& operator<<(ostream& os, const pair<T, U>&\
+    \ p) {\n    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return\
+    \ os;\n}\n\ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v)\
+    \ {\n    for (auto& x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate\
+    \ <class T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n    os <<\
+    \ \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n\
+    \    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T>\nauto operator<<(ostream&\
     \ os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value, ostream&>\
     \ {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out() {\
     \ cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: false
   path: cpp_src/atcoder_template.cpp
   requiredBy: []
-  timestamp: '2022-03-24 23:54:57+09:00'
+  timestamp: '2022-04-10 12:39:22+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/atcoder_template.cpp

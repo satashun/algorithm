@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/data_structure/DisjointSetUnion.hpp
     title: cpp_src/data_structure/DisjointSetUnion.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D
@@ -20,10 +20,10 @@ data:
     \ 1 \"cpp_src/data_structure/DisjointSetUnion.hpp\"\nclass unionfind {\n    vector<int>\
     \ par, rank;\n\n   public:\n    void init(int n) {\n        par.resize(n);\n \
     \       rank.resize(n);\n\n        for (int i = 0; i < n; i++) {\n           \
-    \ par[i] = i;\n            rank[i] = 0;\n        }\n    }\n\n    unionfind(int\
-    \ n) { init(n); }\n\n    int find(int x) {\n        if (par[x] == x)\n       \
-    \     return x;\n        else\n            return par[x] = find(par[x]);\n   \
-    \ }\n\n    bool unite(int x, int y) {\n        x = find(x);\n        y = find(y);\n\
+    \ par[i] = i;\n            rank[i] = 0;\n        }\n    }\n\n    unionfind() {}\n\
+    \    unionfind(int n) { init(n); }\n\n    int find(int x) {\n        if (par[x]\
+    \ == x)\n            return x;\n        else\n            return par[x] = find(par[x]);\n\
+    \    }\n\n    bool unite(int x, int y) {\n        x = find(x);\n        y = find(y);\n\
     \        if (x == y) return false;\n\n        if (rank[x] < rank[y])\n       \
     \     par[x] = y;\n        else {\n            par[y] = x;\n            if (rank[x]\
     \ == rank[y]) ++rank[x];\n        }\n        return true;\n    }\n\n    bool same(int\
@@ -75,8 +75,8 @@ data:
   isVerificationFile: true
   path: test/aoj/ALDS1_11_D.test.cpp
   requiredBy: []
-  timestamp: '2022-03-24 23:54:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-04-10 12:39:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/ALDS1_11_D.test.cpp
 layout: document

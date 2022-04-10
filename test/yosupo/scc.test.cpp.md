@@ -104,17 +104,17 @@ data:
     \ nx) {\n                ds[e.to] = nx;\n                que.emplace(nx, e.to);\n\
     \            }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf)\
     \ x = -1;\n    return ds;\n}\n#line 1 \"cpp_src/graph/SCC.hpp\"\n// ABC214H\n\
-    // if i -> j, then cmp[i] <= cmp[j]\n// g_comp : compressed DAG\n\ntemplate <class\
-    \ T>\nstruct SCC : Graph<T> {\n   public:\n    using Graph<T>::Graph;\n    using\
-    \ Graph<T>::g;\n    Graph<T> rg;\n\n    V<int> vs, cmp, vis;\n    VV<int> comps;\n\
-    \n    // allow multiple edges\n    Graph<T> g_comp;\n\n    void dfs(int v) {\n\
-    \        vis[v] = true;\n\n        for (auto e : g[v]) {\n            if (!vis[e.to])\
-    \ {\n                dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n\
-    \    }\n\n    void rdfs(int v, int k) {\n        vis[v] = true;\n        cmp[v]\
-    \ = k;\n\n        for (auto e : rg[v]) {\n            if (!vis[e.to]) {\n    \
-    \            rdfs(e.to, k);\n            }\n        }\n    }\n\n    void init()\
-    \ {\n        int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n\
-    \            for (auto e : g[i]) {\n                rg.add_directed_edge(e.to,\
+    // ABC245F\n// if i -> j, then cmp[i] <= cmp[j]\n// g_comp : compressed DAG\n\n\
+    template <class T>\nstruct SCC : Graph<T> {\n   public:\n    using Graph<T>::Graph;\n\
+    \    using Graph<T>::g;\n    Graph<T> rg;\n\n    V<int> vs, cmp, vis;\n    VV<int>\
+    \ comps;\n\n    // allow multiple edges\n    Graph<T> g_comp;\n\n    void dfs(int\
+    \ v) {\n        vis[v] = true;\n\n        for (auto e : g[v]) {\n            if\
+    \ (!vis[e.to]) {\n                dfs(e.to);\n            }\n        }\n\n   \
+    \     vs.push_back(v);\n    }\n\n    void rdfs(int v, int k) {\n        vis[v]\
+    \ = true;\n        cmp[v] = k;\n\n        for (auto e : rg[v]) {\n           \
+    \ if (!vis[e.to]) {\n                rdfs(e.to, k);\n            }\n        }\n\
+    \    }\n\n    void init() {\n        int n = g.size();\n        rg = Graph<T>(n);\n\
+    \        rep(i, n) {\n            for (auto e : g[i]) {\n                rg.add_directed_edge(e.to,\
     \ e.from, e.cost);\n            }\n        }\n\n        vs = cmp = V<int>(n);\n\
     \        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\n      \
     \  fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n        reverse(vs.begin(),\
@@ -181,7 +181,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-03-24 23:54:57+09:00'
+  timestamp: '2022-04-10 12:39:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

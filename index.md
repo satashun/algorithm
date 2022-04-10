@@ -14,7 +14,7 @@ data:
       title: cpp_src/template.cpp
   - name: cpp_src/data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/data_structure/DisjointSetUnion.hpp
       title: cpp_src/data_structure/DisjointSetUnion.hpp
     - icon: ':warning:'
@@ -133,11 +133,11 @@ data:
       path: cpp_src/math/FormalPowerSeries.hpp
       title: cpp_src/math/FormalPowerSeries.hpp
     - icon: ':warning:'
+      path: cpp_src/math/FormalPowerSeriesArbitrary.hpp
+      title: cpp_src/math/FormalPowerSeriesArbitrary.hpp
+    - icon: ':warning:'
       path: cpp_src/math/Fraction.hpp
       title: cpp_src/math/Fraction.hpp
-    - icon: ':warning:'
-      path: cpp_src/math/HelperFunctions.hpp
-      title: cpp_src/math/HelperFunctions.hpp
     - icon: ':warning:'
       path: cpp_src/math/Lagrange.cpp
       title: cpp_src/math/Lagrange.cpp
@@ -193,6 +193,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/number_theory/GaussSum.hpp
       title: cpp_src/number_theory/GaussSum.hpp
+    - icon: ':warning:'
+      path: cpp_src/number_theory/HelperFunctions.hpp
+      title: cpp_src/number_theory/HelperFunctions.hpp
     - icon: ':warning:'
       path: cpp_src/number_theory/LinearSieve.hpp
       title: cpp_src/number_theory/LinearSieve.hpp
@@ -296,6 +299,9 @@ data:
       path: test/yosupo/number_of_substrings.cpp
       title: test/yosupo/number_of_substrings.cpp
     - icon: ':warning:'
+      path: test/yosupo/pow_of_formal_power_series.cpp
+      title: test/yosupo/pow_of_formal_power_series.cpp
+    - icon: ':warning:'
       path: test/yosupo/stirling_number_of_the_first_kind.cpp
       title: test/yosupo/stirling_number_of_the_first_kind.cpp
     - icon: ':warning:'
@@ -312,7 +318,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/0343.test.cpp
       title: test/aoj/0343.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/aoj/ALDS1_11_D.test.cpp
       title: test/aoj/ALDS1_11_D.test.cpp
     - icon: ':heavy_check_mark:'
@@ -359,7 +365,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/two_edge_connected_components.test.cpp
       title: test/yosupo/two_edge_connected_components.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/unionfind.test.cpp
       title: test/yosupo/unionfind.test.cpp
   - name: test/yukicoder
