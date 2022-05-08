@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/GraphBase.hpp
     title: cpp_src/graph/GraphBase.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/LowLink.hpp
     title: cpp_src/graph/LowLink.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
     title: cpp_src/graph/TwoEdgeConnectedComponents.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_edge_connected_components
@@ -140,13 +140,12 @@ data:
     \        for (int i = 0; i < g.size(); i++) {\n            group[comp[i]].emplace_back(i);\n\
     \        }\n        tree = Graph<T>(k);\n        for (auto& e : bridge) {\n  \
     \          tree.add_edge(comp[e.from], comp[e.to], e.cost);\n        }\n    }\n\
-    \    /*\n        void show() {\n            print(group.size());\n           \
-    \ for (auto& v : group) {\n                cout << SZ(v) << ' ';\n           \
-    \     print(v);\n            }\n        }\n    */\n   private:\n    void dfs(int\
-    \ idx, int par, int& k) {\n        if (par >= 0 && ord[par] >= low[idx])\n   \
-    \         comp[idx] = comp[par];\n        else\n            comp[idx] = k++;\n\
-    \        for (auto& e : g[idx]) {\n            if (comp[e.to] == -1) dfs(e.to,\
-    \ idx, k);\n        }\n    }\n};\n#line 158 \"test/yosupo/two_edge_connected_components.test.cpp\"\
+    \n    void output() {\n        print(group.size());\n        for (auto& v : group)\
+    \ {\n            cout << SZ(v) << ' ';\n            print(v);\n        }\n   \
+    \ }\n\n   private:\n    void dfs(int idx, int par, int& k) {\n        if (par\
+    \ >= 0 && ord[par] >= low[idx])\n            comp[idx] = comp[par];\n        else\n\
+    \            comp[idx] = k++;\n        for (auto& e : g[idx]) {\n            if\
+    \ (comp[e.to] == -1) dfs(e.to, idx, k);\n        }\n    }\n};\n#line 158 \"test/yosupo/two_edge_connected_components.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, M;\n    cin >> N >> M;\n\n\
     \    TwoEdgeConnectedComponents<int> g(N);\n    g.read(M, 0);\n    g.build();\n\
     \    g.output();\n\n    return 0;\n}\n"
@@ -207,8 +206,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_edge_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2022-05-08 14:32:12+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-05-08 14:40:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_edge_connected_components.test.cpp
 layout: document

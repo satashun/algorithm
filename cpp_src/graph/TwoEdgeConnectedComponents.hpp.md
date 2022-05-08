@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yosupo/two_edge_connected_components.test.cpp
     title: test/yosupo/two_edge_connected_components.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/TwoEdgeConnectedComponents.hpp\"\n// based\
@@ -22,13 +22,12 @@ data:
     \        for (int i = 0; i < g.size(); i++) {\n            group[comp[i]].emplace_back(i);\n\
     \        }\n        tree = Graph<T>(k);\n        for (auto& e : bridge) {\n  \
     \          tree.add_edge(comp[e.from], comp[e.to], e.cost);\n        }\n    }\n\
-    \    /*\n        void show() {\n            print(group.size());\n           \
-    \ for (auto& v : group) {\n                cout << SZ(v) << ' ';\n           \
-    \     print(v);\n            }\n        }\n    */\n   private:\n    void dfs(int\
-    \ idx, int par, int& k) {\n        if (par >= 0 && ord[par] >= low[idx])\n   \
-    \         comp[idx] = comp[par];\n        else\n            comp[idx] = k++;\n\
-    \        for (auto& e : g[idx]) {\n            if (comp[e.to] == -1) dfs(e.to,\
-    \ idx, k);\n        }\n    }\n};\n"
+    \n    void output() {\n        print(group.size());\n        for (auto& v : group)\
+    \ {\n            cout << SZ(v) << ' ';\n            print(v);\n        }\n   \
+    \ }\n\n   private:\n    void dfs(int idx, int par, int& k) {\n        if (par\
+    \ >= 0 && ord[par] >= low[idx])\n            comp[idx] = comp[par];\n        else\n\
+    \            comp[idx] = k++;\n        for (auto& e : g[idx]) {\n            if\
+    \ (comp[e.to] == -1) dfs(e.to, idx, k);\n        }\n    }\n};\n"
   code: "// based on ei1333\n// tree : u-v -> comp[u]-comp[v]\ntemplate <class T>\n\
     struct TwoEdgeConnectedComponents : LowLink<T> {\n   public:\n    using LowLink<T>::LowLink;\n\
     \    using LowLink<T>::g;\n    using LowLink<T>::ord;\n    using LowLink<T>::low;\n\
@@ -39,19 +38,19 @@ data:
     \     }\n        group.resize(k);\n        for (int i = 0; i < g.size(); i++)\
     \ {\n            group[comp[i]].emplace_back(i);\n        }\n        tree = Graph<T>(k);\n\
     \        for (auto& e : bridge) {\n            tree.add_edge(comp[e.from], comp[e.to],\
-    \ e.cost);\n        }\n    }\n    /*\n        void show() {\n            print(group.size());\n\
-    \            for (auto& v : group) {\n                cout << SZ(v) << ' ';\n\
-    \                print(v);\n            }\n        }\n    */\n   private:\n  \
-    \  void dfs(int idx, int par, int& k) {\n        if (par >= 0 && ord[par] >= low[idx])\n\
-    \            comp[idx] = comp[par];\n        else\n            comp[idx] = k++;\n\
-    \        for (auto& e : g[idx]) {\n            if (comp[e.to] == -1) dfs(e.to,\
-    \ idx, k);\n        }\n    }\n};"
+    \ e.cost);\n        }\n    }\n\n    void output() {\n        print(group.size());\n\
+    \        for (auto& v : group) {\n            cout << SZ(v) << ' ';\n        \
+    \    print(v);\n        }\n    }\n\n   private:\n    void dfs(int idx, int par,\
+    \ int& k) {\n        if (par >= 0 && ord[par] >= low[idx])\n            comp[idx]\
+    \ = comp[par];\n        else\n            comp[idx] = k++;\n        for (auto&\
+    \ e : g[idx]) {\n            if (comp[e.to] == -1) dfs(e.to, idx, k);\n      \
+    \  }\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
   requiredBy: []
-  timestamp: '2021-10-25 19:28:02+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-05-08 14:40:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_edge_connected_components.test.cpp
 documentation_of: cpp_src/graph/TwoEdgeConnectedComponents.hpp

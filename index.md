@@ -71,13 +71,13 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/FordFulkerson.cpp
       title: cpp_src/graph/FordFulkerson.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/GraphBase.hpp
       title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/LCA.hpp
       title: cpp_src/graph/LCA.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/LowLink.hpp
       title: cpp_src/graph/LowLink.hpp
     - icon: ':warning:'
@@ -101,7 +101,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/TreeHash.cpp
       title: cpp_src/graph/TreeHash.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
       title: cpp_src/graph/TwoEdgeConnectedComponents.hpp
     - icon: ':warning:'
@@ -112,7 +112,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/helper/EdgeCount.hpp
       title: cpp_src/graph/helper/EdgeCount.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/helper/ExplicitShortestPath.hpp
       title: cpp_src/graph/helper/ExplicitShortestPath.hpp
     - icon: ':warning:'
@@ -374,7 +374,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
       title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/two_edge_connected_components.test.cpp
       title: test/yosupo/two_edge_connected_components.test.cpp
     - icon: ':heavy_check_mark:'

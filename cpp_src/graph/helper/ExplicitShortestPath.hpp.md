@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yosupo/shortest_path.test.cpp
+    title: test/yosupo/shortest_path.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://judge.yosupo.jp/problem/shortest_path
@@ -66,8 +69,9 @@ data:
   path: cpp_src/graph/helper/ExplicitShortestPath.hpp
   requiredBy: []
   timestamp: '2022-05-08 14:32:12+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yosupo/shortest_path.test.cpp
 documentation_of: cpp_src/graph/helper/ExplicitShortestPath.hpp
 layout: document
 redirect_from:
