@@ -1,3 +1,5 @@
+// testing : python interactive_runner.py python local_testing_tool.py 0 -- ./a.out
+
 #pragma region satashun
 //#pragma GCC optimize("Ofast")
 //#pragma GCC optimize("unroll-loops")

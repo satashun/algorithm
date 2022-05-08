@@ -10,6 +10,14 @@ T div_ceil(T a, T b) {
     return a / b + (((a ^ b) > 0 && a % b != 0) ? 1 : 0);
 }
 
+// x mod m, negative allowed
+template <class T>
+T mod(T x, T m) {
+    T res = x % m;
+    if (res < 0) res += m;
+    return res;
+}
+
 constexpr ll floor_sqrt(ll n) {
     if (n == 0) return 0;
     return llround(trunc(floor(sqrt((long double)n))));
