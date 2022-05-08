@@ -4,14 +4,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links:
     - http://qnighy.hatenablog.com/entry/20100117/1263734784
     - http://stackoverflow.com/questions/13792118/kmp-prefix-table
     - http://tokyo-ct.net/usr/kosaka/for_students/jissen1/akiyojissen1/kougi16.html
-  bundledCode: "#line 1 \"cpp_src/string/kmp.cpp\"\n// http://qnighy.hatenablog.com/entry/20100117/1263734784\n\
+  bundledCode: "#line 1 \"cpp_src/string/KMP.hpp\"\n// http://qnighy.hatenablog.com/entry/20100117/1263734784\n\
     // http://stackoverflow.com/questions/13792118/kmp-prefix-table\n// http://tokyo-ct.net/usr/kosaka/for_students/jissen1/akiyojissen1/kougi16.html\n\
     \nvector<int> pre_kmp(string pat) {\n\tint k;\n\tvector<int> table((int)pat.size()\
     \ + 1);\n\ttable[0] = -1;\n\n\tfor (int i = 1; i <= pat.size(); ++i) {\n\t\tk\
@@ -35,15 +35,15 @@ data:
     \treturn count;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/string/kmp.cpp
+  path: cpp_src/string/KMP.hpp
   requiredBy: []
-  timestamp: '2021-11-27 23:06:43+09:00'
+  timestamp: '2022-05-08 14:32:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/string/kmp.cpp
+documentation_of: cpp_src/string/KMP.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/string/kmp.cpp
-- /library/cpp_src/string/kmp.cpp.html
-title: cpp_src/string/kmp.cpp
+- /library/cpp_src/string/KMP.hpp
+- /library/cpp_src/string/KMP.hpp.html
+title: cpp_src/string/KMP.hpp
 ---

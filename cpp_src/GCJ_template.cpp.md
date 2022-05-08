@@ -8,7 +8,8 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/GCJ_template.cpp\"\n#pragma region satashun\n//#pragma\
+  bundledCode: "#line 1 \"cpp_src/GCJ_template.cpp\"\n// testing : python interactive_runner.py\
+    \ python local_testing_tool.py 0 -- ./a.out\n\n#pragma region satashun\n//#pragma\
     \ GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\nusing uint = unsigned int;\nusing ll\
     \ = long long;\nusing ull = unsigned long long;\nusing pii = pair<int, int>;\n\
@@ -54,8 +55,9 @@ data:
     \ \"Case #\" << tc << \": \"; }\n\nint main() {\n    int TC;\n    cin >> TC;\n\
     \    for (int tc = 1; tc <= TC; ++tc) {\n        solve(tc);\n    }\n    return\
     \ 0;\n}\n"
-  code: "#pragma region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC\
-    \ optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace std;\n\
+  code: "// testing : python interactive_runner.py python local_testing_tool.py 0\
+    \ -- ./a.out\n\n#pragma region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma\
+    \ GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace std;\n\
     \nusing uint = unsigned int;\nusing ll = long long;\nusing ull = unsigned long\
     \ long;\nusing pii = pair<int, int>;\ntemplate<class T> using V = vector<T>;\n\
     template<class T> using VV = V<V<T>>;\n\ntemplate<class T>\nV<T> make_vec(size_t\
@@ -104,7 +106,7 @@ data:
   isVerificationFile: false
   path: cpp_src/GCJ_template.cpp
   requiredBy: []
-  timestamp: '2022-04-10 12:39:22+09:00'
+  timestamp: '2022-05-08 14:32:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/GCJ_template.cpp

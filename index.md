@@ -68,13 +68,16 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
+      path: cpp_src/graph/FordFulkerson.cpp
+      title: cpp_src/graph/FordFulkerson.cpp
+    - icon: ':question:'
       path: cpp_src/graph/GraphBase.hpp
       title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/LCA.hpp
       title: cpp_src/graph/LCA.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: cpp_src/graph/LowLink.hpp
       title: cpp_src/graph/LowLink.hpp
     - icon: ':warning:'
@@ -98,7 +101,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/TreeHash.cpp
       title: cpp_src/graph/TreeHash.cpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
       title: cpp_src/graph/TwoEdgeConnectedComponents.hpp
     - icon: ':warning:'
@@ -107,17 +110,20 @@ data:
   - name: cpp_src/graph/helper
     pages:
     - icon: ':warning:'
-      path: cpp_src/graph/helper/BFSPath.hpp
-      title: cpp_src/graph/helper/BFSPath.hpp
-    - icon: ':warning:'
       path: cpp_src/graph/helper/EdgeCount.hpp
       title: cpp_src/graph/helper/EdgeCount.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/ExplicitShortestPath.hpp
+      title: cpp_src/graph/helper/ExplicitShortestPath.hpp
     - icon: ':warning:'
       path: cpp_src/graph/helper/GetPath.hpp
       title: cpp_src/graph/helper/GetPath.hpp
     - icon: ':warning:'
       path: cpp_src/graph/helper/MergingTree.hpp
       title: cpp_src/graph/helper/MergingTree.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/TwoColor.hpp
+      title: cpp_src/graph/helper/TwoColor.hpp
   - name: cpp_src/math
     pages:
     - icon: ':heavy_check_mark:'
@@ -231,20 +237,23 @@ data:
   - name: cpp_src/string
     pages:
     - icon: ':warning:'
+      path: cpp_src/string/KMP.hpp
+      title: cpp_src/string/KMP.hpp
+    - icon: ':warning:'
       path: cpp_src/string/Manacher.hpp
       title: cpp_src/string/Manacher.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/string/RollingHash.hpp
       title: cpp_src/string/RollingHash.hpp
     - icon: ':warning:'
+      path: cpp_src/string/SAIS.cpp
+      title: cpp_src/string/SAIS.cpp
+    - icon: ':warning:'
       path: cpp_src/string/Trie.cpp
       title: cpp_src/string/Trie.cpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/string/Zalgo.hpp
       title: cpp_src/string/Zalgo.hpp
-    - icon: ':warning:'
-      path: cpp_src/string/kmp.cpp
-      title: cpp_src/string/kmp.cpp
   - name: cpp_src/utility
     pages:
     - icon: ':warning:'
@@ -360,9 +369,12 @@ data:
       path: test/yosupo/scc.test.cpp
       title: test/yosupo/scc.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/shortest_path.test.cpp
+      title: test/yosupo/shortest_path.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
       title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/two_edge_connected_components.test.cpp
       title: test/yosupo/two_edge_connected_components.test.cpp
     - icon: ':heavy_check_mark:'

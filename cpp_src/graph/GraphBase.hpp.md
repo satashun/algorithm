@@ -9,9 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/scc.test.cpp
     title: test/yosupo/scc.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yosupo/two_edge_connected_components.test.cpp
+    title: test/yosupo/two_edge_connected_components.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/GraphBase.hpp\"\ntemplate <class T>\nclass\
@@ -112,8 +115,9 @@ data:
   path: cpp_src/graph/GraphBase.hpp
   requiredBy: []
   timestamp: '2022-03-24 23:54:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yosupo/two_edge_connected_components.test.cpp
   - test/yosupo/scc.test.cpp
   - test/yosupo/lca.test.cpp
 documentation_of: cpp_src/graph/GraphBase.hpp
