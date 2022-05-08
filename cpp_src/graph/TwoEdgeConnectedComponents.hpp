@@ -29,15 +29,15 @@ struct TwoEdgeConnectedComponents : LowLink<T> {
             tree.add_edge(comp[e.from], comp[e.to], e.cost);
         }
     }
-    /*
-        void show() {
-            print(group.size());
-            for (auto& v : group) {
-                cout << SZ(v) << ' ';
-                print(v);
-            }
+
+    void output() {
+        print(group.size());
+        for (auto& v : group) {
+            cout << SZ(v) << ' ';
+            print(v);
         }
-    */
+    }
+
    private:
     void dfs(int idx, int par, int& k) {
         if (par >= 0 && ord[par] >= low[idx])
