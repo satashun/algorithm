@@ -13,8 +13,9 @@
 "test/yosupo/point_set_range_composite.test.cpp": "2021-03-04 05:51:44 +0900",
 "test/yosupo/polynomial_taylor_shift.test.cpp": "2021-05-08 14:23:21 +0900",
 "test/yosupo/scc.test.cpp": "2022-04-10 12:39:22 +0900",
-"test/yosupo/shortest_path.test.cpp": "2022-05-08 14:32:12 +0900",
+"test/yosupo/shortest_path.test.cpp": "2022-05-08 14:40:36 +0900",
 "test/yosupo/stirling_number_of_the_second_kind.test.cpp": "2021-05-01 18:46:49 +0900",
+"test/yosupo/two_edge_connected_components.test.cpp": "2022-05-08 14:40:36 +0900",
 "test/yosupo/unionfind.test.cpp": "2022-04-10 12:39:22 +0900",
 "test/yukicoder/1297.test.cpp": "2021-12-30 18:51:46 +0900"
 }
