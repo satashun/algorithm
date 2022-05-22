@@ -86,3 +86,39 @@ struct Dinic {
         }
     }
 };
+
+// GCJ 2022 Round 2C
+// mat[i][j] := 0,1 (whether i-j exists)
+// (size of max_matching, assignment)
+pair<int, V<int>> max_matching(const VV<int>& mat) {
+    int L = SZ(mat);
+    if (L == 0) {
+        return mp(0, V<int>{});
+    }
+
+    int R = SZ(mat[0]);
+    int cnt_node = L + R + 2;
+    int S = cnt_node - 2, T = cnt_node - 1;
+    Dinic<int> g(cnt_node);
+    V<int> to(L, -1);
+
+    rep(i, L) {
+        g.add_edge(S, i, 1);
+        rep(j, R) {
+            if (mat[i][j]) {
+                g.add_edge(i, j + L, 1);
+            }
+        }
+    }
+    rep(j, R) g.add_edge(j + L, T, 1);
+
+    int mf = g.max_flow(S, T);
+    rep(i, L) {
+        for (auto e : g.g[i]) {
+            if (e.to >= L && e.to < L + R && e.cap == 0) {
+                to[i] = e.to - L;
+            }
+        }
+    }
+    return make_pair(mf, to);
+}

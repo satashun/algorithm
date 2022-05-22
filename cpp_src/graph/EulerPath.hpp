@@ -1,8 +1,10 @@
+// old !!!!
 // Hierholzer algorithm
 // https://codeforces.com/contest/508/submission/92099335
 
 // directed
 // destruct graph
+// todo : add BEST theorem
 
 template <class E>
 V<int> EulerianPath(const int s, VV<E>& g) {

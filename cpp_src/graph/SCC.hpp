@@ -48,7 +48,8 @@ struct SCC : Graph<T> {
             }
         }
 
-        vs = cmp = V<int>(n);
+        vs.clear();
+        cmp = V<int>(n);
         vis = V<int>(n);
 
         rep(v, n) if (!vis[v]) dfs(v);
