@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp_src/graph/Dinic.hpp
     title: cpp_src/graph/Dinic.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
@@ -64,8 +64,19 @@ data:
     \ res;\n    }\n\n    void min_dfs(int v, V<int>& col, V<int>& vis) {\n       \
     \ col[v] = 0;\n        vis[v] = 1;\n        for (auto e : g[v]) {\n          \
     \  if (!vis[e.to] && e.cap > 0) {\n                min_dfs(e.to, col, vis);\n\
-    \            }\n        }\n    }\n};\n#line 68 \"test/yosupo/bipartitematching.test.cpp\"\
-    \n#undef call_from_test\n\nint main() {\n    int L, R, M;\n    scanf(\"%d %d %d\"\
+    \            }\n        }\n    }\n};\n\n// GCJ 2022 Round 2C\n// mat[i][j] :=\
+    \ 0,1 (whether i-j exists)\n// (size of max_matching, assignment)\npair<int, V<int>>\
+    \ max_matching(const VV<int>& mat) {\n    int L = SZ(mat);\n    if (L == 0) {\n\
+    \        return mp(0, V<int>{});\n    }\n\n    int R = SZ(mat[0]);\n    int cnt_node\
+    \ = L + R + 2;\n    int S = cnt_node - 2, T = cnt_node - 1;\n    Dinic<int> g(cnt_node);\n\
+    \    V<int> to(L, -1);\n\n    rep(i, L) {\n        g.add_edge(S, i, 1);\n    \
+    \    rep(j, R) {\n            if (mat[i][j]) {\n                g.add_edge(i,\
+    \ j + L, 1);\n            }\n        }\n    }\n    rep(j, R) g.add_edge(j + L,\
+    \ T, 1);\n\n    int mf = g.max_flow(S, T);\n    rep(i, L) {\n        for (auto\
+    \ e : g.g[i]) {\n            if (e.to >= L && e.to < L + R && e.cap == 0) {\n\
+    \                to[i] = e.to - L;\n            }\n        }\n    }\n    return\
+    \ make_pair(mf, to);\n}\n#line 68 \"test/yosupo/bipartitematching.test.cpp\"\n\
+    #undef call_from_test\n\nint main() {\n    int L, R, M;\n    scanf(\"%d %d %d\"\
     , &L, &R, &M);\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll>\
     \ g(n);\n    rep(i, M) {\n        int a, b;\n        scanf(\"%d%d\", &a, &b);\n\
     \        g.add_edge(a, b + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n\
@@ -111,8 +122,8 @@ data:
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2022-03-17 13:38:21+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-05-22 15:10:18+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp
 layout: document

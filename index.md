@@ -32,6 +32,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/PBDS.hpp
       title: cpp_src/data_structure/PBDS.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/data_structure/RangeSum1D.hpp
+      title: cpp_src/data_structure/RangeSum1D.hpp
     - icon: ':warning:'
       path: cpp_src/data_structure/SegmentTree.hpp
       title: cpp_src/data_structure/SegmentTree.hpp
@@ -59,7 +62,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/BipartiteMatching.hpp
       title: cpp_src/graph/BipartiteMatching.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp_src/graph/Dinic.hpp
       title: cpp_src/graph/Dinic.hpp
     - icon: ':warning:'
@@ -68,6 +71,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/EulerianTrail.hpp
+      title: Eulerian Trail
     - icon: ':warning:'
       path: cpp_src/graph/FordFulkerson.cpp
       title: cpp_src/graph/FordFulkerson.cpp
@@ -344,7 +350,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -372,6 +378,9 @@ data:
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/yosupo/static_range_sum.test.cpp
+      title: test/yosupo/static_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/stirling_number_of_the_second_kind.test.cpp
       title: test/yosupo/stirling_number_of_the_second_kind.test.cpp
     - icon: ':heavy_check_mark:'
@@ -385,5 +394,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1297.test.cpp
       title: test/yukicoder/1297.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/yukicoder-583.test.cpp
+      title: test/yukicoder/yukicoder-583.test.cpp
 layout: toppage
 ---

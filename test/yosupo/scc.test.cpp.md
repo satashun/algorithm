@@ -115,20 +115,20 @@ data:
     \ if (!vis[e.to]) {\n                rdfs(e.to, k);\n            }\n        }\n\
     \    }\n\n    void init() {\n        int n = g.size();\n        rg = Graph<T>(n);\n\
     \        rep(i, n) {\n            for (auto e : g[i]) {\n                rg.add_directed_edge(e.to,\
-    \ e.from, e.cost);\n            }\n        }\n\n        vs = cmp = V<int>(n);\n\
-    \        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\n      \
-    \  fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n        reverse(vs.begin(),\
-    \ vs.end());\n\n        for (int v : vs) {\n            if (!vis[v]) {\n     \
-    \           rdfs(v, k++);\n            }\n        }\n\n        comps.resize(k);\n\
-    \        rep(v, n) { comps[cmp[v]].push_back(v); }\n\n        g_comp = Graph<T>(k);\n\
-    \n        rep(i, n) {\n            for (auto e : g[i]) {\n                if (cmp[i]\
-    \ != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i], cmp[e.to],\
-    \ e.cost);\n                }\n            }\n        }\n    }\n};\n#line 143\
-    \ \"test/yosupo/scc.test.cpp\"\n#undef call_from_test\n\nint main() {\n    int\
-    \ N, M;\n    cin >> N >> M;\n    SCC<int> g(N);\n    g.read(M, 0, 1, 0);\n   \
-    \ g.init();\n    auto vv = g.comps;\n    print(SZ(vv));\n    for (auto v : vv)\
-    \ {\n        cout << SZ(v) << ' ';\n        print(v);\n    }\n\n    return 0;\n\
-    }\n"
+    \ e.from, e.cost);\n            }\n        }\n\n        vs.clear();\n        cmp\
+    \ = V<int>(n);\n        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\
+    \n        fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n       \
+    \ reverse(vs.begin(), vs.end());\n\n        for (int v : vs) {\n            if\
+    \ (!vis[v]) {\n                rdfs(v, k++);\n            }\n        }\n\n   \
+    \     comps.resize(k);\n        rep(v, n) { comps[cmp[v]].push_back(v); }\n\n\
+    \        g_comp = Graph<T>(k);\n\n        rep(i, n) {\n            for (auto e\
+    \ : g[i]) {\n                if (cmp[i] != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i],\
+    \ cmp[e.to], e.cost);\n                }\n            }\n        }\n    }\n};\n\
+    #line 143 \"test/yosupo/scc.test.cpp\"\n#undef call_from_test\n\nint main() {\n\
+    \    int N, M;\n    cin >> N >> M;\n    SCC<int> g(N);\n    g.read(M, 0, 1, 0);\n\
+    \    g.init();\n    auto vv = g.comps;\n    print(SZ(vv));\n    for (auto v :\
+    \ vv) {\n        cout << SZ(v) << ' ';\n        print(v);\n    }\n\n    return\
+    \ 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n//#pragma GCC\
     \ optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
     using namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
@@ -181,7 +181,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-04-10 12:39:22+09:00'
+  timestamp: '2022-05-22 15:10:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp
