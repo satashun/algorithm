@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: cpp_src/graph/EulerianTrail.hpp
+    title: Eulerian Trail
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/lca.test.cpp
@@ -15,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/two_edge_connected_components.test.cpp
     title: test/yosupo/two_edge_connected_components.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yukicoder-583.test.cpp
     title: test/yukicoder/yukicoder-583.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/GraphBase.hpp\"\ntemplate <class T>\nclass\
@@ -66,9 +69,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/GraphBase.hpp
-  requiredBy: []
+  requiredBy:
+  - cpp_src/graph/EulerianTrail.hpp
   timestamp: '2022-07-02 19:40:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yukicoder-583.test.cpp
   - test/yosupo/lca.test.cpp

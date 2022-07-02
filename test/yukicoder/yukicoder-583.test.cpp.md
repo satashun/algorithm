@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/data_structure/DisjointSetUnion.hpp
     title: cpp_src/data_structure/DisjointSetUnion.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/EulerianTrail.hpp
     title: Eulerian Trail
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/GraphBase.hpp
     title: cpp_src/graph/GraphBase.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/583
@@ -75,7 +75,27 @@ data:
     \        if (x == y) return false;\n\n        if (rank[x] < rank[y])\n       \
     \     par[x] = y;\n        else {\n            par[y] = x;\n            if (rank[x]\
     \ == rank[y]) ++rank[x];\n        }\n        return true;\n    }\n\n    bool same(int\
-    \ x, int y) { return (find(x) == find(y)); }\n};\n#line 1 \"cpp_src/graph/EulerianTrail.hpp\"\
+    \ x, int y) { return (find(x) == find(y)); }\n};\n#line 1 \"cpp_src/graph/GraphBase.hpp\"\
+    \ntemplate <class T>\nclass Edge {\n   public:\n    int from, to, idx;\n    T\
+    \ cost;\n\n    Edge() = default;\n    Edge(int from, int to, T cost = T(1), int\
+    \ idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    operator\
+    \ int() const { return to; }\n\n    bool operator<(const Edge& e) const { return\
+    \ cost < e.cost; }\n};\n\ntemplate <class T>\nclass Graph {\n   public:\n    using\
+    \ E = Edge<T>;\n    vector<vector<E>> g;\n    vector<E> edges;\n    int es;\n\n\
+    \    Graph() {}\n    Graph(int n) : g(n), edges(0), es(0){};\n\n    int size()\
+    \ const { return g.size(); }\n\n    virtual void add_directed_edge(int from, int\
+    \ to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n   \
+    \ }\n\n    virtual void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
+    \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n\n\
+    \    inline vector<E>& operator[](const int& k) { return g[k]; }\n\n    inline\
+    \ const vector<E>& operator[](const int& k) const {\n        return g[k];\n  \
+    \  }\n\n    void read(int M, int offset = -1, bool directed = false,\n       \
+    \       bool weighted = false) {\n        for (int i = 0; i < M; i++) {\n    \
+    \        int a, b;\n            cin >> a >> b;\n            a += offset;\n   \
+    \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
+    \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
+    \                add_directed_edge(a, b, c);\n            else\n             \
+    \   add_edge(a, b, c);\n        }\n    }\n};\n#line 2 \"cpp_src/graph/EulerianTrail.hpp\"\
     \n// modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp\n\
     // allow multiple edges and self loops, multiple components\ntemplate <class T,\
     \ bool directed>\nstruct EulerianTrail : Graph<T> {\n   public:\n    using Graph<T>::g;\n\
@@ -118,27 +138,7 @@ data:
     \                g[idx].pop_back();\n                if (used_edge[e.idx]) continue;\n\
     \                used_edge[e.idx] = true;\n                st.emplace(e.to, e.idx);\n\
     \            }\n        }\n        ord.pop_back();\n        reverse(ord.begin(),\
-    \ ord.end());\n        return ord;\n    }\n};\n#line 1 \"cpp_src/graph/GraphBase.hpp\"\
-    \ntemplate <class T>\nclass Edge {\n   public:\n    int from, to, idx;\n    T\
-    \ cost;\n\n    Edge() = default;\n    Edge(int from, int to, T cost = T(1), int\
-    \ idx = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    operator\
-    \ int() const { return to; }\n\n    bool operator<(const Edge& e) const { return\
-    \ cost < e.cost; }\n};\n\ntemplate <class T>\nclass Graph {\n   public:\n    using\
-    \ E = Edge<T>;\n    vector<vector<E>> g;\n    vector<E> edges;\n    int es;\n\n\
-    \    Graph() {}\n    Graph(int n) : g(n), edges(0), es(0){};\n\n    int size()\
-    \ const { return g.size(); }\n\n    virtual void add_directed_edge(int from, int\
-    \ to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n   \
-    \ }\n\n    virtual void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n\n\
-    \    inline vector<E>& operator[](const int& k) { return g[k]; }\n\n    inline\
-    \ const vector<E>& operator[](const int& k) const {\n        return g[k];\n  \
-    \  }\n\n    void read(int M, int offset = -1, bool directed = false,\n       \
-    \       bool weighted = false) {\n        for (int i = 0; i < M; i++) {\n    \
-    \        int a, b;\n            cin >> a >> b;\n            a += offset;\n   \
-    \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
-    \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
-    \                add_directed_edge(a, b, c);\n            else\n             \
-    \   add_edge(a, b, c);\n        }\n    }\n};\n#line 158 \"test/yukicoder/yukicoder-583.test.cpp\"\
+    \ ord.end());\n        return ord;\n    }\n};\n#line 157 \"test/yukicoder/yukicoder-583.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, M;\n    cin >> N >> M;\n \
     \   V<int> A(M), B(M);\n    EulerianTrail<int, false> g(N);\n    g.read(M, 0);\n\
     \n    auto res = g.enumerate_semi_eulerian_trail();\n    show(SZ(res) == 1 ? \"\
@@ -189,10 +189,10 @@ data:
     \    ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
     \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#include\
     \ \"../../cpp_src/data_structure/DisjointSetUnion.hpp\"\n#include \"../../cpp_src/graph/EulerianTrail.hpp\"\
-    \n#include \"../../cpp_src/graph/GraphBase.hpp\"\n#undef call_from_test\n\nint\
-    \ main() {\n    int N, M;\n    cin >> N >> M;\n    V<int> A(M), B(M);\n    EulerianTrail<int,\
-    \ false> g(N);\n    g.read(M, 0);\n\n    auto res = g.enumerate_semi_eulerian_trail();\n\
-    \    show(SZ(res) == 1 ? \"YES\" : \"NO\");\n    return 0;\n}"
+    \n#undef call_from_test\n\nint main() {\n    int N, M;\n    cin >> N >> M;\n \
+    \   V<int> A(M), B(M);\n    EulerianTrail<int, false> g(N);\n    g.read(M, 0);\n\
+    \n    auto res = g.enumerate_semi_eulerian_trail();\n    show(SZ(res) == 1 ? \"\
+    YES\" : \"NO\");\n    return 0;\n}"
   dependsOn:
   - cpp_src/data_structure/DisjointSetUnion.hpp
   - cpp_src/graph/EulerianTrail.hpp
@@ -200,8 +200,8 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yukicoder-583.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 20:49:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-02 20:53:22+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yukicoder-583.test.cpp
 layout: document

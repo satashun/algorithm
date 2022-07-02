@@ -1,18 +1,41 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: cpp_src/graph/GraphBase.hpp
+    title: cpp_src/graph/GraphBase.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/yukicoder-583.test.cpp
     title: test/yukicoder/yukicoder-583.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/graph/others/eulerian-trail.hpp
-  bundledCode: "#line 1 \"cpp_src/graph/EulerianTrail.hpp\"\n// modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp\n\
+  bundledCode: "#line 1 \"cpp_src/graph/GraphBase.hpp\"\ntemplate <class T>\nclass\
+    \ Edge {\n   public:\n    int from, to, idx;\n    T cost;\n\n    Edge() = default;\n\
+    \    Edge(int from, int to, T cost = T(1), int idx = -1)\n        : from(from),\
+    \ to(to), cost(cost), idx(idx) {}\n    operator int() const { return to; }\n\n\
+    \    bool operator<(const Edge& e) const { return cost < e.cost; }\n};\n\ntemplate\
+    \ <class T>\nclass Graph {\n   public:\n    using E = Edge<T>;\n    vector<vector<E>>\
+    \ g;\n    vector<E> edges;\n    int es;\n\n    Graph() {}\n    Graph(int n) :\
+    \ g(n), edges(0), es(0){};\n\n    int size() const { return g.size(); }\n\n  \
+    \  virtual void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
+    \ to, cost, es++);\n    }\n\n    virtual void add_edge(int from, int to, T cost\
+    \ = 1) {\n        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
+    \ from, cost, es++);\n    }\n\n    inline vector<E>& operator[](const int& k)\
+    \ { return g[k]; }\n\n    inline const vector<E>& operator[](const int& k) const\
+    \ {\n        return g[k];\n    }\n\n    void read(int M, int offset = -1, bool\
+    \ directed = false,\n              bool weighted = false) {\n        for (int\
+    \ i = 0; i < M; i++) {\n            int a, b;\n            cin >> a >> b;\n  \
+    \          a += offset;\n            b += offset;\n            T c = T(1);\n \
+    \           if (weighted) cin >> c;\n            edges.emplace_back(a, b, c);\n\
+    \            if (directed)\n                add_directed_edge(a, b, c);\n    \
+    \        else\n                add_edge(a, b, c);\n        }\n    }\n};\n#line\
+    \ 2 \"cpp_src/graph/EulerianTrail.hpp\"\n// modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp\n\
     // allow multiple edges and self loops, multiple components\ntemplate <class T,\
     \ bool directed>\nstruct EulerianTrail : Graph<T> {\n   public:\n    using Graph<T>::g;\n\
     \    using Graph<T>::Graph;\n    using Graph<T>::edges;\n    using Graph<T>::es;\n\
@@ -55,7 +78,7 @@ data:
     \                used_edge[e.idx] = true;\n                st.emplace(e.to, e.idx);\n\
     \            }\n        }\n        ord.pop_back();\n        reverse(ord.begin(),\
     \ ord.end());\n        return ord;\n    }\n};\n"
-  code: "// modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp\n\
+  code: "#include \"./GraphBase.hpp\"\n// modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp\n\
     // allow multiple edges and self loops, multiple components\ntemplate <class T,\
     \ bool directed>\nstruct EulerianTrail : Graph<T> {\n   public:\n    using Graph<T>::g;\n\
     \    using Graph<T>::Graph;\n    using Graph<T>::edges;\n    using Graph<T>::es;\n\
@@ -98,12 +121,13 @@ data:
     \                used_edge[e.idx] = true;\n                st.emplace(e.to, e.idx);\n\
     \            }\n        }\n        ord.pop_back();\n        reverse(ord.begin(),\
     \ ord.end());\n        return ord;\n    }\n};"
-  dependsOn: []
+  dependsOn:
+  - cpp_src/graph/GraphBase.hpp
   isVerificationFile: false
   path: cpp_src/graph/EulerianTrail.hpp
   requiredBy: []
-  timestamp: '2022-05-22 15:10:18+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-02 20:53:22+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yukicoder-583.test.cpp
 documentation_of: cpp_src/graph/EulerianTrail.hpp
