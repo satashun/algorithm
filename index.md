@@ -47,6 +47,14 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/Treap.cpp
       title: cpp_src/data_structure/Treap.cpp
+  - name: cpp_src/data_structure/SegtreeHelper
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
+      title: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/SegtreeHelper/StarrySkyTreeSimple.hpp
+      title: cpp_src/data_structure/SegtreeHelper/StarrySkyTreeSimple.hpp
   - name: cpp_src/enumeration
     pages:
     - icon: ':warning:'
@@ -96,6 +104,9 @@ data:
       path: cpp_src/graph/SCC.hpp
       title: cpp_src/graph/SCC.hpp
     - icon: ':warning:'
+      path: cpp_src/graph/ShortestPath.hpp
+      title: cpp_src/graph/ShortestPath.hpp
+    - icon: ':warning:'
       path: cpp_src/graph/Tournament_Hamilton.cpp
       title: cpp_src/graph/Tournament_Hamilton.cpp
     - icon: ':warning:'
@@ -115,6 +126,9 @@ data:
       title: cpp_src/graph/Visualize.hpp
   - name: cpp_src/graph/helper
     pages:
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/CountSpanningTree.hpp
+      title: cpp_src/graph/helper/CountSpanningTree.hpp
     - icon: ':warning:'
       path: cpp_src/graph/helper/EdgeCount.hpp
       title: cpp_src/graph/helper/EdgeCount.hpp
@@ -231,6 +245,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/FastTransformation.cpp
       title: cpp_src/other/FastTransformation.cpp
+    - icon: ':warning:'
+      path: cpp_src/other/Histogram.hpp
+      title: cpp_src/other/Histogram.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/other/LineContainer.hpp
       title: cpp_src/other/LineContainer.hpp
@@ -242,6 +259,9 @@ data:
       title: cpp_src/other/RLE.hpp
   - name: cpp_src/string
     pages:
+    - icon: ':warning:'
+      path: cpp_src/string/AhoCorasick.hpp
+      title: cpp_src/string/AhoCorasick.hpp
     - icon: ':warning:'
       path: cpp_src/string/KMP.hpp
       title: cpp_src/string/KMP.hpp
@@ -257,6 +277,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/string/Trie.cpp
       title: cpp_src/string/Trie.cpp
+    - icon: ':warning:'
+      path: cpp_src/string/Trie_old.cpp
+      title: cpp_src/string/Trie_old.cpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/string/Zalgo.hpp
       title: cpp_src/string/Zalgo.hpp

@@ -8,20 +8,48 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/string/Trie.cpp\"\nstruct Trie {\n\tint value;\n\
-    \tTrie *next[0x100];\n\tTrie() { fill(next, next+0x100, nullptr); }\n};\n\nTrie\
-    \ *find(const string &t, Trie *r) {\n\tfor (int i = 0; i < t.size(); ++i) {\n\t\
-    \tchar c = t[i];\n\t\tif (!r->next[c]) r->next[c] = new Trie;\n\t\tr = r->next[c];\n\
-    \t}\n\treturn r;\n}\n"
-  code: "struct Trie {\n\tint value;\n\tTrie *next[0x100];\n\tTrie() { fill(next,\
-    \ next+0x100, nullptr); }\n};\n\nTrie *find(const string &t, Trie *r) {\n\tfor\
-    \ (int i = 0; i < t.size(); ++i) {\n\t\tchar c = t[i];\n\t\tif (!r->next[c]) r->next[c]\
-    \ = new Trie;\n\t\tr = r->next[c];\n\t}\n\treturn r;\n}"
+  bundledCode: "#line 1 \"cpp_src/string/Trie.cpp\"\ntemplate <int char_size>\nstruct\
+    \ TrieNode {\n    array<int, char_size> nxt;\n\n    int exist;\n    vector<int>\
+    \ accept;\n\n    TrieNode() : exist(0) { fill(nxt.begin(), nxt.end(), -1); }\n\
+    };\n\ntemplate <int char_size, int margin>\nstruct Trie {\n    using Node = TrieNode<char_size>;\n\
+    \n    vector<Node> nodes;\n    int root, node_ptr;\n\n    void expand() {\n  \
+    \      int sz = nodes.size();\n        nodes.resize(sz * 2);\n    }\n\n    Trie()\
+    \ : root(0), node_ptr(1) { nodes.push_back(Node()); }\n\n    void update_direct(int\
+    \ node, int id) { nodes[node].accept.push_back(id); }\n\n    void update_child(int\
+    \ node, int child, int id) { ++nodes[node].exist; }\n\n    void add(const string\
+    \ &str, int str_index, int node_index, int id) {\n        if (str_index == str.size())\
+    \ {\n            update_direct(node_index, id);\n        } else {\n          \
+    \  const int c = str[str_index] - margin;\n            if (nodes[node_index].nxt[c]\
+    \ == -1) {\n                int nxt_id = node_ptr++;\n                nodes[node_index].nxt[c]\
+    \ = nxt_id;\n                if (nxt_id >= nodes.size()) expand();\n         \
+    \   }\n\n            add(str, str_index + 1, nodes[node_index].nxt[c], id);\n\
+    \            update_child(node_index, nodes[node_index].nxt[c], id);\n       \
+    \ }\n    }\n\n    void add(const string &str, int id) { add(str, 0, 0, id); }\n\
+    \    void add(const string &str) { add(str, nodes[0].exist); }\n\n    int count()\
+    \ const { return nodes[0].exist; }\n};\n"
+  code: "template <int char_size>\nstruct TrieNode {\n    array<int, char_size> nxt;\n\
+    \n    int exist;\n    vector<int> accept;\n\n    TrieNode() : exist(0) { fill(nxt.begin(),\
+    \ nxt.end(), -1); }\n};\n\ntemplate <int char_size, int margin>\nstruct Trie {\n\
+    \    using Node = TrieNode<char_size>;\n\n    vector<Node> nodes;\n    int root,\
+    \ node_ptr;\n\n    void expand() {\n        int sz = nodes.size();\n        nodes.resize(sz\
+    \ * 2);\n    }\n\n    Trie() : root(0), node_ptr(1) { nodes.push_back(Node());\
+    \ }\n\n    void update_direct(int node, int id) { nodes[node].accept.push_back(id);\
+    \ }\n\n    void update_child(int node, int child, int id) { ++nodes[node].exist;\
+    \ }\n\n    void add(const string &str, int str_index, int node_index, int id)\
+    \ {\n        if (str_index == str.size()) {\n            update_direct(node_index,\
+    \ id);\n        } else {\n            const int c = str[str_index] - margin;\n\
+    \            if (nodes[node_index].nxt[c] == -1) {\n                int nxt_id\
+    \ = node_ptr++;\n                nodes[node_index].nxt[c] = nxt_id;\n        \
+    \        if (nxt_id >= nodes.size()) expand();\n            }\n\n            add(str,\
+    \ str_index + 1, nodes[node_index].nxt[c], id);\n            update_child(node_index,\
+    \ nodes[node_index].nxt[c], id);\n        }\n    }\n\n    void add(const string\
+    \ &str, int id) { add(str, 0, 0, id); }\n    void add(const string &str) { add(str,\
+    \ nodes[0].exist); }\n\n    int count() const { return nodes[0].exist; }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/string/Trie.cpp
   requiredBy: []
-  timestamp: '2021-11-27 23:06:43+09:00'
+  timestamp: '2022-07-02 19:40:56+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/string/Trie.cpp

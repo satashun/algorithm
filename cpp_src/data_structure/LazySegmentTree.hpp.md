@@ -9,19 +9,18 @@ data:
   attributes:
     links:
     - https://atcoder.jp/contests/abc237/submissions/30181965
-    - https://atcoder.jp/contests/tenka1-2016-qualb/tasks/tenka1_2016_qualB_d
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 289, in update\n    uncommented_lines = get_uncommented_code(path, iquotes=self.iquotes,\
-    \ compiler=self.compiler).splitlines(keepends=True)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ compiler=self.compiler).splitlines(keepends=True)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 195, in get_uncommented_code\n    code = _get_uncommented_code(path.resolve(),\
-    \ iquotes_options=tuple(iquotes_options), compiler=compiler)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ iquotes_options=tuple(iquotes_options), compiler=compiler)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 188, in _get_uncommented_code\n    return subprocess.check_output(command)\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/subprocess.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/subprocess.py\"\
     , line 420, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout,\
-    \ check=True,\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/subprocess.py\"\
+    \ check=True,\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/subprocess.py\"\
     , line 524, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError:\
     \ Command '['g++', '-x', 'c++', '-I', '/home/runner/work/algorithm/algorithm',\
     \ '-fpreprocessed', '-dD', '-E', '/home/runner/work/algorithm/algorithm/cpp_src/data_structure/LazySegmentTree.hpp']'\
@@ -57,14 +56,7 @@ data:
     \ - 1);\n\n        T1 lval = U::id1(), rval = U::id1();\n\n        for (; l <\
     \ r; l >>= 1, r >>= 1) {\n            if (l & 1) lval = U::op11(lval, reflect(l++));\n\
     \            if (r & 1) rval = U::op11(reflect(--r), rval);\n        }\n     \
-    \   return U::op11(lval, rval);\n    }\n};\n\n// for https://atcoder.jp/contests/tenka1-2016-qualb/tasks/tenka1_2016_qualB_d\n\
-    // range addition and range minimum query needed, initialization must be cared\n\
-    // (set all to 0, while id1 = INF)\n\n// modify only U\n\nconstexpr ll INF = TEN(18);\n\
-    \nstruct U {\n    using T1 = ll;\n    using T2 = ll;\n    static T1 id1() { return\
-    \ INF; }\n    static T2 id2() { return 0; }\n    static T1 op11(const T1& a, const\
-    \ T1& b) { return min(a, b); }\n    static T1 op21(const T2& b, const T1& a) {\
-    \ return b + a; }\n    // a : new!\n    static T2 op22(const T2& a, const T2&\
-    \ b) { return a + b; }\n};\n\n/*\nABC 237 G\nhttps://atcoder.jp/contests/abc237/submissions/30181965\n\
+    \   return U::op11(lval, rval);\n    }\n};\n\n/*\nABC 237 G\nhttps://atcoder.jp/contests/abc237/submissions/30181965\n\
     struct U {\n    // number of 1, all\n    using T1 = pii;\n    using T2 = int;\n\
     \    static T1 id1() { return mp(0, 0); }\n    static T2 id2() { return -1; }\n\
     \    static T1 op11(const T1& a, const T1& b) {\n        return mp(a.fi + b.fi,\

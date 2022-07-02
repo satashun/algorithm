@@ -81,33 +81,7 @@ data:
     \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
     \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
     \                add_directed_edge(a, b, c);\n            else\n             \
-    \   add_edge(a, b, c);\n        }\n    }\n};\n\n// cost = 1 or tree\ntemplate\
-    \ <class T>\nV<T> bfs(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
-    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    queue<int> que;\n \
-    \   que.push(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto v\
-    \ = que.front();\n        que.pop();\n        for (auto e : g[v]) {\n        \
-    \    T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n              \
-    \  ds[e.to] = nx;\n                que.push(e.to);\n            }\n        }\n\
-    \    }\n    for (auto& x : ds)\n        if (x == inf) x = -1;\n    return ds;\n\
-    }\n\n//must be optimized\ntemplate <class T>\nV<T> bfs01(const Graph<T>& g, int\
-    \ s = 0) {\n    const T inf = numeric_limits<T>::max() / 2;\n    int n = g.size();\n\
-    \n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n    deque<int> que;\n   \
-    \ que.push_back(s);\n    ds[s] = 0;\n\n    while (!que.empty()) {\n        auto\
-    \ v = que.front();\n        que.pop_front();\n        for (auto e : g[v]) {\n\
-    \            T nx = ds[v] + e.cost;\n            if (ds[e.to] > nx) {\n      \
-    \          ds[e.to] = nx;\n                if (e.cost == 0) {\n              \
-    \      que.push_front(e.to);\n                } else {\n                    que.push_back(e.to);\n\
-    \                }\n            }\n        }\n    }\n    for (auto& x : ds)\n\
-    \        if (x == inf) x = -1;\n    return ds;\n}\n\ntemplate <class T>\nV<T>\
-    \ dijkstra(const Graph<T>& g, int s = 0) {\n    const T inf = numeric_limits<T>::max()\
-    \ / 2;\n    int n = g.size();\n\n    V<T> ds(n, inf);\n    using P = pair<T, int>;\n\
-    \    priority_queue<P, V<P>, greater<P>> que;\n    que.emplace(0, s);\n    ds[s]\
-    \ = 0;\n    while (!que.empty()) {\n        auto p = que.top();\n        que.pop();\n\
-    \        int v = p.se;\n        if (ds[v] < p.fi) continue;\n        for (auto\
-    \ e : g[v]) {\n            T nx = ds[v] + e.cost;\n            if (ds[e.to] >\
-    \ nx) {\n                ds[e.to] = nx;\n                que.emplace(nx, e.to);\n\
-    \            }\n        }\n    }\n    for (auto& x : ds)\n        if (x == inf)\
-    \ x = -1;\n    return ds;\n}\n#line 1 \"cpp_src/graph/helper/ExplicitShortestPath.hpp\"\
+    \   add_edge(a, b, c);\n        }\n    }\n};\n#line 1 \"cpp_src/graph/helper/ExplicitShortestPath.hpp\"\
     \n// ABC222E\n// ABC218F\n// dfs tree only with shortest paths\ntemplate <class\
     \ T>\ntuple<V<T>, V<int>, V<Edge<T>>> bfs_with_path(const Graph<T>& g, int s =\
     \ 0,\n                                              int ban = -1) {\n    using\
@@ -203,7 +177,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-05-08 14:40:36+09:00'
+  timestamp: '2022-07-02 19:40:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/shortest_path.test.cpp
