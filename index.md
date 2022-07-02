@@ -70,7 +70,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/BipartiteMatching.hpp
       title: cpp_src/graph/BipartiteMatching.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp_src/graph/Dinic.hpp
       title: cpp_src/graph/Dinic.hpp
     - icon: ':warning:'
@@ -373,7 +373,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/assignment.test.cpp
       title: test/yosupo/assignment.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'

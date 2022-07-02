@@ -1,41 +1,68 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp_src/graph/Dinic.hpp
     title: cpp_src/graph/Dinic.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
     links:
     - https://judge.yosupo.jp/problem/bipartitematching
   bundledCode: "#line 1 \"test/yosupo/bipartitematching.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/bipartitematching\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\nusing ll = long long;\nusing pii = pair<int, int>;\ntemplate\
-    \ <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\n\
-    #define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi\
-    \ first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m,\
-    \ n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define per2(i,\
+    \ \"https://judge.yosupo.jp/problem/bipartitematching\"\n#pragma region satashun\n\
+    //#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\nusing uint = unsigned int;\n\
+    using ll = long long;\nusing ull = unsigned long long;\nusing pii = pair<int,\
+    \ int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV\
+    \ = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n\
+    }\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n  \
+    \  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n}\n\n#define\
+    \ pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
+    #define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m, n) for\
+    \ (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define per2(i,\
     \ a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n\nconstexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1);\
-    \ }\n\ntemplate <class T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t\
-    \ > u) t = u;\n}\ntemplate <class T, class U>\nvoid chmax(T& t, const U& u) {\n\
-    \    if (t < u) t = u;\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream&\
+    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
+    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
+    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
+    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
+    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
+    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v, bool increasing\
+    \ = true) {\n    vector<int> res(v.size());\n    iota(res.begin(), res.end(),\
+    \ 0);\n\n    if (increasing) {\n        stable_sort(res.begin(), res.end(),\n\
+    \                    [&](int i, int j) { return v[i] < v[j]; });\n    } else {\n\
+    \        stable_sort(res.begin(), res.end(),\n                    [&](int i, int\
+    \ j) { return v[i] > v[j]; });\n    }\n    return res;\n}\n\ntemplate <class T,\
+    \ class U>\nistream& operator>>(istream& is, pair<T, U>& p) {\n    is >> p.first\
+    \ >> p.second;\n    return is;\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream&\
     \ os, const pair<T, U>& p) {\n    os << \"(\" << p.first << \",\" << p.second\
-    \ << \")\";\n    return os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream&\
-    \ os, const vector<T>& v) {\n    os << \"{\";\n    rep(i, v.size()) {\n      \
-    \  if (i) os << \",\";\n        os << v[i];\n    }\n    os << \"}\";\n    return\
-    \ os;\n}\n\n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate <typename\
-    \ Head, typename... Tail>\nvoid debug_out(Head H, Tail... T) {\n    cerr << \"\
-    \ \" << H;\n    debug_out(T...);\n}\n#define debug(...) \\\n    cerr << __LINE__\
-    \ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n#define dump(x)\
-    \ cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define debug(...)\
-    \ (void(0))\n#define dump(x) (void(0))\n#endif\n\n#define call_from_test\n#line\
+    \ << \")\";\n    return os;\n}\n\ntemplate <class T>\nistream& operator>>(istream&\
+    \ is, vector<T>& v) {\n    for (auto& x : v) {\n        is >> x;\n    }\n    return\
+    \ is;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
+    \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\n#ifdef LOCAL\n\
+    void debug_out() { cerr << endl; }\ntemplate <typename Head, typename... Tail>\n\
+    void debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
+    }\n#define debug(...) \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"\
+    ]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr << __LINE__ << \" \" << #x\
+    \ << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n#define dump(x)\
+    \ (void(0))\n#endif\n\ntemplate <class T>\nvoid scan(vector<T>& v, T offset =\
+    \ T(0)) {\n    for (auto& x : v) {\n        cin >> x;\n        x += offset;\n\
+    \    }\n}\n\n// suc : 1 = newline, 2 = space\ntemplate <class T>\nvoid print(T\
+    \ x, int suc = 1) {\n    cout << x;\n    if (suc == 1)\n        cout << \"\\n\"\
+    ;\n    else if (suc == 2)\n        cout << \" \";\n}\n\ntemplate <class T>\nvoid\
+    \ print(const vector<T>& v, int suc = 1) {\n    for (int i = 0; i < v.size();\
+    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\ntemplate\
+    \ <class T>\nvoid show(T x) {\n    print(x, 1);\n}\n\ntemplate <typename Head,\
+    \ typename... Tail>\nvoid show(Head H, Tail... T) {\n    print(H, 2);\n    show(T...);\n\
+    }\n\nstruct prepare_io {\n    prepare_io() {\n        cin.tie(nullptr);\n    \
+    \    ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#line\
     \ 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\ntemplate <class F>\nstruct Dinic\
     \ {\n    static constexpr F INF = numeric_limits<F>::max();\n\n    struct Edge\
     \ {\n        int to, rev;\n        F cap;\n        Edge(int to, F cap, int rev)\
@@ -75,55 +102,80 @@ data:
     \ T, 1);\n\n    int mf = g.max_flow(S, T);\n    rep(i, L) {\n        for (auto\
     \ e : g.g[i]) {\n            if (e.to >= L && e.to < L + R && e.cap == 0) {\n\
     \                to[i] = e.to - L;\n            }\n        }\n    }\n    return\
-    \ make_pair(mf, to);\n}\n#line 68 \"test/yosupo/bipartitematching.test.cpp\"\n\
-    #undef call_from_test\n\nint main() {\n    int L, R, M;\n    scanf(\"%d %d %d\"\
-    , &L, &R, &M);\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll>\
-    \ g(n);\n    rep(i, M) {\n        int a, b;\n        scanf(\"%d%d\", &a, &b);\n\
-    \        g.add_edge(a, b + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n\
-    \    rep(i, R) g.add_edge(i + L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n \
-    \   printf(\"%d\\n\", K);\n    rep(i, L) {\n        int mt = -1;\n        for\
-    \ (auto e : g.g[i])\n            if (e.to >= L && e.to < L + R && e.cap == 0)\
-    \ {\n                mt = e.to;\n            }\n        if (mt != -1) {\n    \
-    \        printf(\"%d %d\\n\", i, mt - L);\n        }\n    }\n\n    return 0;\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing pii =\
-    \ pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class T>\n\
-    using VV = V<V<T>>;\n\n#define pb push_back\n#define eb emplace_back\n#define\
-    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
-    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
-    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
-    #define ALL(c) (c).begin(), (c).end()\n\nconstexpr ll TEN(int n) { return (n ==\
-    \ 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T& t,\
-    \ const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid chmax(T&\
-    \ t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T, class U>\n\
-    ostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << \"(\" << p.first\
-    \ << \",\" << p.second << \")\";\n    return os;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\";\n    rep(i,\
-    \ v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n    }\n    os\
-    \ << \"}\";\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out() { cerr << endl;\
-    \ }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head H, Tail...\
-    \ T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...) \\\
-    \n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n\
-    #define dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n\
-    #define debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\n#define call_from_test\n\
-    #include \"../../cpp_src/graph/Dinic.hpp\"\n#undef call_from_test\n\nint main()\
-    \ {\n    int L, R, M;\n    scanf(\"%d %d %d\", &L, &R, &M);\n    int n = L + R\
-    \ + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll> g(n);\n    rep(i, M) {\n\
-    \        int a, b;\n        scanf(\"%d%d\", &a, &b);\n        g.add_edge(a, b\
-    \ + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i\
-    \ + L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n    printf(\"%d\\n\", K);\n\
-    \    rep(i, L) {\n        int mt = -1;\n        for (auto e : g.g[i])\n      \
-    \      if (e.to >= L && e.to < L + R && e.cap == 0) {\n                mt = e.to;\n\
-    \            }\n        if (mt != -1) {\n            printf(\"%d %d\\n\", i, mt\
-    \ - L);\n        }\n    }\n\n    return 0;\n}"
+    \ make_pair(mf, to);\n}\n#line 163 \"test/yosupo/bipartitematching.test.cpp\"\n\
+    #undef call_from_test\n\nint main() {\n    int L, R, M;\n    cin >> L >> R >>\
+    \ M;\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll> g(n);\n\
+    \n    rep(i, M) {\n        int a, b;\n        cin >> a >> b;\n        g.add_edge(a,\
+    \ b + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i\
+    \ + L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n    show(K);\n\n    rep(i, L)\
+    \ {\n        int mt = -1;\n        for (auto e : g.g[i])\n            if (e.to\
+    \ >= L && e.to < L + R && e.cap == 0) {\n                mt = e.to;\n        \
+    \    }\n        if (mt != -1) {\n            show(i, mt - L);\n        }\n   \
+    \ }\n\n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n#pragma\
+    \ region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"\
+    unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing uint\
+    \ = unsigned int;\nusing ll = long long;\nusing ull = unsigned long long;\nusing\
+    \ pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class\
+    \ T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n \
+    \   return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
+    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
+    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
+    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
+    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
+    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
+    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
+    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
+    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
+    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
+    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
+    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v, bool increasing\
+    \ = true) {\n    vector<int> res(v.size());\n    iota(res.begin(), res.end(),\
+    \ 0);\n\n    if (increasing) {\n        stable_sort(res.begin(), res.end(),\n\
+    \                    [&](int i, int j) { return v[i] < v[j]; });\n    } else {\n\
+    \        stable_sort(res.begin(), res.end(),\n                    [&](int i, int\
+    \ j) { return v[i] > v[j]; });\n    }\n    return res;\n}\n\ntemplate <class T,\
+    \ class U>\nistream& operator>>(istream& is, pair<T, U>& p) {\n    is >> p.first\
+    \ >> p.second;\n    return is;\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream&\
+    \ os, const pair<T, U>& p) {\n    os << \"(\" << p.first << \",\" << p.second\
+    \ << \")\";\n    return os;\n}\n\ntemplate <class T>\nistream& operator>>(istream&\
+    \ is, vector<T>& v) {\n    for (auto& x : v) {\n        is >> x;\n    }\n    return\
+    \ is;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
+    \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\n#ifdef LOCAL\n\
+    void debug_out() { cerr << endl; }\ntemplate <typename Head, typename... Tail>\n\
+    void debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
+    }\n#define debug(...) \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"\
+    ]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr << __LINE__ << \" \" << #x\
+    \ << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n#define dump(x)\
+    \ (void(0))\n#endif\n\ntemplate <class T>\nvoid scan(vector<T>& v, T offset =\
+    \ T(0)) {\n    for (auto& x : v) {\n        cin >> x;\n        x += offset;\n\
+    \    }\n}\n\n// suc : 1 = newline, 2 = space\ntemplate <class T>\nvoid print(T\
+    \ x, int suc = 1) {\n    cout << x;\n    if (suc == 1)\n        cout << \"\\n\"\
+    ;\n    else if (suc == 2)\n        cout << \" \";\n}\n\ntemplate <class T>\nvoid\
+    \ print(const vector<T>& v, int suc = 1) {\n    for (int i = 0; i < v.size();\
+    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\ntemplate\
+    \ <class T>\nvoid show(T x) {\n    print(x, 1);\n}\n\ntemplate <typename Head,\
+    \ typename... Tail>\nvoid show(Head H, Tail... T) {\n    print(H, 2);\n    show(T...);\n\
+    }\n\nstruct prepare_io {\n    prepare_io() {\n        cin.tie(nullptr);\n    \
+    \    ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
+    \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#include\
+    \ \"../../cpp_src/graph/Dinic.hpp\"\n#undef call_from_test\n\nint main() {\n \
+    \   int L, R, M;\n    cin >> L >> R >> M;\n    int n = L + R + 2;\n    int s =\
+    \ n - 2, t = n - 1;\n    Dinic<ll> g(n);\n\n    rep(i, M) {\n        int a, b;\n\
+    \        cin >> a >> b;\n        g.add_edge(a, b + L, 1);\n    }\n    rep(i, L)\
+    \ g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i + L, t, 1);\n\n    int K =\
+    \ g.max_flow(s, t);\n\n    show(K);\n\n    rep(i, L) {\n        int mt = -1;\n\
+    \        for (auto e : g.g[i])\n            if (e.to >= L && e.to < L + R && e.cap\
+    \ == 0) {\n                mt = e.to;\n            }\n        if (mt != -1) {\n\
+    \            show(i, mt - L);\n        }\n    }\n\n    return 0;\n}"
   dependsOn:
   - cpp_src/graph/Dinic.hpp
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2022-05-22 15:10:18+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-02 20:38:49+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp
 layout: document
