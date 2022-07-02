@@ -47,11 +47,17 @@ void mkuni(vector<T>& v) {
 }
 
 template <class T>
-vector<int> sort_by(const vector<T>& v) {
+vector<int> sort_by(const vector<T>& v, bool increasing = true) {
     vector<int> res(v.size());
     iota(res.begin(), res.end(), 0);
-    stable_sort(res.begin(), res.end(),
-                [&](int i, int j) { return v[i] < v[j]; });
+
+    if (increasing) {
+        stable_sort(res.begin(), res.end(),
+                    [&](int i, int j) { return v[i] < v[j]; });
+    } else {
+        stable_sort(res.begin(), res.end(),
+                    [&](int i, int j) { return v[i] > v[j]; });
+    }
     return res;
 }
 
@@ -108,6 +114,7 @@ void scan(vector<T>& v, T offset = T(0)) {
     }
 }
 
+// suc : 1 = newline, 2 = space
 template <class T>
 void print(T x, int suc = 1) {
     cout << x;
