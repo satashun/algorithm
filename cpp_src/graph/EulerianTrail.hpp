@@ -1,3 +1,4 @@
+#include "./GraphBase.hpp"
 // modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp
 // allow multiple edges and self loops, multiple components
 template <class T, bool directed>

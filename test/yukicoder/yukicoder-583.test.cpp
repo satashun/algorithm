@@ -154,7 +154,6 @@ struct prepare_io {
 #define call_from_test
 #include "../../cpp_src/data_structure/DisjointSetUnion.hpp"
 #include "../../cpp_src/graph/EulerianTrail.hpp"
-#include "../../cpp_src/graph/GraphBase.hpp"
 #undef call_from_test
 
 int main() {
