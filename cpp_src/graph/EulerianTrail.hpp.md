@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yukicoder/yukicoder-583.test.cpp
+    title: test/yukicoder/yukicoder-583.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://ei1333.github.io/library/graph/others/eulerian-trail.hpp
@@ -100,8 +103,9 @@ data:
   path: cpp_src/graph/EulerianTrail.hpp
   requiredBy: []
   timestamp: '2022-05-22 15:10:18+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yukicoder/yukicoder-583.test.cpp
 documentation_of: cpp_src/graph/EulerianTrail.hpp
 layout: document
 title: Eulerian Trail

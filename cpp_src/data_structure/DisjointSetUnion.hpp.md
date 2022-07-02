@@ -9,9 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yosupo/unionfind.test.cpp
     title: test/yosupo/unionfind.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/yukicoder-583.test.cpp
+    title: test/yukicoder/yukicoder-583.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"cpp_src/data_structure/DisjointSetUnion.hpp\"\nclass unionfind\
@@ -42,8 +45,9 @@ data:
   path: cpp_src/data_structure/DisjointSetUnion.hpp
   requiredBy: []
   timestamp: '2022-04-10 12:39:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/yukicoder/yukicoder-583.test.cpp
   - test/yosupo/unionfind.test.cpp
   - test/aoj/ALDS1_11_D.test.cpp
 documentation_of: cpp_src/data_structure/DisjointSetUnion.hpp

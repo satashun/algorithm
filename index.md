@@ -14,7 +14,7 @@ data:
       title: cpp_src/template.cpp
   - name: cpp_src/data_structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp_src/data_structure/DisjointSetUnion.hpp
       title: cpp_src/data_structure/DisjointSetUnion.hpp
     - icon: ':warning:'
@@ -79,13 +79,13 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/EulerPath.hpp
       title: cpp_src/graph/EulerPath.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: cpp_src/graph/EulerianTrail.hpp
       title: Eulerian Trail
     - icon: ':warning:'
       path: cpp_src/graph/FordFulkerson.cpp
       title: cpp_src/graph/FordFulkerson.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp_src/graph/GraphBase.hpp
       title: cpp_src/graph/GraphBase.hpp
     - icon: ':heavy_check_mark:'
