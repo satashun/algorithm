@@ -39,6 +39,9 @@ data:
     \ is;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
     \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
     \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class\
+    \ T, class U>\nostream& operator<<(ostream& os, const map<T, U>& MP) {\n    for\
+    \ (auto it = MP.begin(); it != MP.end(); ++it) {\n        os << \"(\" << it->first\
+    \ << \": \" << it->second << \")\";\n    }\n    return os;\n}\n\ntemplate <class\
     \ T>\nauto operator<<(ostream& os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value,\
     \ ostream&> {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out()\
     \ { cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
@@ -89,6 +92,9 @@ data:
     \ is;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
     \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
     \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class\
+    \ T, class U>\nostream& operator<<(ostream& os, const map<T, U>& MP) {\n    for\
+    \ (auto it = MP.begin(); it != MP.end(); ++it) {\n        os << \"(\" << it->first\
+    \ << \": \" << it->second << \")\";\n    }\n    return os;\n}\n\ntemplate <class\
     \ T>\nauto operator<<(ostream& os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value,\
     \ ostream&> {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out()\
     \ { cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
@@ -112,7 +118,7 @@ data:
   isVerificationFile: false
   path: cpp_src/atcoder_template.cpp
   requiredBy: []
-  timestamp: '2022-07-02 19:40:56+09:00'
+  timestamp: '2022-07-17 01:58:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/atcoder_template.cpp

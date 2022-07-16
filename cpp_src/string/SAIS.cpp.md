@@ -46,12 +46,12 @@ data:
     int rsa[n+1];\n\t\tfor (int i = 0; i <= n; i++) {\n\t\t\trsa[sa[i]] = i;\n\t\t\
     }\n\n\t\tint h = 0;\n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tint j = sa[rsa[i]-1];\n\
     \n\t\t\tif (h > 0) h--;\n\t\t\tfor (; j+h < n && i+h < n; h++) {\n\t\t\t\tif (s[j+h]\
-    \ != s[i+h]) break;\n\t\t\t}\n\t\t\tlcp[rsa[i]-1] = h;\n\t\t}\n\t}\n};\n\nchar\
-    \ c[100010];\n\nint main() {\t\n\tscanf(\"%s\", c);\n\tint n = strlen(c);\n\t\
-    int sa[n+1];\n\tint lcp[n];\n\n\tsuffix_array::SA_IS(n + 1, c, sa);\n\tsuffix_array::LCP(n,\
+    \ != s[i+h]) break;\n\t\t\t}\n\t\t\tlcp[rsa[i]-1] = h;\n\t\t}\n\t}\n};\n\n/*\n\
+    char c[100010];\n\nint main() {\t\n\tscanf(\"%s\", c);\n\tint n = strlen(c);\n\
+    \tint sa[n+1];\n\tint lcp[n];\n\n\tsuffix_array::SA_IS(n + 1, c, sa);\n\tsuffix_array::LCP(n,\
     \ c, sa, lcp);\n\n\tll ans = 0;\n\n\tfor (int i = 1; i <= n; i++) {\n\t\tll m\
     \ = n-sa[i], k = lcp[i-1];\n\t\tans += (k+1+m) * (m-k) / 2;\n\t}\n\n\tcout <<\
-    \ ans << endl;\n\treturn 0;\n}\n"
+    \ ans << endl;\n\treturn 0;\n}*/\n"
   code: "namespace suffix_array {\n\ttemplate<class T>\n\tvoid induce(int n, const\
     \ T s[], bool isL[], int sa[], int l_head[], int B)\n\t{\n\t\tint buf[B+2];\n\t\
     \tcopy_n(l_head, B+2, buf);\n\n\t\tfor (int i = 0; i < n; ++i) {\n\t\t\tif (sa[i]\
@@ -89,17 +89,17 @@ data:
     int rsa[n+1];\n\t\tfor (int i = 0; i <= n; i++) {\n\t\t\trsa[sa[i]] = i;\n\t\t\
     }\n\n\t\tint h = 0;\n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tint j = sa[rsa[i]-1];\n\
     \n\t\t\tif (h > 0) h--;\n\t\t\tfor (; j+h < n && i+h < n; h++) {\n\t\t\t\tif (s[j+h]\
-    \ != s[i+h]) break;\n\t\t\t}\n\t\t\tlcp[rsa[i]-1] = h;\n\t\t}\n\t}\n};\n\nchar\
-    \ c[100010];\n\nint main() {\t\n\tscanf(\"%s\", c);\n\tint n = strlen(c);\n\t\
-    int sa[n+1];\n\tint lcp[n];\n\n\tsuffix_array::SA_IS(n + 1, c, sa);\n\tsuffix_array::LCP(n,\
+    \ != s[i+h]) break;\n\t\t\t}\n\t\t\tlcp[rsa[i]-1] = h;\n\t\t}\n\t}\n};\n\n/*\n\
+    char c[100010];\n\nint main() {\t\n\tscanf(\"%s\", c);\n\tint n = strlen(c);\n\
+    \tint sa[n+1];\n\tint lcp[n];\n\n\tsuffix_array::SA_IS(n + 1, c, sa);\n\tsuffix_array::LCP(n,\
     \ c, sa, lcp);\n\n\tll ans = 0;\n\n\tfor (int i = 1; i <= n; i++) {\n\t\tll m\
     \ = n-sa[i], k = lcp[i-1];\n\t\tans += (k+1+m) * (m-k) / 2;\n\t}\n\n\tcout <<\
-    \ ans << endl;\n\treturn 0;\n}"
+    \ ans << endl;\n\treturn 0;\n}*/"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/string/SAIS.cpp
   requiredBy: []
-  timestamp: '2022-05-08 14:32:12+09:00'
+  timestamp: '2022-07-17 01:58:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/string/SAIS.cpp
