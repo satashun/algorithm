@@ -103,6 +103,14 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
     return os;
 }
 
+template <class T, class U>
+ostream& operator<<(ostream& os, const map<T, U>& MP) {
+    for (auto it = MP.begin(); it != MP.end(); ++it) {
+        os << "(" << it->first << ": " << it->second << ")";
+    }
+    return os;
+}
+
 template <class T>
 auto operator<<(ostream& os, T t) ->
     typename std::enable_if_t<internal::is_modint<T>::value, ostream&> {

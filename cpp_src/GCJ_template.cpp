@@ -92,6 +92,14 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
     return os;
 }
 
+template <class T, class U>
+ostream& operator<<(ostream& os, const map<T, U>& MP) {
+    for (auto it = MP.begin(); it != MP.end(); ++it) {
+        os << "(" << it->first << ": " << it->second << ")";
+    }
+    return os;
+}
+
 #ifdef LOCAL
 void debug_out() { cerr << endl; }
 template<typename Head, typename... Tail>

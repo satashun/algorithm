@@ -144,6 +144,7 @@ namespace suffix_array {
 	}
 };
 
+/*
 char c[100010];
 
 int main() {	
@@ -164,4 +165,4 @@ int main() {
 
 	cout << ans << endl;
 	return 0;
-}
+}*/

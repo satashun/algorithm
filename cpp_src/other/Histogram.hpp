@@ -1,5 +1,5 @@
-long long maximum_rectangle(const std::vector<int> &h)
-{
+// ** 691
+long long maximum_rectangle(const std::vector<int> &h) {
     int n = h.size();
     stack<int> s;
     vector<int> L(n), R(n);
