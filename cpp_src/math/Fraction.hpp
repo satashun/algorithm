@@ -9,6 +9,10 @@ struct Fraction {
     T a, b;
     Fraction(T _a = 0) : a(_a), b(1) {}
     Fraction(T _a, T _b) {
+        if (_b < 0) {
+            _a *= -1;
+            _b *= -1;
+        }
         T g = gcd(abs(_a), abs(_b));
         a = _a / g;
         b = _b / g;

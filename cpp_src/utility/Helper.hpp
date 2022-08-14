@@ -32,6 +32,25 @@ T powmod(T x, ll k, T m) {
 }
 
 template <class T>
+V<T> cumsum(const V<T>& vec) {
+    int n = vec.size();
+    V<T> res(n + 1);
+    rep(i, n) { res[i + 1] = res[i] + vec[i]; }
+    return res;
+}
+
+template <class T>
+V<int> compress(const V<T>& vec) {
+    int n = SZ(vec);
+    auto xs = vec;
+    mkuni(xs);
+    V<int> res(n);
+    rep(i, n) { res[i] = lower_bound(ALL(xs), vec[i]) - xs.begin(); }
+    return res;
+}
+
+// 0 <= vec[i] < n
+template <class T>
 ll inversion(const V<T>& vec) {
     int n = vec.size();
     BIT<int> bit(n + 10);

@@ -23,6 +23,11 @@ constexpr ll floor_sqrt(ll n) {
     return llround(trunc(floor(sqrt((long double)n))));
 }
 
+constexpr ll ceil_sqrt(ll n) {
+    if (n == 0) return 0;
+    return llround(trunc(ceil(sqrt((long double)n))));
+}
+
 // from USACO
 using ull = unsigned long long;
 using L = __uint128_t;

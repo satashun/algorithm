@@ -42,6 +42,13 @@ class Forest : public Graph<T> {
 };
 
 template <class T>
+Graph<T> read_tree(int n) {
+    Graph<T> g(n);
+    g.read(n - 1);
+    return g;
+}
+
+template <class T>
 pii find_diam(Graph<T>& g) {
     int r = 0;
     auto ds = bfs(g, r);

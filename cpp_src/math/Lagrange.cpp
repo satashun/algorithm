@@ -3,7 +3,7 @@
 // evaluate f(t)
 
 template <typename T>
-T lagrange_polynomial(const vector<T> &y, ll t) {
+T lagrange_interpolation(const vector<T> &y, ll t) {
     int N = y.size() - 1;
     if (t <= N) return y[t];
     T ret(0);

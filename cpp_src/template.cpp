@@ -21,6 +21,16 @@ auto make_vec(size_t a, Ts... ts) {
   return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));
 }
 
+template <typename T, typename V>
+void fill_vec(vector<T>& vec, const V& val, int len) {
+    vec.assign(len, val);
+}
+template <typename T, typename V, typename... Ts>
+void fill_vec(vector<T>& vec, const V& val, int len, Ts... ts) {
+    vec.resize(len),
+        for_each(begin(vec), end(vec), [&](T& v) { fill_vec(v, val, ts...); });
+}
+
 #define pb push_back
 #define eb emplace_back
 #define mp make_pair
@@ -37,6 +47,16 @@ constexpr ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n-1); }
 
 template<class T, class U> void chmin(T& t, const U& u) { if (t > u) t = u; }
 template<class T, class U> void chmax(T& t, const U& u) { if (t < u) t = u; }
+
+template <typename T>
+int arglb(const V<T>& v, const T& x) {
+    return distance(v.begin(), lower_bound(ALL(v), x));
+}
+
+template <typename T>
+int argub(const V<T>& v, const T& x) {
+    return distance(v.begin(), upper_bound(ALL(v), x));
+}
 
 template <class T>
 void mkuni(vector<T>& v) {
@@ -90,6 +110,17 @@ ostream& operator<<(ostream& os, const vector<T>& v) {
     return os;
 }
 
+template <class T>
+ostream& operator<<(ostream& os, const set<T>& ST) {
+    os << "{";
+    for (auto it = ST.begin(); it != ST.end(); ++it) {
+        if (it != ST.begin()) os << ",";
+        os << *it;
+    }
+    os << "}";
+    return os;
+}
+
 template <class T, class U>
 ostream& operator<<(ostream& os, const map<T, U>& MP) {
     for (auto it = MP.begin(); it != MP.end(); ++it) {
@@ -113,11 +144,15 @@ void debug_out(Head H, Tail... T) {
 #endif
 
 template <class T>
-void scan(vector<T>& v, T offset = T(0)) {
-    for (auto& x : v) {
-        cin >> x;
-        x += offset;
-    }
+V<T>& operator+=(V<T>& vec, const T& v) {
+    for (auto& x : vec) x += v;
+    return vec;
+}
+
+template <class T>
+V<T>& operator-=(V<T>& vec, const T& v) {
+    for (auto& x : vec) x -= v;
+    return vec;
 }
 
 // suc : 1 = newline, 2 = space
@@ -146,6 +181,15 @@ void show(Head H, Tail... T) {
     print(H, 2);
     show(T...);
 }
+
+int topbit(int t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }
+int topbit(ll t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }
+int botbit(int a) { return a == 0 ? 32 : __builtin_ctz(a); }
+int botbit(ll a) { return a == 0 ? 64 : __builtin_ctzll(a); }
+int popcount(int t) { return __builtin_popcount(t); }
+int popcount(ll t) { return __builtin_popcountll(t); }
+int bit_parity(int t) { return __builtin_parity(t); }
+int bit_parity(ll t) { return __builtin_parityll(t); }
 
 struct prepare_io {
     prepare_io() {
