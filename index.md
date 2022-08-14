@@ -291,12 +291,15 @@ data:
     - icon: ':warning:'
       path: cpp_src/utility/BitOp.hpp
       title: cpp_src/utility/BitOp.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: cpp_src/utility/Helper.hpp
       title: cpp_src/utility/Helper.hpp
     - icon: ':warning:'
       path: cpp_src/utility/RandomLib.hpp
       title: cpp_src/utility/RandomLib.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp_src/utility/RectangleSum1D.hpp
+      title: cpp_src/utility/RectangleSum1D.hpp
   - name: test/codechef
     pages:
     - icon: ':warning:'
@@ -403,7 +406,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yosupo/static_range_sum.test.cpp
       title: test/yosupo/static_range_sum.test.cpp
     - icon: ':heavy_check_mark:'

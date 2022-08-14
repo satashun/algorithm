@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: cpp_src/utility/Helper.hpp
-    title: cpp_src/utility/Helper.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp_src/utility/RectangleSum1D.hpp
+    title: cpp_src/utility/RectangleSum1D.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
@@ -60,26 +60,13 @@ data:
     }\n\nstruct prepare_io {\n    prepare_io() {\n        cin.tie(nullptr);\n    \
     \    ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
     \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#line\
-    \ 1 \"cpp_src/utility/Helper.hpp\"\ntemplate <class T>\nvoid make_unique(vector<T>&\
-    \ v) {\n    sort(v.begin(), v.end());\n    v.erase(unique(v.begin(), v.end()),\
-    \ v.end());\n}\n\ntemplate <class T>\nT pow(T x, ll k) {\n    T res(1);\n    while\
-    \ (k) {\n        if (k & 1) {\n            res = res * x;\n        }\n       \
-    \ k >>= 1;\n        x = x * x;\n    }\n    return res;\n}\n\n// x^k mod m\ntemplate\
-    \ <class T>\nT powmod(T x, ll k, T m) {\n    T res(1);\n    while (k) {\n    \
-    \    if (k & 1) {\n            res = res * x % m;\n        }\n        k >>= 1;\n\
-    \        x = x * x % m;\n    }\n    return res;\n}\n\ntemplate <class T>\nV<T>\
-    \ cumsum(const V<T>& vec) {\n    int n = vec.size();\n    V<T> res(n + 1);\n \
-    \   rep(i, n) { res[i + 1] = res[i] + vec[i]; }\n    return res;\n}\n\ntemplate\
-    \ <class T>\nV<int> compress(const V<T>& vec) {\n    int n = SZ(vec);\n    auto\
-    \ xs = vec;\n    mkuni(xs);\n    V<int> res(n);\n    rep(i, n) { res[i] = lower_bound(ALL(xs),\
-    \ vec[i]) - xs.begin(); }\n    return res;\n}\n\n// 0 <= vec[i] < n\ntemplate\
-    \ <class T>\nll inversion(const V<T>& vec) {\n    int n = vec.size();\n    BIT<int>\
-    \ bit(n + 10);\n    ll res = 0;\n    rep(i, n) {\n        res += i - bit.sum(vec[i]\
-    \ + 1);\n        bit.add(vec[i], 1);\n    }\n    return res;\n}\n#line 156 \"\
-    test/yosupo/static_range_sum.test.cpp\"\n#undef call_from_test\n\nint main() {\n\
-    \    int N, Q;\n    cin >> N >> Q;\n    V<ll> a(N);\n    cin >> a;\n    auto ps\
-    \ = cumsum(a);\n    rep(i, Q) {\n        int l, r;\n        cin >> l >> r;\n \
-    \       show(ps[r] - ps[l]);\n    }\n    return 0;\n}\n"
+    \ 1 \"cpp_src/utility/RectangleSum1D.hpp\"\ntemplate <class T>\nV<T> cumsum(const\
+    \ V<T>& vec) {\n    int n = vec.size();\n    V<T> res(n + 1);\n    rep(i, n) {\
+    \ res[i + 1] = res[i] + vec[i]; }\n    return res;\n}\n#line 156 \"test/yosupo/static_range_sum.test.cpp\"\
+    \n#undef call_from_test\n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n \
+    \   V<ll> a(N);\n    cin >> a;\n    auto ps = cumsum(a);\n    rep(i, Q) {\n  \
+    \      int l, r;\n        cin >> l >> r;\n        show(ps[r] - ps[l]);\n    }\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#pragma\
     \ region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"\
     unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing uint\
@@ -125,17 +112,17 @@ data:
     }\n\nstruct prepare_io {\n    prepare_io() {\n        cin.tie(nullptr);\n    \
     \    ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
     \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#include\
-    \ \"../../cpp_src/utility/Helper.hpp\"\n#undef call_from_test\n\nint main() {\n\
-    \    int N, Q;\n    cin >> N >> Q;\n    V<ll> a(N);\n    cin >> a;\n    auto ps\
-    \ = cumsum(a);\n    rep(i, Q) {\n        int l, r;\n        cin >> l >> r;\n \
-    \       show(ps[r] - ps[l]);\n    }\n    return 0;\n}"
+    \ \"../../cpp_src/utility/RectangleSum1D.hpp\"\n#undef call_from_test\n\nint main()\
+    \ {\n    int N, Q;\n    cin >> N >> Q;\n    V<ll> a(N);\n    cin >> a;\n    auto\
+    \ ps = cumsum(a);\n    rep(i, Q) {\n        int l, r;\n        cin >> l >> r;\n\
+    \        show(ps[r] - ps[l]);\n    }\n    return 0;\n}"
   dependsOn:
-  - cpp_src/utility/Helper.hpp
+  - cpp_src/utility/RectangleSum1D.hpp
   isVerificationFile: true
   path: test/yosupo/static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-08-15 00:48:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-08-15 00:57:39+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_sum.test.cpp
 layout: document
