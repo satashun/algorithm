@@ -152,7 +152,7 @@ struct prepare_io {
 #pragma endregion satashun
 
 #define call_from_test
-#include "../../cpp_src/utility/Helper.hpp"
+#include "../../cpp_src/utility/RectangleSum1D.hpp"
 #undef call_from_test
 
 int main() {
