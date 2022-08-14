@@ -291,7 +291,7 @@ data:
     - icon: ':warning:'
       path: cpp_src/utility/BitOp.hpp
       title: cpp_src/utility/BitOp.hpp
-    - icon: ':warning:'
+    - icon: ':x:'
       path: cpp_src/utility/Helper.hpp
       title: cpp_src/utility/Helper.hpp
     - icon: ':warning:'
