@@ -32,9 +32,6 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/PBDS.hpp
       title: cpp_src/data_structure/PBDS.hpp
-    - icon: ':heavy_check_mark:'
-      path: cpp_src/data_structure/RangeSum1D.hpp
-      title: cpp_src/data_structure/RangeSum1D.hpp
     - icon: ':warning:'
       path: cpp_src/data_structure/SegmentTree.hpp
       title: cpp_src/data_structure/SegmentTree.hpp
@@ -47,6 +44,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/Treap.cpp
       title: cpp_src/data_structure/Treap.cpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/WeightedUnion.cpp
+      title: cpp_src/data_structure/WeightedUnion.cpp
   - name: cpp_src/data_structure/SegtreeHelper
     pages:
     - icon: ':warning:'
@@ -211,6 +211,9 @@ data:
       path: cpp_src/number_theory/DefiniteMillerRabin.hpp
       title: cpp_src/number_theory/DefiniteMillerRabin.hpp
     - icon: ':warning:'
+      path: cpp_src/number_theory/EnumQuotient.hpp
+      title: cpp_src/number_theory/EnumQuotient.hpp
+    - icon: ':warning:'
       path: cpp_src/number_theory/Factorize.hpp
       title: cpp_src/number_theory/Factorize.hpp
     - icon: ':warning:'
@@ -237,8 +240,8 @@ data:
       path: cpp_src/other/CountSubsequence.hpp
       title: cpp_src/other/CountSubsequence.hpp
     - icon: ':warning:'
-      path: cpp_src/other/EnumQuotient.hpp
-      title: cpp_src/other/EnumQuotient.hpp
+      path: cpp_src/other/DigitalClock.cpp
+      title: cpp_src/other/DigitalClock.cpp
     - icon: ':warning:'
       path: cpp_src/other/FWT.hpp
       title: cpp_src/other/FWT.hpp
@@ -286,8 +289,8 @@ data:
   - name: cpp_src/utility
     pages:
     - icon: ':warning:'
-      path: cpp_src/utility/Builtin.hpp
-      title: cpp_src/utility/Builtin.hpp
+      path: cpp_src/utility/BitOp.hpp
+      title: cpp_src/utility/BitOp.hpp
     - icon: ':warning:'
       path: cpp_src/utility/Helper.hpp
       title: cpp_src/utility/Helper.hpp
@@ -400,7 +403,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/shortest_path.test.cpp
       title: test/yosupo/shortest_path.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/static_range_sum.test.cpp
       title: test/yosupo/static_range_sum.test.cpp
     - icon: ':heavy_check_mark:'

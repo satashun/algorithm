@@ -8,24 +8,24 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/other/EnumQuotient.hpp\"\nV<pair<ll, ll>> enum_quotient(ll\
-    \ N) {\n    V<pair<ll, ll>> res;\n    ll l = 1;\n    while (l <= N) {\n      \
-    \  ll r = N / (N / l) + 1;\n        //[l, r)\n        res.emplace_back(l, r);\n\
-    \        l = r;\n    }\n    return res;\n}\n"
+  bundledCode: "#line 1 \"cpp_src/number_theory/EnumQuotient.hpp\"\nV<pair<ll, ll>>\
+    \ enum_quotient(ll N) {\n    V<pair<ll, ll>> res;\n    ll l = 1;\n    while (l\
+    \ <= N) {\n        ll r = N / (N / l) + 1;\n        //[l, r)\n        res.emplace_back(l,\
+    \ r);\n        l = r;\n    }\n    return res;\n}\n"
   code: "V<pair<ll, ll>> enum_quotient(ll N) {\n    V<pair<ll, ll>> res;\n    ll l\
     \ = 1;\n    while (l <= N) {\n        ll r = N / (N / l) + 1;\n        //[l, r)\n\
     \        res.emplace_back(l, r);\n        l = r;\n    }\n    return res;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/other/EnumQuotient.hpp
+  path: cpp_src/number_theory/EnumQuotient.hpp
   requiredBy: []
-  timestamp: '2022-02-12 18:33:41+09:00'
+  timestamp: '2022-08-15 00:42:44+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/other/EnumQuotient.hpp
+documentation_of: cpp_src/number_theory/EnumQuotient.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/other/EnumQuotient.hpp
-- /library/cpp_src/other/EnumQuotient.hpp.html
-title: cpp_src/other/EnumQuotient.hpp
+- /library/cpp_src/number_theory/EnumQuotient.hpp
+- /library/cpp_src/number_theory/EnumQuotient.hpp.html
+title: cpp_src/number_theory/EnumQuotient.hpp
 ---

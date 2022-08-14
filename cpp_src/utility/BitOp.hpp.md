@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: '#line 1 "cpp_src/utility/Builtin.hpp"
+  bundledCode: '#line 1 "cpp_src/utility/BitOp.hpp"
 
     int topbit(int t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }
 
@@ -44,15 +44,15 @@ data:
     int bit_parity(ll t) { return __builtin_parityll(t); }'
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/utility/Builtin.hpp
+  path: cpp_src/utility/BitOp.hpp
   requiredBy: []
-  timestamp: '2021-08-30 10:48:20+09:00'
+  timestamp: '2022-08-15 00:42:44+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/utility/Builtin.hpp
+documentation_of: cpp_src/utility/BitOp.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/utility/Builtin.hpp
-- /library/cpp_src/utility/Builtin.hpp.html
-title: cpp_src/utility/Builtin.hpp
+- /library/cpp_src/utility/BitOp.hpp
+- /library/cpp_src/utility/BitOp.hpp.html
+title: cpp_src/utility/BitOp.hpp
 ---
