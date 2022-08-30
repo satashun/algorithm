@@ -50,9 +50,14 @@ data:
     \ << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T, class\
     \ U>\nostream& operator<<(ostream& os, const map<T, U>& MP) {\n    for (auto it\
     \ = MP.begin(); it != MP.end(); ++it) {\n        os << \"(\" << it->first << \"\
-    : \" << it->second << \")\";\n    }\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out()\
-    \ { cerr << endl; }\ntemplate<typename Head, typename... Tail>\nvoid debug_out(Head\
-    \ H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
+    : \" << it->second << \")\";\n    }\n    return os;\n}\n\nstring to_string(__int128_t\
+    \ x) {\n    if (x == 0) return \"0\";\n    string result;\n    if (x < 0) {\n\
+    \        result += \"-\";\n        x *= -1;\n    }\n    string t;\n    while (x)\
+    \ {\n        t.push_back('0' + x % 10);\n        x /= 10;\n    }\n    reverse(t.begin(),\
+    \ t.end());\n    return result + t;\n}\n\nostream& operator<<(ostream& o, __int128_t\
+    \ x) { return o << to_string(x); }\n\n\n#ifdef LOCAL\nvoid debug_out() { cerr\
+    \ << endl; }\ntemplate<typename Head, typename... Tail>\nvoid debug_out(Head H,\
+    \ Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
     \ cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n\
     #define dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n\
     #define debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class\
@@ -118,9 +123,14 @@ data:
     \ << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T, class\
     \ U>\nostream& operator<<(ostream& os, const map<T, U>& MP) {\n    for (auto it\
     \ = MP.begin(); it != MP.end(); ++it) {\n        os << \"(\" << it->first << \"\
-    : \" << it->second << \")\";\n    }\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out()\
-    \ { cerr << endl; }\ntemplate<typename Head, typename... Tail>\nvoid debug_out(Head\
-    \ H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
+    : \" << it->second << \")\";\n    }\n    return os;\n}\n\nstring to_string(__int128_t\
+    \ x) {\n    if (x == 0) return \"0\";\n    string result;\n    if (x < 0) {\n\
+    \        result += \"-\";\n        x *= -1;\n    }\n    string t;\n    while (x)\
+    \ {\n        t.push_back('0' + x % 10);\n        x /= 10;\n    }\n    reverse(t.begin(),\
+    \ t.end());\n    return result + t;\n}\n\nostream& operator<<(ostream& o, __int128_t\
+    \ x) { return o << to_string(x); }\n\n\n#ifdef LOCAL\nvoid debug_out() { cerr\
+    \ << endl; }\ntemplate<typename Head, typename... Tail>\nvoid debug_out(Head H,\
+    \ Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
     \ cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n\
     #define dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n\
     #define debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class\
@@ -148,7 +158,7 @@ data:
   isVerificationFile: false
   path: cpp_src/template.cpp
   requiredBy: []
-  timestamp: '2022-08-15 00:42:44+09:00'
+  timestamp: '2022-08-30 19:24:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/template.cpp

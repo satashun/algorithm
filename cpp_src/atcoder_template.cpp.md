@@ -53,7 +53,12 @@ data:
     }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const map<T,\
     \ U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it) {\n        os\
     \ << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n    return os;\n\
-    }\n\ntemplate <class T>\nauto operator<<(ostream& os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value,\
+    }\n\nstring to_string(__int128_t x) {\n    if (x == 0) return \"0\";\n    string\
+    \ result;\n    if (x < 0) {\n        result += \"-\";\n        x *= -1;\n    }\n\
+    \    string t;\n    while (x) {\n        t.push_back('0' + x % 10);\n        x\
+    \ /= 10;\n    }\n    reverse(t.begin(), t.end());\n    return result + t;\n}\n\
+    \nostream& operator<<(ostream& o, __int128_t x) { return o << to_string(x); }\n\
+    \n\ntemplate <class T>\nauto operator<<(ostream& os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value,\
     \ ostream&> {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out()\
     \ { cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
     \ H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
@@ -78,7 +83,8 @@ data:
     \ }\nint bit_parity(ll t) { return __builtin_parityll(t); }\n\nstruct prepare_io\
     \ {\n    prepare_io() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n#pragma endregion\
-    \ satashun\n\nint main() {\n    return 0;\n}\n"
+    \ satashun\n\nvoid slv() {\n\n}\n\nint main() {\n    int cases = 1;\n    //cin\
+    \ >> cases;\n    rep(i, cases) slv();\n\n    return 0;\n}\n"
   code: "#pragma region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC\
     \ optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\n#include <atcoder/modint>\n\
     using namespace std;\nusing namespace atcoder;\n\nusing uint = unsigned int;\n\
@@ -123,10 +129,15 @@ data:
     \ << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T, class\
     \ U>\nostream& operator<<(ostream& os, const map<T, U>& MP) {\n    for (auto it\
     \ = MP.begin(); it != MP.end(); ++it) {\n        os << \"(\" << it->first << \"\
-    : \" << it->second << \")\";\n    }\n    return os;\n}\n\ntemplate <class T>\n\
-    auto operator<<(ostream& os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value,\
-    \ ostream&> {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out()\
-    \ { cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
+    : \" << it->second << \")\";\n    }\n    return os;\n}\n\nstring to_string(__int128_t\
+    \ x) {\n    if (x == 0) return \"0\";\n    string result;\n    if (x < 0) {\n\
+    \        result += \"-\";\n        x *= -1;\n    }\n    string t;\n    while (x)\
+    \ {\n        t.push_back('0' + x % 10);\n        x /= 10;\n    }\n    reverse(t.begin(),\
+    \ t.end());\n    return result + t;\n}\n\nostream& operator<<(ostream& o, __int128_t\
+    \ x) { return o << to_string(x); }\n\n\ntemplate <class T>\nauto operator<<(ostream&\
+    \ os, T t) ->\n    typename std::enable_if_t<internal::is_modint<T>::value, ostream&>\
+    \ {\n    os << t.val();\n    return os;\n}\n\n#ifdef LOCAL\nvoid debug_out() {\
+    \ cerr << endl; }\ntemplate <typename Head, typename... Tail>\nvoid debug_out(Head\
     \ H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...)\
     \ \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n\
     #define dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n\
@@ -149,12 +160,13 @@ data:
     \ }\nint bit_parity(ll t) { return __builtin_parityll(t); }\n\nstruct prepare_io\
     \ {\n    prepare_io() {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n\
     \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n#pragma endregion\
-    \ satashun\n\nint main() {\n    return 0;\n}"
+    \ satashun\n\nvoid slv() {\n\n}\n\nint main() {\n    int cases = 1;\n    //cin\
+    \ >> cases;\n    rep(i, cases) slv();\n\n    return 0;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/atcoder_template.cpp
   requiredBy: []
-  timestamp: '2022-08-15 00:42:44+09:00'
+  timestamp: '2022-08-30 19:24:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/atcoder_template.cpp

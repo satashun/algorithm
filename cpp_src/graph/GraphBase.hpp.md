@@ -76,8 +76,8 @@ data:
   verifiedWith:
   - test/yukicoder/yukicoder-583.test.cpp
   - test/yosupo/two_edge_connected_components.test.cpp
-  - test/yosupo/scc.test.cpp
   - test/yosupo/shortest_path.test.cpp
+  - test/yosupo/scc.test.cpp
   - test/yosupo/lca.test.cpp
 documentation_of: cpp_src/graph/GraphBase.hpp
 layout: document
