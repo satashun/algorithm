@@ -14,6 +14,7 @@
 "test/yosupo/polynomial_taylor_shift.test.cpp": "2021-05-08 14:23:21 +0900",
 "test/yosupo/scc.test.cpp": "2022-07-02 19:40:56 +0900",
 "test/yosupo/shortest_path.test.cpp": "2022-08-15 00:42:44 +0900",
+"test/yosupo/static_range_sum.test.cpp": "2022-08-15 00:57:39 +0900",
 "test/yosupo/stirling_number_of_the_second_kind.test.cpp": "2021-05-01 18:46:49 +0900",
 "test/yosupo/two_edge_connected_components.test.cpp": "2022-07-02 19:40:56 +0900",
 "test/yosupo/unionfind.test.cpp": "2022-04-10 12:39:22 +0900",
