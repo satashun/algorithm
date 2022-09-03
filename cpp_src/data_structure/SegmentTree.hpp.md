@@ -28,7 +28,7 @@ data:
     \ = U::id(), rval = U::id();\n        for (l += sz, r += sz; l < r; l >>= 1, r\
     \ >>= 1) {\n            if (l & 1) lval = U::op(lval, dat[l++]);\n           \
     \ if (r & 1) rval = U::op(dat[--r], rval);\n        }\n        return U::op(lval,\
-    \ rval);\n    }\n\n    // https://atcoder.jp/contests/practice2/submissions/33977727\n\
+    \ rval);\n    }\n\n    // ABC194E\n    // https://atcoder.jp/contests/practice2/submissions/33977727\n\
     \    // https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp\n\
     \    // find max r s.t. f([l, r)) = true\n    template <class F>\n    int max_right(int\
     \ l, F f) const {\n        // assert(0 <= l && l <= _n);\n        // assert(f(U::id()));\n\
@@ -70,7 +70,7 @@ data:
     \ = U::id(), rval = U::id();\n        for (l += sz, r += sz; l < r; l >>= 1, r\
     \ >>= 1) {\n            if (l & 1) lval = U::op(lval, dat[l++]);\n           \
     \ if (r & 1) rval = U::op(dat[--r], rval);\n        }\n        return U::op(lval,\
-    \ rval);\n    }\n\n    // https://atcoder.jp/contests/practice2/submissions/33977727\n\
+    \ rval);\n    }\n\n    // ABC194E\n    // https://atcoder.jp/contests/practice2/submissions/33977727\n\
     \    // https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp\n\
     \    // find max r s.t. f([l, r)) = true\n    template <class F>\n    int max_right(int\
     \ l, F f) const {\n        // assert(0 <= l && l <= _n);\n        // assert(f(U::id()));\n\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: false
   path: cpp_src/data_structure/SegmentTree.hpp
   requiredBy: []
-  timestamp: '2022-08-15 00:42:44+09:00'
+  timestamp: '2022-09-03 23:41:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/data_structure/SegmentTree.hpp

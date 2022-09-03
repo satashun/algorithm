@@ -88,14 +88,18 @@ data:
     \ = anc[i][u];\n            }\n        }\n        if (u == v) return u;\n    \
     \    for (int i = lg - 1; i >= 0; --i) {\n            if (anc[i][u] != anc[i][v])\
     \ {\n                u = anc[i][u];\n                v = anc[i][v];\n        \
-    \    }\n        }\n        return anc[0][u];\n    }\n\n    int dist(int a, int\
-    \ b) {\n        int lc = query(a, b);\n        return dep[a] + dep[b] - dep[lc]\
-    \ * 2;\n    }\n};\n#line 120 \"test/yosupo/lca.test.cpp\"\n#undef call_from_test\n\
-    \nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N, &Q);\n    V<int> p(N);\n\
-    \    Graph<int> g(N);\n    for (int i = 1; i < N; ++i) {\n        scanf(\"%d\"\
-    , &p[i]);\n        g.add_edge(p[i], i);\n    }\n    LCA<int> lca(g, 0);\n    while\
-    \ (Q--) {\n        int a, b;\n        scanf(\"%d %d\", &a, &b);\n        int v\
-    \ = lca.query(a, b);\n        printf(\"%d\\n\", v);\n    }\n    return 0;\n}\n"
+    \    }\n        }\n        return anc[0][u];\n    }\n\n    // ABC267F\n    int\
+    \ lev_anc(int v, int k) {\n        if (dep[v] < k) return -1;\n        rep(i,\
+    \ lg) {\n            if (k >> i & 1) {\n                if (anc[i][v] == -1) return\
+    \ -1;\n                v = anc[i][v];\n            }\n        }\n        return\
+    \ v;\n    }\n\n    int dist(int a, int b) {\n        int lc = query(a, b);\n \
+    \       return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};\n#line 120 \"test/yosupo/lca.test.cpp\"\
+    \n#undef call_from_test\n\nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N,\
+    \ &Q);\n    V<int> p(N);\n    Graph<int> g(N);\n    for (int i = 1; i < N; ++i)\
+    \ {\n        scanf(\"%d\", &p[i]);\n        g.add_edge(p[i], i);\n    }\n    LCA<int>\
+    \ lca(g, 0);\n    while (Q--) {\n        int a, b;\n        scanf(\"%d %d\", &a,\
+    \ &b);\n        int v = lca.query(a, b);\n        printf(\"%d\\n\", v);\n    }\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n//#pragma GCC optimize(\"\
     Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
     using namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
@@ -144,7 +148,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 19:40:56+09:00'
+  timestamp: '2022-09-03 23:41:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

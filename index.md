@@ -142,6 +142,12 @@ data:
       path: cpp_src/graph/helper/MergingTree.hpp
       title: cpp_src/graph/helper/MergingTree.hpp
     - icon: ':warning:'
+      path: cpp_src/graph/helper/Retrograde.hpp
+      title: cpp_src/graph/helper/Retrograde.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/RevGraph.hpp
+      title: cpp_src/graph/helper/RevGraph.hpp
+    - icon: ':warning:'
       path: cpp_src/graph/helper/TwoColor.hpp
       title: cpp_src/graph/helper/TwoColor.hpp
   - name: cpp_src/math
@@ -356,6 +362,9 @@ data:
     - icon: ':warning:'
       path: test/yukicoder/1145.cpp
       title: test/yukicoder/1145.cpp
+    - icon: ':warning:'
+      path: test/yukicoder/1900.cpp
+      title: test/yukicoder/1900.cpp
   verificationCategories:
   - name: test/aoj
     pages:

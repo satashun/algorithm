@@ -28,8 +28,12 @@ data:
     \ }\n        }\n        if (u == v) return u;\n        for (int i = lg - 1; i\
     \ >= 0; --i) {\n            if (anc[i][u] != anc[i][v]) {\n                u =\
     \ anc[i][u];\n                v = anc[i][v];\n            }\n        }\n     \
-    \   return anc[0][u];\n    }\n\n    int dist(int a, int b) {\n        int lc =\
-    \ query(a, b);\n        return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};\n"
+    \   return anc[0][u];\n    }\n\n    // ABC267F\n    int lev_anc(int v, int k)\
+    \ {\n        if (dep[v] < k) return -1;\n        rep(i, lg) {\n            if\
+    \ (k >> i & 1) {\n                if (anc[i][v] == -1) return -1;\n          \
+    \      v = anc[i][v];\n            }\n        }\n        return v;\n    }\n\n\
+    \    int dist(int a, int b) {\n        int lc = query(a, b);\n        return dep[a]\
+    \ + dep[b] - dep[lc] * 2;\n    }\n};\n"
   code: "template <class E>\nstruct LCA {\n    VV<int> anc;\n    V<int> dep;\n   \
     \ int lg;\n    const Graph<E>& g;\n\n    LCA(const Graph<E>& g, int root = 0)\
     \ : g(g) {\n        int n = g.size();\n        lg = 1;\n        while ((1 << lg)\
@@ -46,14 +50,17 @@ data:
     \ = anc[i][u];\n            }\n        }\n        if (u == v) return u;\n    \
     \    for (int i = lg - 1; i >= 0; --i) {\n            if (anc[i][u] != anc[i][v])\
     \ {\n                u = anc[i][u];\n                v = anc[i][v];\n        \
-    \    }\n        }\n        return anc[0][u];\n    }\n\n    int dist(int a, int\
-    \ b) {\n        int lc = query(a, b);\n        return dep[a] + dep[b] - dep[lc]\
-    \ * 2;\n    }\n};"
+    \    }\n        }\n        return anc[0][u];\n    }\n\n    // ABC267F\n    int\
+    \ lev_anc(int v, int k) {\n        if (dep[v] < k) return -1;\n        rep(i,\
+    \ lg) {\n            if (k >> i & 1) {\n                if (anc[i][v] == -1) return\
+    \ -1;\n                v = anc[i][v];\n            }\n        }\n        return\
+    \ v;\n    }\n\n    int dist(int a, int b) {\n        int lc = query(a, b);\n \
+    \       return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/LCA.hpp
   requiredBy: []
-  timestamp: '2021-10-28 16:07:17+09:00'
+  timestamp: '2022-09-03 23:41:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp
