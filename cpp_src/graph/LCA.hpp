@@ -49,6 +49,18 @@ struct LCA {
         return anc[0][u];
     }
 
+    // ABC267F
+    int lev_anc(int v, int k) {
+        if (dep[v] < k) return -1;
+        rep(i, lg) {
+            if (k >> i & 1) {
+                if (anc[i][v] == -1) return -1;
+                v = anc[i][v];
+            }
+        }
+        return v;
+    }
+
     int dist(int a, int b) {
         int lc = query(a, b);
         return dep[a] + dep[b] - dep[lc] * 2;

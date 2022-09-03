@@ -1,3 +1,30 @@
+// ABC264G
+template <class T>
+V<T> bellman_ford(const Graph<T>& g, int s = 0) {
+    const auto INF = numeric_limits<T>::max();
+    int n = g.size();
+
+    V<T> ds(n, INF);
+    ds[s] = 0;
+
+    rep(i, n) {
+        rep(v, n) {
+            for (auto& e : g[v]) {
+                if (ds[e.from] == INF) continue;
+                chmin(ds[e.to], ds[e.from] + e.cost);
+            }
+        }
+    }
+
+    rep(v, n) {
+        for (auto& e : g[v]) {
+            if (ds[e.from] == INF) continue;
+            if (ds[e.from] + e.cost < ds[e.to]) return V<T>();
+        }
+    }
+    return ds;
+}
+
 // cost = 1 or tree
 template <class T>
 V<T> bfs(const Graph<T>& g, int s = 0) {

@@ -1,3 +1,5 @@
+
+// ABC209D
 template <class T>
 class Forest : public Graph<T> {
    public:
@@ -8,7 +10,7 @@ class Forest : public Graph<T> {
     V<int> in, ot, dep, par;
     V<T> dist;
 
-    Forest(int n) : Graph<T>(n) {}
+    Forest(int n) : Graph<T>(n) { init(); }
 
     void init() {
         int sz = g.size();

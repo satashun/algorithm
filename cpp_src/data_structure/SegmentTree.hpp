@@ -54,6 +54,7 @@ struct segtree {
         return U::op(lval, rval);
     }
 
+    // ABC194E
     // https://atcoder.jp/contests/practice2/submissions/33977727
     // https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp
     // find max r s.t. f([l, r)) = true
