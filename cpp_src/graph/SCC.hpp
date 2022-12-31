@@ -4,7 +4,7 @@
 // g_comp : compressed DAG
 
 template <class T>
-struct SCC : Graph<T> {
+struct SCC : public Graph<T> {
    public:
     using Graph<T>::Graph;
     using Graph<T>::g;

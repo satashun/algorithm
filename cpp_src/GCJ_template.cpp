@@ -123,6 +123,17 @@ ostream& operator<<(ostream& os, const set<T>& ST) {
     return os;
 }
 
+template <class T>
+ostream& operator<<(ostream& os, const multiset<T>& ST) {
+    os << "{";
+    for (auto it = ST.begin(); it != ST.end(); ++it) {
+        if (it != ST.begin()) os << ",";
+        os << *it;
+    }
+    os << "}";
+    return os;
+}
+
 template <class T, class U>
 ostream& operator<<(ostream& os, const map<T, U>& MP) {
     for (auto it = MP.begin(); it != MP.end(); ++it) {

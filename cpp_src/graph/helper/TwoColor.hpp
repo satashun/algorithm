@@ -1,3 +1,4 @@
+// ABC282D
 template <class T>
 pair<bool, V<int>> two_color(const Graph<T>& g) {
     int n = g.size();
