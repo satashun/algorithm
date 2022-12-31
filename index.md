@@ -211,8 +211,8 @@ data:
       path: cpp_src/number_theory/Brute.hpp
       title: cpp_src/number_theory/Brute.hpp
     - icon: ':warning:'
-      path: cpp_src/number_theory/CRT.cpp
-      title: cpp_src/number_theory/CRT.cpp
+      path: cpp_src/number_theory/CRT.hpp
+      title: cpp_src/number_theory/CRT.hpp
     - icon: ':warning:'
       path: cpp_src/number_theory/DefiniteMillerRabin.hpp
       title: cpp_src/number_theory/DefiniteMillerRabin.hpp
@@ -255,6 +255,9 @@ data:
       path: cpp_src/other/FastTransformation.cpp
       title: cpp_src/other/FastTransformation.cpp
     - icon: ':warning:'
+      path: cpp_src/other/FindMajority.hpp
+      title: cpp_src/other/FindMajority.hpp
+    - icon: ':warning:'
       path: cpp_src/other/Histogram.hpp
       title: cpp_src/other/Histogram.hpp
     - icon: ':heavy_check_mark:'
@@ -266,6 +269,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/RLE.hpp
       title: cpp_src/other/RLE.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/TopKset.hpp
+      title: cpp_src/other/TopKset.hpp
   - name: cpp_src/string
     pages:
     - icon: ':warning:'

@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/number_theory/CRT.cpp\"\n/// g:gcd(a, b), ax+by=g\n\
+  bundledCode: "#line 1 \"cpp_src/number_theory/CRT.hpp\"\n/// g:gcd(a, b), ax+by=g\n\
     struct EG { ll g, x, y; };\n\nEG ext_gcd(ll a, ll b) {\n\tif (b == 0) {\n\t\t\
     if (a >= 0) return EG{a, 1, 0};\n\t\telse return EG{-a, -1, 0};\n\t} else {\n\t\
     \tauto e = ext_gcd(b, a % b);\n\t\treturn EG{e.g, e.y, e.x - a / b * e.y};\n\t\
@@ -31,15 +31,15 @@ data:
     \ / g;\n\t}\n\treturn {(r % m + m) % m, m};\n}"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/number_theory/CRT.cpp
+  path: cpp_src/number_theory/CRT.hpp
   requiredBy: []
-  timestamp: '2022-02-12 18:33:41+09:00'
+  timestamp: '2022-12-31 14:31:38+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/number_theory/CRT.cpp
+documentation_of: cpp_src/number_theory/CRT.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/number_theory/CRT.cpp
-- /library/cpp_src/number_theory/CRT.cpp.html
-title: cpp_src/number_theory/CRT.cpp
+- /library/cpp_src/number_theory/CRT.hpp
+- /library/cpp_src/number_theory/CRT.hpp.html
+title: cpp_src/number_theory/CRT.hpp
 ---

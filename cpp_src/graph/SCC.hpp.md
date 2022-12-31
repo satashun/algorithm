@@ -13,11 +13,11 @@ data:
     links: []
   bundledCode: "#line 1 \"cpp_src/graph/SCC.hpp\"\n// ABC214H\n// ABC245F\n// if i\
     \ -> j, then cmp[i] <= cmp[j]\n// g_comp : compressed DAG\n\ntemplate <class T>\n\
-    struct SCC : Graph<T> {\n   public:\n    using Graph<T>::Graph;\n    using Graph<T>::g;\n\
-    \    Graph<T> rg;\n\n    V<int> vs, cmp, vis;\n    VV<int> comps;\n\n    // allow\
-    \ multiple edges\n    Graph<T> g_comp;\n\n    void dfs(int v) {\n        vis[v]\
-    \ = true;\n\n        for (auto e : g[v]) {\n            if (!vis[e.to]) {\n  \
-    \              dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n\
+    struct SCC : public Graph<T> {\n   public:\n    using Graph<T>::Graph;\n    using\
+    \ Graph<T>::g;\n    Graph<T> rg;\n\n    V<int> vs, cmp, vis;\n    VV<int> comps;\n\
+    \n    // allow multiple edges\n    Graph<T> g_comp;\n\n    void dfs(int v) {\n\
+    \        vis[v] = true;\n\n        for (auto e : g[v]) {\n            if (!vis[e.to])\
+    \ {\n                dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n\
     \    }\n\n    void rdfs(int v, int k) {\n        vis[v] = true;\n        cmp[v]\
     \ = k;\n\n        for (auto e : rg[v]) {\n            if (!vis[e.to]) {\n    \
     \            rdfs(e.to, k);\n            }\n        }\n    }\n\n    void init()\
@@ -33,7 +33,7 @@ data:
     \ : g[i]) {\n                if (cmp[i] != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i],\
     \ cmp[e.to], e.cost);\n                }\n            }\n        }\n    }\n};\n"
   code: "// ABC214H\n// ABC245F\n// if i -> j, then cmp[i] <= cmp[j]\n// g_comp :\
-    \ compressed DAG\n\ntemplate <class T>\nstruct SCC : Graph<T> {\n   public:\n\
+    \ compressed DAG\n\ntemplate <class T>\nstruct SCC : public Graph<T> {\n   public:\n\
     \    using Graph<T>::Graph;\n    using Graph<T>::g;\n    Graph<T> rg;\n\n    V<int>\
     \ vs, cmp, vis;\n    VV<int> comps;\n\n    // allow multiple edges\n    Graph<T>\
     \ g_comp;\n\n    void dfs(int v) {\n        vis[v] = true;\n\n        for (auto\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/SCC.hpp
   requiredBy: []
-  timestamp: '2022-05-22 15:10:18+09:00'
+  timestamp: '2022-12-31 14:31:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/scc.test.cpp
