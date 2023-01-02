@@ -10,6 +10,21 @@ T div_ceil(T a, T b) {
     return a / b + (((a ^ b) > 0 && a % b != 0) ? 1 : 0);
 }
 
+// x^k mod m
+template <class T, class U>
+T powmod(T x, U k, T m) {
+    x %= m;
+    T res = 1 % m;
+    while (k) {
+        if (k & 1) {
+            res = res * x % m;
+        }
+        k >>= 1;
+        x = x * x % m;
+    }
+    return res;
+}
+
 // x mod m, negative allowed
 template <class T>
 T mod(T x, T m) {
