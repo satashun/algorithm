@@ -156,6 +156,9 @@ data:
       path: cpp_src/math/BostanMori.hpp
       title: cpp_src/math/BostanMori.hpp
     - icon: ':warning:'
+      path: cpp_src/math/EnumBasis.hpp
+      title: cpp_src/math/EnumBasis.hpp
+    - icon: ':warning:'
       path: cpp_src/math/FFTArbitraryMod.hpp
       title: cpp_src/math/FFTArbitraryMod.hpp
     - icon: ':warning:'
@@ -236,6 +239,9 @@ data:
       title: cpp_src/number_theory/LinearSieve.hpp
   - name: cpp_src/other
     pages:
+    - icon: ':warning:'
+      path: cpp_src/other/BSGS.hpp
+      title: cpp_src/other/BSGS.hpp
     - icon: ':warning:'
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
