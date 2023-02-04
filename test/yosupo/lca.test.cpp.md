@@ -69,7 +69,7 @@ data:
     \       bool weighted = false) {\n        for (int i = 0; i < M; i++) {\n    \
     \        int a, b;\n            cin >> a >> b;\n            a += offset;\n   \
     \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
-    \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
+    \ >> c;\n            edges.emplace_back(a, b, c, i);\n            if (directed)\n\
     \                add_directed_edge(a, b, c);\n            else\n             \
     \   add_edge(a, b, c);\n        }\n    }\n};\n#line 1 \"cpp_src/graph/LCA.hpp\"\
     \ntemplate <class E>\nstruct LCA {\n    VV<int> anc;\n    V<int> dep;\n    int\
@@ -148,7 +148,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2022-09-03 23:41:09+09:00'
+  timestamp: '2023-02-04 17:43:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

@@ -93,7 +93,7 @@ data:
     \       bool weighted = false) {\n        for (int i = 0; i < M; i++) {\n    \
     \        int a, b;\n            cin >> a >> b;\n            a += offset;\n   \
     \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
-    \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
+    \ >> c;\n            edges.emplace_back(a, b, c, i);\n            if (directed)\n\
     \                add_directed_edge(a, b, c);\n            else\n             \
     \   add_edge(a, b, c);\n        }\n    }\n};\n#line 2 \"cpp_src/graph/EulerianTrail.hpp\"\
     \n// modified https://ei1333.github.io/library/graph/others/eulerian-trail.hpp\n\
@@ -200,7 +200,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yukicoder-583.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 20:53:22+09:00'
+  timestamp: '2023-02-04 17:43:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yukicoder-583.test.cpp

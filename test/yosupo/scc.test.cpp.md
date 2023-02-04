@@ -75,28 +75,28 @@ data:
     \       bool weighted = false) {\n        for (int i = 0; i < M; i++) {\n    \
     \        int a, b;\n            cin >> a >> b;\n            a += offset;\n   \
     \         b += offset;\n            T c = T(1);\n            if (weighted) cin\
-    \ >> c;\n            edges.emplace_back(a, b, c);\n            if (directed)\n\
+    \ >> c;\n            edges.emplace_back(a, b, c, i);\n            if (directed)\n\
     \                add_directed_edge(a, b, c);\n            else\n             \
     \   add_edge(a, b, c);\n        }\n    }\n};\n#line 1 \"cpp_src/graph/SCC.hpp\"\
     \n// ABC214H\n// ABC245F\n// if i -> j, then cmp[i] <= cmp[j]\n// g_comp : compressed\
-    \ DAG\n\ntemplate <class T>\nstruct SCC : public Graph<T> {\n   public:\n    using\
-    \ Graph<T>::Graph;\n    using Graph<T>::g;\n    Graph<T> rg;\n\n    V<int> vs,\
-    \ cmp, vis;\n    VV<int> comps;\n\n    // allow multiple edges\n    Graph<T> g_comp;\n\
-    \n    void dfs(int v) {\n        vis[v] = true;\n\n        for (auto e : g[v])\
-    \ {\n            if (!vis[e.to]) {\n                dfs(e.to);\n            }\n\
-    \        }\n\n        vs.push_back(v);\n    }\n\n    void rdfs(int v, int k) {\n\
-    \        vis[v] = true;\n        cmp[v] = k;\n\n        for (auto e : rg[v]) {\n\
-    \            if (!vis[e.to]) {\n                rdfs(e.to, k);\n            }\n\
-    \        }\n    }\n\n    void init() {\n        int n = g.size();\n        rg\
-    \ = Graph<T>(n);\n        rep(i, n) {\n            for (auto e : g[i]) {\n   \
-    \             rg.add_directed_edge(e.to, e.from, e.cost);\n            }\n   \
-    \     }\n\n        vs.clear();\n        cmp = V<int>(n);\n        vis = V<int>(n);\n\
-    \n        rep(v, n) if (!vis[v]) dfs(v);\n\n        fill(vis.begin(), vis.end(),\
-    \ false);\n\n        int k = 0;\n        reverse(vs.begin(), vs.end());\n\n  \
-    \      for (int v : vs) {\n            if (!vis[v]) {\n                rdfs(v,\
-    \ k++);\n            }\n        }\n\n        comps.resize(k);\n        rep(v,\
-    \ n) { comps[cmp[v]].push_back(v); }\n\n        g_comp = Graph<T>(k);\n\n    \
-    \    rep(i, n) {\n            for (auto e : g[i]) {\n                if (cmp[i]\
+    \ DAG\n// SCC<int> g;\n\ntemplate <class T>\nstruct SCC : public Graph<T> {\n\
+    \   public:\n    using Graph<T>::Graph;\n    using Graph<T>::g;\n    Graph<T>\
+    \ rg;\n\n    V<int> vs, cmp, vis;\n    VV<int> comps;\n\n    // allow multiple\
+    \ edges\n    Graph<T> g_comp;\n\n    void dfs(int v) {\n        vis[v] = true;\n\
+    \n        for (auto e : g[v]) {\n            if (!vis[e.to]) {\n             \
+    \   dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n    }\n\n\
+    \    void rdfs(int v, int k) {\n        vis[v] = true;\n        cmp[v] = k;\n\n\
+    \        for (auto e : rg[v]) {\n            if (!vis[e.to]) {\n             \
+    \   rdfs(e.to, k);\n            }\n        }\n    }\n\n    void init() {\n   \
+    \     int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n    \
+    \        for (auto e : g[i]) {\n                rg.add_directed_edge(e.to, e.from,\
+    \ e.cost);\n            }\n        }\n\n        vs.clear();\n        cmp = V<int>(n);\n\
+    \        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\n      \
+    \  fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n        reverse(vs.begin(),\
+    \ vs.end());\n\n        for (int v : vs) {\n            if (!vis[v]) {\n     \
+    \           rdfs(v, k++);\n            }\n        }\n\n        comps.resize(k);\n\
+    \        rep(v, n) { comps[cmp[v]].push_back(v); }\n\n        g_comp = Graph<T>(k);\n\
+    \n        rep(i, n) {\n            for (auto e : g[i]) {\n                if (cmp[i]\
     \ != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i], cmp[e.to],\
     \ e.cost);\n                }\n            }\n        }\n    }\n};\n#line 143\
     \ \"test/yosupo/scc.test.cpp\"\n#undef call_from_test\n\nint main() {\n    int\
@@ -156,7 +156,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-12-31 14:31:38+09:00'
+  timestamp: '2023-02-04 17:43:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

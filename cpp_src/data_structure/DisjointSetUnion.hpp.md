@@ -48,8 +48,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/ALDS1_11_D.test.cpp
-  - test/yukicoder/yukicoder-583.test.cpp
   - test/yosupo/unionfind.test.cpp
+  - test/yukicoder/yukicoder-583.test.cpp
 documentation_of: cpp_src/data_structure/DisjointSetUnion.hpp
 layout: document
 redirect_from:

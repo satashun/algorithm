@@ -33,6 +33,9 @@ data:
       path: cpp_src/data_structure/PBDS.hpp
       title: cpp_src/data_structure/PBDS.hpp
     - icon: ':warning:'
+      path: cpp_src/data_structure/RangeSet.hpp
+      title: cpp_src/data_structure/RangeSet.hpp
+    - icon: ':warning:'
       path: cpp_src/data_structure/SegmentTree.hpp
       title: cpp_src/data_structure/SegmentTree.hpp
     - icon: ':warning:'
@@ -121,6 +124,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
       title: cpp_src/graph/TwoEdgeConnectedComponents.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/TwoSat.hpp
+      title: cpp_src/graph/TwoSat.hpp
     - icon: ':warning:'
       path: cpp_src/graph/Visualize.hpp
       title: cpp_src/graph/Visualize.hpp
@@ -296,8 +302,8 @@ data:
       path: cpp_src/string/SAIS.cpp
       title: cpp_src/string/SAIS.cpp
     - icon: ':warning:'
-      path: cpp_src/string/Trie.cpp
-      title: cpp_src/string/Trie.cpp
+      path: cpp_src/string/Trie.hpp
+      title: cpp_src/string/Trie.hpp
     - icon: ':warning:'
       path: cpp_src/string/Trie_old.cpp
       title: cpp_src/string/Trie_old.cpp
