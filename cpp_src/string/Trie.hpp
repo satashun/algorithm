@@ -1,3 +1,4 @@
+// ref : https://ei1333.github.io/library/structure/trie/trie.hpp
 template <int char_size>
 struct TrieNode {
     array<int, char_size> nxt;
@@ -26,7 +27,7 @@ struct Trie {
 
     void update_child(int node, int child, int id) { ++nodes[node].exist; }
 
-    void add(const string &str, int str_index, int node_index, int id) {
+    void add(const string& str, int str_index, int node_index, int id) {
         if (str_index == str.size()) {
             update_direct(node_index, id);
         } else {
@@ -42,8 +43,9 @@ struct Trie {
         }
     }
 
-    void add(const string &str, int id) { add(str, 0, 0, id); }
-    void add(const string &str) { add(str, nodes[0].exist); }
+    void add(const string& str, int id) { add(str, 0, 0, id); }
+    void add(const string& str) { add(str, nodes[0].exist); }
 
     int count() const { return nodes[0].exist; }
+    int size() const { return nodes.size(); }
 };

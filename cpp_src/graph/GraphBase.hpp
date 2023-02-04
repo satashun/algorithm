@@ -49,7 +49,7 @@ class Graph {
             b += offset;
             T c = T(1);
             if (weighted) cin >> c;
-            edges.emplace_back(a, b, c);
+            edges.emplace_back(a, b, c, i);
             if (directed)
                 add_directed_edge(a, b, c);
             else

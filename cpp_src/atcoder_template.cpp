@@ -1,6 +1,6 @@
 #pragma region satashun
-//#pragma GCC optimize("Ofast")
-//#pragma GCC optimize("unroll-loops")
+// #pragma GCC optimize("Ofast")
+// #pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 
 #include <atcoder/modint>
@@ -29,13 +29,13 @@ auto make_vec(size_t a, Ts... ts) {
 }
 
 template <typename T, typename V>
-void fill_vec(vector<T>& vec, const V& val, int len) {
-    vec.assign(len, val);
+void fill_vec(T& v, const V& val) {
+    v = val;
 }
-template <typename T, typename V, typename... Ts>
-void fill_vec(vector<T>& vec, const V& val, int len, Ts... ts) {
-    vec.resize(len),
-        for_each(begin(vec), end(vec), [&](T& v) { fill_vec(v, val, ts...); });
+
+template <typename T, typename V>
+void fill_vec(vector<T>& vec, const V& val) {
+    for (auto& v : vec) fill_vec(v, val);
 }
 
 #define pb push_back
@@ -170,7 +170,6 @@ string to_string(__int128_t x) {
 }
 
 ostream& operator<<(ostream& o, __int128_t x) { return o << to_string(x); }
-
 
 template <class T>
 auto operator<<(ostream& os, T t) ->
