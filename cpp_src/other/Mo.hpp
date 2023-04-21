@@ -4,12 +4,19 @@
 // ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011
 // ref : https://nyaannyaan.github.io/library/misc/mo.hpp
 
+// O(NB + Q(N/B)) (B : numver of blocks)
+// set B = sqrt(Q) -> O(N sqrt(Q) * F)
+// F : cost of operation
+// ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011
+// ref : https://nyaannyaan.github.io/library/misc/mo.hpp
+// https://atcoder.jp/contests/abc293/submissions/39637410
+// my sub: https://atcoder.jp/contests/abc293/submissions/40402531
+
 struct Mo {
     V<int> left, right, order;
-    V<bool> v;
     int n, Bsize, nl, nr, ptr;
 
-    Mo(int n) : n(n), nl(0), nr(0), ptr(0), v(n) {}
+    Mo(int n) : n(n), nl(0), nr(0), ptr(0) {}
 
     //[l, r)
     void insert(int l, int r) {
@@ -42,17 +49,22 @@ struct Mo {
         return (order[ptr++]);
     }
 
-    void query(int p) {
-        v[p] = !v[p];
-        if (v[p])
-            add(p);
-        else
-            del(p);
+    void query(int p) {}
+
+    template <typename AL, typename AR, typename DL, typename DR, typename F>
+    void run(AL add_left, AR add_right, DL del_left, DR del_right, F f) {
+        nl = 0, nr = 0;
+        for (auto id : order) {
+            while (nl > left[id]) add_left(--nl);
+            while (nr < right[id]) add_right(nr++);
+            while (nl < left[id]) del_left(nl++);
+            while (nr > right[id]) del_right(--nr);
+            f(id);
+        }
     }
 
-    void add(int p) {
-    }
-
-    void del(int p) {
+    template <typename A, typename D, typename F>
+    void run(A add, D del, F f) {
+        run(add, add, del, del, f);
     }
 };

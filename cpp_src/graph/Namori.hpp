@@ -1,5 +1,5 @@
 // allow multiple components
-// ABC266F
+// ABC266F, ABC296E
 template <class T>
 class Namori : public Graph<T> {
    public:
@@ -41,7 +41,6 @@ class Namori : public Graph<T> {
     }
 
     void dfs2(int v, int p, int r) {
-        debug(v, p, r);
         rt[v] = r;
         for (auto e : g2[v]) {
             if (e.to != p) {
