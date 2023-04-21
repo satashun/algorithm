@@ -50,14 +50,19 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/WeightedUnion.cpp
       title: cpp_src/data_structure/WeightedUnion.cpp
-  - name: cpp_src/data_structure/SegtreeHelper
+  - name: cpp_src/data_structure/LazySegmentTreeHelper
     pages:
     - icon: ':warning:'
-      path: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
-      title: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
+      path: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
     - icon: ':warning:'
-      path: cpp_src/data_structure/SegtreeHelper/StarrySkyTreeSimple.hpp
-      title: cpp_src/data_structure/SegtreeHelper/StarrySkyTreeSimple.hpp
+      path: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTreeSimple.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTreeSimple.hpp
+  - name: cpp_src/data_structure/SegmentTreeHelper
+    pages:
+    - icon: ':warning:'
+      path: cpp_src/data_structure/SegmentTreeHelper/MaxPrefixSum.hpp
+      title: cpp_src/data_structure/SegmentTreeHelper/MaxPrefixSum.hpp
   - name: cpp_src/enumeration
     pages:
     - icon: ':warning:'
@@ -73,6 +78,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/BipartiteMatching.hpp
       title: cpp_src/graph/BipartiteMatching.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/CentroidDecomposition.hpp
+      title: cpp_src/graph/CentroidDecomposition.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/Dinic.hpp
       title: cpp_src/graph/Dinic.hpp
@@ -153,6 +161,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/graph/helper/RevGraph.hpp
       title: cpp_src/graph/helper/RevGraph.hpp
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/TopologicalSort.hpp
+      title: cpp_src/graph/helper/TopologicalSort.hpp
     - icon: ':warning:'
       path: cpp_src/graph/helper/TwoColor.hpp
       title: cpp_src/graph/helper/TwoColor.hpp

@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp\"\
+  bundledCode: "#line 1 \"cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp\"\
     \n// so called \"starry sky tree\" counting minimum\n// support range addition,\
     \ range minimum, range (count of minimum)\n// GCJ 2022 round 3 problem B\n\nconstexpr\
     \ ll INF = TEN(18);\n\nstruct U {\n    // (minimum, count)\n    using T1 = pair<ll,\
@@ -33,15 +33,15 @@ data:
     };"
   dependsOn: []
   isVerificationFile: false
-  path: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
+  path: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
   requiredBy: []
-  timestamp: '2022-07-02 19:40:56+09:00'
+  timestamp: '2023-04-22 00:40:06+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
+documentation_of: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
 layout: document
 redirect_from:
-- /library/cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
-- /library/cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp.html
-title: cpp_src/data_structure/SegtreeHelper/StarrySkyTree.hpp
+- /library/cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
+- /library/cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp.html
+title: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
 ---
