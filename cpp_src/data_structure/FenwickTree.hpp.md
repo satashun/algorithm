@@ -44,8 +44,8 @@ data:
   timestamp: '2021-12-30 18:51:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/point_add_range_sum.test.cpp
   - test/aoj/0343.test.cpp
+  - test/yosupo/point_add_range_sum.test.cpp
 documentation_of: cpp_src/data_structure/FenwickTree.hpp
 layout: document
 redirect_from:

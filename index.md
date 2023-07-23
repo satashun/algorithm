@@ -53,6 +53,9 @@ data:
   - name: cpp_src/data_structure/LazySegmentTreeHelper
     pages:
     - icon: ':warning:'
+      path: cpp_src/data_structure/LazySegmentTreeHelper/012Inversion.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/012Inversion.hpp
+    - icon: ':warning:'
       path: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
       title: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
     - icon: ':warning:'
@@ -199,6 +202,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp_src/math/Modular.hpp
       title: cpp_src/math/Modular.hpp
+    - icon: ':warning:'
+      path: cpp_src/math/ModularInclude.hpp
+      title: cpp_src/math/ModularInclude.hpp
     - icon: ':warning:'
       path: cpp_src/math/ModularOperation.hpp
       title: cpp_src/math/ModularOperation.hpp
