@@ -92,6 +92,10 @@ vector<int> sort_by(const vector<T>& v, bool increasing = true) {
     return res;
 }
 
+template <class T>
+auto operator<<(ostream& os, T t) ->
+    typename std::enable_if_t<internal::is_modint<T>::value, ostream&>;
+    
 template <class T, class U>
 istream& operator>>(istream& is, pair<T, U>& p) {
     is >> p.first >> p.second;
@@ -251,7 +255,8 @@ struct prepare_io {
 #pragma endregion satashun
 
 void slv() {
-
+    // input
+    // solve
 }
 
 int main() {
