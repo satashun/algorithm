@@ -1,6 +1,6 @@
 ---
 title: Binary GCD
-documentation_of: ../cpp_src/other/BinaryGCD.hpp
+documentation_of: ../cpp_src/number_theory/BinaryGCD.hpp
 ---
 
 bit shift 以外の除算を使わない GCD
