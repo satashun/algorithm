@@ -174,7 +174,7 @@ data:
   isVerificationFile: false
   path: cpp_src/atcoder_template.cpp
   requiredBy: []
-  timestamp: '2023-07-23 15:21:10+09:00'
+  timestamp: '2023-12-31 13:48:59+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/atcoder_template.cpp

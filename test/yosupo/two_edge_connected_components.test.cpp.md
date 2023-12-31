@@ -6,7 +6,7 @@ data:
     title: cpp_src/graph/GraphBase.hpp
   - icon: ':heavy_check_mark:'
     path: cpp_src/graph/LowLink.hpp
-    title: cpp_src/graph/LowLink.hpp
+    title: LowLink
   - icon: ':heavy_check_mark:'
     path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
     title: cpp_src/graph/TwoEdgeConnectedComponents.hpp
@@ -86,25 +86,25 @@ data:
     \ >> c;\n            edges.emplace_back(a, b, c, i);\n            if (directed)\n\
     \                add_directed_edge(a, b, c);\n            else\n             \
     \   add_edge(a, b, c);\n        }\n    }\n};\n#line 1 \"cpp_src/graph/LowLink.hpp\"\
-    \n// based on ei1333\n// allow self loops, multiple edges\ntemplate <class T>\n\
-    struct LowLink : Graph<T> {\n   public:\n    using Graph<T>::Graph;\n    using\
-    \ Graph<T>::g;\n    vector<int> ord, low, articulation;\n    vector<Edge<T>> bridge;\n\
-    \n    virtual void build() {\n        used.assign(g.size(), 0);\n        ord.assign(g.size(),\
-    \ 0);\n        low.assign(g.size(), 0);\n        int k = 0;\n        for (int\
-    \ i = 0; i < g.size(); i++) {\n            if (!used[i]) dfs(i, -1, k);\n    \
-    \    }\n    }\n\n   private:\n    vector<int> used;\n\n    void dfs(int v, int\
-    \ par, int& k) {\n        used[v] = true;\n        low[v] = ord[v] = k++;\n  \
-    \      bool is_articulation = false, seen = false;\n        int cnt = 0;\n   \
-    \     for (auto& e : g[v]) {\n            if (e.to == par && !exchange(seen, true))\
-    \ {\n                continue;\n            }\n            if (!used[e.to]) {\n\
-    \                ++cnt;\n                dfs(e.to, v, k);\n                low[v]\
-    \ = min(low[v], low[e.to]);\n                is_articulation |= (par >= 0 && low[e.to]\
-    \ >= ord[v]);\n                if (ord[v] < low[e.to]) bridge.emplace_back(e);\n\
-    \            } else {\n                low[v] = min(low[v], ord[e.to]);\n    \
-    \        }\n        }\n        is_articulation |= (par == -1 && cnt > 1);\n  \
-    \      if (is_articulation) articulation.push_back(v);\n    }\n};\n#line 1 \"\
-    cpp_src/graph/TwoEdgeConnectedComponents.hpp\"\n// based on ei1333\n// tree :\
-    \ u-v -> comp[u]-comp[v]\ntemplate <class T>\nstruct TwoEdgeConnectedComponents\
+    \n/**\n * @docs docs/LowLink.md\n */\n\n// based on ei1333\n// allow self loops,\
+    \ multiple edges\ntemplate <class T>\nstruct LowLink : Graph<T> {\n   public:\n\
+    \    using Graph<T>::Graph;\n    using Graph<T>::g;\n    vector<int> ord, low,\
+    \ articulation;\n    vector<Edge<T>> bridge;\n\n    virtual void build() {\n \
+    \       used.assign(g.size(), 0);\n        ord.assign(g.size(), 0);\n        low.assign(g.size(),\
+    \ 0);\n        int k = 0;\n        for (int i = 0; i < g.size(); i++) {\n    \
+    \        if (!used[i]) dfs(i, -1, k);\n        }\n    }\n\n   private:\n    vector<int>\
+    \ used;\n\n    void dfs(int v, int par, int& k) {\n        used[v] = true;\n \
+    \       low[v] = ord[v] = k++;\n        bool is_articulation = false, seen = false;\n\
+    \        int cnt = 0;\n        for (auto& e : g[v]) {\n            if (e.to ==\
+    \ par && !exchange(seen, true)) {\n                continue;\n            }\n\
+    \            if (!used[e.to]) {\n                ++cnt;\n                dfs(e.to,\
+    \ v, k);\n                low[v] = min(low[v], low[e.to]);\n                is_articulation\
+    \ |= (par >= 0 && low[e.to] >= ord[v]);\n                if (ord[v] < low[e.to])\
+    \ bridge.emplace_back(e);\n            } else {\n                low[v] = min(low[v],\
+    \ ord[e.to]);\n            }\n        }\n        is_articulation |= (par == -1\
+    \ && cnt > 1);\n        if (is_articulation) articulation.push_back(v);\n    }\n\
+    };\n#line 1 \"cpp_src/graph/TwoEdgeConnectedComponents.hpp\"\n// based on ei1333\n\
+    // tree : u-v -> comp[u]-comp[v]\ntemplate <class T>\nstruct TwoEdgeConnectedComponents\
     \ : LowLink<T> {\n   public:\n    using LowLink<T>::LowLink;\n    using LowLink<T>::g;\n\
     \    using LowLink<T>::ord;\n    using LowLink<T>::low;\n    using LowLink<T>::bridge;\n\
     \n    vector<int> comp;\n    Graph<T> tree;\n    vector<vector<int>> group;\n\n\
@@ -180,7 +180,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/two_edge_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2023-12-31 13:48:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/two_edge_connected_components.test.cpp

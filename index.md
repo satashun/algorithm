@@ -20,6 +20,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/DisjointSetUnionSize.hpp
       title: cpp_src/data_structure/DisjointSetUnionSize.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/DisjointSetUnionWeighted.hpp
+      title: cpp_src/data_structure/DisjointSetUnionWeighted.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/data_structure/FenwickTree.hpp
       title: cpp_src/data_structure/FenwickTree.hpp
@@ -55,6 +58,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/data_structure/LazySegmentTreeHelper/012Inversion.hpp
       title: cpp_src/data_structure/LazySegmentTreeHelper/012Inversion.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/LazySegmentTreeHelper/RangeMulAdd.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/RangeMulAdd.hpp
     - icon: ':warning:'
       path: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
       title: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
@@ -107,7 +113,7 @@ data:
       title: cpp_src/graph/LCA.hpp
     - icon: ':heavy_check_mark:'
       path: cpp_src/graph/LowLink.hpp
-      title: cpp_src/graph/LowLink.hpp
+      title: LowLink
     - icon: ':warning:'
       path: cpp_src/graph/MinimumCostFlow.hpp
       title: cpp_src/graph/MinimumCostFlow.hpp
@@ -143,6 +149,9 @@ data:
       title: cpp_src/graph/Visualize.hpp
   - name: cpp_src/graph/helper
     pages:
+    - icon: ':warning:'
+      path: cpp_src/graph/helper/ConstructTreeWithDegree.hpp
+      title: cpp_src/graph/helper/ConstructTreeWithDegree.hpp
     - icon: ':warning:'
       path: cpp_src/graph/helper/CountSpanningTree.hpp
       title: cpp_src/graph/helper/CountSpanningTree.hpp
@@ -232,7 +241,7 @@ data:
     pages:
     - icon: ':warning:'
       path: cpp_src/number_theory/BinaryGCD.hpp
-      title: cpp_src/number_theory/BinaryGCD.hpp
+      title: Binary GCD
     - icon: ':warning:'
       path: cpp_src/number_theory/Brute.hpp
       title: cpp_src/number_theory/Brute.hpp
