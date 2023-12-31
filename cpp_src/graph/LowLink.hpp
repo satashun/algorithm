@@ -1,3 +1,7 @@
+/**
+ * @docs docs/LowLink.md
+ */
+
 // based on ei1333
 // allow self loops, multiple edges
 template <class T>

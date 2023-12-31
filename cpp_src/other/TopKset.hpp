@@ -16,7 +16,7 @@ void maintain_topk() {
     };
 
     auto add = [&](ll x) {
-        if (SZ(sl) == 0 || *sl.rbegin() >= x) {
+        if (!(SZ(sr) != 0 || *sr.begin() <= x)) {
             sl.insert(x);
             suml += x;
         } else {
