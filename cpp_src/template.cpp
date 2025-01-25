@@ -104,10 +104,16 @@ template <class T>
 ostream& operator<<(ostream& os, const set<T>& ST);
 
 template <class T>
+ostream& operator<<(ostream& os, const unordered_set<T>& ST);
+
+template <class T>
 ostream& operator<<(ostream& os, const multiset<T>& ST);
 
 template <class T, class U>
 ostream& operator<<(ostream& os, const map<T, U>& MP);
+
+template <class T, class U>
+ostream& operator<<(ostream& os, const unordered_map<T, U>& MP);
 
 ostream& operator<<(ostream& o, __int128_t x);
 
@@ -163,6 +169,17 @@ ostream& operator<<(ostream& os, const set<T>& ST) {
 }
 
 template <class T>
+ostream& operator<<(ostream& os, const unordered_set<T>& ST) {
+    os << "{";
+    for (auto it = ST.begin(); it != ST.end(); ++it) {
+        if (it != ST.begin()) os << ",";
+        os << *it;
+    }
+    os << "}";
+    return os;
+}
+
+template <class T>
 ostream& operator<<(ostream& os, const multiset<T>& ST) {
     os << "{";
     for (auto it = ST.begin(); it != ST.end(); ++it) {
@@ -175,6 +192,14 @@ ostream& operator<<(ostream& os, const multiset<T>& ST) {
 
 template <class T, class U>
 ostream& operator<<(ostream& os, const map<T, U>& MP) {
+    for (auto it = MP.begin(); it != MP.end(); ++it) {
+        os << "(" << it->first << ": " << it->second << ")";
+    }
+    return os;
+}
+
+template <class T, class U>
+ostream& operator<<(ostream& os, const unordered_map<T, U>& MP) {
     for (auto it = MP.begin(); it != MP.end(); ++it) {
         os << "(" << it->first << ": " << it->second << ")";
     }

@@ -34,7 +34,7 @@ struct segtree {
         }
     }
 
-    void modify(int p, T v) {
+    void set(int p, T v) {
         p += sz;
         dat[p] = v;
         while (p >>= 1) {
@@ -45,7 +45,7 @@ struct segtree {
     T get(int p) const { return dat[p + sz]; }
 
     //[l, r)
-    T query(int l, int r) const {
+    T prod(int l, int r) const {
         T lval = U::id(), rval = U::id();
         for (l += sz, r += sz; l < r; l >>= 1, r >>= 1) {
             if (l & 1) lval = U::op(lval, dat[l++]);
@@ -54,7 +54,7 @@ struct segtree {
         return U::op(lval, rval);
     }
 
-    // ABC194E
+    // ABC194E, ARC189D
     // https://atcoder.jp/contests/practice2/submissions/33977727
     // https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp
     // find max r s.t. f([l, r)) = true
@@ -84,7 +84,7 @@ struct segtree {
         return _n;
     }
 
-    // needs verification
+    // ARC189D
     // find min l s.t. f([l, r)) = true
     template <class F>
     int min_left(int r, F f) const {

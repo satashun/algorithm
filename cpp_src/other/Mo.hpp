@@ -3,12 +3,6 @@
 // F : cost of operation
 // ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011
 // ref : https://nyaannyaan.github.io/library/misc/mo.hpp
-
-// O(NB + Q(N/B)) (B : numver of blocks)
-// set B = sqrt(Q) -> O(N sqrt(Q) * F)
-// F : cost of operation
-// ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011
-// ref : https://nyaannyaan.github.io/library/misc/mo.hpp
 // https://atcoder.jp/contests/abc293/submissions/39637410
 // my sub: https://atcoder.jp/contests/abc293/submissions/40402531
 

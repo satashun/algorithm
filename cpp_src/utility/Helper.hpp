@@ -18,6 +18,7 @@ T pow(T x, ll k) {
 }
 
 // x^k mod m
+// m*m must not overflow!!
 template <class T>
 T powmod(T x, ll k, T m) {
     T res(1);
@@ -52,4 +53,23 @@ ll inversion(const V<T>& vec) {
         bit.add(vec[i], 1);
     }
     return res;
+}
+
+// binary search
+// ARC189C
+// strict
+template <class T>
+int longest_increasing_subsequence(const V<T>& vec) {
+    int sz = SZ(vec);
+    if (sz == 0) return 0;
+    T INF = *max_element(ALL(vec)) + 1;
+    V<T> dp(sz + 1, INF);
+    dp[0] = -INF;
+
+    for (auto v : vec) {
+        auto it = lower_bound(ALL(dp), v);
+        *it = v;
+    }
+
+    return arglb(dp, INF) - 1;
 }

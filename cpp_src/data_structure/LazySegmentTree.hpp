@@ -1,3 +1,6 @@
+// ref:
+// https://github.com/atcoder/ac-library/blob/master/atcoder/lazysegtree.hpp
+
 // index of root = 1
 // T1 : array value type
 // T2 : action type
@@ -6,13 +9,14 @@ template <class U>
 struct segtree {
     using T1 = typename U::T1;
     using T2 = typename U::T2;
-    int sz, H;
+    int sz, H, _n;
 
     V<T1> a;
     V<T2> b;
 
     segtree() { sz = H = -1; }
     segtree(int n) {
+        _n = n;
         sz = 1, H = 0;
         while (sz < n) {
             sz *= 2, ++H;
@@ -23,6 +27,7 @@ struct segtree {
 
     segtree(const V<T1>& vec) {
         int n = vec.size();
+        _n = n;
         sz = 1, H = 0;
         while (sz < n) {
             sz *= 2, ++H;
@@ -47,6 +52,15 @@ struct segtree {
         while (i >>= 1) {
             a[i] = U::op11(reflect((i << 1) | 0), reflect((i << 1) | 1));
         }
+    }
+
+    void push(int i) {
+        a[i] = reflect(i);
+        if (i < sz) {
+            b[i << 1 | 0] = U::op22(b[i], b[i << 1 | 0]);
+            b[i << 1 | 1] = U::op22(b[i], b[i << 1 | 1]);
+        }
+        b[i] = U::id2();
     }
 
     void propagate(int p) {
@@ -88,7 +102,7 @@ struct segtree {
         up(q - 1);
     }
 
-    T1 get(int l, int r) {
+    T1 prod(int l, int r) {
         if (l >= r) return U::id1();
         l += sz, r += sz;
         propagate(l);
@@ -102,34 +116,63 @@ struct segtree {
         }
         return U::op11(lval, rval);
     }
+
+    // G: T1->bool
+    // find max r s.t. g(f[l, r)) = true
+    // ABC389F, ABC371F
+    template <class G>
+    int max_right(int l, G g) {
+        if (l == _n) return _n;
+        l += sz;
+        propagate(l);
+
+        T1 sm = U::id1();
+        do {
+            while (l % 2 == 0) l >>= 1;
+            if (!g(U::op11(sm, reflect(l)))) {
+                while (l < sz) {
+                    push(l);
+                    l = (2 * l);
+                    if (g(U::op11(sm, reflect(l)))) {
+                        sm = U::op11(sm, reflect(l));
+                        l++;
+                    }
+                }
+                return l - sz;
+            }
+            sm = U::op11(sm, reflect(l));
+            push(l);
+            l++;
+        } while ((l & -l) != l);
+        return _n;
+    }
+
+    // G: T1->bool
+    // find min l s.t. f([l, r)) = true
+    // ABC389F, ABC371F
+    template <class G>
+    int min_left(int r, G g) {
+        if (r == 0) return 0;
+        r += sz;
+        propagate(r - 1);
+
+        T1 sm = U::id1();
+        do {
+            r--;
+            while (r > 1 && (r % 2)) r >>= 1;
+            if (!g(U::op11(reflect(r), sm))) {
+                while (r < sz) {
+                    push(r);
+                    r = (2 * r + 1);
+                    if (g(U::op11(reflect(r), sm))) {
+                        sm = U::op11(reflect(r), sm);
+                        r--;
+                    }
+                }
+                return r + 1 - sz;
+            }
+            sm = U::op11(reflect(r), sm);
+        } while ((r & -r) != r);
+        return 0;
+    }
 };
-
-/*
-ABC 237 G
-https://atcoder.jp/contests/abc237/submissions/30181965
-struct U {
-    // number of 1, all
-    using T1 = pii;
-    using T2 = int;
-    static T1 id1() { return mp(0, 0); }
-    static T2 id2() { return -1; }
-    static T1 op11(const T1& a, const T1& b) {
-        return mp(a.fi + b.fi, a.se + b.se);
-    }
-
-    static T1 op21(const T2& b, const T1& a) {
-        pii res = a;
-        if (b == 0)
-            res.fi = 0;
-        else if (b == 1)
-            res.fi = res.se;
-        return res;
-    }
-    // a : new!
-    static T2 op22(const T2& a, const T2& b) {
-        if (a == id2())
-            return b;
-        else
-            return a;
-    }
-};/*

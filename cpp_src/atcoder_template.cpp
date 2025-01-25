@@ -95,7 +95,7 @@ vector<int> sort_by(const vector<T>& v, bool increasing = true) {
 template <class T>
 auto operator<<(ostream& os, T t) ->
     typename std::enable_if_t<internal::is_modint<T>::value, ostream&>;
-    
+
 template <class T, class U>
 istream& operator>>(istream& is, pair<T, U>& p) {
     is >> p.first >> p.second;
@@ -139,6 +139,17 @@ ostream& operator<<(ostream& os, const set<T>& ST) {
 }
 
 template <class T>
+ostream& operator<<(ostream& os, const unordered_set<T>& ST) {
+    os << "{";
+    for (auto it = ST.begin(); it != ST.end(); ++it) {
+        if (it != ST.begin()) os << ",";
+        os << *it;
+    }
+    os << "}";
+    return os;
+}
+
+template <class T>
 ostream& operator<<(ostream& os, const multiset<T>& ST) {
     os << "{";
     for (auto it = ST.begin(); it != ST.end(); ++it) {
@@ -151,6 +162,14 @@ ostream& operator<<(ostream& os, const multiset<T>& ST) {
 
 template <class T, class U>
 ostream& operator<<(ostream& os, const map<T, U>& MP) {
+    for (auto it = MP.begin(); it != MP.end(); ++it) {
+        os << "(" << it->first << ": " << it->second << ")";
+    }
+    return os;
+}
+
+template <class T, class U>
+ostream& operator<<(ostream& os, const unordered_map<T, U>& MP) {
     for (auto it = MP.begin(); it != MP.end(); ++it) {
         os << "(" << it->first << ": " << it->second << ")";
     }
@@ -261,7 +280,7 @@ void slv() {
 
 int main() {
     int cases = 1;
-    //cin >> cases;
+    // cin >> cases;
     rep(i, cases) slv();
 
     return 0;
