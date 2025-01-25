@@ -15,7 +15,10 @@ jobs:
 
     - name: Set up Python
       uses: actions/setup-python@v4
-
+      
+    - name: Install dependencies
+      run: pip3 install -U git+https://github.com/${{ github.repository }}.git@master
+      
     - name: Run tests
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
