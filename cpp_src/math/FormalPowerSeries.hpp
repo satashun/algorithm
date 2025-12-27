@@ -1,5 +1,5 @@
 // depends on FFT libs
-// work only with NTT-friendly mod 
+// work only with NTT-friendly mod
 
 NumberTheoreticTransform<Mint> ntt;
 
@@ -15,7 +15,7 @@ struct Poly : public V<D> {
 
     int size() const { return V<D>::size(); }
     D at(int p) const { return (p < this->size() ? (*this)[p] : D(0)); }
-    
+
     void shrink() {
         while (this->size() > 0 && this->back() == D(0)) this->pop_back();
     }

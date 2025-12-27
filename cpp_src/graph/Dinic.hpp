@@ -1,4 +1,5 @@
 // O(V^2 E)
+// ABC320G : incremental maxflow
 template <class F>
 struct Dinic {
     static constexpr F INF = numeric_limits<F>::max();
@@ -6,7 +7,7 @@ struct Dinic {
     struct Edge {
         int to, rev;
         F cap;
-        Edge(int to, F cap, int rev) : to(to), cap(cap), rev(rev){};
+        Edge(int to, F cap, int rev) : to(to), cap(cap), rev(rev) {};
     };
 
     using E = Edge;

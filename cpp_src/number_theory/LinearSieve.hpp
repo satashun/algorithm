@@ -1,13 +1,16 @@
-//https://cp-algorithms.com/algebra/prime-sieve-linear.html
-//mimic ksun48 implementation
+// https://cp-algorithms.com/algebra/prime-sieve-linear.html
+// mimic ksun48 implementation
+// can calculate multiplicative functions, totient: ARC185E
+// https://codeforces.com/blog/entry/54090?mobile=true&locale=en
 
 const int X = 1e7;
 
 bitset<X> is_prime;
 vector<int> pr;
 
-int mu[X];  // moebius
-int pf[X];  // pf[i] := smallest prime p s.t. p | i
+int mu[X];   // moebius
+int pf[X];   // pf[i] := smallest prime p s.t. p | i
+int phi[X];  // Euler's totient
 
 void sieve() {
     is_prime.flip();
@@ -19,15 +22,19 @@ void sieve() {
             pr.push_back(i);
             pf[i] = i;
             mu[i] = -1;
+            phi[i] = i - 1;
         }
 
         for (int p : pr) {
             if (ll(i) * p >= X) break;
             is_prime[i * p] = false;
             mu[i * p] = -mu[i];
+            phi[i * p] = phi[i] * p;
             pf[i * p] = p;
+
             if (i % p == 0) {
                 mu[i * p] = 0;
+                phi[i * p] = phi[i] * (p - 1);
                 break;
             }
         }

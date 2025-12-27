@@ -2,6 +2,7 @@
 // a,c>0, b>=0
 // http://mathforum.org/library/drmath/view/73120.html
 // https://min-25.hatenablog.com/entry/2018/04/27/225535
+// ARC372G
 
 ll gauss_sum(ll n, ll a, ll b, ll c) {
     if (n == 0) return 0;

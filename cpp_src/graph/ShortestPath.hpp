@@ -1,4 +1,5 @@
-// ABC264G
+// ABC264G, ABC404G
+// empty = negative cycle
 template <class T>
 V<T> bellman_ford(const Graph<T>& g, int s = 0) {
     const auto INF = numeric_limits<T>::max();

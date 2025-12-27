@@ -8,7 +8,6 @@ struct weighted_union {
     void init(int n) {
         i2g.resize(n);
         g2i.resize(n);
-        gg.resize(n);
         for (int i = 0; i < n; ++i) {
             i2g[i] = i;
             g2i[i].assign(1, i);

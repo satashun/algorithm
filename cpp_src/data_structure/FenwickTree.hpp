@@ -38,7 +38,7 @@ struct BIT {
     //[l, r) 0 <= l < r < n
     T sum(int l, int r) { return sum(r) - sum(l); }
 
-    // verify!!!!
+    // ABC392F, ARC197C
     // smallest i, sum(i) >= w, none -> n + 1
     int lower_bound(T w) {
         if (w <= 0) return 0;

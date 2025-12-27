@@ -40,7 +40,7 @@ struct SCC : public Graph<T> {
         }
     }
 
-    void init() {
+    void build() {
         int n = g.size();
         rg = Graph<T>(n);
         rep(i, n) {

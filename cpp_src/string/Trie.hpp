@@ -1,4 +1,6 @@
 // ref : https://ei1333.github.io/library/structure/trie/trie.hpp
+// exist : number of decendant (excluding itself)
+
 template <int char_size>
 struct TrieNode {
     array<int, char_size> nxt;

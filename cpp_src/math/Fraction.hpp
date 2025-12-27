@@ -4,6 +4,7 @@ T gcd(T a, T b) {
 }
 
 // a / b
+// ABC372G
 template <class T>
 struct Fraction {
     T a, b;

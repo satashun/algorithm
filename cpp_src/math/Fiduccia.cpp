@@ -10,6 +10,15 @@
 // c_1, c_2, c_3, ..., c_d
 // n
 // calculate a_n
+// CF global 31 F2 : https://codeforces.com/contest/2180/submission/354246719
+
+template <class T>
+Poly<T> find_linear_recurrence(const V<T>& s) {
+    auto bm = berlekamp_massey(s);
+    bm.pop_back();
+    reverse(ALL(bm));
+    return bm;
+}
 
 template <class T>
 T fiduccia(V<T> a, V<T> c, ll n) {
@@ -28,4 +37,12 @@ T fiduccia(V<T> a, V<T> c, ll n) {
         ans += mono.at(i) * a[i];
     }
     return ans;
+}
+
+template <class T>
+T findKth(V<T> a, ll K) {
+    if (K < SZ(a)) return a[K];
+    auto c = find_linear_recurrence(a);
+
+    return fiduccia(a, c, K);
 }

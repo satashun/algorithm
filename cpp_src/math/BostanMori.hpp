@@ -7,6 +7,16 @@
 // n
 // calculate a_n
 
+// CF global 31 F2 : https://codeforces.com/contest/2180/submission/354246719
+
+template <class T>
+Poly<T> find_linear_recurrence(const V<T>& s) {
+    auto bm = berlekamp_massey(s);
+    bm.pop_back();
+    reverse(ALL(bm));
+    return bm;
+}
+
 template <class T>
 T bostan_mori(Poly<T> a, Poly<T> c, ll n) {
     if (n < a.size()) return a[n];
@@ -45,7 +55,6 @@ T bostan_mori(Poly<T> a, Poly<T> c, ll n) {
     p = p.pref(d);
 
     while (n > 0) {
-        debug(p, q);
         auto u = p * neg(q);
         if (n % 2 == 0) {
             p = even(u);
@@ -56,4 +65,16 @@ T bostan_mori(Poly<T> a, Poly<T> c, ll n) {
         n /= 2;
     }
     return p[0] / q[0];
+}
+
+template <class T>
+T findKth(V<T> a, ll K) {
+    if (K < SZ(a)) return a[K];
+    auto c = find_linear_recurrence(a);
+
+    int d = SZ(c);
+    Poly<Mint> a_pl(d);
+    rep(i, d) { a_pl[i] = a[i]; }
+
+    return bostan_mori(a_pl, c, K);
 }

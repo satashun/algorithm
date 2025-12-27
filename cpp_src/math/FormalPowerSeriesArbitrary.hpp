@@ -59,6 +59,15 @@ NumberTheoreticTransform<Mint2> ntt2;
 NumberTheoreticTransform<Mint3> ntt3;
 NumberTheoreticTransform<Mint4> ntt4;
 
+struct prepare_ntt {
+    prepare_ntt() {
+        ntt1.init();
+        ntt2.init();
+        ntt3.init();
+        ntt4.init();
+    }
+} prep_ntt;
+
 // D : modint
 template <class D>
 V<D> arbmod_convolution(V<D> _a, V<D> _b, ll mod) {

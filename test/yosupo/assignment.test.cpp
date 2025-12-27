@@ -1,5 +1,55 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/assignment"
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <atomic>
+#include <bitset>
+#include <chrono>
+#include <complex>
+#include <condition_variable>
+#include <deque>
+#include <exception>
+#include <forward_list>
+#include <fstream>
+#include <functional>
+#include <future>
+#include <initializer_list>
+#include <iomanip>
+#include <ios>
+#include <iosfwd>
+#include <iostream>
+#include <istream>
+#include <iterator>
+#include <limits>
+#include <list>
+#include <locale>
+#include <map>
+#include <memory>
+#include <mutex>
+#include <new>
+#include <numeric>
+#include <ostream>
+#include <queue>
+#include <random>
+#include <ratio>
+#include <regex>
+#include <scoped_allocator>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <stdexcept>
+#include <streambuf>
+#include <string>
+#include <system_error>
+#include <thread>
+#include <tuple>
+#include <type_traits>
+#include <typeindex>
+#include <typeinfo>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <valarray>
+#include <vector>
 using namespace std;
 
 using ll = long long;
@@ -65,7 +115,7 @@ struct MinCostFlow {
         C cap;
         D cost;
         edge(int to, C cap, D cost, int rev)
-            : to(to), cap(cap), cost(cost), rev(rev){};
+            : to(to), cap(cap), cost(cost), rev(rev) {};
     };
 
     using E = edge;

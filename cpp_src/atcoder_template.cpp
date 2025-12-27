@@ -275,7 +275,7 @@ struct prepare_io {
 
 void slv() {
     // input
-    // solve
+    // Let's solve!
 }
 
 int main() {

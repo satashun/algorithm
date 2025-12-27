@@ -42,6 +42,15 @@ struct segtree {
         }
     }
 
+    // STPC2025A
+    void set_better(int p, T v) {
+        p += sz;
+        dat[p] = U::op(dat[p], v);
+        while (p >>= 1) {
+            dat[p] = U::op(dat[p << 1], dat[p << 1 | 1]);
+        }
+    }
+
     T get(int p) const { return dat[p + sz]; }
 
     //[l, r)

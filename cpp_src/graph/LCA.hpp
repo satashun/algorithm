@@ -65,4 +65,20 @@ struct LCA {
         int lc = query(a, b);
         return dep[a] + dep[b] - dep[lc] * 2;
     }
+
+    // return x: u->x->v, dist(u,x=k)
+    // return -1 if dist(u,v)<k
+    // ARC198D (k=1)
+    int between(int u, int v, int k) {
+        int lc = query(u, v);
+        int du = dep[u] - dep[lc];
+        if (du >= k) {
+            return lev_anc(u, k);
+        } else {
+            int rem = k - du;
+            int dv = dep[v] - dep[lc];
+            if (dv < rem) return -1;
+            return lev_anc(v, dv - rem);
+        }
+    }
 };

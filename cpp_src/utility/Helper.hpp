@@ -42,11 +42,11 @@ V<int> compress(const V<T>& vec) {
     return res;
 }
 
-// 0 <= vec[i] < n
+// ABC396F
 template <class T>
 ll inversion(const V<T>& vec) {
     int n = vec.size();
-    BIT<int> bit(n + 10);
+    BIT<int> bit(*max_element(ALL(vec)) + 1);
     ll res = 0;
     rep(i, n) {
         res += i - bit.sum(vec[i] + 1);
