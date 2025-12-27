@@ -2,6 +2,7 @@
 #include <array>
 #include <atomic>
 #include <bitset>
+#include <cassert>
 #include <chrono>
 #include <complex>
 #include <condition_variable>
