@@ -198,7 +198,7 @@ int main() {
     cin >> N >> M;
     SCC<int> g(N);
     g.read(M, 0, 1, 0);
-    g.init();
+    g.build();
     auto vv = g.comps;
     print(SZ(vv));
     for (auto v : vv) {
