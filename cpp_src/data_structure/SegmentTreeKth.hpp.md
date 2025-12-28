@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: cpp_src/data_structure/SegmentTreeKth.hpp
   requiredBy: []
-  timestamp: '2022-01-02 16:22:57+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/data_structure/SegmentTreeKth.hpp

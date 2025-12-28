@@ -125,7 +125,7 @@ data:
   isVerificationFile: false
   path: test/yosupo/bitwise_xor_convolution.cpp
   requiredBy: []
-  timestamp: '2021-03-04 05:51:44+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/yosupo/bitwise_xor_convolution.cpp

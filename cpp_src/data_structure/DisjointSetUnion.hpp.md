@@ -44,12 +44,12 @@ data:
   isVerificationFile: false
   path: cpp_src/data_structure/DisjointSetUnion.hpp
   requiredBy: []
-  timestamp: '2022-04-10 12:39:22+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/unionfind.test.cpp
   - test/aoj/ALDS1_11_D.test.cpp
   - test/yukicoder/yukicoder-583.test.cpp
+  - test/yosupo/unionfind.test.cpp
 documentation_of: cpp_src/data_structure/DisjointSetUnion.hpp
 layout: document
 redirect_from:

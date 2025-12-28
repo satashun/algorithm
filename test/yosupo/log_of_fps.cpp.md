@@ -294,7 +294,7 @@ data:
   isVerificationFile: false
   path: test/yosupo/log_of_fps.cpp
   requiredBy: []
-  timestamp: '2021-01-07 20:07:22+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/yosupo/log_of_fps.cpp

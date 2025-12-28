@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/Tree.hpp
   requiredBy: []
-  timestamp: '2022-09-03 23:41:09+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/Tree.hpp

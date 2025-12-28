@@ -29,11 +29,13 @@ data:
     \  // 3\nusing Mint3 = ModInt<1007681537>;  // 3\nusing Mint4 = ModInt<1045430273>;\
     \  // 4\n\nNumberTheoreticTransform<Mint1> ntt1;\nNumberTheoreticTransform<Mint2>\
     \ ntt2;\nNumberTheoreticTransform<Mint3> ntt3;\nNumberTheoreticTransform<Mint4>\
-    \ ntt4;\n\n// D : modint\ntemplate <class D>\nV<D> arbmod_convolution(V<D> _a,\
-    \ V<D> _b, ll mod) {\n    V<ll> a(SZ(_a)), b(SZ(_b));\n    rep(i, SZ(_a)) a[i]\
-    \ = _a[i].v;\n    rep(i, SZ(_b)) b[i] = _b[i].v;\n    V<Mint1> a1(ALL(a)), b1(ALL(b));\n\
-    \    V<Mint2> a2(ALL(a)), b2(ALL(b));\n    V<Mint3> a3(ALL(a)), b3(ALL(b));\n\
-    \    V<Mint4> a4(ALL(a)), b4(ALL(b));\n\n    auto x = ntt1.mul(a1, b1);\n    auto\
+    \ ntt4;\n\nstruct prepare_ntt {\n    prepare_ntt() {\n        ntt1.init();\n \
+    \       ntt2.init();\n        ntt3.init();\n        ntt4.init();\n    }\n} prep_ntt;\n\
+    \n// D : modint\ntemplate <class D>\nV<D> arbmod_convolution(V<D> _a, V<D> _b,\
+    \ ll mod) {\n    V<ll> a(SZ(_a)), b(SZ(_b));\n    rep(i, SZ(_a)) a[i] = _a[i].v;\n\
+    \    rep(i, SZ(_b)) b[i] = _b[i].v;\n    V<Mint1> a1(ALL(a)), b1(ALL(b));\n  \
+    \  V<Mint2> a2(ALL(a)), b2(ALL(b));\n    V<Mint3> a3(ALL(a)), b3(ALL(b));\n  \
+    \  V<Mint4> a4(ALL(a)), b4(ALL(b));\n\n    auto x = ntt1.mul(a1, b1);\n    auto\
     \ y = ntt2.mul(a2, b2);\n    auto z = ntt3.mul(a3, b3);\n    auto w = ntt4.mul(a4,\
     \ b4);\n\n    V<D> res(x.size());\n    V<ll> c{1012924417, 1224736769, 1007681537,\
     \ 1045430273, mod};\n\n    rep(i, SZ(x)) {\n        V<ll> b{x[i].v, y[i].v, z[i].v,\
@@ -135,11 +137,13 @@ data:
     \  // 3\nusing Mint3 = ModInt<1007681537>;  // 3\nusing Mint4 = ModInt<1045430273>;\
     \  // 4\n\nNumberTheoreticTransform<Mint1> ntt1;\nNumberTheoreticTransform<Mint2>\
     \ ntt2;\nNumberTheoreticTransform<Mint3> ntt3;\nNumberTheoreticTransform<Mint4>\
-    \ ntt4;\n\n// D : modint\ntemplate <class D>\nV<D> arbmod_convolution(V<D> _a,\
-    \ V<D> _b, ll mod) {\n    V<ll> a(SZ(_a)), b(SZ(_b));\n    rep(i, SZ(_a)) a[i]\
-    \ = _a[i].v;\n    rep(i, SZ(_b)) b[i] = _b[i].v;\n    V<Mint1> a1(ALL(a)), b1(ALL(b));\n\
-    \    V<Mint2> a2(ALL(a)), b2(ALL(b));\n    V<Mint3> a3(ALL(a)), b3(ALL(b));\n\
-    \    V<Mint4> a4(ALL(a)), b4(ALL(b));\n\n    auto x = ntt1.mul(a1, b1);\n    auto\
+    \ ntt4;\n\nstruct prepare_ntt {\n    prepare_ntt() {\n        ntt1.init();\n \
+    \       ntt2.init();\n        ntt3.init();\n        ntt4.init();\n    }\n} prep_ntt;\n\
+    \n// D : modint\ntemplate <class D>\nV<D> arbmod_convolution(V<D> _a, V<D> _b,\
+    \ ll mod) {\n    V<ll> a(SZ(_a)), b(SZ(_b));\n    rep(i, SZ(_a)) a[i] = _a[i].v;\n\
+    \    rep(i, SZ(_b)) b[i] = _b[i].v;\n    V<Mint1> a1(ALL(a)), b1(ALL(b));\n  \
+    \  V<Mint2> a2(ALL(a)), b2(ALL(b));\n    V<Mint3> a3(ALL(a)), b3(ALL(b));\n  \
+    \  V<Mint4> a4(ALL(a)), b4(ALL(b));\n\n    auto x = ntt1.mul(a1, b1);\n    auto\
     \ y = ntt2.mul(a2, b2);\n    auto z = ntt3.mul(a3, b3);\n    auto w = ntt4.mul(a4,\
     \ b4);\n\n    V<D> res(x.size());\n    V<ll> c{1012924417, 1224736769, 1007681537,\
     \ 1045430273, mod};\n\n    rep(i, SZ(x)) {\n        V<ll> b{x[i].v, y[i].v, z[i].v,\
@@ -225,7 +229,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeriesArbitrary.hpp
   requiredBy: []
-  timestamp: '2022-04-10 12:39:22+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeriesArbitrary.hpp

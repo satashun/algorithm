@@ -71,14 +71,14 @@ data:
   path: cpp_src/graph/GraphBase.hpp
   requiredBy:
   - cpp_src/graph/EulerianTrail.hpp
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yosupo/scc.test.cpp
-  - test/yosupo/two_edge_connected_components.test.cpp
-  - test/yosupo/shortest_path.test.cpp
-  - test/yosupo/lca.test.cpp
   - test/yukicoder/yukicoder-583.test.cpp
+  - test/yosupo/lca.test.cpp
+  - test/yosupo/two_edge_connected_components.test.cpp
+  - test/yosupo/scc.test.cpp
+  - test/yosupo/shortest_path.test.cpp
 documentation_of: cpp_src/graph/GraphBase.hpp
 layout: document
 redirect_from:

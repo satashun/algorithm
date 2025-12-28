@@ -18,23 +18,36 @@ data:
     links:
     - https://judge.yosupo.jp/problem/scc
   bundledCode: "#line 1 \"test/yosupo/scc.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\
-    \n\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\"\
-    )\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
-    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
-    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
-    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
-    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
-    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
-    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
-    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
-    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
-    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
-    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
-    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
-    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
-    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
-    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n\
-    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    sort(res.begin(),\
+    \n\n// #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\"\
+    )\n#include <algorithm>\n#include <array>\n#include <atomic>\n#include <bitset>\n\
+    #include <cassert>\n#include <chrono>\n#include <complex>\n#include <condition_variable>\n\
+    #include <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
+    using pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate\
+    \ <class T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a)\
+    \ {\n    return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
+    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
+    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
+    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
+    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
+    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
+    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
+    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
+    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
+    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
+    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
+    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n    vector<int>\
+    \ res(v.size());\n    iota(res.begin(), res.end(), 0);\n    sort(res.begin(),\
     \ res.end(), [&](int i, int j) { return v[i] < v[j]; });\n    return res;\n}\n\
     \ntemplate <class T, class U>\nistream& operator>>(istream& is, pair<T, U>& p)\
     \ {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate <class T, class\
@@ -87,9 +100,9 @@ data:
     \   dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n    }\n\n\
     \    void rdfs(int v, int k) {\n        vis[v] = true;\n        cmp[v] = k;\n\n\
     \        for (auto e : rg[v]) {\n            if (!vis[e.to]) {\n             \
-    \   rdfs(e.to, k);\n            }\n        }\n    }\n\n    void init() {\n   \
-    \     int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n    \
-    \        for (auto e : g[i]) {\n                rg.add_directed_edge(e.to, e.from,\
+    \   rdfs(e.to, k);\n            }\n        }\n    }\n\n    void build() {\n  \
+    \      int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n   \
+    \         for (auto e : g[i]) {\n                rg.add_directed_edge(e.to, e.from,\
     \ e.cost);\n            }\n        }\n\n        vs.clear();\n        cmp = V<int>(n);\n\
     \        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\n      \
     \  fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n        reverse(vs.begin(),\
@@ -98,23 +111,36 @@ data:
     \        rep(v, n) { comps[cmp[v]].push_back(v); }\n\n        g_comp = Graph<T>(k);\n\
     \n        rep(i, n) {\n            for (auto e : g[i]) {\n                if (cmp[i]\
     \ != cmp[e.to]) {\n                    g_comp.add_directed_edge(cmp[i], cmp[e.to],\
-    \ e.cost);\n                }\n            }\n        }\n    }\n};\n#line 143\
+    \ e.cost);\n                }\n            }\n        }\n    }\n};\n#line 194\
     \ \"test/yosupo/scc.test.cpp\"\n#undef call_from_test\n\nint main() {\n    int\
     \ N, M;\n    cin >> N >> M;\n    SCC<int> g(N);\n    g.read(M, 0, 1, 0);\n   \
-    \ g.init();\n    auto vv = g.comps;\n    print(SZ(vv));\n    for (auto v : vv)\
+    \ g.build();\n    auto vv = g.comps;\n    print(SZ(vv));\n    for (auto v : vv)\
     \ {\n        cout << SZ(v) << ' ';\n        print(v);\n    }\n\n    return 0;\n\
     }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n//#pragma GCC\
-    \ optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
-    using pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate\
-    \ <class T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a)\
-    \ {\n    return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
-    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
-    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
-    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
-    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
-    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n// #pragma GCC\
+    \ optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include <algorithm>\n\
+    #include <array>\n#include <atomic>\n#include <bitset>\n#include <cassert>\n#include\
+    \ <chrono>\n#include <complex>\n#include <condition_variable>\n#include <deque>\n\
+    #include <exception>\n#include <forward_list>\n#include <fstream>\n#include <functional>\n\
+    #include <future>\n#include <initializer_list>\n#include <iomanip>\n#include <ios>\n\
+    #include <iosfwd>\n#include <iostream>\n#include <istream>\n#include <iterator>\n\
+    #include <limits>\n#include <list>\n#include <locale>\n#include <map>\n#include\
+    \ <memory>\n#include <mutex>\n#include <new>\n#include <numeric>\n#include <ostream>\n\
+    #include <queue>\n#include <random>\n#include <ratio>\n#include <regex>\n#include\
+    \ <scoped_allocator>\n#include <set>\n#include <sstream>\n#include <stack>\n#include\
+    \ <stdexcept>\n#include <streambuf>\n#include <string>\n#include <system_error>\n\
+    #include <thread>\n#include <tuple>\n#include <type_traits>\n#include <typeindex>\n\
+    #include <typeinfo>\n#include <unordered_map>\n#include <unordered_set>\n#include\
+    \ <utility>\n#include <valarray>\n#include <vector>\nusing namespace std;\n\n\
+    using ll = long long;\nusing ull = unsigned long long;\nusing pii = pair<int,\
+    \ int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV\
+    \ = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n\
+    }\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n  \
+    \  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n}\n\n#define\
+    \ pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
+    #define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m, n) for\
+    \ (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define per2(i,\
+    \ a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
     \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
     \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
     \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
@@ -147,7 +173,7 @@ data:
     \        cout << fixed << setprecision(10);\n    }\n} prep_io;\n\n#define call_from_test\n\
     #include \"../../cpp_src/graph/GraphBase.hpp\"\n#include \"../../cpp_src/graph/SCC.hpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, M;\n    cin >> N >> M;\n \
-    \   SCC<int> g(N);\n    g.read(M, 0, 1, 0);\n    g.init();\n    auto vv = g.comps;\n\
+    \   SCC<int> g(N);\n    g.read(M, 0, 1, 0);\n    g.build();\n    auto vv = g.comps;\n\
     \    print(SZ(vv));\n    for (auto v : vv) {\n        cout << SZ(v) << ' ';\n\
     \        print(v);\n    }\n\n    return 0;\n}"
   dependsOn:
@@ -156,7 +182,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/scc.test.cpp
   requiredBy: []
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/scc.test.cpp

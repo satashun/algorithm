@@ -392,7 +392,7 @@ data:
   isVerificationFile: false
   path: test/codechef/rng.cpp
   requiredBy: []
-  timestamp: '2021-04-25 23:53:18+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/codechef/rng.cpp

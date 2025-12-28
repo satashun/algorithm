@@ -16,24 +16,36 @@ data:
     - https://judge.yosupo.jp/problem/static_range_sum
   bundledCode: "#line 1 \"test/yosupo/static_range_sum.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/static_range_sum\"\n#pragma region satashun\n\
-    //#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\nusing uint = unsigned int;\n\
-    using ll = long long;\nusing ull = unsigned long long;\nusing pii = pair<int,\
-    \ int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV\
-    \ = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n\
-    }\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n  \
-    \  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n}\n\n#define\
-    \ pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
-    #define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m, n) for\
-    \ (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define per2(i,\
-    \ a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
-    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
-    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
-    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
-    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
-    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n    vector<int>\
-    \ res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
+    // #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\")\n\
+    #include <algorithm>\n#include <array>\n#include <atomic>\n#include <bitset>\n\
+    #include <chrono>\n#include <complex>\n#include <condition_variable>\n#include\
+    \ <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing uint = unsigned int;\nusing ll = long long;\nusing\
+    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
+    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
+    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
+    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
+    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
+    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
+    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
+    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
+    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n\
+    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
     \ res.end(),\n                [&](int i, int j) { return v[i] < v[j]; });\n  \
     \  return res;\n}\n\ntemplate <class T, class U>\nistream& operator>>(istream&\
     \ is, pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
@@ -62,30 +74,42 @@ data:
     \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#line\
     \ 1 \"cpp_src/utility/RectangleSum1D.hpp\"\ntemplate <class T>\nV<T> cumsum(const\
     \ V<T>& vec) {\n    int n = vec.size();\n    V<T> res(n + 1);\n    rep(i, n) {\
-    \ res[i + 1] = res[i] + vec[i]; }\n    return res;\n}\n#line 156 \"test/yosupo/static_range_sum.test.cpp\"\
+    \ res[i + 1] = res[i] + vec[i]; }\n    return res;\n}\n#line 206 \"test/yosupo/static_range_sum.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n \
     \   V<ll> a(N);\n    cin >> a;\n    auto ps = cumsum(a);\n    rep(i, Q) {\n  \
     \      int l, r;\n        cin >> l >> r;\n        show(ps[r] - ps[l]);\n    }\n\
     \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#pragma\
-    \ region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"\
-    unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing uint\
-    \ = unsigned int;\nusing ll = long long;\nusing ull = unsigned long long;\nusing\
-    \ pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class\
-    \ T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n \
-    \   return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
-    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
-    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
-    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
-    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
-    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
-    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
-    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
-    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
-    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
-    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n    vector<int>\
-    \ res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
+    \ region satashun\n// #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"\
+    unroll-loops\")\n#include <algorithm>\n#include <array>\n#include <atomic>\n#include\
+    \ <bitset>\n#include <chrono>\n#include <complex>\n#include <condition_variable>\n\
+    #include <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing uint = unsigned int;\nusing ll = long long;\nusing\
+    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
+    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
+    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
+    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
+    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
+    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
+    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
+    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
+    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n\
+    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
     \ res.end(),\n                [&](int i, int j) { return v[i] < v[j]; });\n  \
     \  return res;\n}\n\ntemplate <class T, class U>\nistream& operator>>(istream&\
     \ is, pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
@@ -121,7 +145,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-08-15 00:57:39+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/static_range_sum.test.cpp

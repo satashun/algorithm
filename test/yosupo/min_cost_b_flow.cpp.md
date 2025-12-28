@@ -177,7 +177,7 @@ data:
   isVerificationFile: false
   path: test/yosupo/min_cost_b_flow.cpp
   requiredBy: []
-  timestamp: '2020-08-06 01:21:11+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/yosupo/min_cost_b_flow.cpp

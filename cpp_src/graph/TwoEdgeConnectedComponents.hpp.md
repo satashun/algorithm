@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/TwoEdgeConnectedComponents.hpp
   requiredBy: []
-  timestamp: '2022-05-08 14:40:36+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_edge_connected_components.test.cpp

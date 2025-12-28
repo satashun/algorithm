@@ -16,25 +16,37 @@ data:
     - https://judge.yosupo.jp/problem/bipartitematching
   bundledCode: "#line 1 \"test/yosupo/bipartitematching.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/bipartitematching\"\n#pragma region satashun\n\
-    //#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\nusing uint = unsigned int;\n\
-    using ll = long long;\nusing ull = unsigned long long;\nusing pii = pair<int,\
-    \ int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV\
-    \ = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n\
-    }\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n  \
-    \  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n}\n\n#define\
-    \ pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
-    #define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m, n) for\
-    \ (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define per2(i,\
-    \ a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
-    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
-    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
-    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
-    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
-    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v, bool increasing\
-    \ = true) {\n    vector<int> res(v.size());\n    iota(res.begin(), res.end(),\
-    \ 0);\n\n    if (increasing) {\n        stable_sort(res.begin(), res.end(),\n\
+    // #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\")\n\
+    #include <algorithm>\n#include <array>\n#include <atomic>\n#include <bitset>\n\
+    #include <chrono>\n#include <complex>\n#include <condition_variable>\n#include\
+    \ <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing uint = unsigned int;\nusing ll = long long;\nusing\
+    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
+    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
+    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
+    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
+    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
+    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
+    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
+    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
+    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v, bool\
+    \ increasing = true) {\n    vector<int> res(v.size());\n    iota(res.begin(),\
+    \ res.end(), 0);\n\n    if (increasing) {\n        stable_sort(res.begin(), res.end(),\n\
     \                    [&](int i, int j) { return v[i] < v[j]; });\n    } else {\n\
     \        stable_sort(res.begin(), res.end(),\n                    [&](int i, int\
     \ j) { return v[i] > v[j]; });\n    }\n    return res;\n}\n\ntemplate <class T,\
@@ -63,75 +75,88 @@ data:
     }\n\nstruct prepare_io {\n    prepare_io() {\n        cin.tie(nullptr);\n    \
     \    ios::sync_with_stdio(false);\n        cout << fixed << setprecision(10);\n\
     \    }\n} prep_io;\n#pragma endregion satashun\n\n#define call_from_test\n#line\
-    \ 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\ntemplate <class F>\nstruct Dinic\
-    \ {\n    static constexpr F INF = numeric_limits<F>::max();\n\n    struct Edge\
-    \ {\n        int to, rev;\n        F cap;\n        Edge(int to, F cap, int rev)\
-    \ : to(to), cap(cap), rev(rev){};\n    };\n\n    using E = Edge;\n\n    VV<E>\
-    \ g;\n    V<int> level, iter;\n\n    Dinic() {}\n    Dinic(int n) : g(n), level(n),\
-    \ iter(n) {}\n\n    void add_edge(int from, int to, F cap) {\n        g[from].emplace_back(to,\
-    \ cap, (int)g[to].size());\n        g[to].emplace_back(from, 0, (int)g[from].size()\
-    \ - 1);\n    }\n\n    void bfs(int s) {\n        fill(ALL(level), -1);\n     \
-    \   queue<int> que;\n        level[s] = 0;\n        que.push(s);\n\n        while\
-    \ (!que.empty()) {\n            int v = que.front();\n            que.pop();\n\
-    \            for (auto& e : g[v]) {\n                if (e.cap > 0 && level[e.to]\
-    \ < 0) {\n                    level[e.to] = level[v] + 1;\n                  \
-    \  que.push(e.to);\n                }\n            }\n        }\n    }\n\n   \
-    \ F dfs(int v, int t, F f) {\n        if (v == t) return f;\n        for (int&\
-    \ i = iter[v]; i < g[v].size(); i++) {\n            auto& e = g[v][i];\n     \
-    \       if (e.cap > 0 && level[v] < level[e.to]) {\n                F d = dfs(e.to,\
-    \ t, min(f, e.cap));\n                if (d > 0) {\n                    e.cap\
-    \ -= d;\n                    g[e.to][e.rev].cap += d;\n                    return\
-    \ d;\n                }\n            }\n        }\n        return 0;\n    }\n\n\
-    \    F max_flow(int s, int t) {\n        F flow = 0;\n        while (true) {\n\
-    \            bfs(s);\n            if (level[t] < 0) return flow;\n           \
-    \ fill(ALL(iter), 0);\n            F f;\n            while ((f = dfs(s, t, INF))\
-    \ > 0) flow += f;\n        }\n    }\n\n    // after calling max_flow\n    // vector\
-    \ of {0, 1} (S side : 0)\n    V<int> mincut(int S = 0) {\n        V<int> vis(g.size());\n\
-    \        V<int> res(g.size(), 1);\n        min_dfs(S, res, vis);\n        return\
-    \ res;\n    }\n\n    void min_dfs(int v, V<int>& col, V<int>& vis) {\n       \
-    \ col[v] = 0;\n        vis[v] = 1;\n        for (auto e : g[v]) {\n          \
-    \  if (!vis[e.to] && e.cap > 0) {\n                min_dfs(e.to, col, vis);\n\
-    \            }\n        }\n    }\n};\n\n// GCJ 2022 Round 2C\n// mat[i][j] :=\
-    \ 0,1 (whether i-j exists)\n// (size of max_matching, assignment)\npair<int, V<int>>\
-    \ max_matching(const VV<int>& mat) {\n    int L = SZ(mat);\n    if (L == 0) {\n\
-    \        return mp(0, V<int>{});\n    }\n\n    int R = SZ(mat[0]);\n    int cnt_node\
-    \ = L + R + 2;\n    int S = cnt_node - 2, T = cnt_node - 1;\n    Dinic<int> g(cnt_node);\n\
-    \    V<int> to(L, -1);\n\n    rep(i, L) {\n        g.add_edge(S, i, 1);\n    \
-    \    rep(j, R) {\n            if (mat[i][j]) {\n                g.add_edge(i,\
-    \ j + L, 1);\n            }\n        }\n    }\n    rep(j, R) g.add_edge(j + L,\
-    \ T, 1);\n\n    int mf = g.max_flow(S, T);\n    rep(i, L) {\n        for (auto\
-    \ e : g.g[i]) {\n            if (e.to >= L && e.to < L + R && e.cap == 0) {\n\
-    \                to[i] = e.to - L;\n            }\n        }\n    }\n    return\
-    \ make_pair(mf, to);\n}\n#line 163 \"test/yosupo/bipartitematching.test.cpp\"\n\
-    #undef call_from_test\n\nint main() {\n    int L, R, M;\n    cin >> L >> R >>\
-    \ M;\n    int n = L + R + 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll> g(n);\n\
-    \n    rep(i, M) {\n        int a, b;\n        cin >> a >> b;\n        g.add_edge(a,\
-    \ b + L, 1);\n    }\n    rep(i, L) g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i\
-    \ + L, t, 1);\n\n    int K = g.max_flow(s, t);\n\n    show(K);\n\n    rep(i, L)\
-    \ {\n        int mt = -1;\n        for (auto e : g.g[i])\n            if (e.to\
-    \ >= L && e.to < L + R && e.cap == 0) {\n                mt = e.to;\n        \
-    \    }\n        if (mt != -1) {\n            show(i, mt - L);\n        }\n   \
-    \ }\n\n    return 0;\n}\n"
+    \ 1 \"cpp_src/graph/Dinic.hpp\"\n// O(V^2 E)\n// ABC320G : incremental maxflow\n\
+    template <class F>\nstruct Dinic {\n    static constexpr F INF = numeric_limits<F>::max();\n\
+    \n    struct Edge {\n        int to, rev;\n        F cap;\n        Edge(int to,\
+    \ F cap, int rev) : to(to), cap(cap), rev(rev) {};\n    };\n\n    using E = Edge;\n\
+    \n    VV<E> g;\n    V<int> level, iter;\n\n    Dinic() {}\n    Dinic(int n) :\
+    \ g(n), level(n), iter(n) {}\n\n    void add_edge(int from, int to, F cap) {\n\
+    \        g[from].emplace_back(to, cap, (int)g[to].size());\n        g[to].emplace_back(from,\
+    \ 0, (int)g[from].size() - 1);\n    }\n\n    void bfs(int s) {\n        fill(ALL(level),\
+    \ -1);\n        queue<int> que;\n        level[s] = 0;\n        que.push(s);\n\
+    \n        while (!que.empty()) {\n            int v = que.front();\n         \
+    \   que.pop();\n            for (auto& e : g[v]) {\n                if (e.cap\
+    \ > 0 && level[e.to] < 0) {\n                    level[e.to] = level[v] + 1;\n\
+    \                    que.push(e.to);\n                }\n            }\n     \
+    \   }\n    }\n\n    F dfs(int v, int t, F f) {\n        if (v == t) return f;\n\
+    \        for (int& i = iter[v]; i < g[v].size(); i++) {\n            auto& e =\
+    \ g[v][i];\n            if (e.cap > 0 && level[v] < level[e.to]) {\n         \
+    \       F d = dfs(e.to, t, min(f, e.cap));\n                if (d > 0) {\n   \
+    \                 e.cap -= d;\n                    g[e.to][e.rev].cap += d;\n\
+    \                    return d;\n                }\n            }\n        }\n\
+    \        return 0;\n    }\n\n    F max_flow(int s, int t) {\n        F flow =\
+    \ 0;\n        while (true) {\n            bfs(s);\n            if (level[t] <\
+    \ 0) return flow;\n            fill(ALL(iter), 0);\n            F f;\n       \
+    \     while ((f = dfs(s, t, INF)) > 0) flow += f;\n        }\n    }\n\n    //\
+    \ after calling max_flow\n    // vector of {0, 1} (S side : 0)\n    V<int> mincut(int\
+    \ S = 0) {\n        V<int> vis(g.size());\n        V<int> res(g.size(), 1);\n\
+    \        min_dfs(S, res, vis);\n        return res;\n    }\n\n    void min_dfs(int\
+    \ v, V<int>& col, V<int>& vis) {\n        col[v] = 0;\n        vis[v] = 1;\n \
+    \       for (auto e : g[v]) {\n            if (!vis[e.to] && e.cap > 0) {\n  \
+    \              min_dfs(e.to, col, vis);\n            }\n        }\n    }\n};\n\
+    \n// GCJ 2022 Round 2C\n// mat[i][j] := 0,1 (whether i-j exists)\n// (size of\
+    \ max_matching, assignment)\npair<int, V<int>> max_matching(const VV<int>& mat)\
+    \ {\n    int L = SZ(mat);\n    if (L == 0) {\n        return mp(0, V<int>{});\n\
+    \    }\n\n    int R = SZ(mat[0]);\n    int cnt_node = L + R + 2;\n    int S =\
+    \ cnt_node - 2, T = cnt_node - 1;\n    Dinic<int> g(cnt_node);\n    V<int> to(L,\
+    \ -1);\n\n    rep(i, L) {\n        g.add_edge(S, i, 1);\n        rep(j, R) {\n\
+    \            if (mat[i][j]) {\n                g.add_edge(i, j + L, 1);\n    \
+    \        }\n        }\n    }\n    rep(j, R) g.add_edge(j + L, T, 1);\n\n    int\
+    \ mf = g.max_flow(S, T);\n    rep(i, L) {\n        for (auto e : g.g[i]) {\n \
+    \           if (e.to >= L && e.to < L + R && e.cap == 0) {\n                to[i]\
+    \ = e.to - L;\n            }\n        }\n    }\n    return make_pair(mf, to);\n\
+    }\n#line 213 \"test/yosupo/bipartitematching.test.cpp\"\n#undef call_from_test\n\
+    \nint main() {\n    int L, R, M;\n    cin >> L >> R >> M;\n    int n = L + R +\
+    \ 2;\n    int s = n - 2, t = n - 1;\n    Dinic<ll> g(n);\n\n    rep(i, M) {\n\
+    \        int a, b;\n        cin >> a >> b;\n        g.add_edge(a, b + L, 1);\n\
+    \    }\n    rep(i, L) g.add_edge(s, i, 1);\n    rep(i, R) g.add_edge(i + L, t,\
+    \ 1);\n\n    int K = g.max_flow(s, t);\n\n    show(K);\n\n    rep(i, L) {\n  \
+    \      int mt = -1;\n        for (auto e : g.g[i])\n            if (e.to >= L\
+    \ && e.to < L + R && e.cap == 0) {\n                mt = e.to;\n            }\n\
+    \        if (mt != -1) {\n            show(i, mt - L);\n        }\n    }\n\n \
+    \   return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n#pragma\
-    \ region satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"\
-    unroll-loops\")\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing uint\
-    \ = unsigned int;\nusing ll = long long;\nusing ull = unsigned long long;\nusing\
-    \ pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class\
-    \ T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n \
-    \   return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
-    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
-    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
-    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
-    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
-    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
-    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
-    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
-    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
-    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
-    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v, bool increasing\
-    \ = true) {\n    vector<int> res(v.size());\n    iota(res.begin(), res.end(),\
-    \ 0);\n\n    if (increasing) {\n        stable_sort(res.begin(), res.end(),\n\
+    \ region satashun\n// #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"\
+    unroll-loops\")\n#include <algorithm>\n#include <array>\n#include <atomic>\n#include\
+    \ <bitset>\n#include <chrono>\n#include <complex>\n#include <condition_variable>\n\
+    #include <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing uint = unsigned int;\nusing ll = long long;\nusing\
+    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
+    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
+    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
+    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
+    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
+    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
+    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
+    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
+    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v, bool\
+    \ increasing = true) {\n    vector<int> res(v.size());\n    iota(res.begin(),\
+    \ res.end(), 0);\n\n    if (increasing) {\n        stable_sort(res.begin(), res.end(),\n\
     \                    [&](int i, int j) { return v[i] < v[j]; });\n    } else {\n\
     \        stable_sort(res.begin(), res.end(),\n                    [&](int i, int\
     \ j) { return v[i] > v[j]; });\n    }\n    return res;\n}\n\ntemplate <class T,\
@@ -174,7 +199,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2022-07-02 20:38:49+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/bipartitematching.test.cpp

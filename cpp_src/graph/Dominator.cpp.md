@@ -72,7 +72,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/Dominator.cpp
   requiredBy: []
-  timestamp: '2021-10-28 16:07:17+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/Dominator.cpp

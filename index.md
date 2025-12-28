@@ -10,6 +10,9 @@ data:
       path: cpp_src/atcoder_template.cpp
       title: cpp_src/atcoder_template.cpp
     - icon: ':warning:'
+      path: cpp_src/header.hpp
+      title: cpp_src/header.hpp
+    - icon: ':warning:'
       path: cpp_src/template.cpp
       title: cpp_src/template.cpp
   - name: cpp_src/data_structure
@@ -59,8 +62,17 @@ data:
       path: cpp_src/data_structure/LazySegmentTreeHelper/012Inversion.hpp
       title: cpp_src/data_structure/LazySegmentTreeHelper/012Inversion.hpp
     - icon: ':warning:'
+      path: cpp_src/data_structure/LazySegmentTreeHelper/RangeChminMin.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/RangeChminMin.hpp
+    - icon: ':warning:'
       path: cpp_src/data_structure/LazySegmentTreeHelper/RangeMulAdd.hpp
       title: cpp_src/data_structure/LazySegmentTreeHelper/RangeMulAdd.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/LazySegmentTreeHelper/RangeSetMin.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/RangeSetMin.hpp
+    - icon: ':warning:'
+      path: cpp_src/data_structure/LazySegmentTreeHelper/RangeSetMinMaxSum.hpp
+      title: cpp_src/data_structure/LazySegmentTreeHelper/RangeSetMinMaxSum.hpp
     - icon: ':warning:'
       path: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
       title: cpp_src/data_structure/LazySegmentTreeHelper/StarrySkyTree.hpp
@@ -269,11 +281,17 @@ data:
     - icon: ':warning:'
       path: cpp_src/number_theory/LinearSieve.hpp
       title: cpp_src/number_theory/LinearSieve.hpp
+    - icon: ':warning:'
+      path: cpp_src/number_theory/RangeSieve.hpp
+      title: cpp_src/number_theory/RangeSieve.hpp
   - name: cpp_src/other
     pages:
     - icon: ':warning:'
       path: cpp_src/other/BSGS.hpp
       title: cpp_src/other/BSGS.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/BaseK.cpp
+      title: cpp_src/other/BaseK.cpp
     - icon: ':warning:'
       path: cpp_src/other/Bigdecimal.hpp
       title: cpp_src/other/Bigdecimal.hpp
@@ -295,6 +313,9 @@ data:
     - icon: ':warning:'
       path: cpp_src/other/FindMajority.hpp
       title: cpp_src/other/FindMajority.hpp
+    - icon: ':warning:'
+      path: cpp_src/other/HashMap.hpp
+      title: cpp_src/other/HashMap.hpp
     - icon: ':warning:'
       path: cpp_src/other/Histogram.hpp
       title: cpp_src/other/Histogram.hpp
@@ -324,6 +345,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp_src/string/RollingHash.hpp
       title: cpp_src/string/RollingHash.hpp
+    - icon: ':warning:'
+      path: cpp_src/string/SAIS copy.cpp
+      title: cpp_src/string/SAIS copy.cpp
     - icon: ':warning:'
       path: cpp_src/string/SAIS.cpp
       title: cpp_src/string/SAIS.cpp

@@ -510,7 +510,7 @@ data:
   isVerificationFile: false
   path: test/yosupo/pow_of_formal_power_series.cpp
   requiredBy: []
-  timestamp: '2022-04-10 12:39:22+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/yosupo/pow_of_formal_power_series.cpp

@@ -69,7 +69,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/helper/ExplicitShortestPath.hpp
   requiredBy: []
-  timestamp: '2022-08-15 00:42:44+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/shortest_path.test.cpp

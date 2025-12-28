@@ -33,7 +33,13 @@ data:
     \ (k >> i & 1) {\n                if (anc[i][v] == -1) return -1;\n          \
     \      v = anc[i][v];\n            }\n        }\n        return v;\n    }\n\n\
     \    int dist(int a, int b) {\n        int lc = query(a, b);\n        return dep[a]\
-    \ + dep[b] - dep[lc] * 2;\n    }\n};\n"
+    \ + dep[b] - dep[lc] * 2;\n    }\n\n    // return x: u->x->v, dist(u,x=k)\n  \
+    \  // return -1 if dist(u,v)<k\n    // ARC198D (k=1)\n    int between(int u, int\
+    \ v, int k) {\n        int lc = query(u, v);\n        int du = dep[u] - dep[lc];\n\
+    \        if (du >= k) {\n            return lev_anc(u, k);\n        } else {\n\
+    \            int rem = k - du;\n            int dv = dep[v] - dep[lc];\n     \
+    \       if (dv < rem) return -1;\n            return lev_anc(v, dv - rem);\n \
+    \       }\n    }\n};\n"
   code: "template <class E>\nstruct LCA {\n    VV<int> anc;\n    V<int> dep;\n   \
     \ int lg;\n    const Graph<E>& g;\n\n    LCA(const Graph<E>& g, int root = 0)\
     \ : g(g) {\n        int n = g.size();\n        lg = 1;\n        while ((1 << lg)\
@@ -55,12 +61,18 @@ data:
     \ lg) {\n            if (k >> i & 1) {\n                if (anc[i][v] == -1) return\
     \ -1;\n                v = anc[i][v];\n            }\n        }\n        return\
     \ v;\n    }\n\n    int dist(int a, int b) {\n        int lc = query(a, b);\n \
-    \       return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};"
+    \       return dep[a] + dep[b] - dep[lc] * 2;\n    }\n\n    // return x: u->x->v,\
+    \ dist(u,x=k)\n    // return -1 if dist(u,v)<k\n    // ARC198D (k=1)\n    int\
+    \ between(int u, int v, int k) {\n        int lc = query(u, v);\n        int du\
+    \ = dep[u] - dep[lc];\n        if (du >= k) {\n            return lev_anc(u, k);\n\
+    \        } else {\n            int rem = k - du;\n            int dv = dep[v]\
+    \ - dep[lc];\n            if (dv < rem) return -1;\n            return lev_anc(v,\
+    \ dv - rem);\n        }\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/LCA.hpp
   requiredBy: []
-  timestamp: '2022-09-03 23:41:09+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/lca.test.cpp

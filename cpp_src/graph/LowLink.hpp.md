@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/LowLink.hpp
   requiredBy: []
-  timestamp: '2023-12-31 13:48:59+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/two_edge_connected_components.test.cpp

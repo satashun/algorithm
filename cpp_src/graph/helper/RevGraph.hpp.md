@@ -21,7 +21,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/helper/RevGraph.hpp
   requiredBy: []
-  timestamp: '2022-12-31 14:31:38+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/helper/RevGraph.hpp

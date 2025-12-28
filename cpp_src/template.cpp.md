@@ -41,53 +41,61 @@ data:
     template <class T>\nistream& operator>>(istream& is, vector<T>& v);\n\ntemplate\
     \ <class T, size_t sz>\nostream& operator<<(ostream& os, const array<T, sz>& arr);\n\
     \ntemplate <class T>\nostream& operator<<(ostream& os, const set<T>& ST);\n\n\
-    template <class T>\nostream& operator<<(ostream& os, const multiset<T>& ST);\n\
+    template <class T>\nostream& operator<<(ostream& os, const unordered_set<T>& ST);\n\
+    \ntemplate <class T>\nostream& operator<<(ostream& os, const multiset<T>& ST);\n\
     \ntemplate <class T, class U>\nostream& operator<<(ostream& os, const map<T, U>&\
-    \ MP);\n\nostream& operator<<(ostream& o, __int128_t x);\n\n// io functions\n\
-    template <class T, class U>\nistream& operator>>(istream& is, pair<T, U>& p) {\n\
-    \    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate <class T, class\
-    \ U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << \"(\"\
-    \ << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\ntemplate <class\
-    \ T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for (auto& x : v)\
-    \ {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\";\n    rep(i,\
-    \ v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n    }\n    os\
-    \ << \"}\";\n    return os;\n}\n\ntemplate <class T, size_t sz>\nostream& operator<<(ostream&\
-    \ os, const array<T, sz>& arr) {\n    os << '[';\n    for (auto v : arr) os <<\
-    \ v << ',';\n    os << ']';\n    return os;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const set<T>& ST) {\n    os << \"{\";\n    for (auto\
-    \ it = ST.begin(); it != ST.end(); ++it) {\n        if (it != ST.begin()) os <<\
-    \ \",\";\n        os << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate\
-    \ <class T>\nostream& operator<<(ostream& os, const multiset<T>& ST) {\n    os\
-    \ << \"{\";\n    for (auto it = ST.begin(); it != ST.end(); ++it) {\n        if\
-    \ (it != ST.begin()) os << \",\";\n        os << *it;\n    }\n    os << \"}\"\
-    ;\n    return os;\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream&\
-    \ os, const map<T, U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it)\
-    \ {\n        os << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n\
-    \    return os;\n}\n\nstring to_string(__int128_t x) {\n    if (x == 0) return\
-    \ \"0\";\n    string result;\n    if (x < 0) {\n        result += \"-\";\n   \
-    \     x *= -1;\n    }\n    string t;\n    while (x) {\n        t.push_back('0'\
-    \ + x % 10);\n        x /= 10;\n    }\n    reverse(t.begin(), t.end());\n    return\
-    \ result + t;\n}\n\nostream& operator<<(ostream& o, __int128_t x) { return o <<\
-    \ to_string(x); }\n\n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate\
-    \ <typename Head, typename... Tail>\nvoid debug_out(Head H, Tail... T) {\n   \
-    \ cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...) \\\n    cerr\
-    \ << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n#define\
-    \ dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define\
-    \ debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class T>\n\
-    V<T>& operator+=(V<T>& vec, const T& v) {\n    for (auto& x : vec) x += v;\n \
-    \   return vec;\n}\n\ntemplate <class T>\nV<T>& operator-=(V<T>& vec, const T&\
-    \ v) {\n    for (auto& x : vec) x -= v;\n    return vec;\n}\n\n// suc : 1 = newline,\
-    \ 2 = space\ntemplate <class T>\nvoid print(T x, int suc = 1) {\n    cout << x;\n\
-    \    if (suc == 1)\n        cout << \"\\n\";\n    else if (suc == 2)\n       \
-    \ cout << \" \";\n}\n\ntemplate <class T>\nvoid print(const vector<T>& v, int\
-    \ suc = 1) {\n    for (int i = 0; i < v.size(); ++i)\n        print(v[i], i ==\
-    \ int(v.size()) - 1 ? suc : 2);\n}\n\ntemplate <class T>\nvoid show(T x) {\n \
-    \   print(x, 1);\n}\n\ntemplate <typename Head, typename... Tail>\nvoid show(Head\
-    \ H, Tail... T) {\n    print(H, 2);\n    show(T...);\n}\n\nint topbit(int t) {\
-    \ return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(ll t) { return t ==\
-    \ 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(int a) { return a == 0 ? 32\
-    \ : __builtin_ctz(a); }\nint botbit(ll a) { return a == 0 ? 64 : __builtin_ctzll(a);\
+    \ MP);\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const\
+    \ unordered_map<T, U>& MP);\n\nostream& operator<<(ostream& o, __int128_t x);\n\
+    \n// io functions\ntemplate <class T, class U>\nistream& operator>>(istream& is,\
+    \ pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate\
+    \ <class T, class U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n\
+    \    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\
+    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for\
+    \ (auto& x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class\
+    \ T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\"\
+    ;\n    rep(i, v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n\
+    \    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T, size_t sz>\n\
+    ostream& operator<<(ostream& os, const array<T, sz>& arr) {\n    os << '[';\n\
+    \    for (auto v : arr) os << v << ',';\n    os << ']';\n    return os;\n}\n\n\
+    template <class T>\nostream& operator<<(ostream& os, const set<T>& ST) {\n   \
+    \ os << \"{\";\n    for (auto it = ST.begin(); it != ST.end(); ++it) {\n     \
+    \   if (it != ST.begin()) os << \",\";\n        os << *it;\n    }\n    os << \"\
+    }\";\n    return os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os,\
+    \ const unordered_set<T>& ST) {\n    os << \"{\";\n    for (auto it = ST.begin();\
+    \ it != ST.end(); ++it) {\n        if (it != ST.begin()) os << \",\";\n      \
+    \  os << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T>\n\
+    ostream& operator<<(ostream& os, const multiset<T>& ST) {\n    os << \"{\";\n\
+    \    for (auto it = ST.begin(); it != ST.end(); ++it) {\n        if (it != ST.begin())\
+    \ os << \",\";\n        os << *it;\n    }\n    os << \"}\";\n    return os;\n\
+    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const map<T,\
+    \ U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it) {\n        os\
+    \ << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n    return os;\n\
+    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const unordered_map<T,\
+    \ U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it) {\n        os\
+    \ << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n    return os;\n\
+    }\n\nstring to_string(__int128_t x) {\n    if (x == 0) return \"0\";\n    string\
+    \ result;\n    if (x < 0) {\n        result += \"-\";\n        x *= -1;\n    }\n\
+    \    string t;\n    while (x) {\n        t.push_back('0' + x % 10);\n        x\
+    \ /= 10;\n    }\n    reverse(t.begin(), t.end());\n    return result + t;\n}\n\
+    \nostream& operator<<(ostream& o, __int128_t x) { return o << to_string(x); }\n\
+    \n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate <typename Head, typename...\
+    \ Tail>\nvoid debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
+    }\n#define debug(...) \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"\
+    ]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr << __LINE__ << \" \" << #x\
+    \ << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n#define dump(x)\
+    \ (void(0))\n#endif\n\ntemplate <class T>\nV<T>& operator+=(V<T>& vec, const T&\
+    \ v) {\n    for (auto& x : vec) x += v;\n    return vec;\n}\n\ntemplate <class\
+    \ T>\nV<T>& operator-=(V<T>& vec, const T& v) {\n    for (auto& x : vec) x -=\
+    \ v;\n    return vec;\n}\n\n// suc : 1 = newline, 2 = space\ntemplate <class T>\n\
+    void print(T x, int suc = 1) {\n    cout << x;\n    if (suc == 1)\n        cout\
+    \ << \"\\n\";\n    else if (suc == 2)\n        cout << \" \";\n}\n\ntemplate <class\
+    \ T>\nvoid print(const vector<T>& v, int suc = 1) {\n    for (int i = 0; i < v.size();\
+    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\ntemplate\
+    \ <class T>\nvoid show(T x) {\n    print(x, 1);\n}\n\ntemplate <typename Head,\
+    \ typename... Tail>\nvoid show(Head H, Tail... T) {\n    print(H, 2);\n    show(T...);\n\
+    }\n\nint topbit(int t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(ll\
+    \ t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(int a) { return\
+    \ a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(ll a) { return a == 0 ? 64 : __builtin_ctzll(a);\
     \ }\nint popcount(int t) { return __builtin_popcount(t); }\nint popcount(ll t)\
     \ { return __builtin_popcountll(t); }\nint bit_parity(int t) { return __builtin_parity(t);\
     \ }\nint bit_parity(ll t) { return __builtin_parityll(t); }\n\nstruct prepare_io\
@@ -129,53 +137,61 @@ data:
     template <class T>\nistream& operator>>(istream& is, vector<T>& v);\n\ntemplate\
     \ <class T, size_t sz>\nostream& operator<<(ostream& os, const array<T, sz>& arr);\n\
     \ntemplate <class T>\nostream& operator<<(ostream& os, const set<T>& ST);\n\n\
-    template <class T>\nostream& operator<<(ostream& os, const multiset<T>& ST);\n\
+    template <class T>\nostream& operator<<(ostream& os, const unordered_set<T>& ST);\n\
+    \ntemplate <class T>\nostream& operator<<(ostream& os, const multiset<T>& ST);\n\
     \ntemplate <class T, class U>\nostream& operator<<(ostream& os, const map<T, U>&\
-    \ MP);\n\nostream& operator<<(ostream& o, __int128_t x);\n\n// io functions\n\
-    template <class T, class U>\nistream& operator>>(istream& is, pair<T, U>& p) {\n\
-    \    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate <class T, class\
-    \ U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n    os << \"(\"\
-    \ << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\ntemplate <class\
-    \ T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for (auto& x : v)\
-    \ {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\";\n    rep(i,\
-    \ v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n    }\n    os\
-    \ << \"}\";\n    return os;\n}\n\ntemplate <class T, size_t sz>\nostream& operator<<(ostream&\
-    \ os, const array<T, sz>& arr) {\n    os << '[';\n    for (auto v : arr) os <<\
-    \ v << ',';\n    os << ']';\n    return os;\n}\n\ntemplate <class T>\nostream&\
-    \ operator<<(ostream& os, const set<T>& ST) {\n    os << \"{\";\n    for (auto\
-    \ it = ST.begin(); it != ST.end(); ++it) {\n        if (it != ST.begin()) os <<\
-    \ \",\";\n        os << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate\
-    \ <class T>\nostream& operator<<(ostream& os, const multiset<T>& ST) {\n    os\
-    \ << \"{\";\n    for (auto it = ST.begin(); it != ST.end(); ++it) {\n        if\
-    \ (it != ST.begin()) os << \",\";\n        os << *it;\n    }\n    os << \"}\"\
-    ;\n    return os;\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream&\
-    \ os, const map<T, U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it)\
-    \ {\n        os << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n\
-    \    return os;\n}\n\nstring to_string(__int128_t x) {\n    if (x == 0) return\
-    \ \"0\";\n    string result;\n    if (x < 0) {\n        result += \"-\";\n   \
-    \     x *= -1;\n    }\n    string t;\n    while (x) {\n        t.push_back('0'\
-    \ + x % 10);\n        x /= 10;\n    }\n    reverse(t.begin(), t.end());\n    return\
-    \ result + t;\n}\n\nostream& operator<<(ostream& o, __int128_t x) { return o <<\
-    \ to_string(x); }\n\n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate\
-    \ <typename Head, typename... Tail>\nvoid debug_out(Head H, Tail... T) {\n   \
-    \ cerr << \" \" << H;\n    debug_out(T...);\n}\n#define debug(...) \\\n    cerr\
-    \ << __LINE__ << \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n#define\
-    \ dump(x) cerr << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define\
-    \ debug(...) (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class T>\n\
-    V<T>& operator+=(V<T>& vec, const T& v) {\n    for (auto& x : vec) x += v;\n \
-    \   return vec;\n}\n\ntemplate <class T>\nV<T>& operator-=(V<T>& vec, const T&\
-    \ v) {\n    for (auto& x : vec) x -= v;\n    return vec;\n}\n\n// suc : 1 = newline,\
-    \ 2 = space\ntemplate <class T>\nvoid print(T x, int suc = 1) {\n    cout << x;\n\
-    \    if (suc == 1)\n        cout << \"\\n\";\n    else if (suc == 2)\n       \
-    \ cout << \" \";\n}\n\ntemplate <class T>\nvoid print(const vector<T>& v, int\
-    \ suc = 1) {\n    for (int i = 0; i < v.size(); ++i)\n        print(v[i], i ==\
-    \ int(v.size()) - 1 ? suc : 2);\n}\n\ntemplate <class T>\nvoid show(T x) {\n \
-    \   print(x, 1);\n}\n\ntemplate <typename Head, typename... Tail>\nvoid show(Head\
-    \ H, Tail... T) {\n    print(H, 2);\n    show(T...);\n}\n\nint topbit(int t) {\
-    \ return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(ll t) { return t ==\
-    \ 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(int a) { return a == 0 ? 32\
-    \ : __builtin_ctz(a); }\nint botbit(ll a) { return a == 0 ? 64 : __builtin_ctzll(a);\
+    \ MP);\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const\
+    \ unordered_map<T, U>& MP);\n\nostream& operator<<(ostream& o, __int128_t x);\n\
+    \n// io functions\ntemplate <class T, class U>\nistream& operator>>(istream& is,\
+    \ pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\ntemplate\
+    \ <class T, class U>\nostream& operator<<(ostream& os, const pair<T, U>& p) {\n\
+    \    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return os;\n}\n\
+    \ntemplate <class T>\nistream& operator>>(istream& is, vector<T>& v) {\n    for\
+    \ (auto& x : v) {\n        is >> x;\n    }\n    return is;\n}\n\ntemplate <class\
+    \ T>\nostream& operator<<(ostream& os, const vector<T>& v) {\n    os << \"{\"\
+    ;\n    rep(i, v.size()) {\n        if (i) os << \",\";\n        os << v[i];\n\
+    \    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T, size_t sz>\n\
+    ostream& operator<<(ostream& os, const array<T, sz>& arr) {\n    os << '[';\n\
+    \    for (auto v : arr) os << v << ',';\n    os << ']';\n    return os;\n}\n\n\
+    template <class T>\nostream& operator<<(ostream& os, const set<T>& ST) {\n   \
+    \ os << \"{\";\n    for (auto it = ST.begin(); it != ST.end(); ++it) {\n     \
+    \   if (it != ST.begin()) os << \",\";\n        os << *it;\n    }\n    os << \"\
+    }\";\n    return os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os,\
+    \ const unordered_set<T>& ST) {\n    os << \"{\";\n    for (auto it = ST.begin();\
+    \ it != ST.end(); ++it) {\n        if (it != ST.begin()) os << \",\";\n      \
+    \  os << *it;\n    }\n    os << \"}\";\n    return os;\n}\n\ntemplate <class T>\n\
+    ostream& operator<<(ostream& os, const multiset<T>& ST) {\n    os << \"{\";\n\
+    \    for (auto it = ST.begin(); it != ST.end(); ++it) {\n        if (it != ST.begin())\
+    \ os << \",\";\n        os << *it;\n    }\n    os << \"}\";\n    return os;\n\
+    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const map<T,\
+    \ U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it) {\n        os\
+    \ << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n    return os;\n\
+    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const unordered_map<T,\
+    \ U>& MP) {\n    for (auto it = MP.begin(); it != MP.end(); ++it) {\n        os\
+    \ << \"(\" << it->first << \": \" << it->second << \")\";\n    }\n    return os;\n\
+    }\n\nstring to_string(__int128_t x) {\n    if (x == 0) return \"0\";\n    string\
+    \ result;\n    if (x < 0) {\n        result += \"-\";\n        x *= -1;\n    }\n\
+    \    string t;\n    while (x) {\n        t.push_back('0' + x % 10);\n        x\
+    \ /= 10;\n    }\n    reverse(t.begin(), t.end());\n    return result + t;\n}\n\
+    \nostream& operator<<(ostream& o, __int128_t x) { return o << to_string(x); }\n\
+    \n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate <typename Head, typename...\
+    \ Tail>\nvoid debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
+    }\n#define debug(...) \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"\
+    ]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr << __LINE__ << \" \" << #x\
+    \ << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n#define dump(x)\
+    \ (void(0))\n#endif\n\ntemplate <class T>\nV<T>& operator+=(V<T>& vec, const T&\
+    \ v) {\n    for (auto& x : vec) x += v;\n    return vec;\n}\n\ntemplate <class\
+    \ T>\nV<T>& operator-=(V<T>& vec, const T& v) {\n    for (auto& x : vec) x -=\
+    \ v;\n    return vec;\n}\n\n// suc : 1 = newline, 2 = space\ntemplate <class T>\n\
+    void print(T x, int suc = 1) {\n    cout << x;\n    if (suc == 1)\n        cout\
+    \ << \"\\n\";\n    else if (suc == 2)\n        cout << \" \";\n}\n\ntemplate <class\
+    \ T>\nvoid print(const vector<T>& v, int suc = 1) {\n    for (int i = 0; i < v.size();\
+    \ ++i)\n        print(v[i], i == int(v.size()) - 1 ? suc : 2);\n}\n\ntemplate\
+    \ <class T>\nvoid show(T x) {\n    print(x, 1);\n}\n\ntemplate <typename Head,\
+    \ typename... Tail>\nvoid show(Head H, Tail... T) {\n    print(H, 2);\n    show(T...);\n\
+    }\n\nint topbit(int t) { return t == 0 ? -1 : 31 - __builtin_clz(t); }\nint topbit(ll\
+    \ t) { return t == 0 ? -1 : 63 - __builtin_clzll(t); }\nint botbit(int a) { return\
+    \ a == 0 ? 32 : __builtin_ctz(a); }\nint botbit(ll a) { return a == 0 ? 64 : __builtin_ctzll(a);\
     \ }\nint popcount(int t) { return __builtin_popcount(t); }\nint popcount(ll t)\
     \ { return __builtin_popcountll(t); }\nint bit_parity(int t) { return __builtin_parity(t);\
     \ }\nint bit_parity(ll t) { return __builtin_parityll(t); }\n\nstruct prepare_io\
@@ -188,7 +204,7 @@ data:
   isVerificationFile: false
   path: cpp_src/template.cpp
   requiredBy: []
-  timestamp: '2023-12-31 13:48:59+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/template.cpp

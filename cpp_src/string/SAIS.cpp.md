@@ -99,7 +99,7 @@ data:
   isVerificationFile: false
   path: cpp_src/string/SAIS.cpp
   requiredBy: []
-  timestamp: '2022-07-17 01:58:31+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/string/SAIS.cpp

@@ -21,7 +21,7 @@ data:
     \     vs.push_back(v);\n    }\n\n    void rdfs(int v, int k) {\n        vis[v]\
     \ = true;\n        cmp[v] = k;\n\n        for (auto e : rg[v]) {\n           \
     \ if (!vis[e.to]) {\n                rdfs(e.to, k);\n            }\n        }\n\
-    \    }\n\n    void init() {\n        int n = g.size();\n        rg = Graph<T>(n);\n\
+    \    }\n\n    void build() {\n        int n = g.size();\n        rg = Graph<T>(n);\n\
     \        rep(i, n) {\n            for (auto e : g[i]) {\n                rg.add_directed_edge(e.to,\
     \ e.from, e.cost);\n            }\n        }\n\n        vs.clear();\n        cmp\
     \ = V<int>(n);\n        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\
@@ -41,9 +41,9 @@ data:
     \   dfs(e.to);\n            }\n        }\n\n        vs.push_back(v);\n    }\n\n\
     \    void rdfs(int v, int k) {\n        vis[v] = true;\n        cmp[v] = k;\n\n\
     \        for (auto e : rg[v]) {\n            if (!vis[e.to]) {\n             \
-    \   rdfs(e.to, k);\n            }\n        }\n    }\n\n    void init() {\n   \
-    \     int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n    \
-    \        for (auto e : g[i]) {\n                rg.add_directed_edge(e.to, e.from,\
+    \   rdfs(e.to, k);\n            }\n        }\n    }\n\n    void build() {\n  \
+    \      int n = g.size();\n        rg = Graph<T>(n);\n        rep(i, n) {\n   \
+    \         for (auto e : g[i]) {\n                rg.add_directed_edge(e.to, e.from,\
     \ e.cost);\n            }\n        }\n\n        vs.clear();\n        cmp = V<int>(n);\n\
     \        vis = V<int>(n);\n\n        rep(v, n) if (!vis[v]) dfs(v);\n\n      \
     \  fill(vis.begin(), vis.end(), false);\n\n        int k = 0;\n        reverse(vs.begin(),\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/SCC.hpp
   requiredBy: []
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yosupo/scc.test.cpp

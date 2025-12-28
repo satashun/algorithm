@@ -18,40 +18,53 @@ data:
     links:
     - https://judge.yosupo.jp/problem/lca
   bundledCode: "#line 1 \"test/yosupo/lca.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\
-    \n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\nusing ll = long long;\nusing\
-    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
-    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
-    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
-    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
-    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
-    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
-    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
-    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
-    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
-    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
-    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
-    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
-    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
-    \ end(v));\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os,\
-    \ const pair<T, U>& p) {\n    os << \"(\" << p.first << \",\" << p.second << \"\
-    )\";\n    return os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os,\
-    \ const vector<T>& v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if\
-    \ (i) os << \",\";\n        os << v[i];\n    }\n    os << \"}\";\n    return os;\n\
-    }\n\n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate <typename Head,\
-    \ typename... Tail>\nvoid debug_out(Head H, Tail... T) {\n    cerr << \" \" <<\
-    \ H;\n    debug_out(T...);\n}\n#define debug(...) \\\n    cerr << __LINE__ <<\
-    \ \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr\
-    \ << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define debug(...)\
-    \ (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class T>\nvoid scan(vector<T>&\
-    \ v, T offset = T(0)) {\n    for (auto& x : v) {\n        cin >> x;\n        x\
-    \ += offset;\n    }\n}\n\ntemplate <class T>\nvoid print(T x, int suc = 1) {\n\
-    \    cout << x;\n    if (suc == 1)\n        cout << \"\\n\";\n    else if (suc\
-    \ == 2)\n        cout << \" \";\n}\n\ntemplate <class T>\nvoid print(const vector<T>&\
-    \ v, int suc = 1) {\n    for (int i = 0; i < v.size(); ++i)\n        print(v[i],\
-    \ i == int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io {\n    prepare_io()\
-    \ {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n       \
-    \ cout << fixed << setprecision(10);\n    }\n} prep_io;\n\n#define call_from_test\n\
+    \n// #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\"\
+    )\n#include <algorithm>\n#include <array>\n#include <atomic>\n#include <bitset>\n\
+    #include <chrono>\n#include <complex>\n#include <condition_variable>\n#include\
+    \ <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
+    using pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate\
+    \ <class T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a)\
+    \ {\n    return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
+    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
+    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
+    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
+    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
+    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
+    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
+    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
+    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
+    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
+    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
+    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const pair<T,\
+    \ U>& p) {\n    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return\
+    \ os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
+    \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\n#ifdef LOCAL\n\
+    void debug_out() { cerr << endl; }\ntemplate <typename Head, typename... Tail>\n\
+    void debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
+    }\n#define debug(...) \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"\
+    ]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr << __LINE__ << \" \" << #x\
+    \ << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n#define dump(x)\
+    \ (void(0))\n#endif\n\ntemplate <class T>\nvoid scan(vector<T>& v, T offset =\
+    \ T(0)) {\n    for (auto& x : v) {\n        cin >> x;\n        x += offset;\n\
+    \    }\n}\n\ntemplate <class T>\nvoid print(T x, int suc = 1) {\n    cout << x;\n\
+    \    if (suc == 1)\n        cout << \"\\n\";\n    else if (suc == 2)\n       \
+    \ cout << \" \";\n}\n\ntemplate <class T>\nvoid print(const vector<T>& v, int\
+    \ suc = 1) {\n    for (int i = 0; i < v.size(); ++i)\n        print(v[i], i ==\
+    \ int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io {\n    prepare_io() {\n\
+    \        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout\
+    \ << fixed << setprecision(10);\n    }\n} prep_io;\n\n#define call_from_test\n\
     #line 1 \"cpp_src/graph/GraphBase.hpp\"\ntemplate <class T>\nclass Edge {\n  \
     \ public:\n    int from, to, idx;\n    T cost;\n\n    Edge() = default;\n    Edge(int\
     \ from, int to, T cost = T(1), int idx = -1)\n        : from(from), to(to), cost(cost),\
@@ -93,48 +106,66 @@ data:
     \ lg) {\n            if (k >> i & 1) {\n                if (anc[i][v] == -1) return\
     \ -1;\n                v = anc[i][v];\n            }\n        }\n        return\
     \ v;\n    }\n\n    int dist(int a, int b) {\n        int lc = query(a, b);\n \
-    \       return dep[a] + dep[b] - dep[lc] * 2;\n    }\n};\n#line 120 \"test/yosupo/lca.test.cpp\"\
-    \n#undef call_from_test\n\nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N,\
-    \ &Q);\n    V<int> p(N);\n    Graph<int> g(N);\n    for (int i = 1; i < N; ++i)\
-    \ {\n        scanf(\"%d\", &p[i]);\n        g.add_edge(p[i], i);\n    }\n    LCA<int>\
+    \       return dep[a] + dep[b] - dep[lc] * 2;\n    }\n\n    // return x: u->x->v,\
+    \ dist(u,x=k)\n    // return -1 if dist(u,v)<k\n    // ARC198D (k=1)\n    int\
+    \ between(int u, int v, int k) {\n        int lc = query(u, v);\n        int du\
+    \ = dep[u] - dep[lc];\n        if (du >= k) {\n            return lev_anc(u, k);\n\
+    \        } else {\n            int rem = k - du;\n            int dv = dep[v]\
+    \ - dep[lc];\n            if (dv < rem) return -1;\n            return lev_anc(v,\
+    \ dv - rem);\n        }\n    }\n};\n#line 170 \"test/yosupo/lca.test.cpp\"\n#undef\
+    \ call_from_test\n\nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N, &Q);\n\
+    \    V<int> p(N);\n    Graph<int> g(N);\n    for (int i = 1; i < N; ++i) {\n \
+    \       scanf(\"%d\", &p[i]);\n        g.add_edge(p[i], i);\n    }\n    LCA<int>\
     \ lca(g, 0);\n    while (Q--) {\n        int a, b;\n        scanf(\"%d %d\", &a,\
     \ &b);\n        int v = lca.query(a, b);\n        printf(\"%d\\n\", v);\n    }\n\
     \    return 0;\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n//#pragma GCC optimize(\"\
-    Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
-    using pii = pair<int, int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate\
-    \ <class T>\nusing VV = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a)\
-    \ {\n    return V<T>(a);\n}\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t\
-    \ a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n\
-    }\n\n#define pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define\
-    \ fi first\n#define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i,\
-    \ m, n) for (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define\
-    \ per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
-    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
-    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
-    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
-    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
-    }\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os, const pair<T,\
-    \ U>& p) {\n    os << \"(\" << p.first << \",\" << p.second << \")\";\n    return\
-    \ os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os, const vector<T>&\
-    \ v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if (i) os << \",\";\n\
-    \        os << v[i];\n    }\n    os << \"}\";\n    return os;\n}\n\n#ifdef LOCAL\n\
-    void debug_out() { cerr << endl; }\ntemplate <typename Head, typename... Tail>\n\
-    void debug_out(Head H, Tail... T) {\n    cerr << \" \" << H;\n    debug_out(T...);\n\
-    }\n#define debug(...) \\\n    cerr << __LINE__ << \" [\" << #__VA_ARGS__ << \"\
-    ]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr << __LINE__ << \" \" << #x\
-    \ << \" = \" << (x) << endl\n#else\n#define debug(...) (void(0))\n#define dump(x)\
-    \ (void(0))\n#endif\n\ntemplate <class T>\nvoid scan(vector<T>& v, T offset =\
-    \ T(0)) {\n    for (auto& x : v) {\n        cin >> x;\n        x += offset;\n\
-    \    }\n}\n\ntemplate <class T>\nvoid print(T x, int suc = 1) {\n    cout << x;\n\
-    \    if (suc == 1)\n        cout << \"\\n\";\n    else if (suc == 2)\n       \
-    \ cout << \" \";\n}\n\ntemplate <class T>\nvoid print(const vector<T>& v, int\
-    \ suc = 1) {\n    for (int i = 0; i < v.size(); ++i)\n        print(v[i], i ==\
-    \ int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io {\n    prepare_io() {\n\
-    \        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n        cout\
-    \ << fixed << setprecision(10);\n    }\n} prep_io;\n\n#define call_from_test\n\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n// #pragma GCC optimize(\"\
+    Ofast\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include <algorithm>\n#include\
+    \ <array>\n#include <atomic>\n#include <bitset>\n#include <chrono>\n#include <complex>\n\
+    #include <condition_variable>\n#include <deque>\n#include <exception>\n#include\
+    \ <forward_list>\n#include <fstream>\n#include <functional>\n#include <future>\n\
+    #include <initializer_list>\n#include <iomanip>\n#include <ios>\n#include <iosfwd>\n\
+    #include <iostream>\n#include <istream>\n#include <iterator>\n#include <limits>\n\
+    #include <list>\n#include <locale>\n#include <map>\n#include <memory>\n#include\
+    \ <mutex>\n#include <new>\n#include <numeric>\n#include <ostream>\n#include <queue>\n\
+    #include <random>\n#include <ratio>\n#include <regex>\n#include <scoped_allocator>\n\
+    #include <set>\n#include <sstream>\n#include <stack>\n#include <stdexcept>\n#include\
+    \ <streambuf>\n#include <string>\n#include <system_error>\n#include <thread>\n\
+    #include <tuple>\n#include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n\
+    #include <unordered_map>\n#include <unordered_set>\n#include <utility>\n#include\
+    \ <valarray>\n#include <vector>\nusing namespace std;\n\nusing ll = long long;\n\
+    using ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class\
+    \ T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate\
+    \ <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class\
+    \ T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
+    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
+    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
+    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
+    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
+    \ end(v));\n}\n\ntemplate <class T, class U>\nostream& operator<<(ostream& os,\
+    \ const pair<T, U>& p) {\n    os << \"(\" << p.first << \",\" << p.second << \"\
+    )\";\n    return os;\n}\n\ntemplate <class T>\nostream& operator<<(ostream& os,\
+    \ const vector<T>& v) {\n    os << \"{\";\n    rep(i, v.size()) {\n        if\
+    \ (i) os << \",\";\n        os << v[i];\n    }\n    os << \"}\";\n    return os;\n\
+    }\n\n#ifdef LOCAL\nvoid debug_out() { cerr << endl; }\ntemplate <typename Head,\
+    \ typename... Tail>\nvoid debug_out(Head H, Tail... T) {\n    cerr << \" \" <<\
+    \ H;\n    debug_out(T...);\n}\n#define debug(...) \\\n    cerr << __LINE__ <<\
+    \ \" [\" << #__VA_ARGS__ << \"]:\", debug_out(__VA_ARGS__)\n#define dump(x) cerr\
+    \ << __LINE__ << \" \" << #x << \" = \" << (x) << endl\n#else\n#define debug(...)\
+    \ (void(0))\n#define dump(x) (void(0))\n#endif\n\ntemplate <class T>\nvoid scan(vector<T>&\
+    \ v, T offset = T(0)) {\n    for (auto& x : v) {\n        cin >> x;\n        x\
+    \ += offset;\n    }\n}\n\ntemplate <class T>\nvoid print(T x, int suc = 1) {\n\
+    \    cout << x;\n    if (suc == 1)\n        cout << \"\\n\";\n    else if (suc\
+    \ == 2)\n        cout << \" \";\n}\n\ntemplate <class T>\nvoid print(const vector<T>&\
+    \ v, int suc = 1) {\n    for (int i = 0; i < v.size(); ++i)\n        print(v[i],\
+    \ i == int(v.size()) - 1 ? suc : 2);\n}\n\nstruct prepare_io {\n    prepare_io()\
+    \ {\n        cin.tie(nullptr);\n        ios::sync_with_stdio(false);\n       \
+    \ cout << fixed << setprecision(10);\n    }\n} prep_io;\n\n#define call_from_test\n\
     #include \"../../cpp_src/graph/GraphBase.hpp\"\n#include \"../../cpp_src/graph/LCA.hpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N,\
     \ &Q);\n    V<int> p(N);\n    Graph<int> g(N);\n    for (int i = 1; i < N; ++i)\
@@ -148,7 +179,7 @@ data:
   isVerificationFile: true
   path: test/yosupo/lca.test.cpp
   requiredBy: []
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yosupo/lca.test.cpp

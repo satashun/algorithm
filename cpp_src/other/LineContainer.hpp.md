@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: cpp_src/other/LineContainer.hpp
   requiredBy: []
-  timestamp: '2021-12-30 18:51:46+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1297.test.cpp

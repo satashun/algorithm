@@ -31,7 +31,7 @@ data:
   isVerificationFile: false
   path: cpp_src/other/Bigdecimal.hpp
   requiredBy: []
-  timestamp: '2022-03-21 17:35:20+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/other/Bigdecimal.hpp

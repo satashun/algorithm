@@ -126,7 +126,7 @@ data:
   isVerificationFile: false
   path: cpp_src/graph/EulerianTrail.hpp
   requiredBy: []
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yukicoder-583.test.cpp

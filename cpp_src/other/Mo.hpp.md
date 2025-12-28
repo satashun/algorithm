@@ -15,15 +15,12 @@ data:
   bundledCode: "#line 1 \"cpp_src/other/Mo.hpp\"\n// O(NB + Q(N/B)) (B : numver of\
     \ blocks)\n// set B = sqrt(Q) -> O(N sqrt(Q) * F)\n// F : cost of operation\n\
     // ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011\n// ref : https://nyaannyaan.github.io/library/misc/mo.hpp\n\
-    \n// O(NB + Q(N/B)) (B : numver of blocks)\n// set B = sqrt(Q) -> O(N sqrt(Q)\
-    \ * F)\n// F : cost of operation\n// ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011\n\
-    // ref : https://nyaannyaan.github.io/library/misc/mo.hpp\n// https://atcoder.jp/contests/abc293/submissions/39637410\n\
-    // my sub: https://atcoder.jp/contests/abc293/submissions/40402531\n\nstruct Mo\
-    \ {\n    V<int> left, right, order;\n    int n, Bsize, nl, nr, ptr;\n\n    Mo(int\
-    \ n) : n(n), nl(0), nr(0), ptr(0) {}\n\n    //[l, r)\n    void insert(int l, int\
-    \ r) {\n        left.push_back(l);\n        right.push_back(r);\n    }\n\n   \
-    \ void build() {\n        // Bsize = n / min<int>(n, sqrt(left.size()));\n   \
-    \     Bsize = max<int>(\n            1, 1.0 * n / max<double>(1.0, sqrt(left.size()\
+    // https://atcoder.jp/contests/abc293/submissions/39637410\n// my sub: https://atcoder.jp/contests/abc293/submissions/40402531\n\
+    \nstruct Mo {\n    V<int> left, right, order;\n    int n, Bsize, nl, nr, ptr;\n\
+    \n    Mo(int n) : n(n), nl(0), nr(0), ptr(0) {}\n\n    //[l, r)\n    void insert(int\
+    \ l, int r) {\n        left.push_back(l);\n        right.push_back(r);\n    }\n\
+    \n    void build() {\n        // Bsize = n / min<int>(n, sqrt(left.size()));\n\
+    \        Bsize = max<int>(\n            1, 1.0 * n / max<double>(1.0, sqrt(left.size()\
     \ * 2.0 / 3.0)));\n        order.resize(left.size());\n        iota(order.begin(),\
     \ order.end(), 0);\n        sort(order.begin(), order.end(), [&](int a, int b)\
     \ {\n            if (left[a] / Bsize != left[b] / Bsize)\n                return\
@@ -43,10 +40,7 @@ data:
     \ f);\n    }\n};\n"
   code: "// O(NB + Q(N/B)) (B : numver of blocks)\n// set B = sqrt(Q) -> O(N sqrt(Q)\
     \ * F)\n// F : cost of operation\n// ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011\n\
-    // ref : https://nyaannyaan.github.io/library/misc/mo.hpp\n\n// O(NB + Q(N/B))\
-    \ (B : numver of blocks)\n// set B = sqrt(Q) -> O(N sqrt(Q) * F)\n// F : cost\
-    \ of operation\n// ref : https://ei1333.hateblo.jp/entry/2017/09/11/211011\n//\
-    \ ref : https://nyaannyaan.github.io/library/misc/mo.hpp\n// https://atcoder.jp/contests/abc293/submissions/39637410\n\
+    // ref : https://nyaannyaan.github.io/library/misc/mo.hpp\n// https://atcoder.jp/contests/abc293/submissions/39637410\n\
     // my sub: https://atcoder.jp/contests/abc293/submissions/40402531\n\nstruct Mo\
     \ {\n    V<int> left, right, order;\n    int n, Bsize, nl, nr, ptr;\n\n    Mo(int\
     \ n) : n(n), nl(0), nr(0), ptr(0) {}\n\n    //[l, r)\n    void insert(int l, int\
@@ -74,7 +68,7 @@ data:
   isVerificationFile: false
   path: cpp_src/other/Mo.hpp
   requiredBy: []
-  timestamp: '2023-04-22 00:40:06+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/other/Mo.hpp

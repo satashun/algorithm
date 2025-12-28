@@ -21,13 +21,26 @@ data:
     links:
     - https://yukicoder.me/problems/no/583
   bundledCode: "#line 1 \"test/yukicoder/yukicoder-583.test.cpp\"\n#define PROBLEM\
-    \ \"https://yukicoder.me/problems/no/583\"\n#pragma region satashun\n//#pragma\
-    \ GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\")\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\nusing uint = unsigned int;\nusing ll\
-    \ = long long;\nusing ull = unsigned long long;\nusing pii = pair<int, int>;\n\
-    template <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\
-    \ntemplate <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate\
-    \ <class T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ \"https://yukicoder.me/problems/no/583\"\n#pragma region satashun\n// #pragma\
+    \ GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\")\n#include\
+    \ <algorithm>\n#include <array>\n#include <atomic>\n#include <bitset>\n#include\
+    \ <cassert>\n#include <chrono>\n#include <complex>\n#include <condition_variable>\n\
+    #include <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing uint = unsigned int;\nusing ll = long long;\nusing\
+    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
+    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
+    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
+    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
     \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
     \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
     \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
@@ -138,30 +151,42 @@ data:
     \                g[idx].pop_back();\n                if (used_edge[e.idx]) continue;\n\
     \                used_edge[e.idx] = true;\n                st.emplace(e.to, e.idx);\n\
     \            }\n        }\n        ord.pop_back();\n        reverse(ord.begin(),\
-    \ ord.end());\n        return ord;\n    }\n};\n#line 157 \"test/yukicoder/yukicoder-583.test.cpp\"\
+    \ ord.end());\n        return ord;\n    }\n};\n#line 208 \"test/yukicoder/yukicoder-583.test.cpp\"\
     \n#undef call_from_test\n\nint main() {\n    int N, M;\n    cin >> N >> M;\n \
     \   V<int> A(M), B(M);\n    EulerianTrail<int, false> g(N);\n    g.read(M, 0);\n\
     \n    auto res = g.enumerate_semi_eulerian_trail();\n    show(SZ(res) == 1 ? \"\
     YES\" : \"NO\");\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/583\"\n#pragma region\
-    \ satashun\n//#pragma GCC optimize(\"Ofast\")\n//#pragma GCC optimize(\"unroll-loops\"\
-    )\n#include <bits/stdc++.h>\nusing namespace std;\n\nusing uint = unsigned int;\n\
-    using ll = long long;\nusing ull = unsigned long long;\nusing pii = pair<int,\
-    \ int>;\ntemplate <class T>\nusing V = vector<T>;\ntemplate <class T>\nusing VV\
-    \ = V<V<T>>;\n\ntemplate <class T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n\
-    }\n\ntemplate <class T, class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n  \
-    \  return V<decltype(make_vec<T>(ts...))>(a, make_vec<T>(ts...));\n}\n\n#define\
-    \ pb push_back\n#define eb emplace_back\n#define mp make_pair\n#define fi first\n\
-    #define se second\n#define rep(i, n) rep2(i, 0, n)\n#define rep2(i, m, n) for\
-    \ (int i = m; i < (n); i++)\n#define per(i, b) per2(i, 0, b)\n#define per2(i,\
-    \ a, b) for (int i = int(b) - 1; i >= int(a); i--)\n#define ALL(c) (c).begin(),\
-    \ (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr ll TEN(int n) { return\
-    \ (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class T, class U>\nvoid chmin(T&\
-    \ t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate <class T, class U>\nvoid\
-    \ chmax(T& t, const U& u) {\n    if (t < u) t = u;\n}\n\ntemplate <class T>\n\
-    void mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)), end(v));\n\
-    }\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n    vector<int>\
-    \ res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
+    \ satashun\n// #pragma GCC optimize(\"Ofast\")\n// #pragma GCC optimize(\"unroll-loops\"\
+    )\n#include <algorithm>\n#include <array>\n#include <atomic>\n#include <bitset>\n\
+    #include <cassert>\n#include <chrono>\n#include <complex>\n#include <condition_variable>\n\
+    #include <deque>\n#include <exception>\n#include <forward_list>\n#include <fstream>\n\
+    #include <functional>\n#include <future>\n#include <initializer_list>\n#include\
+    \ <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include\
+    \ <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include\
+    \ <locale>\n#include <map>\n#include <memory>\n#include <mutex>\n#include <new>\n\
+    #include <numeric>\n#include <ostream>\n#include <queue>\n#include <random>\n\
+    #include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <set>\n\
+    #include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n\
+    #include <string>\n#include <system_error>\n#include <thread>\n#include <tuple>\n\
+    #include <type_traits>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n\
+    #include <unordered_set>\n#include <utility>\n#include <valarray>\n#include <vector>\n\
+    using namespace std;\n\nusing uint = unsigned int;\nusing ll = long long;\nusing\
+    \ ull = unsigned long long;\nusing pii = pair<int, int>;\ntemplate <class T>\n\
+    using V = vector<T>;\ntemplate <class T>\nusing VV = V<V<T>>;\n\ntemplate <class\
+    \ T>\nV<T> make_vec(size_t a) {\n    return V<T>(a);\n}\n\ntemplate <class T,\
+    \ class... Ts>\nauto make_vec(size_t a, Ts... ts) {\n    return V<decltype(make_vec<T>(ts...))>(a,\
+    \ make_vec<T>(ts...));\n}\n\n#define pb push_back\n#define eb emplace_back\n#define\
+    \ mp make_pair\n#define fi first\n#define se second\n#define rep(i, n) rep2(i,\
+    \ 0, n)\n#define rep2(i, m, n) for (int i = m; i < (n); i++)\n#define per(i, b)\
+    \ per2(i, 0, b)\n#define per2(i, a, b) for (int i = int(b) - 1; i >= int(a); i--)\n\
+    #define ALL(c) (c).begin(), (c).end()\n#define SZ(x) ((int)(x).size())\n\nconstexpr\
+    \ ll TEN(int n) { return (n == 0) ? 1 : 10 * TEN(n - 1); }\n\ntemplate <class\
+    \ T, class U>\nvoid chmin(T& t, const U& u) {\n    if (t > u) t = u;\n}\ntemplate\
+    \ <class T, class U>\nvoid chmax(T& t, const U& u) {\n    if (t < u) t = u;\n\
+    }\n\ntemplate <class T>\nvoid mkuni(vector<T>& v) {\n    sort(ALL(v));\n    v.erase(unique(ALL(v)),\
+    \ end(v));\n}\n\ntemplate <class T>\nvector<int> sort_by(const vector<T>& v) {\n\
+    \    vector<int> res(v.size());\n    iota(res.begin(), res.end(), 0);\n    stable_sort(res.begin(),\
     \ res.end(),\n                [&](int i, int j) { return v[i] < v[j]; });\n  \
     \  return res;\n}\n\ntemplate <class T, class U>\nistream& operator>>(istream&\
     \ is, pair<T, U>& p) {\n    is >> p.first >> p.second;\n    return is;\n}\n\n\
@@ -200,7 +225,7 @@ data:
   isVerificationFile: true
   path: test/yukicoder/yukicoder-583.test.cpp
   requiredBy: []
-  timestamp: '2023-02-04 17:43:05+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/yukicoder/yukicoder-583.test.cpp

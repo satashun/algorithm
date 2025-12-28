@@ -40,7 +40,7 @@ data:
   isVerificationFile: false
   path: cpp_src/other/BSGS.hpp
   requiredBy: []
-  timestamp: '2023-01-02 15:43:52+09:00'
+  timestamp: '2025-12-28 17:44:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/other/BSGS.hpp
