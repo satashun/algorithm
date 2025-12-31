@@ -79,7 +79,7 @@ data:
   isVerificationFile: false
   path: cpp_src/number_theory/DefiniteMillerRabin.hpp
   requiredBy: []
-  timestamp: '2025-12-28 17:44:33+09:00'
+  timestamp: '2026-01-01 00:55:00+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/number_theory/DefiniteMillerRabin.hpp

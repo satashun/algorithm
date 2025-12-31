@@ -71,7 +71,7 @@ data:
   path: cpp_src/graph/GraphBase.hpp
   requiredBy:
   - cpp_src/graph/EulerianTrail.hpp
-  timestamp: '2025-12-28 17:44:33+09:00'
+  timestamp: '2026-01-01 00:55:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/yukicoder-583.test.cpp

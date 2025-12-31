@@ -212,6 +212,9 @@ data:
       path: cpp_src/math/FormalPowerSeriesArbitrary.hpp
       title: cpp_src/math/FormalPowerSeriesArbitrary.hpp
     - icon: ':warning:'
+      path: cpp_src/math/FormalPowerSeries_acl.hpp
+      title: cpp_src/math/FormalPowerSeries_acl.hpp
+    - icon: ':warning:'
       path: cpp_src/math/Fraction.hpp
       title: cpp_src/math/Fraction.hpp
     - icon: ':warning:'
