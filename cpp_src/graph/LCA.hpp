@@ -2,6 +2,7 @@ template <class E>
 struct LCA {
     VV<int> anc;
     V<int> dep;
+    V<E> depw;
     int lg;
     const Graph<E>& g;
 
@@ -11,6 +12,10 @@ struct LCA {
         while ((1 << lg) < n) lg++;
         anc = VV<int>(lg, V<int>(n, -1));
         dep = V<int>(n);
+        depw = V<E>(n);
+
+        dep[0] = 0;
+        depw[0] = 0;
         dfs(root, -1, 0);
 
         for (int i = 1; i < lg; i++) {
@@ -23,9 +28,11 @@ struct LCA {
 
     void dfs(int v, int p, int d) {
         anc[0][v] = p;
-        dep[v] = d;
+
         for (auto e : g[v]) {
             if (e.to == p) continue;
+            dep[e.to] = dep[v] + 1;
+            depw[e.to] = depw[v] + e.cost;
             dfs(e.to, v, d + 1);
         }
     }
@@ -64,6 +71,12 @@ struct LCA {
     int dist(int a, int b) {
         int lc = query(a, b);
         return dep[a] + dep[b] - dep[lc] * 2;
+    }
+
+    // UTPC2024M
+    E distw(int a, int b) {
+        int lc = query(a, b);
+        return depw[a] + depw[b] - depw[lc] * 2;
     }
 
     // return x: u->x->v, dist(u,x=k)
