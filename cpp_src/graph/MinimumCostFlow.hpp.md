@@ -12,7 +12,7 @@ data:
     \ 1678, ABC214H\n\ntemplate <class C, class D>  // capacity, distance\nstruct\
     \ MinCostFlow {\n    struct edge {\n        int to, rev;\n        C cap;\n   \
     \     D cost;\n        edge(int to, C cap, D cost, int rev)\n            : to(to),\
-    \ cap(cap), cost(cost), rev(rev){};\n    };\n\n    using E = edge;\n\n    const\
+    \ cap(cap), cost(cost), rev(rev) {};\n    };\n\n    using E = edge;\n\n    const\
     \ D INF = numeric_limits<D>::max() / D(3);\n\n    int n;\n    VV<E> g;\n    V<D>\
     \ h, dst;\n    V<int> prevv, preve;\n\n    MinCostFlow(int n) : n(n), g(n), h(n),\
     \ dst(n), prevv(n), preve(n) {}\n\n    void add_edge(int f, int t, C cap, D cost)\
@@ -49,18 +49,18 @@ data:
     \                        que.push(Data(dst[e.to], e.to));\n                  \
     \  }\n                }\n            }\n\n            if (dst[t] == INF) {\n \
     \               if (full) {\n                    return res;\n               \
-    \ } else {\n                    return D(-INF);\n                }\n         \
-    \   }\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n          \
-    \  C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n           \
-    \     d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n            f -=\
-    \ d;\n            res += d * h[t];\n            for (int v = t; v != s; v = prevv[v])\
+    \ } else {\n                    return D(INF);\n                }\n          \
+    \  }\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n           \
+    \ C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n            \
+    \    d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n            f -= d;\n\
+    \            res += d * h[t];\n            for (int v = t; v != s; v = prevv[v])\
     \ {\n                edge& e = g[prevv[v]][preve[v]];\n                e.cap -=\
     \ d;\n                g[v][e.rev].cap += d;\n            }\n        }\n\n    \
     \    return res;\n    }\n};\n"
   code: "// init_dag : yuki 1678, ABC214H\n\ntemplate <class C, class D>  // capacity,\
     \ distance\nstruct MinCostFlow {\n    struct edge {\n        int to, rev;\n  \
     \      C cap;\n        D cost;\n        edge(int to, C cap, D cost, int rev)\n\
-    \            : to(to), cap(cap), cost(cost), rev(rev){};\n    };\n\n    using\
+    \            : to(to), cap(cap), cost(cost), rev(rev) {};\n    };\n\n    using\
     \ E = edge;\n\n    const D INF = numeric_limits<D>::max() / D(3);\n\n    int n;\n\
     \    VV<E> g;\n    V<D> h, dst;\n    V<int> prevv, preve;\n\n    MinCostFlow(int\
     \ n) : n(n), g(n), h(n), dst(n), prevv(n), preve(n) {}\n\n    void add_edge(int\
@@ -97,19 +97,19 @@ data:
     \ = i;\n                        que.push(Data(dst[e.to], e.to));\n           \
     \         }\n                }\n            }\n\n            if (dst[t] == INF)\
     \ {\n                if (full) {\n                    return res;\n          \
-    \      } else {\n                    return D(-INF);\n                }\n    \
-    \        }\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n     \
-    \       C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n      \
-    \          d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n           \
-    \ f -= d;\n            res += d * h[t];\n            for (int v = t; v != s; v\
-    \ = prevv[v]) {\n                edge& e = g[prevv[v]][preve[v]];\n          \
-    \      e.cap -= d;\n                g[v][e.rev].cap += d;\n            }\n   \
-    \     }\n\n        return res;\n    }\n};"
+    \      } else {\n                    return D(INF);\n                }\n     \
+    \       }\n            rep(i, n) if (dst[i] != INF) h[i] += dst[i];\n\n      \
+    \      C d = f;\n            for (int v = t; v != s; v = prevv[v]) {\n       \
+    \         d = min(d, g[prevv[v]][preve[v]].cap);\n            }\n            f\
+    \ -= d;\n            res += d * h[t];\n            for (int v = t; v != s; v =\
+    \ prevv[v]) {\n                edge& e = g[prevv[v]][preve[v]];\n            \
+    \    e.cap -= d;\n                g[v][e.rev].cap += d;\n            }\n     \
+    \   }\n\n        return res;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/graph/MinimumCostFlow.hpp
   requiredBy: []
-  timestamp: '2026-01-01 00:55:00+09:00'
+  timestamp: '2026-03-12 07:30:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/graph/MinimumCostFlow.hpp

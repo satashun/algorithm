@@ -79,8 +79,8 @@ data:
     \  Poly& operator/=(const D& r) { return *this = *this / r; }\n    Poly& operator%=(const\
     \ Poly& r) { return *this = *this % r; }\n\n    friend ostream& operator<<(ostream&\
     \ os, const Poly& pl) {\n        if (pl.size() == 0) return os << \"0\";\n   \
-    \     for (int i = 0; i < pl.size(); ++i) {\n            if (pl[i]) {\n      \
-    \          os << pl[i] << \"x^\" << i;\n                if (i + 1 != pl.size())\
+    \     for (int i = 0; i < pl.size(); ++i) {\n            if (pl[i] != 0) {\n \
+    \               os << pl[i] << \"x^\" << i;\n                if (i + 1 != pl.size())\
     \ os << \",\";\n            }\n        }\n        return os;\n    }\n\n    explicit\
     \ operator bool() const {\n        bool f = false;\n        for (int i = 0; i\
     \ < size(); ++i) {\n            if (at(i)) {\n                f = true;\n    \
@@ -181,8 +181,8 @@ data:
     \  Poly& operator/=(const D& r) { return *this = *this / r; }\n    Poly& operator%=(const\
     \ Poly& r) { return *this = *this % r; }\n\n    friend ostream& operator<<(ostream&\
     \ os, const Poly& pl) {\n        if (pl.size() == 0) return os << \"0\";\n   \
-    \     for (int i = 0; i < pl.size(); ++i) {\n            if (pl[i]) {\n      \
-    \          os << pl[i] << \"x^\" << i;\n                if (i + 1 != pl.size())\
+    \     for (int i = 0; i < pl.size(); ++i) {\n            if (pl[i] != 0) {\n \
+    \               os << pl[i] << \"x^\" << i;\n                if (i + 1 != pl.size())\
     \ os << \",\";\n            }\n        }\n        return os;\n    }\n\n    explicit\
     \ operator bool() const {\n        bool f = false;\n        for (int i = 0; i\
     \ < size(); ++i) {\n            if (at(i)) {\n                f = true;\n    \
@@ -216,7 +216,7 @@ data:
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries_acl.hpp
   requiredBy: []
-  timestamp: '2026-01-01 00:55:00+09:00'
+  timestamp: '2026-03-12 07:30:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries_acl.hpp

@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: cpp_src/data_structure/FenwickTree.hpp
   requiredBy: []
-  timestamp: '2026-01-01 00:55:00+09:00'
+  timestamp: '2026-03-12 07:30:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/0343.test.cpp

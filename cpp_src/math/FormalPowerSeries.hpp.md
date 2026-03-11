@@ -10,7 +10,7 @@ data:
     links: []
   bundledCode: "#line 1 \"cpp_src/math/FormalPowerSeries.hpp\"\n// depends on FFT\
     \ libs\n// work only with NTT-friendly mod\n\nNumberTheoreticTransform<Mint> ntt;\n\
-    \nstruct prepare_FPS {\n    prepare_FPS() { ntt.init(); }\n} prep_FPS;\n\ntemplate\
+    \nstruct prepare_NTT {\n    prepare_NTT() { ntt.init(); }\n} prep_NTT;\n\ntemplate\
     \ <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n    Poly(Args...\
     \ args) : V<D>(args...) {}\n    Poly(initializer_list<D> init) : V<D>(init.begin(),\
     \ init.end()) {}\n\n    int size() const { return V<D>::size(); }\n    D at(int\
@@ -110,9 +110,23 @@ data:
     \ Poly<T>& f, ll c) {\n    using P = Poly<T>;\n    int n = f.size();\n    T powc\
     \ = 1;\n    P p(n), q(n);\n\n    rep(i, n) {\n        p[i] = f[i] * fact[i];\n\
     \        q[n - 1 - i] = powc * ifact[i];\n        powc *= c;\n    }\n    p = p\
-    \ * q;\n    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}\n"
+    \ * q;\n    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}\n\n//\
+    \ first d terms of f^k, where f is sparse.\n// O(d * |i | f_i != 0|)\n// FPS24\
+    \ - A\ntemplate <class T>\nV<T> pow_sparse(const Poly<T>& f, ll k, int d) {\n\
+    \    Poly<T> g(d);\n\n    if (k == 0) {\n        if (d > 0) g[0] = 1;\n      \
+    \  return g;\n    }\n\n    V<pair<int, T>> fv;\n    rep(i, f.size()) {\n     \
+    \   if (f[i] != 0) fv.emplace_back(i, f[i]);\n    }\n\n    if (SZ(fv) == 0) {\n\
+    \        return g;\n    }\n\n    auto [head_pos, head_val] = fv[0];\n    fv.erase(fv.begin());\n\
+    \n    for (auto& [j, val] : fv) {\n        j -= head_pos;\n    }\n\n    Poly<T>\
+    \ gg(d);\n\n    gg[0] = head_val.pow(k);\n    Mint rev = head_val.inv();\n\n \
+    \   for (int i = 0; i < d - 1; i++) {\n        for (auto [j, val] : fv) {\n  \
+    \          if (i + 1 - j < 0) break;\n            gg[i + 1] += gg[i + 1 - j] *\
+    \ val * (T(k) * j - (i - j + 1));\n        }\n        gg[i + 1] *= inv[i + 1]\
+    \ * rev;\n    }\n\n    rep(i, d) {\n        // k * head_pos < d-i\n        if\
+    \ (head_pos > 0 && k >= (d - i + head_pos - 1) / head_pos) break;\n        ll\
+    \ p = k * head_pos + i;\n        g[p] = gg[i];\n    }\n    return g;\n}\n"
   code: "// depends on FFT libs\n// work only with NTT-friendly mod\n\nNumberTheoreticTransform<Mint>\
-    \ ntt;\n\nstruct prepare_FPS {\n    prepare_FPS() { ntt.init(); }\n} prep_FPS;\n\
+    \ ntt;\n\nstruct prepare_NTT {\n    prepare_NTT() { ntt.init(); }\n} prep_NTT;\n\
     \ntemplate <class D>\nstruct Poly : public V<D> {\n    template <class... Args>\n\
     \    Poly(Args... args) : V<D>(args...) {}\n    Poly(initializer_list<D> init)\
     \ : V<D>(init.begin(), init.end()) {}\n\n    int size() const { return V<D>::size();\
@@ -213,12 +227,26 @@ data:
     \ Poly<T>& f, ll c) {\n    using P = Poly<T>;\n    int n = f.size();\n    T powc\
     \ = 1;\n    P p(n), q(n);\n\n    rep(i, n) {\n        p[i] = f[i] * fact[i];\n\
     \        q[n - 1 - i] = powc * ifact[i];\n        powc *= c;\n    }\n    p = p\
-    \ * q;\n    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}"
+    \ * q;\n    rep(i, n) q[i] = p[n - 1 + i] * ifact[i];\n    return q;\n}\n\n//\
+    \ first d terms of f^k, where f is sparse.\n// O(d * |i | f_i != 0|)\n// FPS24\
+    \ - A\ntemplate <class T>\nV<T> pow_sparse(const Poly<T>& f, ll k, int d) {\n\
+    \    Poly<T> g(d);\n\n    if (k == 0) {\n        if (d > 0) g[0] = 1;\n      \
+    \  return g;\n    }\n\n    V<pair<int, T>> fv;\n    rep(i, f.size()) {\n     \
+    \   if (f[i] != 0) fv.emplace_back(i, f[i]);\n    }\n\n    if (SZ(fv) == 0) {\n\
+    \        return g;\n    }\n\n    auto [head_pos, head_val] = fv[0];\n    fv.erase(fv.begin());\n\
+    \n    for (auto& [j, val] : fv) {\n        j -= head_pos;\n    }\n\n    Poly<T>\
+    \ gg(d);\n\n    gg[0] = head_val.pow(k);\n    Mint rev = head_val.inv();\n\n \
+    \   for (int i = 0; i < d - 1; i++) {\n        for (auto [j, val] : fv) {\n  \
+    \          if (i + 1 - j < 0) break;\n            gg[i + 1] += gg[i + 1 - j] *\
+    \ val * (T(k) * j - (i - j + 1));\n        }\n        gg[i + 1] *= inv[i + 1]\
+    \ * rev;\n    }\n\n    rep(i, d) {\n        // k * head_pos < d-i\n        if\
+    \ (head_pos > 0 && k >= (d - i + head_pos - 1) / head_pos) break;\n        ll\
+    \ p = k * head_pos + i;\n        g[p] = gg[i];\n    }\n    return g;\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp_src/math/FormalPowerSeries.hpp
   requiredBy: []
-  timestamp: '2026-01-01 00:55:00+09:00'
+  timestamp: '2026-03-12 07:30:09+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp_src/math/FormalPowerSeries.hpp

@@ -193,7 +193,7 @@ data:
       title: cpp_src/graph/helper/TwoColor.hpp
   - name: cpp_src/math
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp_src/math/BostanMori.hpp
       title: cpp_src/math/BostanMori.hpp
     - icon: ':warning:'
@@ -423,6 +423,9 @@ data:
       path: test/yosupo/pow_of_formal_power_series.cpp
       title: test/yosupo/pow_of_formal_power_series.cpp
     - icon: ':warning:'
+      path: test/yosupo/pow_of_formal_power_series_sparse.cpp
+      title: test/yosupo/pow_of_formal_power_series_sparse.cpp
+    - icon: ':warning:'
       path: test/yosupo/stirling_number_of_the_first_kind.cpp
       title: test/yosupo/stirling_number_of_the_first_kind.cpp
     - icon: ':warning:'
@@ -462,7 +465,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yosupo/bipartitematching.test.cpp
       title: test/yosupo/bipartitematching.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/yosupo/kth_term_of_linearly_recurrent_sequence.test.cpp
     - icon: ':heavy_check_mark:'
