@@ -37,7 +37,7 @@ ll inv_mod(ll x, ll md) {
     return (z % md + md) % md;
 }
 
-// ** 271
+// ** 271, ARC172E
 // find x s.t. x = b_i mod c_i
 pair<ll, ll> crt(const V<ll>& b, const V<ll>& c) {
     int n = int(b.size());
@@ -51,4 +51,33 @@ pair<ll, ll> crt(const V<ll>& b, const V<ll>& c) {
         m *= c[i] / g;
     }
     return {(r % m + m) % m, m};
+}
+
+template <class T>
+T zmod(T a, T b) {
+    a %= b;
+    if (a < 0) a += b;
+    return a;
+}
+
+// ここを mod に応じて適切に変える
+ll mulmod(ll x, ll y, ll mod) { return x * y % mod; }
+
+ll garner(const V<ll>& b, const V<ll>& c) {
+    vector<ll> coffs(b.size(), 1);
+    vector<ll> constants(b.size(), 0);
+
+    rep(i, (int)b.size() - 1) {
+        // coffs[i] * v + constants[i] == mr[i].second (mod mr[i].first) を解く
+        ll v = mulmod(zmod(b[i] - constants[i], c[i]), inv_mod(coffs[i], c[i]),
+                      c[i]);
+        assert(v >= 0);
+
+        for (int j = i + 1; j < (int)b.size(); j++) {
+            (constants[j] += mulmod(coffs[j], v, c[j])) %= c[j];
+            coffs[j] = mulmod(coffs[j], c[i], c[j]);
+        }
+    }
+
+    return constants[b.size() - 1];
 }

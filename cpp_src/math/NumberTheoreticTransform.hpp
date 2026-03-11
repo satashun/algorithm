@@ -2,6 +2,8 @@
  * @docs docs/ntt.md
  */
 
+// 解説: https://atcoder.jp/contests/ABC265/editorial/4577
+
 template <class D>
 struct NumberTheoreticTransform {
     D root;
@@ -51,6 +53,7 @@ struct NumberTheoreticTransform {
         }
     }
 
+    // FPS24 - R
     void ntt(V<D>& a, bool inv = false) {
         int n = a.size();
         // assert((n & (n - 1)) == 0);
@@ -75,8 +78,8 @@ struct NumberTheoreticTransform {
             }
         }
 
-        int v = D(n).inv().v;
         if (inv) {
+            int v = D(n).inv().v;
             reverse(a.begin() + 1, a.end());
             for (int i = 0; i < n; i++) {
                 a[i] *= v;
@@ -134,3 +137,9 @@ void ntt_2d(VV<T>& a, bool rev) {
         rep(i, h) { a[i][j] = vh[i]; }
     }
 }
+
+NumberTheoreticTransform<Mint> ntt;
+
+struct prepare_NTT {
+    prepare_NTT() { ntt.init(); }
+} prep_NTT;

@@ -203,7 +203,7 @@ struct Poly : public V<D> {
     friend ostream& operator<<(ostream& os, const Poly& pl) {
         if (pl.size() == 0) return os << "0";
         for (int i = 0; i < pl.size(); ++i) {
-            if (pl[i]) {
+            if (pl[i] != 0) {
                 os << pl[i] << "x^" << i;
                 if (i + 1 != pl.size()) os << ",";
             }

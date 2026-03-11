@@ -8,6 +8,7 @@
 // calculate a_n
 
 // CF global 31 F2 : https://codeforces.com/contest/2180/submission/354246719
+// ABC436G
 
 template <class T>
 Poly<T> find_linear_recurrence(const V<T>& s) {
@@ -17,9 +18,9 @@ Poly<T> find_linear_recurrence(const V<T>& s) {
     return bm;
 }
 
+// find x^n[P(x)/Q(x)]
 template <class T>
-T bostan_mori(Poly<T> a, Poly<T> c, ll n) {
-    if (n < a.size()) return a[n];
+T bostan_mori(Poly<T> p, Poly<T> q, ll n) {
     using P = Poly<T>;
 
     auto even = [&](const P& a) {
@@ -46,13 +47,6 @@ T bostan_mori(Poly<T> a, Poly<T> c, ll n) {
         }
         return b;
     };
-
-    int d = SZ(c);
-    P q(d + 1);
-    q[0] = 1;
-    rep(i, SZ(c)) q[i + 1] = -c[i];
-    P p = a * q;
-    p = p.pref(d);
 
     while (n > 0) {
         auto u = p * neg(q);

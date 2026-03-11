@@ -1,4 +1,3 @@
-
 // ABC209D
 template <class T>
 class Forest : public Graph<T> {
@@ -7,7 +6,7 @@ class Forest : public Graph<T> {
     using Graph<T>::g;
     using Graph<T>::Graph;
 
-    V<int> in, ot, dep, par;
+    V<int> in, ot, dep, par, vs;
     V<T> dist;
 
     Forest(int n) : Graph<T>(n) { init(); }
@@ -19,12 +18,15 @@ class Forest : public Graph<T> {
         dep = V<int>(sz, -1);
         par = V<int>(sz, -1);
         dist = V<int>(sz);
+        vs = V<int>(sz);
     }
 
     void dfs(int v, int p, int d, int& k) {
+        vs[k] = v;
         in[v] = k++;
         dep[v] = d;
         par[v] = p;
+
         for (auto e : g[v]) {
             if (e.to == p) continue;
             dfs(e.to, v, d + 1, k);

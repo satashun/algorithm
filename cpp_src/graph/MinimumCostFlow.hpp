@@ -7,7 +7,7 @@ struct MinCostFlow {
         C cap;
         D cost;
         edge(int to, C cap, D cost, int rev)
-            : to(to), cap(cap), cost(cost), rev(rev){};
+            : to(to), cap(cap), cost(cost), rev(rev) {};
     };
 
     using E = edge;
@@ -109,7 +109,7 @@ struct MinCostFlow {
                 if (full) {
                     return res;
                 } else {
-                    return D(-INF);
+                    return D(INF);
                 }
             }
             rep(i, n) if (dst[i] != INF) h[i] += dst[i];

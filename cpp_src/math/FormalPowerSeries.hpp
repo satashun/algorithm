@@ -3,9 +3,9 @@
 
 NumberTheoreticTransform<Mint> ntt;
 
-struct prepare_FPS {
-    prepare_FPS() { ntt.init(); }
-} prep_FPS;
+struct prepare_NTT {
+    prepare_NTT() { ntt.init(); }
+} prep_NTT;
 
 template <class D>
 struct Poly : public V<D> {
@@ -308,4 +308,54 @@ Poly<T> taylor_shift(const Poly<T>& f, ll c) {
     p = p * q;
     rep(i, n) q[i] = p[n - 1 + i] * ifact[i];
     return q;
+}
+
+// first d terms of f^k, where f is sparse.
+// O(d * |i | f_i != 0|)
+// FPS24 - A
+template <class T>
+V<T> pow_sparse(const Poly<T>& f, ll k, int d) {
+    Poly<T> g(d);
+
+    if (k == 0) {
+        if (d > 0) g[0] = 1;
+        return g;
+    }
+
+    V<pair<int, T>> fv;
+    rep(i, f.size()) {
+        if (f[i] != 0) fv.emplace_back(i, f[i]);
+    }
+
+    if (SZ(fv) == 0) {
+        return g;
+    }
+
+    auto [head_pos, head_val] = fv[0];
+    fv.erase(fv.begin());
+
+    for (auto& [j, val] : fv) {
+        j -= head_pos;
+    }
+
+    Poly<T> gg(d);
+
+    gg[0] = head_val.pow(k);
+    Mint rev = head_val.inv();
+
+    for (int i = 0; i < d - 1; i++) {
+        for (auto [j, val] : fv) {
+            if (i + 1 - j < 0) break;
+            gg[i + 1] += gg[i + 1 - j] * val * (T(k) * j - (i - j + 1));
+        }
+        gg[i + 1] *= inv[i + 1] * rev;
+    }
+
+    rep(i, d) {
+        // k * head_pos < d-i
+        if (head_pos > 0 && k >= (d - i + head_pos - 1) / head_pos) break;
+        ll p = k * head_pos + i;
+        g[p] = gg[i];
+    }
+    return g;
 }

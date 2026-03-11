@@ -1,5 +1,5 @@
 // ABC264G, ABC404G
-// empty = negative cycle
+// empty = negative cycle : ARC173D
 template <class T>
 V<T> bellman_ford(const Graph<T>& g, int s = 0) {
     const auto INF = numeric_limits<T>::max();
@@ -95,6 +95,39 @@ V<T> dijkstra(const Graph<T>& g, int s = 0) {
     priority_queue<P, V<P>, greater<P>> que;
     que.emplace(0, s);
     ds[s] = 0;
+    while (!que.empty()) {
+        auto p = que.top();
+        que.pop();
+        int v = p.se;
+        if (ds[v] < p.fi) continue;
+        for (auto e : g[v]) {
+            T nx = ds[v] + e.cost;
+            if (ds[e.to] > nx) {
+                ds[e.to] = nx;
+                que.emplace(nx, e.to);
+            }
+        }
+    }
+    for (auto& x : ds)
+        if (x == inf) x = -1;
+    return ds;
+}
+
+// multiple starting points
+// ABC250Ex
+template <class T>
+V<T> dijkstra(const Graph<T>& g, V<int> vstarts) {
+    const T inf = numeric_limits<T>::max() / 2;
+    int n = g.size();
+
+    V<T> ds(n, inf);
+    using P = pair<T, int>;
+    priority_queue<P, V<P>, greater<P>> que;
+    for (int s : vstarts) {
+        que.emplace(0, s);
+        ds[s] = 0;
+    }
+
     while (!que.empty()) {
         auto p = que.top();
         que.pop();
